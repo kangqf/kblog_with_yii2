@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "efc9ac371305a6cbfc595caba33a91c6",
+    "hash": "0a1738a16977f323420ecebb2bb208ab",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -424,6 +424,49 @@
             "keywords": [
                 "composer",
                 "extension installer",
+                "yii2"
+            ],
+            "time": "2014-07-29 22:40:46"
+        },
+        {
+            "name": "yiisoft/yii2-mongodb",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-mongodb.git",
+                "reference": "83ac42f7ff12d07b1c4fec923524547497be52d2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-mongodb/zipball/83ac42f7ff12d07b1c4fec923524547497be52d2",
+                "reference": "83ac42f7ff12d07b1c4fec923524547497be52d2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mongo": ">=1.3.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yii\\mongodb\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                }
+            ],
+            "description": "MongoDb extension for the Yii framework",
+            "keywords": [
+                "active-record",
+                "mongo",
+                "mongodb",
                 "yii2"
             ],
             "time": "2014-07-29 22:40:46"
