@@ -115,6 +115,10 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+    public function actionTest()
+    {
+        return $this->renderPartial('test1');
+    }
 
     public function actionSignup()
     {
