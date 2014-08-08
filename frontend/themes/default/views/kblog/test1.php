@@ -140,9 +140,21 @@ use kartik\widgets\SideNav;
 
 ?>
 
+<?php
 
+use yii\bootstrap\Alert;
 
+Alert::begin([
+      'options' => [
+          'class' => 'alert-warning',
+      ],
+  ]);
+ 
+  echo 'Say hello...';
+ 
+  Alert::end();
 
+?>
 
 <?php $this->endBody() ?>
 

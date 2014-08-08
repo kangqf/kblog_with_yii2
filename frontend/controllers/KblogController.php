@@ -8,9 +8,9 @@ class KblogController extends \yii\web\Controller
 {
   public function actions()
     {
-        
-            $this->layout = "aaa";
-        
+      //构造函数使用aaa Layout
+      //$this->layout = "aaa";
+
     }
 
     public function actionIndex()
@@ -21,6 +21,11 @@ class KblogController extends \yii\web\Controller
     public function actionAbout()
     {
         return $this->render('about');
+    }
+
+    public function actionInfo()
+    {
+        return $this->render('info');
     }
 
     public function actionTest()

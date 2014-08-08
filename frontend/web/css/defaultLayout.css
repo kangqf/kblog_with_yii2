@@ -1,0 +1,39 @@
+/*页脚*/
+#footer
+{
+  font: normal 11pt Arial,Helvetica,sans-serif;
+  padding: 10px;
+  margin: 10px 20px;
+  text-align: center;
+}
+#content
+{
+  margin-top:20px;
+  padding-top: 20px;
+
+}
+
+.nav li{	font-size: 22px;	}
+
+
+
+#brand
+{
+  padding-right: 0;
+  padding-left: 0;
+  margin-right: 20px;
+  float: right;
+  font-weight: bold;
+  color: #000;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.125);
+  -webkit-transition: all .2s linear;
+     -moz-transition: all .2s linear;
+          transition: all .2s linear;
+}
+
+#brand:hover
+{
+  text-decoration: none;
+  color: #FAA732;
+  text-shadow: 0 1px 0 rgba(255,255,255,.1), 0 0 30px rgba(255,255,255,.4);
+}
