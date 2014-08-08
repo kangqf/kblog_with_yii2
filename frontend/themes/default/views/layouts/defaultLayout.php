@@ -8,10 +8,6 @@ use frontend\assets\DefaultLayoutAsset;
 DefaultLayoutAsset::register($this);
 
 $this->title = "kblog";
-// Yii::$app->urlManager->setBaseUrl('..\.\backend\web');
-//echo Yii::$app->urlManager->getBaseUrl();
-// var_dump();
- //die();
 
 ?>
 
@@ -34,7 +30,7 @@ $this->title = "kblog";
           NavBar::begin
           ([
               'brandLabel' => Yii::$app->name,
-              //'brandUrl' => Yii::$app->urlManagerBackend->createAbsoluteUrl(['/site/login']),
+              'brandUrl' => Yii::$app->urlManagerBackend->createUrl(['/site/login']),
               'brandOptions' => ['id'=>'brand'],
               'options' => ['class' => 'navbar-inverse','id'=>'navbar' ],
           ]);

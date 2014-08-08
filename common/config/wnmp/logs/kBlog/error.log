@@ -1,0 +1,1646 @@
+2014/08/08 22:35:11 [error] 10976#10700: *613 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:38:12 [error] 10976#10700: *614 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:38:14 [error] 10976#10700: *615 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:38:14 [error] 10976#10700: *616 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:38:15 [error] 10976#10700: *617 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:38:16 [error] 10976#10700: *618 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:38:16 [error] 10976#10700: *619 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:05 [error] 10976#10700: *620 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:05 [error] 10976#10700: *621 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:06 [error] 10976#10700: *622 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:06 [error] 10976#10700: *623 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:06 [error] 10976#10700: *624 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:06 [error] 10976#10700: *625 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:07 [error] 10976#10700: *626 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:07 [error] 10976#10700: *627 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:07 [error] 10976#10700: *628 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:38 [error] 10976#10700: *629 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:39 [error] 10976#10700: *630 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:39 [error] 10976#10700: *631 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:39 [error] 10976#10700: *632 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:40 [error] 10976#10700: *633 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:40 [error] 10976#10700: *634 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:40 [error] 10976#10700: *635 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:40 [error] 10976#10700: *636 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:41 [error] 10976#10700: *637 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:41 [error] 10976#10700: *638 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:41 [error] 10976#10700: *639 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:41 [error] 10976#10700: *640 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:42 [error] 10976#10700: *641 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:42 [error] 10976#10700: *642 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:40:43 [error] 10976#10700: *643 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:45:13 [error] 10976#10700: *644 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:45:14 [error] 10976#10700: *645 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:45:15 [error] 10976#10700: *646 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:45:15 [error] 10976#10700: *647 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:46:01 [error] 10976#10700: *648 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:46:02 [error] 10976#10700: *649 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:46:02 [error] 10976#10700: *650 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:46:02 [error] 10976#10700: *651 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:46:03 [error] 10976#10700: *652 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:46:03 [error] 10976#10700: *653 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:46:04 [error] 10976#10700: *654 rewrite or internal redirection cycle while internally redirecting to "/", client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:46:28 [error] 11132#10308: *1 CreateFile() "D:/ProgramFiles/wamp/www/wnmp/www/kBlog/backend/web/css/defaultLayout.css" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: www.kkk.com, request: "GET /css/defaultLayout.css HTTP/1.1", host: "www.kkk.com", referrer: "http://www.kkk.com/"
+2014/08/08 22:49:10 [error] 10556#10092: *1 directory index of "D:/ProgramFiles/wamp/www/wnmp/www/kBlog/backend/web/" is forbidden, client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:49:13 [error] 10556#10092: *1 directory index of "D:/ProgramFiles/wamp/www/wnmp/www/kBlog/backend/web/" is forbidden, client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:49:14 [error] 10556#10092: *1 directory index of "D:/ProgramFiles/wamp/www/wnmp/www/kBlog/backend/web/" is forbidden, client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:49:15 [error] 10556#10092: *1 directory index of "D:/ProgramFiles/wamp/www/wnmp/www/kBlog/backend/web/" is forbidden, client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:49:15 [error] 10556#10092: *1 directory index of "D:/ProgramFiles/wamp/www/wnmp/www/kBlog/backend/web/" is forbidden, client: 127.0.0.1, server: www.kkk.com, request: "GET / HTTP/1.1", host: "www.kkk.com"
+2014/08/08 22:50:18 [error] 6984#11148: *2 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Window
+2014/08/08 22:50:18 [error] 6984#11148: *2 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\Us
+2014/08/08 22:50:19 [error] 6984#11148: *2 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Window
+2014/08/08 22:50:19 [error] 6984#11148: *2 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\Us
+2014/08/08 22:50:20 [error] 6984#11148: *2 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "backend/web/kblogs".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php:468
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('backend/web/kbl...', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "backend/web/kblogs".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA
+2014/08/08 22:50:20 [error] 6984#11148: *2 FastCGI sent in stderr: "eyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe',
+    'FP_NO_HOST_CHECK' => 'NO',
+    'HOMEDRIVE' => 'C:',
+    'HOMEPATH' => '\\Users\\kqf',
+    'java_home' => 'D:\\ProgramFiles\\JDK',
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE',
+    'LOCALAPPDATA' => 'C:\\Users\\kqf\\AppData\\Local',
+    'LOGONSERVER' => '\\\\THINK-PC',
+    'MKL_SERIAL' => 'YES',
+    'NUMBER_OF_PROCESSORS' => '4',
+    'OS' => 'Windows_NT',
+    'Path' => 'D:\\ProgramFiles\\JDK\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files 
+2014/08/08 22:50:20 [error] 6984#11148: *2 FastCGI sent in stderr: "eWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2107.3 Safari/537.36',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'www.kkk.com',
+    'REDIRECT_STATUS' => '200',
+    'SERVER_NAME' => 'www.kkk.com',
+    'SERVER_PORT' => '80',
+    'SERVER_ADDR' => '127.0.0.1',
+    'REMOTE_PORT' => '34108',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'SERVER_SOFTWARE' => 'nginx/1.7.3',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'DOCUMENT_ROOT' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web',
+    'DOCUMENT_URI' => '/index.php',
+    'REQUEST_URI' => '/backend/web/kblogs.html',
+    'SCRIPT_NAME' => '/index.php',
+    'CONTENT_LENGTH' => '',
+    'CONTENT_TYPE' => '',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'SCRIPT_FILENAME' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web/index.php',
+    'FCGI_ROLE' => 'RESPONDER',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1407509420.7358129,
+    'REQUEST_TIME' => 1407509420,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /backend/web/kblogs.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/index.php?r=kblog%2Fabout"
+2014/08/08 22:50:23 [error] 6984#11148: *2 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Window
+2014/08/08 22:50:23 [error] 6984#11148: *2 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\Us
+2014/08/08 22:51:12 [error] 6984#11148: *2 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Window
+2014/08/08 22:51:12 [error] 6984#11148: *2 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\Us
+2014/08/08 22:51:14 [error] 6984#11148: *2 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "backend/web/kblog/about".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php:468
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('backend/web/kbl...', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "backend/web/kblog/about".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+  
+2014/08/08 22:51:14 [error] 6984#11148: *2 FastCGI sent in stderr: "ng',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe',
+    'FP_NO_HOST_CHECK' => 'NO',
+    'HOMEDRIVE' => 'C:',
+    'HOMEPATH' => '\\Users\\kqf',
+    'java_home' => 'D:\\ProgramFiles\\JDK',
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE',
+    'LOCALAPPDATA' => 'C:\\Users\\kqf\\AppData\\Local',
+    'LOGONSERVER' => '\\\\THINK-PC',
+    'MKL_SERIAL' => 'YES',
+    'NUMBER_OF_PROCESSORS' => '4',
+    'OS' => 'Windows_NT',
+    'Path' => 'D:\\ProgramFiles\\JDK\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;
+2014/08/08 22:51:14 [error] 6984#11148: *2 FastCGI sent in stderr: "/537.36 (KHTML, like Gecko) Chrome/38.0.2107.3 Safari/537.36',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'www.kkk.com',
+    'REDIRECT_STATUS' => '200',
+    'SERVER_NAME' => 'www.kkk.com',
+    'SERVER_PORT' => '80',
+    'SERVER_ADDR' => '127.0.0.1',
+    'REMOTE_PORT' => '34108',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'SERVER_SOFTWARE' => 'nginx/1.7.3',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'DOCUMENT_ROOT' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web',
+    'DOCUMENT_URI' => '/index.php',
+    'REQUEST_URI' => '/backend/web/kblog/about.html',
+    'SCRIPT_NAME' => '/index.php',
+    'CONTENT_LENGTH' => '',
+    'CONTENT_TYPE' => '',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'SCRIPT_FILENAME' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web/index.php',
+    'FCGI_ROLE' => 'RESPONDER',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1407509474.111866,
+    'REQUEST_TIME' => 1407509474,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /backend/web/kblog/about.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/"
+2014/08/08 22:51:32 [error] 6984#11148: *2 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "backend/web/kblogs".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php:468
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('backend/web/kbl...', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "backend/web/kblogs".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA
+2014/08/08 22:51:32 [error] 6984#11148: *2 FastCGI sent in stderr: "eyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe',
+    'FP_NO_HOST_CHECK' => 'NO',
+    'HOMEDRIVE' => 'C:',
+    'HOMEPATH' => '\\Users\\kqf',
+    'java_home' => 'D:\\ProgramFiles\\JDK',
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE',
+    'LOCALAPPDATA' => 'C:\\Users\\kqf\\AppData\\Local',
+    'LOGONSERVER' => '\\\\THINK-PC',
+    'MKL_SERIAL' => 'YES',
+    'NUMBER_OF_PROCESSORS' => '4',
+    'OS' => 'Windows_NT',
+    'Path' => 'D:\\ProgramFiles\\JDK\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files 
+2014/08/08 22:51:32 [error] 6984#11148: *2 FastCGI sent in stderr: "ke Gecko) Chrome/38.0.2107.3 Safari/537.36',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'www.kkk.com',
+    'REDIRECT_STATUS' => '200',
+    'SERVER_NAME' => 'www.kkk.com',
+    'SERVER_PORT' => '80',
+    'SERVER_ADDR' => '127.0.0.1',
+    'REMOTE_PORT' => '34108',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'SERVER_SOFTWARE' => 'nginx/1.7.3',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'DOCUMENT_ROOT' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web',
+    'DOCUMENT_URI' => '/index.php',
+    'REQUEST_URI' => '/backend/web/kblogs.html',
+    'SCRIPT_NAME' => '/index.php',
+    'CONTENT_LENGTH' => '',
+    'CONTENT_TYPE' => '',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'SCRIPT_FILENAME' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web/index.php',
+    'FCGI_ROLE' => 'RESPONDER',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1407509492.255904,
+    'REQUEST_TIME' => 1407509492,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /backend/web/kblogs.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/"
+2014/08/08 22:51:48 [error] 6984#11148: *2 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "backend/web/kblog/about".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php:468
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('backend/web/kbl...', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "backend/web/kblog/about".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+  
+2014/08/08 22:51:48 [error] 6984#11148: *2 FastCGI sent in stderr: "ng',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe',
+    'FP_NO_HOST_CHECK' => 'NO',
+    'HOMEDRIVE' => 'C:',
+    'HOMEPATH' => '\\Users\\kqf',
+    'java_home' => 'D:\\ProgramFiles\\JDK',
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE',
+    'LOCALAPPDATA' => 'C:\\Users\\kqf\\AppData\\Local',
+    'LOGONSERVER' => '\\\\THINK-PC',
+    'MKL_SERIAL' => 'YES',
+    'NUMBER_OF_PROCESSORS' => '4',
+    'OS' => 'Windows_NT',
+    'Path' => 'D:\\ProgramFiles\\JDK\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;
+2014/08/08 22:51:48 [error] 6984#11148: *2 FastCGI sent in stderr: "/537.36 (KHTML, like Gecko) Chrome/38.0.2107.3 Safari/537.36',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'www.kkk.com',
+    'REDIRECT_STATUS' => '200',
+    'SERVER_NAME' => 'www.kkk.com',
+    'SERVER_PORT' => '80',
+    'SERVER_ADDR' => '127.0.0.1',
+    'REMOTE_PORT' => '34108',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'SERVER_SOFTWARE' => 'nginx/1.7.3',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'DOCUMENT_ROOT' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web',
+    'DOCUMENT_URI' => '/index.php',
+    'REQUEST_URI' => '/backend/web/kblog/about.html',
+    'SCRIPT_NAME' => '/index.php',
+    'CONTENT_LENGTH' => '',
+    'CONTENT_TYPE' => '',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'SCRIPT_FILENAME' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web/index.php',
+    'FCGI_ROLE' => 'RESPONDER',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1407509508.7378471,
+    'REQUEST_TIME' => 1407509508,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /backend/web/kblog/about.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/"
+2014/08/08 22:51:55 [error] 6984#11148: *2 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Window
+2014/08/08 22:51:55 [error] 6984#11148: *2 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\Us
+2014/08/08 22:53:25 [error] 6984#11148: *52 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:53:25 [error] 6984#11148: *52 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:53:31 [error] 6984#11148: *52 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "backend/web/kblog/about".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php:468
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('backend/web/kbl...', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "backend/web/kblog/about".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+ 
+2014/08/08 22:53:31 [error] 6984#11148: *52 FastCGI sent in stderr: "ng',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe',
+    'FP_NO_HOST_CHECK' => 'NO',
+    'HOMEDRIVE' => 'C:',
+    'HOMEPATH' => '\\Users\\kqf',
+    'java_home' => 'D:\\ProgramFiles\\JDK',
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE',
+    'LOCALAPPDATA' => 'C:\\Users\\kqf\\AppData\\Local',
+    'LOGONSERVER' => '\\\\THINK-PC',
+    'MKL_SERIAL' => 'YES',
+    'NUMBER_OF_PROCESSORS' => '4',
+    'OS' => 'Windows_NT',
+    'Path' => 'D:\\ProgramFiles\\JDK\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd
+2014/08/08 22:53:31 [error] 6984#11148: *52 FastCGI sent in stderr: "/537.36 (KHTML, like Gecko) Chrome/38.0.2107.3 Safari/537.36',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'www.kkk.com',
+    'REDIRECT_STATUS' => '200',
+    'SERVER_NAME' => 'www.kkk.com',
+    'SERVER_PORT' => '80',
+    'SERVER_ADDR' => '127.0.0.1',
+    'REMOTE_PORT' => '34407',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'SERVER_SOFTWARE' => 'nginx/1.7.3',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'DOCUMENT_ROOT' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web',
+    'DOCUMENT_URI' => '/index.php',
+    'REQUEST_URI' => '/backend/web/kblog/about.html',
+    'SCRIPT_NAME' => '/index.php',
+    'CONTENT_LENGTH' => '',
+    'CONTENT_TYPE' => '',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'SCRIPT_FILENAME' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web/index.php',
+    'FCGI_ROLE' => 'RESPONDER',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1407509611.8517449,
+    'REQUEST_TIME' => 1407509611,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /backend/web/kblog/about.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/"
+2014/08/08 22:53:54 [error] 6984#11148: *52 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:53:54 [error] 6984#11148: *52 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:53:55 [error] 6984#11148: *52 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "backend/web/kblog/about".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php:468
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('backend/web/kbl...', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "backend/web/kblog/about".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+ 
+2014/08/08 22:53:55 [error] 6984#11148: *52 FastCGI sent in stderr: "ng',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe',
+    'FP_NO_HOST_CHECK' => 'NO',
+    'HOMEDRIVE' => 'C:',
+    'HOMEPATH' => '\\Users\\kqf',
+    'java_home' => 'D:\\ProgramFiles\\JDK',
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE',
+    'LOCALAPPDATA' => 'C:\\Users\\kqf\\AppData\\Local',
+    'LOGONSERVER' => '\\\\THINK-PC',
+    'MKL_SERIAL' => 'YES',
+    'NUMBER_OF_PROCESSORS' => '4',
+    'OS' => 'Windows_NT',
+    'Path' => 'D:\\ProgramFiles\\JDK\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd
+2014/08/08 22:53:55 [error] 6984#11148: *52 FastCGI sent in stderr: "/537.36 (KHTML, like Gecko) Chrome/38.0.2107.3 Safari/537.36',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'www.kkk.com',
+    'REDIRECT_STATUS' => '200',
+    'SERVER_NAME' => 'www.kkk.com',
+    'SERVER_PORT' => '80',
+    'SERVER_ADDR' => '127.0.0.1',
+    'REMOTE_PORT' => '34407',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'SERVER_SOFTWARE' => 'nginx/1.7.3',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'DOCUMENT_ROOT' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web',
+    'DOCUMENT_URI' => '/index.php',
+    'REQUEST_URI' => '/backend/web/kblog/about.html',
+    'SCRIPT_NAME' => '/index.php',
+    'CONTENT_LENGTH' => '',
+    'CONTENT_TYPE' => '',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'SCRIPT_FILENAME' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web/index.php',
+    'FCGI_ROLE' => 'RESPONDER',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1407509635.7911141,
+    'REQUEST_TIME' => 1407509635,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /backend/web/kblog/about.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/"
+2014/08/08 22:54:48 [error] 6984#11148: *64 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:54:48 [error] 6984#11148: *64 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:54:50 [error] 6984#11148: *64 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:54:50 [error] 6984#11148: *64 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:54:52 [error] 6984#11148: *64 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:54:52 [error] 6984#11148: *64 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:54:52 [error] 6984#11148: *64 FastCGI sent in stderr: "UEST_TIME' => 1407509692,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /assets/de28da8f/css/activeform.css HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/kblog/test1.html"
+2014/08/08 22:54:52 [error] 6984#11148: *71 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:54:52 [error] 6984#11148: *71 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:54:52 [error] 6984#11148: *71 FastCGI sent in stderr: "T_TIME' => 1407509692,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /assets/de28da8f/css/sidenav.css HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/kblog/test1.html"
+2014/08/08 22:54:52 [error] 6984#11148: *75 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:54:52 [error] 6984#11148: *75 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:54:52 [error] 6984#11148: *75 FastCGI sent in stderr: "692,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /assets/de28da8f/js/sidenav.js HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/kblog/test1.html"
+2014/08/08 22:55:11 [error] 6984#11148: *75 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:55:11 [error] 6984#11148: *75 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:55:32 [error] 6984#11148: *75 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:55:32 [error] 6984#11148: *75 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:56:27 [error] 6984#11148: *96 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:56:27 [error] 6984#11148: *96 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:56:33 [error] 6984#11148: *96 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:56:33 [error] 6984#11148: *96 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:56:44 [error] 6984#11148: *96 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windo
+2014/08/08 22:56:44 [error] 6984#11148: *96 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\U
+2014/08/08 22:58:27 [error] 6984#11148: *107 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\web\NotFoundHttpException' with message '页面未找到。' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Request.php:182
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(75): yii\web\Request->resolve()
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    'APPDATA' => 'C:\\Users\\kqf\\AppData\\Roaming',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Wind
+2014/08/08 22:58:27 [error] 6984#11148: *107 FastCGI sent in stderr: "\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:\\Program Files (x86)\\Microsoft SQL Server\\90\\Tools\\binn\\;C:\\Program Files (x86)\\Windows Kits\\8.1\\Windows Performance Toolkit\\;C:\\ProgramData\\chocolatey\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\kqf\\AppData\\Roaming\\npm;D:\\ProgramFiles\\wnmp\\mongodb2.6.3\\bin;D:\\ProgramFiles\\wnmp\\php5.5.15;',
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
+    'PROCESSOR_ARCHITECTURE' => 'x86',
+    'PROCESSOR_ARCHITEW6432' => 'AMD64',
+    'PROCESSOR_IDENTIFIER' => 'Intel64 Family 6 Model 58 Stepping 9, GenuineIntel',
+    'PROCESSOR_LEVEL' => '6',
+    'PROCESSOR_REVISION' => '3a09',
+    'ProgramData' => 'C:\\ProgramData',
+    'ProgramFiles' => 'C:\\Program Files (x86)',
+    'ProgramFiles(x86)' => 'C:\\Program Files (x86)',
+    'ProgramW6432' => 'C:\\Program Files',
+    'PROMPT' => '$P$G',
+    'PSModulePath' => 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
+    'PUBLIC' => 'C:\\Users\\Public',
+    'SESSIONNAME' => 'Console',
+    'SHIM_MCCOMPAT' => '0x810000001',
+    'SystemDrive' => 'C:',
+    'SystemRoot' => 'C:\\Windows',
+    'TEMP' => 'C:\\
+2014/08/09 07:35:39 [error] 8908#8988: *36 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "backend/web/site/login".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php:468
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('backend/web/sit...', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "backend/web/site/login".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    
+2014/08/09 07:35:39 [error] 8908#8988: *36 FastCGI sent in stderr: "',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe',
+    'FP_NO_HOST_CHECK' => 'NO',
+    'HOMEDRIVE' => 'C:',
+    'HOMEPATH' => '\\Users\\kqf',
+    'java_home' => 'D:\\ProgramFiles\\JDK',
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE',
+    'LOCALAPPDATA' => 'C:\\Users\\kqf\\AppData\\Local',
+    'LOGONSERVER' => '\\\\THINK-PC',
+    'MKL_SERIAL' => 'YES',
+    'NUMBER_OF_PROCESSORS' => '4',
+    'OS' => 'Windows_NT',
+    'Path' => 'D:\\ProgramFiles\\JDK\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:
+2014/08/09 07:35:39 [error] 8908#8988: *36 FastCGI sent in stderr: "2107.3 Safari/537.36',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'www.kkk.com',
+    'REDIRECT_STATUS' => '200',
+    'SERVER_NAME' => 'www.kkk.com',
+    'SERVER_PORT' => '80',
+    'SERVER_ADDR' => '127.0.0.1',
+    'REMOTE_PORT' => '3527',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'SERVER_SOFTWARE' => 'nginx/1.7.3',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'DOCUMENT_ROOT' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web',
+    'DOCUMENT_URI' => '/index.php',
+    'REQUEST_URI' => '/backend/web/site/login.html',
+    'SCRIPT_NAME' => '/index.php',
+    'CONTENT_LENGTH' => '',
+    'CONTENT_TYPE' => '',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'SCRIPT_FILENAME' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web/index.php',
+    'FCGI_ROLE' => 'RESPONDER',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1407540939.7276671,
+    'REQUEST_TIME' => 1407540939,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /backend/web/site/login.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/"
+2014/08/09 07:35:49 [error] 8908#8988: *36 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "backend/web/site/login".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php:468
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('backend/web/sit...', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "backend/web/site/login".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    
+2014/08/09 07:35:49 [error] 8908#8988: *36 FastCGI sent in stderr: "',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe',
+    'FP_NO_HOST_CHECK' => 'NO',
+    'HOMEDRIVE' => 'C:',
+    'HOMEPATH' => '\\Users\\kqf',
+    'java_home' => 'D:\\ProgramFiles\\JDK',
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE',
+    'LOCALAPPDATA' => 'C:\\Users\\kqf\\AppData\\Local',
+    'LOGONSERVER' => '\\\\THINK-PC',
+    'MKL_SERIAL' => 'YES',
+    'NUMBER_OF_PROCESSORS' => '4',
+    'OS' => 'Windows_NT',
+    'Path' => 'D:\\ProgramFiles\\JDK\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:
+2014/08/09 07:35:49 [error] 8908#8988: *36 FastCGI sent in stderr: "2107.3 Safari/537.36',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'www.kkk.com',
+    'REDIRECT_STATUS' => '200',
+    'SERVER_NAME' => 'www.kkk.com',
+    'SERVER_PORT' => '80',
+    'SERVER_ADDR' => '127.0.0.1',
+    'REMOTE_PORT' => '3527',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'SERVER_SOFTWARE' => 'nginx/1.7.3',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'DOCUMENT_ROOT' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web',
+    'DOCUMENT_URI' => '/index.php',
+    'REQUEST_URI' => '/backend/web/site/login.html',
+    'SCRIPT_NAME' => '/index.php',
+    'CONTENT_LENGTH' => '',
+    'CONTENT_TYPE' => '',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'SCRIPT_FILENAME' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web/index.php',
+    'FCGI_ROLE' => 'RESPONDER',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1407540949.7942431,
+    'REQUEST_TIME' => 1407540949,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /backend/web/site/login.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/"
+2014/08/09 07:35:50 [error] 8908#8988: *36 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "backend/web/site/login".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php:468
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('backend/web/sit...', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "backend/web/site/login".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    
+2014/08/09 07:35:50 [error] 8908#8988: *36 FastCGI sent in stderr: "',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe',
+    'FP_NO_HOST_CHECK' => 'NO',
+    'HOMEDRIVE' => 'C:',
+    'HOMEPATH' => '\\Users\\kqf',
+    'java_home' => 'D:\\ProgramFiles\\JDK',
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE',
+    'LOCALAPPDATA' => 'C:\\Users\\kqf\\AppData\\Local',
+    'LOGONSERVER' => '\\\\THINK-PC',
+    'MKL_SERIAL' => 'YES',
+    'NUMBER_OF_PROCESSORS' => '4',
+    'OS' => 'Windows_NT',
+    'Path' => 'D:\\ProgramFiles\\JDK\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:
+2014/08/09 07:35:50 [error] 8908#8988: *36 FastCGI sent in stderr: "2107.3 Safari/537.36',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'www.kkk.com',
+    'REDIRECT_STATUS' => '200',
+    'SERVER_NAME' => 'www.kkk.com',
+    'SERVER_PORT' => '80',
+    'SERVER_ADDR' => '127.0.0.1',
+    'REMOTE_PORT' => '3527',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'SERVER_SOFTWARE' => 'nginx/1.7.3',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'DOCUMENT_ROOT' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web',
+    'DOCUMENT_URI' => '/index.php',
+    'REQUEST_URI' => '/backend/web/site/login.html',
+    'SCRIPT_NAME' => '/index.php',
+    'CONTENT_LENGTH' => '',
+    'CONTENT_TYPE' => '',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'SCRIPT_FILENAME' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web/index.php',
+    'FCGI_ROLE' => 'RESPONDER',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1407540950.5302849,
+    'REQUEST_TIME' => 1407540950,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /backend/web/site/login.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/"
+2014/08/09 07:35:53 [error] 8908#8988: *36 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "backend/web/site/login".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php:468
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('backend/web/sit...', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "backend/web/site/login".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    
+2014/08/09 07:35:53 [error] 8908#8988: *36 FastCGI sent in stderr: "',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe',
+    'FP_NO_HOST_CHECK' => 'NO',
+    'HOMEDRIVE' => 'C:',
+    'HOMEPATH' => '\\Users\\kqf',
+    'java_home' => 'D:\\ProgramFiles\\JDK',
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE',
+    'LOCALAPPDATA' => 'C:\\Users\\kqf\\AppData\\Local',
+    'LOGONSERVER' => '\\\\THINK-PC',
+    'MKL_SERIAL' => 'YES',
+    'NUMBER_OF_PROCESSORS' => '4',
+    'OS' => 'Windows_NT',
+    'Path' => 'D:\\ProgramFiles\\JDK\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:
+2014/08/09 07:35:53 [error] 8908#8988: *36 FastCGI sent in stderr: "2107.3 Safari/537.36',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'www.kkk.com',
+    'REDIRECT_STATUS' => '200',
+    'SERVER_NAME' => 'www.kkk.com',
+    'SERVER_PORT' => '80',
+    'SERVER_ADDR' => '127.0.0.1',
+    'REMOTE_PORT' => '3527',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'SERVER_SOFTWARE' => 'nginx/1.7.3',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'DOCUMENT_ROOT' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web',
+    'DOCUMENT_URI' => '/index.php',
+    'REQUEST_URI' => '/backend/web/site/login.html',
+    'SCRIPT_NAME' => '/index.php',
+    'CONTENT_LENGTH' => '',
+    'CONTENT_TYPE' => '',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'SCRIPT_FILENAME' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web/index.php',
+    'FCGI_ROLE' => 'RESPONDER',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1407540953.2084379,
+    'REQUEST_TIME' => 1407540953,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /backend/web/site/login.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/"
+2014/08/09 07:36:27 [error] 8908#8988: *76 FastCGI sent in stderr: "exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: kblog/error' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Controller.php:122
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php(462): yii\base\Controller->runAction('error', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\ErrorHandler.php(79): yii\base\Module->runAction('kblog/error')
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\ErrorHandler.php(95): yii\web\ErrorHandler->renderException(Object(yii\web\NotFoundHttpException))
+#3 [internal function]: yii\base\ErrorHandler->handleException(Object(yii\web\NotFoundHttpException))
+#4 {main}
+Previous exception:
+exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "backend/web/site/login".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Module.php:468
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php(83): yii\base\Module->runAction('backend/web/sit...', Array)
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Unable to resolve the request "backend/web/site/login".' in D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\web\Application.php:95
+Stack trace:
+#0 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\vendor\yiisoft\yii2\base\Application.php(371): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 D:\ProgramFiles\wamp\www\wnmp\www\kBlog\frontend\web\index.php(18): yii\base\Application->run()
+#2 {main}
+$_SERVER = [
+    'ALLUSERSPROFILE' => 'C:\\ProgramData',
+    'ANDROID_SDK_HOME' => 'D:\\ProgramFiles\\Android_SDK_Home',
+    
+2014/08/09 07:36:27 [error] 8908#8988: *76 FastCGI sent in stderr: "',
+    'ChocolateyInstall' => 'C:\\ProgramData\\chocolatey',
+    'classpath' => '.;D:\\ProgramFiles\\JDK\\lib\\tools.jar;D:\\ProgramFiles\\JDK\\lib\\dt.jar;',
+    'CommonProgramFiles' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramFiles(x86)' => 'C:\\Program Files (x86)\\Common Files',
+    'CommonProgramW6432' => 'C:\\Program Files\\Common Files',
+    'COMMPath' => 'C:\\Program Files\\Lenovo\\Communications Utility',
+    'COMPUTERNAME' => 'THINK-PC',
+    'ComSpec' => 'C:\\Windows\\system32\\cmd.exe',
+    'FP_NO_HOST_CHECK' => 'NO',
+    'HOMEDRIVE' => 'C:',
+    'HOMEPATH' => '\\Users\\kqf',
+    'java_home' => 'D:\\ProgramFiles\\JDK',
+    'KMP_DUPLICATE_LIB_OK' => 'TRUE',
+    'LOCALAPPDATA' => 'C:\\Users\\kqf\\AppData\\Local',
+    'LOGONSERVER' => '\\\\THINK-PC',
+    'MKL_SERIAL' => 'YES',
+    'NUMBER_OF_PROCESSORS' => '4',
+    'OS' => 'Windows_NT',
+    'Path' => 'D:\\ProgramFiles\\JDK\\bin;C:\\Program Files (x86)\\Intel\\iCLS Client\\;C:\\Program Files\\Intel\\iCLS Client\\;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x86;C:\\Program Files (x86)\\Intel\\OpenCL SDK\\2.0\\bin\\x64;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\DAL;C:\\Program Files (x86)\\Intel\\Intel(R) Management Engine Components\\IPT;C:\\Program Files\\Microsoft\\Web Platform Installer\\;C:\\Program Files (x86)\\Microsoft ASP.NET\\ASP.NET Web Pages\\v1.0\\;C:\\Program Files\\Microsoft SQL Server\\110\\Tools\\Binn\\;D:\\ProgramFiles\\Sqlite\\;D:\\ProgramFiles\\wamp\\bin\\mysql\\mysql5.5.8\\bin\\;D:\\ProgramFiles\\Graphviz\\bin;D:\\ProgramFiles\\doxygen\\bin;D:\\ProgramFiles\\Python;D:\\ProgramFiles\\nodejs\\;D:\\ProgramFiles\\Qt5.2.1\\Tools\\mingw48_32\\bin;D:\\ProgramFiles\\Git\\cmd;c:
+2014/08/09 07:36:28 [error] 8908#8988: *76 FastCGI sent in stderr: "2107.3 Safari/537.36',
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+    'HTTP_CACHE_CONTROL' => 'max-age=0',
+    'HTTP_CONNECTION' => 'keep-alive',
+    'HTTP_HOST' => 'www.kkk.com',
+    'REDIRECT_STATUS' => '200',
+    'SERVER_NAME' => 'www.kkk.com',
+    'SERVER_PORT' => '80',
+    'SERVER_ADDR' => '127.0.0.1',
+    'REMOTE_PORT' => '3647',
+    'REMOTE_ADDR' => '127.0.0.1',
+    'SERVER_SOFTWARE' => 'nginx/1.7.3',
+    'GATEWAY_INTERFACE' => 'CGI/1.1',
+    'SERVER_PROTOCOL' => 'HTTP/1.1',
+    'DOCUMENT_ROOT' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web',
+    'DOCUMENT_URI' => '/index.php',
+    'REQUEST_URI' => '/backend/web/site/login.html',
+    'SCRIPT_NAME' => '/index.php',
+    'CONTENT_LENGTH' => '',
+    'CONTENT_TYPE' => '',
+    'REQUEST_METHOD' => 'GET',
+    'QUERY_STRING' => '',
+    'SCRIPT_FILENAME' => 'D:/ProgramFiles/wamp/www/wnmp/www/kBlog/frontend/web/index.php',
+    'FCGI_ROLE' => 'RESPONDER',
+    'PHP_SELF' => '/index.php',
+    'REQUEST_TIME_FLOAT' => 1407540987.971426,
+    'REQUEST_TIME' => 1407540987,
+]" while reading upstream, client: 127.0.0.1, server: www.kkk.com, request: "GET /backend/web/site/login.html HTTP/1.1", upstream: "fastcgi://127.0.0.1:9000", host: "www.kkk.com", referrer: "http://www.kkk.com/"
