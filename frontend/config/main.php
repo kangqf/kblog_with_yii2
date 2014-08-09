@@ -1,9 +1,9 @@
 <?php
 $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
-    require(__DIR__ . '/../../common/config/params-local.php'),
-    require(__DIR__ . '/params.php'),
-    require(__DIR__ . '/params-local.php')
+    //require(__DIR__ . '/../../common/config/params-local.php'),
+    require(__DIR__ . '/params.php')
+    //require(__DIR__ . '/params-local.php')
 );
 
 return [
@@ -52,12 +52,11 @@ return [
           'enablePrettyUrl' => true,
           'showScriptName' => false,
           'suffix' => '.html',
-          'baseUrl' => 'http://www.aaa.com',
-          'hostInfo' => 'http://www.aaa.com',
-            'rules' => [
+          'baseUrl' => $params['backendDomain'],
+          'hostInfo' => $params['backendDomain'],
+          'rules' => [
 
-              
-                ]
+          ],
 
         ],
 

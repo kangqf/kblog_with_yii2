@@ -9,10 +9,9 @@ return [
 
 
 
-        //'Kfunction' => ['class' => 'common\components\Kfunction'],
-
         'cache' => ['class' => 'yii\caching\FileCache', ],
     ],
+    
 
     'modules' => [
      'gridview' =>  [
