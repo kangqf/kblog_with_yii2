@@ -25,7 +25,8 @@
         "kartik-v/yii2-datecontrol": "dev-master",
         "kartik-v/yii2-detail-view": "dev-master",
         "kartik-v/yii2-builder": "dev-master",
-        "kartik-v/yii2-nav-x": "dev-master"
+        "kartik-v/yii2-nav-x": "dev-master",
+        "warrence/yii2-kartikgii": "dev-master"
 
     },
     "require-dev": {

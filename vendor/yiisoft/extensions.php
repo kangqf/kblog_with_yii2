@@ -165,4 +165,40 @@ return array (
       '@kartik' => $vendorDir . '/kartik-v/yii2-builder',
     ),
   ),
+  'kartik-v/yii2-dropdown-x' => 
+  array (
+    'name' => 'kartik-v/yii2-dropdown-x',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik' => $vendorDir . '/kartik-v/yii2-dropdown-x',
+    ),
+  ),
+  'kartik-v/yii2-nav-x' => 
+  array (
+    'name' => 'kartik-v/yii2-nav-x',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik' => $vendorDir . '/kartik-v/yii2-nav-x',
+    ),
+  ),
+  'yiisoft/yii2-jui' => 
+  array (
+    'name' => 'yiisoft/yii2-jui',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@yii/jui' => $vendorDir . '/yiisoft/yii2-jui',
+    ),
+  ),
+  'kartik-v/yii2-icons' => 
+  array (
+    'name' => 'kartik-v/yii2-icons',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@kartik' => $vendorDir . '/kartik-v/yii2-icons',
+    ),
+  ),
 );

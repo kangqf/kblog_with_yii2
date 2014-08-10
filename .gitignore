@@ -15,9 +15,6 @@ nbproject
 # windows thumbnail cache
 Thumbs.db
 
-# composer vendor dir
-/vendor
-
 # composer itself is not needed
 composer.phar
 
@@ -31,3 +28,6 @@ phpunit.phar
 
 #备用文件夹
 /back
+
+# composer vendor dir
+/vendor
