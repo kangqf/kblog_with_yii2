@@ -18,13 +18,14 @@
         "yiisoft/yii2": "*",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-				
+
         "yiisoft/yii2-mongodb": "*",
-		"kartik-v/yii2-widgets": "*",
+		    "kartik-v/yii2-widgets": "*",
         "kartik-v/yii2-grid": "dev-master",
         "kartik-v/yii2-datecontrol": "dev-master",
         "kartik-v/yii2-detail-view": "dev-master",
-        "kartik-v/yii2-builder": "dev-master"
+        "kartik-v/yii2-builder": "dev-master",
+        "kartik-v/yii2-nav-x": "dev-master"
 
     },
     "require-dev": {

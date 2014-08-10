@@ -38,7 +38,7 @@ return [
 
               //伪URL后缀
         'urlManager' => [
-          'enablePrettyUrl' => true,
+          //'enablePrettyUrl' => true,
           'showScriptName' => false,
           'suffix' => '.html',
           'rules' => [

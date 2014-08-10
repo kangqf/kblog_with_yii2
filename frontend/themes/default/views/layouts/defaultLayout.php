@@ -4,10 +4,13 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\DefaultLayoutAsset;
+use kartik\widgets\ActiveForm;
+use frontend\models\ContactForm;
 
 DefaultLayoutAsset::register($this);
 
 $this->title = "kblog";
+$model=new ContactForm;
 
 ?>
 
@@ -26,52 +29,90 @@ $this->title = "kblog";
   <body>
     <?php $this->beginBody() ?>
     <div class="wrap">
+
       <?php
           NavBar::begin
           ([
               'brandLabel' => Yii::$app->name,
               'brandUrl' => Yii::$app->urlManagerBackend->createUrl(['/site/login']),
-              'brandOptions' => ['id'=>'brand'],
+              'brandOptions' => ['id'=>'brand','class'=>'pull-right',],
               'options' => ['class' => 'navbar-inverse','id'=>'navbar' ],
           ]);
-
           $menuItems =
           [
               ['label' => 'Home', 'url' => ['/kblog/index']],
               ['label' => 'About', 'url' => ['/kblog/about']],
               ['label' => 'Test1', 'url' => ['/kblog/test1']],
               ['label' => 'Test', 'url' => ['/kblog/test']],
+
           ];
-
-          if (Yii::$app->user->isGuest)
-          {
-              $menuItems[] = ['label' => '登录', 'url' => ['/kblog/info'] ];
-          }
-          else
-          {
-              $menuItems[] =
-              [
-                  'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                  'url' => ['/kblog/logout'],
-                  'linkOptions' => ['data-method' => 'post']
-              ];
-          }
-
           echo Nav::widget
           ([
-              'options' => ['class' => 'navbar-nav navbar-right'],
+              'options' => ['class' => 'navbar-nav navbar-left'],
               'items' => $menuItems,
-          ]);
+          ]);?>
 
-          NavBar::end();
-      ?>
+          <ul class="col-md-2 col-sm-3 col-md-offset-2 col-sm-offset-0 kqf-search-form">
+            <?php   //竖直
+              $form = ActiveForm::begin([ 'type'=>ActiveForm::TYPE_HORIZONTAL,'formConfig'=>['deviceSize'=>ActiveForm::SIZE_SMALL], ]);
+            ?>
 
-      <div class="container">
+                <?php echo $form->field($model, 'name', [
+                  'showLabels'=>false,
+                  'addon' => [
+                      'append' => ['content'=>
+                        '<button class="btn btn-default">
+                          <i class="glyphicon glyphicon-search"></i>
+                          </button>',
+                          'asButton'=>true,
+                      ],
+                  ]
+                ])->textInput(['placeholder'=>'输入要查找的内容',]);
+                ?>
+            <?php ActiveForm::end(); ?>
+          </ul>
+
+          <?php
+            $menuItems = [];
+            if (Yii::$app->user->isGuest)
+            {
+              $menuItems[] = ['label' => '登录', 'url' => ['/kblog/info'],];
+            }
+            else
+            {
+              $menuItems[] =
+              [
+                'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
+                'url' => ['/kblog/logout'],
+                'linkOptions' => ['data-method' => 'post'],
+                'items' => [
+                    [
+                        'label' => '个人资料',
+                        'url' => '/kblog/logout'
+                    ],
+                    [
+                        'label' => '退出',
+                        'url' => ['/user/default/logout'],
+                        'linkOptions' => ['data-method' => 'post']
+                    ],
+                ],
+              ];
+            }
+            echo Nav::widget
+            ([
+                'options' => ['class' => 'navbar-nav navbar-right','id'=>'logPlace'],
+                'items' => $menuItems,
+            ]);
+            NavBar::end();
+          ?>
+
+      <div class="container" id="breadCrumbs">
         <?=
           Breadcrumbs::widget
           ([
+              'encodeLabels' => false,
               'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-              'homeLink' => ['label' => '<span class="glyphicon glyphicon-home"></span>', 'url' => Html::a('首页',Yii::$app->homeUrl)],
+              'homeLink' => ['label' => '<span class="glyphicon glyphicon-home"></span>', 'url' =>Yii::$app->homeUrl],
           ])
         ?>
       </div>
