@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "8dc1b8594accf385e3eaf98372373b8a",
+    "hash": "3c112e4f6cd7a2deb71eb5ed0bd26d60",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -1410,6 +1410,49 @@
                 "yii2"
             ],
             "time": "2014-08-03 21:07:36"
+        },
+        {
+            "name": "yiisoft/yii2-authclient",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-authclient.git",
+                "reference": "c1d1f85c23540f29db3542875d4aca9867928889"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-authclient/zipball/c1d1f85c23540f29db3542875d4aca9867928889",
+                "reference": "c1d1f85c23540f29db3542875d4aca9867928889",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yii\\authclient\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                }
+            ],
+            "description": "External authentication via OAuth and OpenID for the Yii framework",
+            "keywords": [
+                "OpenId",
+                "auth",
+                "oauth",
+                "yii2"
+            ],
+            "time": "2014-07-29 22:40:46"
         },
         {
             "name": "yiisoft/yii2-bootstrap",

@@ -201,4 +201,13 @@ return array (
       '@kartik' => $vendorDir . '/kartik-v/yii2-icons',
     ),
   ),
+  'yiisoft/yii2-authclient' => 
+  array (
+    'name' => 'yiisoft/yii2-authclient',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@yii/authclient' => $vendorDir . '/yiisoft/yii2-authclient',
+    ),
+  ),
 );

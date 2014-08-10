@@ -14,6 +14,7 @@ return array(
     'yii\\composer\\' => array($vendorDir . '/yiisoft/yii2-composer'),
     'yii\\codeception\\' => array($vendorDir . '/yiisoft/yii2-codeception'),
     'yii\\bootstrap\\' => array($vendorDir . '/yiisoft/yii2-bootstrap'),
+    'yii\\authclient\\' => array($vendorDir . '/yiisoft/yii2-authclient'),
     'yii\\' => array($vendorDir . '/yiisoft/yii2'),
     'warrence\\kartikgii\\' => array($vendorDir . '/warrence/yii2-kartikgii'),
     'kartik\\' => array($vendorDir . '/kartik-v/dependent-dropdown', $vendorDir . '/kartik-v/bootstrap-fileinput', $vendorDir . '/kartik-v/bootstrap-star-rating', $vendorDir . '/kartik-v/yii2-field-range', $vendorDir . '/kartik-v/yii2-widgets', $vendorDir . '/kartik-v/bootstrap-popover-x', $vendorDir . '/kartik-v/yii2-popover-x', $vendorDir . '/kartik-v/yii2-editable', $vendorDir . '/kartik-v/bootstrap-checkbox-x', $vendorDir . '/kartik-v/yii2-checkbox-x', $vendorDir . '/kartik-v/yii2-money', $vendorDir . '/kartik-v/yii2-slider', $vendorDir . '/kartik-v/yii2-grid', $vendorDir . '/kartik-v/php-date-formatter', $vendorDir . '/kartik-v/yii2-datecontrol', $vendorDir . '/kartik-v/yii2-helpers', $vendorDir . '/kartik-v/yii2-detail-view', $vendorDir . '/kartik-v/yii2-builder', $vendorDir . '/kartik-v/yii2-dropdown-x', $vendorDir . '/kartik-v/yii2-nav-x', $vendorDir . '/kartik-v/yii2-icons'),

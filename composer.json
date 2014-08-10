@@ -26,7 +26,8 @@
         "kartik-v/yii2-detail-view": "dev-master",
         "kartik-v/yii2-builder": "dev-master",
         "kartik-v/yii2-nav-x": "dev-master",
-        "warrence/yii2-kartikgii": "dev-master"
+        "warrence/yii2-kartikgii": "dev-master",
+        "yiisoft/yii2-authclient": "*"
 
     },
     "require-dev": {

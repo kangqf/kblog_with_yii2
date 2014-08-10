@@ -38,11 +38,13 @@ return [
 
               //伪URL后缀
         'urlManager' => [
+          //'enableStrictParsing' => true,
+
           //'enablePrettyUrl' => true,
           'showScriptName' => false,
           'suffix' => '.html',
           'rules' => [
-              ['class' => 'yii\rest\UrlRule', 'controller' => 'kblog'],
+              ['class' => 'yii\rest\UrlRule', 'controller' => 'visit'],
 
           ],
         ],

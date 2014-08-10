@@ -18,7 +18,7 @@ return [
 
        'datecontrol' =>  [
           'class' => 'kartik\datecontrol\Module',
-          
+
           // format settings for displaying each date attribute
           'displaySettings' => [
               'date' => 'd-m-Y',
