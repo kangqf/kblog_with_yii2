@@ -7,7 +7,7 @@ $params = array_merge(
 );
 
 return [
-    'name' => 'kblog',  //app名称
+    'name' => 'KBlog',  //app名称
     'defaultRoute'=>'kblog',	//添加以设置默认控制器 yii1中为defaultController
     'layout' => 'defaultLayout',      //修改默认布局文件
 
@@ -20,35 +20,34 @@ return [
 
     'components' => [
 
-            //将框架的views托管给ThemeManager类
+        //将框架的views托管给ThemeManager类
     	  'view'=>[
       		'theme' => [
       			'class'=>'common\models\ThemeManager',
       			'current' => 'default',
             'themes' => [
-              'default'  =>[
+              'default' =>[
                 'pathMap'   =>[
-                    '@app/views'    =>  '@frontend/themes/default/views',
-                    '@app/views/layouts'    =>  '@frontend/themes/default/views/layouts',
+                    '@app/views'  => '@frontend/themes/default/views',
+                    '@app/views/layouts' => '@frontend/themes/default/views/layouts',
                 ],
               ],
             ],
           ],
         ],
 
-              //伪URL后缀
+        //路由管理
         'urlManager' => [
           //'enableStrictParsing' => true,
-
-          //'enablePrettyUrl' => true,
+          //'suffix' => '.html',//伪URL后缀
+          'enablePrettyUrl' => true,
           'showScriptName' => false,
-          'suffix' => '.html',
           'rules' => [
               ['class' => 'yii\rest\UrlRule', 'controller' => 'visit'],
 
           ],
         ],
-
+        //后台路由管理
         'urlManagerBackend' => [
           'class' => 'yii\web\urlManager',
           'enablePrettyUrl' => true,
@@ -59,8 +58,36 @@ return [
           'rules' => [
 
           ],
-
         ],
+
+        //第三方登陆验证扩展
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'github' => [
+                    'class' => 'yii\authclient\clients\GitHub',
+                    'clientId' => 'github_client_id',
+                    'clientSecret' => 'github_client_secret',
+                ],
+
+                'google' => [
+                    'class' => 'yii\authclient\clients\GoogleOpenId'
+                ],
+
+                'facebook' => [
+                    'class' => 'yii\authclient\clients\Facebook',
+                    'clientId' => 'facebook_client_id',
+                    'clientSecret' => 'facebook_client_secret',
+                ],
+            ],
+        ],
+
+        'errorHandler' => [
+            'errorAction' => 'kblog/error',
+        ],
+
+
+
 
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -82,9 +109,7 @@ return [
             ],
         ],
 
-        'errorHandler' => [
-            'errorAction' => 'kblog/error',
-        ],
+
 
     ],
 ];

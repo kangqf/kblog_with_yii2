@@ -40,8 +40,8 @@ $model=new ContactForm;
           ]);
           $menuItems =
           [
-              ['label' => 'Home', 'url' => ['/kblog/index']],
-              ['label' => 'About', 'url' => ['/kblog/about']],
+              ['label' => 'Home', 'url' => ['/kblog']],
+              ['label' => 'About', 'url' => ['/kblog/static?view=about']],
               ['label' => 'Test1', 'url' => ['/kblog/test1']],
               ['label' => 'Test', 'url' => ['/kblog/test']],
 
@@ -58,16 +58,16 @@ $model=new ContactForm;
             ?>
 
                 <?php echo $form->field($model, 'name', [
-                  'showLabels'=>false,
-                  'addon' => [
-                      'append' => ['content'=>
-                        '<button class="btn btn-default">
-                          <i class="glyphicon glyphicon-search"></i>
-                          </button>',
-                          'asButton'=>true,
-                      ],
-                  ]
-                ])->textInput(['placeholder'=>'输入要查找的内容',]);
+                    'showLabels'=>false,
+                    'addon' => [
+                        'append' => ['content'=>
+                          '<button class="btn btn-default">
+                            <i class="glyphicon glyphicon-search"></i>
+                            </button>',
+                            'asButton'=>true,
+                        ],
+                    ]
+                  ])->textInput(['placeholder'=>'输入要查找的内容',]);
                 ?>
             <?php ActiveForm::end(); ?>
           </ul>
@@ -76,7 +76,7 @@ $model=new ContactForm;
             $menuItems = [];
             if (Yii::$app->user->isGuest)
             {
-              $menuItems[] = ['label' => '登录', 'url' => ['/kblog/info'],];
+              $menuItems[] = [ 'label' => '登录', 'url' => ['/kblog/login'], ];
             }
             else
             {

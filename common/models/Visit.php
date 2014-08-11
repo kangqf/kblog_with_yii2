@@ -22,7 +22,7 @@ class Visit extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%kblog_visit}}';
+        return '{{%_visit}}';
     }
 
     /**

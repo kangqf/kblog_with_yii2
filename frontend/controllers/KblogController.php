@@ -2,15 +2,34 @@
 
 namespace frontend\controllers;
 
-use frontend\models\ContactForm;
+use common\models\User;
 
 class KblogController extends \yii\web\Controller
 {
+
   public function actions()
     {
-      //构造函数使用aaa Layout
-      //$this->layout = "aaa";
+        return [
 
+            //静态页面的配置
+            'static' => [
+                'class' => '\yii\web\ViewAction',
+            ],
+
+            //第三方登录的配置
+            'auth' => [
+                'class' => 'yii\authclient\AuthAction',
+                'successCallback' => [$this, 'successCallback'],
+            ],
+        ];
+    }
+
+    public function successCallback($client)
+    {
+        $attributes = $client->getUserAttributes();
+        var_dump($attributes);
+        die();
+        // user login or signup comes here
     }
 
     public function actionIndex()
@@ -18,10 +37,25 @@ class KblogController extends \yii\web\Controller
         return $this->render('index');
     }
 
-    public function actionAbout()
+
+    public function actionLogin()
     {
-        return $this->render('about');
+        $userModel = new User();
+        return $this->render('login',['model' => $userModel]);
+
     }
+    //
+    // public function actionAbout()
+    // {
+    //     return $this->render('about');
+    // }
+    public function actionError()
+    {
+      return $this->render('error');
+    }
+
+
+
 
     public function actionInfo()
     {
@@ -35,7 +69,7 @@ class KblogController extends \yii\web\Controller
 
     public function actionTest1()
     {
-        $model = new ContactForm();
+        $model = new User();
         return $this->renderPartial('test1',['model'=>$model,]);
     }
 
