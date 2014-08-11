@@ -30,4 +30,4 @@ phpunit.phar
 /back
 
 # composer vendor dir
-/vendor
+#/vendor
