@@ -64,7 +64,7 @@ class KblogController extends \yii\web\Controller
 
     public function actionTest()
     {
-        return $this->renderPartial('test');
+        return $this->render('info');
     }
 
     public function actionTest1()

@@ -20,7 +20,7 @@ return [
 
     'components' => [
 
-        //将框架的views托管给ThemeManager类
+        //将框架的view->themes托管给ThemeManager类
     	  'view'=>[
       		'theme' => [
       			'class'=>'common\models\ThemeManager',
