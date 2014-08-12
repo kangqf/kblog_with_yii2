@@ -45,10 +45,10 @@
 @media (min-width: 768px) {
 
   #brand{
-    margin-right:-30px;
+    margin-left:-40px;
   }
   #logPlace{
-    margin-right:40px;
+    margin-right:0px;
   }
 
 }
