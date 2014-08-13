@@ -139,7 +139,7 @@ class OAuth2 extends BaseOAuth
     protected function apiInternal($accessToken, $url, $method, array $params, array $headers)
     {
         $params['access_token'] = $accessToken->getToken();
-        //dump($params);die();
+
         return $this->sendRequest($method, $url, $params, $headers);
     }
 
@@ -171,7 +171,7 @@ class OAuth2 extends BaseOAuth
         unset($params['code']);
         $params[0] = Yii::$app->controller->getRoute();
 
-        return Yii::$app->getUrlManager()->createAbsoluteUrl($params) ;
+        return Yii::$app->getUrlManager()->createAbsoluteUrl($params);
     }
 
     /**

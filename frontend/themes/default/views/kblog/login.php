@@ -12,7 +12,7 @@ use yii\widgets\ActiveForm;
   
 ?>
 
-<?= yii\authclient\widgets\AuthChoice::widget(['baseAuthUrl' => ['site/auth']]); ?>
+<?= yii\authclient\widgets\AuthChoice::widget(['baseAuthUrl' => ['kblog/auth']]); ?>
 
 <div class="kblog-login">
 

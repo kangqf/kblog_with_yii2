@@ -52,10 +52,6 @@
 .auth-icon.weibo {
     background: url(weibo.png) 0 0 no-repeat;
 }
-
-
-
-
 .auth-link:hover .auth-icon i,
 .auth-link:focus .auth-icon i {
     display: block;
@@ -88,8 +84,4 @@
     display: block;
     margin-top: 0.4em;
     text-align: center;
-}
-
-.auth-icon.live {
-    background-position: 0 -372px;
 }

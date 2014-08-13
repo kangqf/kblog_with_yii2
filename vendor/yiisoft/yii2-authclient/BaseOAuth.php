@@ -72,7 +72,6 @@ abstract class BaseOAuth extends BaseClient implements ClientInterface
     private $_signatureMethod = [];
 
 
-
     /**
      * @param string $returnUrl return URL
      */
@@ -129,7 +128,7 @@ abstract class BaseOAuth extends BaseClient implements ClientInterface
         if (!is_object($this->_accessToken)) {
             $this->_accessToken = $this->restoreAccessToken();
         }
-        //dump($this->_accessToken);
+
         return $this->_accessToken;
     }
 
@@ -177,7 +176,6 @@ abstract class BaseOAuth extends BaseClient implements ClientInterface
      */
     protected function sendRequest($method, $url, array $params = [], array $headers = [])
     {
-
         $curlOptions = $this->mergeCurlOptions(
             $this->defaultCurlOptions(),
             $this->getCurlOptions(),
@@ -186,31 +184,28 @@ abstract class BaseOAuth extends BaseClient implements ClientInterface
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_URL => $url,
             ],
-
             $this->composeRequestCurlOptions(strtoupper($method), $url, $params)
         );
-
         $curlResource = curl_init();
         foreach ($curlOptions as $option => $value) {
             curl_setopt($curlResource, $option, $value);
         }
         $response = curl_exec($curlResource);
         $responseHeaders = curl_getinfo($curlResource);
+
+        // check cURL error
         $errorNumber = curl_errno($curlResource);
         $errorMessage = curl_error($curlResource);
-
-        //dump($response);
 
         curl_close($curlResource);
 
         if ($errorNumber > 0) {
             throw new Exception('Curl error requesting "' .  $url . '": #' . $errorNumber . ' - ' . $errorMessage);
         }
-
         if ($responseHeaders['http_code'] != 200) {
             throw new InvalidResponseException($responseHeaders, $response, 'Request failed with code: ' . $responseHeaders['http_code'] . ', message: ' . $response);
         }
-        //dump($responseHeaders['content_type']);die();
+
         return $this->processResponse($response, $this->determineContentTypeByHeaders($responseHeaders));
     }
 
@@ -498,20 +493,16 @@ abstract class BaseOAuth extends BaseClient implements ClientInterface
      */
     public function api($apiSubUrl, $method = 'GET', array $params = [], array $headers = [])
     {
-        if (preg_match('/^https?:\\/\\//is', $apiSubUrl))
-        {
+        if (preg_match('/^https?:\\/\\//is', $apiSubUrl)) {
             $url = $apiSubUrl;
-        }
-
-        else
-        {
+        } else {
             $url = $this->apiBaseUrl . '/' . $apiSubUrl;
         }
         $accessToken = $this->getAccessToken();
-        if (!is_object($accessToken) || !$accessToken->getIsValid())
-        {
+        if (!is_object($accessToken) || !$accessToken->getIsValid()) {
             throw new Exception('Invalid access token.');
         }
+
         return $this->apiInternal($accessToken, $url, $method, $params, $headers);
     }
 
