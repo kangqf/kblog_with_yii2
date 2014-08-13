@@ -20,8 +20,8 @@ jQuery(function($) {
                 location: 'no',
                 directories: 'no',
                 status: 'yes',
-                width: 450,
-                height: 380
+                width: 1050,
+                height: 580
             }
         }, options);
 

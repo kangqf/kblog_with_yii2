@@ -53,7 +53,7 @@ class Weibo extends OAuth2
      */
     protected function defaultTitle()
     {
-        return 'Weibo';
+        return '新浪微博';
     }
 }
 

@@ -57,7 +57,7 @@ class Tencent extends OAuth2
      */
     protected function defaultTitle()
     {
-        return 'Tencent';
+        return '腾讯互联';
     }
 
     protected function getOpenId($accessToken, $url, $method, array $params, array $headers)

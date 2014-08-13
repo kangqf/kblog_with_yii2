@@ -9,22 +9,10 @@ use yii\widgets\ActiveForm;
 
 
 
-  //yii\authclient\widgets\AuthChoice::widget([ 'baseAuthUrl' => ['kblog/auth']]);
+  
 ?>
 
-<?php
-  use yii\authclient\widgets\AuthChoice;
-?>
-  <?php $authAuthChoice = AuthChoice::begin([
-      'baseAuthUrl' => ['kblog/auth']
-  ]); ?>
-  <ul>
-  <?php foreach ($authAuthChoice->getClients() as $client): ?>
-      <li><?= $authAuthChoice->clientLink($client) ?></li>
-  <?php endforeach; ?>
-  </ul>
-  <?php AuthChoice::end(); ?>
-
+<?= yii\authclient\widgets\AuthChoice::widget(['baseAuthUrl' => ['site/auth']]); ?>
 
 <div class="kblog-login">
 
