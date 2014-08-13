@@ -24,10 +24,17 @@ class KblogController extends \yii\web\Controller
         ];
     }
 
-    public function successCallback($client)
+    public function successCallback($client = null)
     {
-        $attributes = $client->getUserAttributes();
-        var_dump($attributes);
+        if($client === null)
+          return $this->render('index');
+        else
+        {
+          $attributes = $client->getUserAttributes();
+          dump($attributes);
+
+        }
+
         die();
         // user login or signup comes here
     }

@@ -107,6 +107,7 @@ class AuthAction extends Action
     public function setSuccessUrl($url)
     {
         $this->_successUrl = $url;
+        //dump($url);
     }
 
     /**
@@ -172,6 +173,7 @@ class AuthAction extends Action
                 throw new NotFoundHttpException("Unknown auth client '{$clientId}'");
             }
             $client = $collection->getClient($clientId);
+            //dump($client);
 
             return $this->auth($client);
         } else {
@@ -320,7 +322,9 @@ class AuthAction extends Action
             $url = $client->buildAuthUrl($requestToken);
             // Redirect to authorization URL.
             return Yii::$app->getResponse()->redirect($url);
-        } else {
+        }
+        else
+        {
             // Upgrade to access token.
             $client->fetchAccessToken();
             return $this->authSuccess($client);
@@ -335,34 +339,58 @@ class AuthAction extends Action
      */
     protected function authOAuth2($client)
     {
-        if (isset($_GET['error'])) {
-            if ($_GET['error'] == 'access_denied') {
+        if (isset($_GET['error']))
+        {
+            if ($_GET['error'] == 'access_denied')
+            {
                 // user denied error
                 return $this->redirectCancel();
-            } else {
+            }
+            else
+            {
                 // request error
-                if (isset($_GET['error_description'])) {
+                if (isset($_GET['error_description']))
+                {
                     $errorMessage = $_GET['error_description'];
-                } elseif (isset($_GET['error_message'])) {
+                }
+                elseif (isset($_GET['error_message']))
+                {
                     $errorMessage = $_GET['error_message'];
-                } else {
+                }
+                else
+                {
                     $errorMessage = http_build_query($_GET);
                 }
+                //dump($errorMessage);
                 throw new Exception('Auth error: ' . $errorMessage);
             }
         }
 
         // Get the access_token and save them to the session.
-        if (isset($_GET['code'])) {
+        if (isset($_GET['code']))
+        {
             $code = $_GET['code'];
             $token = $client->fetchAccessToken($code);
-            if (!empty($token)) {
+            if (!empty($token))
+            {
                 return $this->authSuccess($client);
-            } else {
+            }
+            else
+            {
                 return $this->redirectCancel();
             }
-        } else {
+        }
+        else
+        {
             $url = $client->buildAuthUrl();
+            // if($client->accessToken->createTimestamp != 1407898538)
+            // {
+            //   dump($url);
+            //   print_r($client->accessToken->createTimestamp);
+            //   die();
+            // }
+
+
             return Yii::$app->getResponse()->redirect($url);
         }
     }

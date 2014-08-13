@@ -137,7 +137,6 @@ class Widget extends Component implements ViewContextInterface
         if ($this->_view === null) {
             $this->_view = Yii::$app->getView();
         }
-
         return $this->_view;
     }
 

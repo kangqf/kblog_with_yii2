@@ -1,45 +1,11 @@
 <?php
-/**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
- */
-
 namespace yii\authclient\clients;
 
 use yii\authclient\OAuth2;
+use yii\helpers\Json;
 
-/**
- * VKontakte allows authentication via VKontakte OAuth.
- *
- * In order to use VKontakte OAuth you must register your application at <http://vk.com/editapp?act=create>.
- *
- * Example application configuration:
- *
- * ~~~
- * 'components' => [
- *     'authClientCollection' => [
- *         'class' => 'yii\authclient\Collection',
- *         'clients' => [
- *             'vkontakte' => [
- *                 'class' => 'yii\authclient\clients\VKontakte',
- *                 'clientId' => 'vkontakte_client_id',
- *                 'clientSecret' => 'vkontakte_client_secret',
- *             ],
- *         ],
- *     ]
- *     ...
- * ]
- * ~~~
- *
- * @see http://vk.com/editapp?act=create
- * @see http://vk.com/developers.php?oid=-1&p=users.get
- *
- * @author Paul Klimov <klimov.paul@gmail.com>
- * @since 2.0
- */
 //https://graph.qq.com/oauth2.0/authorize?response_type=code&client_id=1101994141&redirect_uri=www.qq.com/my.php&scope=get_user_info
-class VKontakte extends OAuth2
+class Tencent extends OAuth2
 {
     /**
      * @inheritdoc
@@ -54,28 +20,16 @@ class VKontakte extends OAuth2
      */
     public $apiBaseUrl = 'https://graph.qq.com';
 
+    public $openidUrl = 'https://graph.qq.com/oauth2.0/me';
+
 
     /**
      * @inheritdoc
      */
     protected function initUserAttributes()
     {
-        $attributes = $this->api('users.get.json', 'GET', [
-            'fields' => implode(',', [
-                'uid',
-                'first_name',
-                'last_name',
-                'nickname',
-                'screen_name',
-                'sex',
-                'bdate',
-                'city',
-                'country',
-                'timezone',
-                'photo'
-            ]),
-        ]);
-        return array_shift($attributes['response']);
+        return $this->api('user/get_user_info', 'GET');
+
     }
 
     /**
@@ -83,8 +37,10 @@ class VKontakte extends OAuth2
      */
     protected function apiInternal($accessToken, $url, $method, array $params, array $headers)
     {
-        $params['uids'] = $accessToken->getParam('user_id');
         $params['access_token'] = $accessToken->getToken();
+        $Openid = $this->getOpenId($accessToken, $url, $method, $params, []);      
+        $params['openid'] = $Openid['openid'];
+        $params['oauth_consumer_key'] = $this->clientId;       
         return $this->sendRequest($method, $url, $params, $headers);
     }
 
@@ -93,7 +49,7 @@ class VKontakte extends OAuth2
      */
     protected function defaultName()
     {
-        return 'vkontakte';
+        return 'tencent';
     }
 
     /**
@@ -101,16 +57,50 @@ class VKontakte extends OAuth2
      */
     protected function defaultTitle()
     {
-        return 'VKontakte';
+        return 'Tencent';
     }
 
-    /**
-     * @inheritdoc
-     */
-    protected function defaultNormalizeUserAttributeMap()
+    protected function getOpenId($accessToken, $url, $method, array $params, array $headers)
     {
-        return [
-            'id' => 'uid'
-        ];
+        $openidParams = ['grant_type' => 'openid_code','access_token' =>  $params['access_token']];
+        $curlOptions = $this->mergeCurlOptions(
+            $this->defaultCurlOptions(),
+            $this->getCurlOptions(),
+            [
+                CURLOPT_HTTPHEADER => $headers,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_URL => $this->openidUrl,
+            ],
+
+            $this->composeRequestCurlOptions(strtoupper($method), $this->openidUrl, $openidParams)
+        );
+
+        $openidCurlResource = curl_init();
+        foreach ($curlOptions as $option => $value) {
+            curl_setopt($openidCurlResource, $option, $value);
+        }
+
+        $output = curl_exec($openidCurlResource);
+        $outputHeaders = curl_getinfo($openidCurlResource);
+        $errorNumber = curl_errno($openidCurlResource);
+        $errorMessage = curl_error($openidCurlResource);
+
+        curl_close($openidCurlResource);
+
+        if ($errorNumber > 0) {
+            throw new Exception('Curl error requesting "' .  $url . '": #' . $errorNumber . ' - ' . $errorMessage);
+        }
+
+        if ($outputHeaders['http_code'] != 200) {
+            throw new InvalidResponseException($outputHeaders, $output, 'Request failed with code: ' . $outputHeaders['http_code'] . ', message: ' . $output);
+        }
+
+        $temp = array();
+        preg_match('/callback\(\s+(.*?)\s+\)/i', $output,$temp);
+        $outputOpenid = Json::decode($temp[1], true);  
+        if (isset($outputOpenid['error'])) {
+            throw new Exception('Response error: ' . $outputOpenid['error']);
+        }
+        return $outputOpenid;
     }
 }

@@ -6,11 +6,13 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\DefaultLayoutAsset;
 use kartik\widgets\ActiveForm;
 use frontend\models\ContactForm;
+use common\models\User;
 
 DefaultLayoutAsset::register($this);
 
-$this->title = "kblog";
-$model=new ContactForm;
+$this->title = "KBlog";
+
+$model = new User();
 
 ?>
 
@@ -40,10 +42,10 @@ $model=new ContactForm;
           ]);
           $menuItems =
           [
-              ['label' => 'Home', 'url' => ['/kblog']],
+              ['label' => 'Home', 'url' => ['/kblog/index']],
               ['label' => 'About', 'url' => ['/kblog/static?view=about']],
-              ['label' => 'Test1', 'url' => ['/kblog/test1']],
-              ['label' => 'Test', 'url' => ['/kblog/test']],
+              ['label' => 'callback', 'url' => ['/kblog/callback']],
+              ['label' => 'Test', 'url' => ['kblog/test']],
 
           ];
           echo Nav::widget

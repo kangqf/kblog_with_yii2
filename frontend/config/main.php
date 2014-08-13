@@ -44,6 +44,7 @@ return [
           'showScriptName' => false,
           'rules' => [
               ['class' => 'yii\rest\UrlRule', 'controller' => 'visit'],
+              ['class' => 'yii\rest\UrlRule', 'controller' => 'kblog'],
 
           ],
         ],
@@ -64,21 +65,26 @@ return [
         'authClientCollection' => [
             'class' => 'yii\authclient\Collection',
             'clients' => [
+                'tencent' => [
+                    'class' => 'yii\authclient\clients\Tencent',
+                    'clientId' => '101146332',
+                    'clientSecret' => '2598941b11590a6d8b070e5408652b94',
+                ],
+                'weibo' => [
+                    'class' => 'yii\authclient\clients\Weibo',
+                    'clientId' => '2664841566',
+                    'clientSecret' => 'e6ad2e1ae3dec5171e3fb5fb48073689',
+                ],
                 'github' => [
                     'class' => 'yii\authclient\clients\GitHub',
-                    'clientId' => 'github_client_id',
-                    'clientSecret' => 'github_client_secret',
+                    'clientId' => '571dad80bddd6c978b55',
+                    'clientSecret' => 'a0adb5d20e1e46323cbda39d80da3bb3b238af95',
                 ],
-
                 'google' => [
                     'class' => 'yii\authclient\clients\GoogleOpenId'
                 ],
 
-                'facebook' => [
-                    'class' => 'yii\authclient\clients\Facebook',
-                    'clientId' => 'facebook_client_id',
-                    'clientSecret' => 'facebook_client_secret',
-                ],
+
             ],
         ],
 

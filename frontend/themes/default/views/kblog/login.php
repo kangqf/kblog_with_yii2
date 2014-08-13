@@ -6,11 +6,11 @@ use yii\widgets\ActiveForm;
 /* @var $this yii\web\View */
 /* @var $model common\models\User */
 /* @var $form ActiveForm */
-?>
 
-<?= yii\authclient\widgets\AuthChoice::widget([
-    'baseAuthUrl' => ['kblog/auth']
-]); ?>
+
+
+  //yii\authclient\widgets\AuthChoice::widget([ 'baseAuthUrl' => ['kblog/auth']]);
+?>
 
 <?php
   use yii\authclient\widgets\AuthChoice;
@@ -25,7 +25,7 @@ use yii\widgets\ActiveForm;
   </ul>
   <?php AuthChoice::end(); ?>
 
-?>
+
 <div class="kblog-login">
 
     <?php $form = ActiveForm::begin(); ?>

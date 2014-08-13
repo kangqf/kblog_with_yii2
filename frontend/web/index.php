@@ -5,6 +5,8 @@ defined('YII_ENV') or define('YII_ENV', 'dev');
 require(__DIR__ . '/../../vendor/autoload.php');
 require(__DIR__ . '/../../vendor/yiisoft/yii2/Yii.php');
 require(__DIR__ . '/../../common/config/aliases.php');
+
+
 //require(__DIR__ . '/../../common/config/autoload.php');
 
 $config = yii\helpers\ArrayHelper::merge(
@@ -14,5 +16,9 @@ $config = yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../config/main-local.php')
 );
 
+require(__DIR__ . '/../../common/models/globals.php');
+
+
 $application = new yii\web\Application($config);
+//dump(Yii::$aliases);
 $application->run();
