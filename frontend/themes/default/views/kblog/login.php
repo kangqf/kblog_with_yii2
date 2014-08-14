@@ -1,38 +1,41 @@
 <?php
 
+use kartik\widgets\ActiveForm;
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
 
-/* @var $this yii\web\View */
-/* @var $model common\models\User */
-/* @var $form ActiveForm */
-
-
-
-  
 ?>
 
-<?= yii\authclient\widgets\AuthChoice::widget(['baseAuthUrl' => ['kblog/auth']]); ?>
 
-<div class="kblog-login">
+<div style = "height:100px">
 
-    <?php $form = ActiveForm::begin(); ?>
+</div>
+<?php   //水平
+  $form = ActiveForm::begin([
+    'type'=>ActiveForm::TYPE_VERTICAL,
+    'formConfig'=>['labelSpan'=>3, 'deviceSize'=>ActiveForm::SIZE_SMALL],
+  ]);
+?>
+<div class="form-group">
+    <?= $form->field($model, 'name',
+      ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-user"></i>'] ],
+      'showLabels'=>false])->textInput(['placeholder'=>'用户名']);
+    ?>
 
-        <?= $form->field($model, 'login_count') ?>
-        <?= $form->field($model, 'last_user_login_id') ?>
-        <?= $form->field($model, 'creat_time') ?>
-        <?= $form->field($model, 'type_id') ?>
-        <?= $form->field($model, 'staus') ?>
-        <?= $form->field($model, 'open_id') ?>
-        <?= $form->field($model, 'name') ?>
-        <?= $form->field($model, 'password') ?>
-        <?= $form->field($model, 'email') ?>
-        <?= $form->field($model, 'avatar') ?>
-        <?= $form->field($model, 'level') ?>
+    <?= $form->field($model, 'password',
+      ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-lock"></i>'] ],
+      'showLabels'=>false])->passwordInput(['placeholder'=>'密码']);
+    ?>
 
-        <div class="form-group">
-            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
-        </div>
-    <?php ActiveForm::end(); ?>
+    <div class="form-group">
+        <?= Html::submitButton('登录', ['class' => 'btn btn-primary']) ?>
+    <?= yii\authclient\widgets\AuthChoice::widget(['baseAuthUrl' => ['kblog/auth']]); ?>
+    </div>
+</div>
+<?php ActiveForm::end(); ?>
 
-</div><!-- kblog-login -->
+
+
+<div class="kblog-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-3">
+
+
+</div>

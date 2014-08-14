@@ -10,6 +10,13 @@ class KblogController extends \yii\web\Controller
   public function actions()
     {
         return [
+          'error' => [
+              'class' => 'yii\web\ErrorAction',
+          ],
+          'captcha' => [
+              'class' => 'yii\captcha\CaptchaAction',
+              'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+          ],
 
             //静态页面的配置
             'static' => [
@@ -56,10 +63,13 @@ class KblogController extends \yii\web\Controller
     // {
     //     return $this->render('about');
     // }
-    public function actionError()
-    {
-      return $this->render('error');
-    }
+    // public function actionError()
+    // {
+    //   $exception = \Yii::$app->errorHandler->exception;
+    //   if ($exception !== null) {
+    //       return $this->render('error', ['exception' => $exception]);
+    //   }
+    // }
 
 
 

@@ -1,11 +1,5 @@
 <?php
-
 use yii\helpers\Html;
-
-/* @var $this yii\web\View */
-/* @var $name string */
-/* @var $message string */
-/* @var $exception Exception */
 
 $this->title = $name;
 ?>
@@ -14,14 +8,15 @@ $this->title = $name;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <div class="alert alert-danger">
+      <p> 出现错误了。。。。。。。。。 </p>
         <?= nl2br(Html::encode($message)) ?>
     </div>
 
     <p>
-        The above error occurred while the Web server was processing your request.
+        当服务器处理你的请求的时候，出现了一个不明的错误！
     </p>
     <p>
-        Please contact us if you think this is a server error. Thank you.
+        请联系我们如果你认为这是服务器的错误，谢谢！
     </p>
 
 </div>
