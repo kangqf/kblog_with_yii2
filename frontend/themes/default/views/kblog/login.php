@@ -15,7 +15,7 @@ use yii\helpers\Html;
     'formConfig'=>['labelSpan'=>3, 'deviceSize'=>ActiveForm::SIZE_SMALL],
   ]);
 ?>
-<div class="form-group">
+<div class="form-group col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-3">
     <?= $form->field($model, 'name',
       ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-user"></i>'] ],
       'showLabels'=>false])->textInput(['placeholder'=>'用户名']);
@@ -35,7 +35,7 @@ use yii\helpers\Html;
 
 
 
-<div class="kblog-login col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-3">
+<div class="kblog-login ">
 
 
 </div>
