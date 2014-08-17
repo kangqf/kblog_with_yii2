@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-use common\models\User;
+use common\models\LoginForm;
 
 class KblogController extends \yii\web\Controller
 {
@@ -54,8 +54,8 @@ class KblogController extends \yii\web\Controller
 
     public function actionLogin()
     {
-        $userModel = new User();
-        return $this->render('login',['model' => $userModel]);
+        $loginModel = new LoginForm();
+        return $this->render('login',['model' => $loginModel]);
 
     }
     //

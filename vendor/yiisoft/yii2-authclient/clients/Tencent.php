@@ -74,9 +74,9 @@ class Tencent extends OAuth2
     protected function apiInternal($accessToken, $url, $method, array $params, array $headers)
     {
         $params['access_token'] = $accessToken->getToken();
-        $Openid = $this->getOpenId($accessToken, $url, $method, $params, []);      
+        $Openid = $this->getOpenId($accessToken, $url, $method, $params, []);
         $params['openid'] = $Openid['openid'];
-        $params['oauth_consumer_key'] = $this->clientId;       
+        $params['oauth_consumer_key'] = $this->clientId;
         return $this->sendRequest($method, $url, $params, $headers);
     }
 
@@ -134,7 +134,7 @@ class Tencent extends OAuth2
         }
         $temp = [];
         preg_match('/callback\(\s+(.*?)\s+\)/i', $output,$temp);
-        $outputOpenid = Json::decode($temp[1], true);  
+        $outputOpenid = Json::decode($temp[1], true);
         if (isset($outputOpenid['error'])) {
             throw new Exception('Response error: ' . $outputOpenid['error']);
         }
