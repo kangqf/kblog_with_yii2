@@ -10,19 +10,19 @@ class KblogController extends \yii\web\Controller
   public function actions()
     {
         return [
-          'error' => [
-              'class' => 'yii\web\ErrorAction',
-          ],
-          'captcha' => [
-              'class' => 'yii\captcha\CaptchaAction',
-              'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-          ],
-
+          //错误处理
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+            //验证码
+            'captcha' => [
+                'class' => 'yii\captcha\CaptchaAction',
+                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            ],
             //静态页面的配置
             'static' => [
                 'class' => '\yii\web\ViewAction',
             ],
-
             //第三方登录的配置
             'auth' => [
                 'class' => 'yii\authclient\AuthAction',
@@ -31,6 +31,7 @@ class KblogController extends \yii\web\Controller
         ];
     }
 
+    //第三方登陆回调函数
     public function successCallback($client = null)
     {
         if($client === null)
@@ -58,11 +59,15 @@ class KblogController extends \yii\web\Controller
         return $this->render('login',['model' => $loginModel]);
 
     }
+    
     //
     // public function actionAbout()
     // {
     //     return $this->render('about');
     // }
+
+
+
     // public function actionError()
     // {
     //   $exception = \Yii::$app->errorHandler->exception;
