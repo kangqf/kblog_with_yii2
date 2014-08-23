@@ -3,7 +3,7 @@
 namespace common\models;
 
 use yii\db\ActiveRecord;
-use yii\helpers\Security;
+use Yii;
 use yii\base\NotSupportedException;
 
 /**
@@ -14,8 +14,8 @@ use yii\base\NotSupportedException;
  * @property string $email
  * @property string $password
  * @property string $avatar
- * @property integer $creat_time
- * @property integer $update_time
+ * @property integer $created_time
+ * @property integer $updated_time
  * @property integer $login_count
  * @property integer $status
  * @property integer $role
@@ -100,9 +100,10 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         return [
             [['status'], 'default', 'value' => self::STATUS_ACTIVE],
             [['role'], 'default', 'value' => self::ROLE_USER],
-            [['auth_key', 'password_hash', 'role', 'status', 'email',
-            'created_time', 'updated_time'], 'required', 'message'=>'用户信息不完整'],
-            [['login_count', 'creat_time', 'update_time', 'role','staus', 'open_id'], 'integer'],
+            ['role', 'in', 'range' => [self::ROLE_SUPERADMIN,self::ROLE_USER]],
+            // [['auth_key', 'password_hash', 'role', 'status', 'email',
+            // 'created_time', 'updated_time'], 'required', 'message'=>'用户信息不完整'],
+            [['login_count', 'created_time', 'updated_time', 'role','status', 'open_id'], 'integer'],
             [['username'], 'string', 'max' => 30],
             [['password'], 'string', 'max' => 64],
             [['email'], 'string', 'max' => 50],
@@ -126,14 +127,17 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public function scenarios()
     {
+        //$scenarios = parent::scenarios();
+        //$scenarios['login'] = ['username', 'password'];
         return [
-            'signup' => ['email', 'password'],
+
+            'signup' => ['username','email', 'password'],
             'login' => ['email', 'password'],
-            'update' => ['username', 'password'],
+            'updated' => ['username', 'password'],
             'password_reset_request' => ['email'],
             'reset_password' => ['password'],
-            'update' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
-            'create' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
+            'updated' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
+            'created' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
             'delete' => [],
             ];
     }
@@ -152,8 +156,8 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
             'avatar' => '头像',
             'login_count' => '登陆次数',
             'creat_time' => '创建时间',
-            'update_time'=> '上次登录时间',
-            'staus' => '状态',
+            'updated_time'=> '上次登录时间',
+            'status' => '状态',
             'role' => '级别',
             'open_id' => '第三方ID',
             'auth_key' =>'授权密钥',
@@ -195,7 +199,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public function validatePassword($password)
     {
-        return Security::validatePassword($password, $this->password_hash);
+        return Yii::$app->getSecurity()->validatePassword($password, $this->password_hash);
     }
 
     /**
@@ -204,7 +208,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public function setHashPassword($password)
     {
-        $this->password_hash = Security::generatePasswordHash($password);
+        $this->password_hash = Yii::$app->getSecurity()->generatePasswordHash($password);
     }
 
     /**
@@ -212,7 +216,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public function generateAuthKey()
     {
-        $this->auth_key = Security::generateRandomKey();
+        $this->auth_key = Yii::$app->getSecurity()->generateRandomKey();
     }
 
      /**
@@ -220,7 +224,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public function generatePasswordResetToken()
     {
-        $this->password_reset_token = Security::generateRandomKey() . '_' . time();
+        $this->password_reset_token = Yii::$app->getSecurity()->generateRandomKey() . '_' . time();
     }
 
     /**

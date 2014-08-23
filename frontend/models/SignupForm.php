@@ -2,13 +2,13 @@
 namespace frontend\models;
 
 use common\models\User;
-use yii\base\Model;
+
 use Yii;
 
 /**
  * Signup form
  */
-class SignupForm extends Model
+class SignupForm extends  yii\base\Model
 {
     public $username;
     public $email;
@@ -22,17 +22,30 @@ class SignupForm extends Model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
-            ['username', 'string', 'min' => 2, 'max' => 255],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => '这个用户名已经被注册.'],
+            ['username', 'string', 'min' => 2, 'max' => 30],
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This email address has already been taken.'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => '您的邮箱已经注册过了.'],
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
         ];
+    }
+
+     /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            //'username' => Yii::t('site/user', 'Имя пользователя'),
+            'email' => '邮箱',
+            'password' => '密码',
+            'username' => '用户名',
+            ];
     }
 
     /**
@@ -42,13 +55,16 @@ class SignupForm extends Model
      */
     public function signup()
     {
-        if ($this->validate()) {
-            $user = new User();
+        if ($this->validate())
+        {
+            $user = new User(['scenario' => 'signup']);
             $user->username = $this->username;
             $user->email = $this->email;
-            $user->setPassword($this->password);
+            $user->setHashPassword($this->password);
             $user->generateAuthKey();
-            $user->save();
+
+            dump($user->save());
+            die();
             return $user;
         }
 

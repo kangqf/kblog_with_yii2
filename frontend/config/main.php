@@ -88,6 +88,14 @@ return [
             ],
         ],
 
+        //用户验证的类
+        'user' => [
+            'identityClass' => 'common\models\User',
+            'enableAutoLogin' => true,
+            'loginUrl' => ['kblog/login'],
+        ],
+
+        //错误处理的动作
         'errorHandler' => [
             'errorAction' => 'kblog/error',
         ],
@@ -95,15 +103,11 @@ return [
 
 
 
+
+
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-d0CtO5UOtyeO3hSTkB9hVBXgFiD00wl',
-        ],
-
-        //验证的类
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
         ],
 
         'log' => [

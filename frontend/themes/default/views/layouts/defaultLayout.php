@@ -59,7 +59,7 @@ $model = new User();
               $form = ActiveForm::begin([ 'type'=>ActiveForm::TYPE_HORIZONTAL,'formConfig'=>['deviceSize'=>ActiveForm::SIZE_SMALL], ]);
             ?>
 
-                <?php echo $form->field($model, 'name', [
+                <?php echo $form->field($model, 'username', [
                     'showLabels'=>false,
                     'addon' => [
                         'append' => ['content'=>

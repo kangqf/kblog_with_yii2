@@ -15,17 +15,17 @@ col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
   ]);
 ?>
   <div class="form-group ">
-      <?= $form->field($model, 'username',
-        ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-user"></i>'] ],
-        'showLabels'=>false])->textInput(['placeholder'=>'用户名']);
+      <?= $form->field($loginModel, 'email',
+        ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-envelope"></i>'] ],
+        'showLabels'=>false])->textInput(['placeholder'=>'请输入邮箱']);
       ?>
 
-      <?= $form->field($model, 'password',
+      <?= $form->field($loginModel, 'password',
         ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-lock"></i>'] ],
-        'showLabels'=>false])->passwordInput(['placeholder'=>'密码']);
+        'showLabels'=>false])->passwordInput(['placeholder'=>'请输入密码']);
       ?>
         <div style="checkbox-inline">
-            <?= $form->field($model, 'rememberMe')->checkbox() ?>
+            <?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
             <?= Html::a('找回密码', ['site/request-password-reset']) ?>
         </div>
       <?= Html::submitButton('登录', ['class' => 'btn btn-primary btn-block']) ?>
