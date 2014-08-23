@@ -100,6 +100,7 @@ return [
             'cookieValidationKey' => '-d0CtO5UOtyeO3hSTkB9hVBXgFiD00wl',
         ],
 
+        //验证的类
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
