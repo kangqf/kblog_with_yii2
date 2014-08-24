@@ -52,8 +52,18 @@ class LoginForm extends yii\base\Model
     {
         if ($this->validate())
         {
-          // dump($this->getUser());die();
+          $this->_user->scenario = 'login';
+          $this->_user->login_count++;
+          
+          if($this->_user->save()){
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+          }
+          else {
+            return false;
+          }
+          //  $user = new User(['scenario' => 'login']);
+          // dump($this->getUser());die();
+
         }
         else
         {

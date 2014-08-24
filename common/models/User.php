@@ -132,7 +132,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         return [
 
             'signup' => ['username','email', 'password','avatar','open_id','status', 'role','auth_key'],
-            // 'login' => ['email', 'password'],
+             'login' => ['login_count'],
             // 'updated' => ['username', 'password'],
             // 'password_reset_request' => ['email'],
             // 'reset_password' => ['password'],

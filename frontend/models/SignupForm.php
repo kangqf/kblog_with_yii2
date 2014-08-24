@@ -63,11 +63,17 @@ class SignupForm extends \yii\base\Model
             $user->setHashPassword($this->password);
             $user->generateAuthKey();
             $user->password = md5($this->password);
-            $user->save();
+            if($user->save())
+            {
+              return $user;
+            }
+            else{
+              return false;
+            }
             // dump($user->save());
             // die();
 
-            return $user;
+
         }
 
         return null;
