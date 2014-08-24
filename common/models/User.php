@@ -59,7 +59,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     protected $_role;
 
     /**
-     * @var string 用户状态
+     * @var string 用户状态   
      */
     protected $_status;
 
