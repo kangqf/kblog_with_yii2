@@ -131,14 +131,14 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         //$scenarios['login'] = ['username', 'password'];
         return [
 
-            'signup' => ['username','email', 'password'],
-            'login' => ['email', 'password'],
-            'updated' => ['username', 'password'],
-            'password_reset_request' => ['email'],
-            'reset_password' => ['password'],
-            'updated' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
-            'created' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
-            'delete' => [],
+            'signup' => ['username','email', 'password','avatar','open_id','status', 'role','auth_key'],
+            // 'login' => ['email', 'password'],
+            // 'updated' => ['username', 'password'],
+            // 'password_reset_request' => ['email'],
+            // 'reset_password' => ['password'],
+            // 'updated' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
+            // 'created' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
+            // 'delete' => [],
             ];
     }
 
@@ -155,7 +155,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
             'email' => '邮箱',
             'avatar' => '头像',
             'login_count' => '登陆次数',
-            'creat_time' => '创建时间',
+            'created_time' => '创建时间',
             'updated_time'=> '上次登录时间',
             'status' => '状态',
             'role' => '级别',
@@ -216,7 +216,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public function generateAuthKey()
     {
-        $this->auth_key = Yii::$app->getSecurity()->generateRandomKey();
+        $this->auth_key = Yii::$app->getSecurity()->generateRandomString();
     }
 
      /**
@@ -224,7 +224,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public function generatePasswordResetToken()
     {
-        $this->password_reset_token = Yii::$app->getSecurity()->generateRandomKey() . '_' . time();
+        $this->password_reset_token = Yii::$app->getSecurity()->generateRandomString() . '_' . time();
     }
 
     /**

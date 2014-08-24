@@ -8,7 +8,7 @@ use Yii;
 /**
  * Signup form
  */
-class SignupForm extends  yii\base\Model
+class SignupForm extends \yii\base\Model
 {
     public $username;
     public $email;
@@ -62,9 +62,11 @@ class SignupForm extends  yii\base\Model
             $user->email = $this->email;
             $user->setHashPassword($this->password);
             $user->generateAuthKey();
+            $user->password = md5($this->password);
+            $user->save();
+            // dump($user->save());
+            // die();
 
-            dump($user->save());
-            die();
             return $user;
         }
 

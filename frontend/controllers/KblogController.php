@@ -1,5 +1,9 @@
 <?php
 
+/**
+ *默认控制器
+ */
+
 namespace frontend\controllers;
 
 use frontend\models\LoginForm;
@@ -16,11 +20,11 @@ class KblogController extends \yii\web\Controller
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
-            //验证码
-            'captcha' => [
-                'class' => 'yii\captcha\CaptchaAction',
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
+            // //验证码
+            // 'captcha' => [
+            //     'class' => 'yii\captcha\CaptchaAction',
+            //     'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+            // ],
             //静态页面的配置
             'static' => [
                 'class' => '\yii\web\ViewAction',
@@ -31,6 +35,67 @@ class KblogController extends \yii\web\Controller
                 'successCallback' => [$this, 'successCallback'],
             ],
         ];
+    }
+
+    //默认Action
+    public function actionIndex()
+    {
+        // $SearchModel = new SearchForm;
+        //
+        // $view = Yii::$app->view;
+        // $view->params['SearchModel'] = $SearchModel;
+        // dump($view);die();
+
+        return $this->render('index');
+    }
+
+    //登录
+    public function actionLogin()
+    {
+        $loginModel = new LoginForm();
+        if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login())
+        {
+            return $this->goBack();
+        }
+        else
+        {
+            return $this->render('login',['loginModel' => $loginModel]);
+        }
+
+    }
+
+   /**
+    *注销
+    */
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+        return $this->goHome();
+    }
+
+    /**
+     * 注册
+     */
+    public function actionSignup()
+    {
+        $model = new SignupForm();
+        if ($model->load(Yii::$app->request->post()))
+        {
+            if ($user = $model->signup())
+            {
+                if (Yii::$app->getUser()->login($user,3600 * 24 * 30))
+                {
+                    return $this->goHome();
+                }
+            }
+        }
+
+        return $this->render('signup', ['model' => $model,]);
+    }
+
+    public function actionSearch()
+    {
+        return $this->render('search');
     }
 
     //第三方登陆回调函数
@@ -49,45 +114,6 @@ class KblogController extends \yii\web\Controller
         // user login or signup comes here
     }
 
-    public function actionIndex()
-    {
-        return $this->render('index');
-    }
-
-
-    public function actionLogin()
-    {
-        $loginModel = new LoginForm();
-        if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login())
-        {
-            return $this->goBack();
-        }
-        else
-        {
-            return $this->render('login',['loginModel' => $loginModel]);
-        }
-
-    }
-
-    /**
-     * 注册
-     */
-    public function actionSignup()
-    {
-        $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post()))
-        {
-            if ($user = $model->signup())
-            {
-                if (Yii::$app->getUser()->login($user))
-                {
-                    return $this->goHome();
-                }
-            }
-        }
-
-        return $this->render('signup', ['model' => $model,]);
-    }
 
     // //关于页面
     // public function actionAbout()
@@ -103,25 +129,6 @@ class KblogController extends \yii\web\Controller
     //   if ($exception !== null) {
     //       return $this->render('error', ['exception' => $exception]);
     //   }
-    // }
-
-
-
-
-    // public function actionInfo()
-    // {
-    //     return $this->render('info');
-    // }
-    //
-    // public function actionTest()
-    // {
-    //     return $this->render('info');
-    // }
-    //
-    // public function actionTest1()
-    // {
-    //     $model = new User();
-    //     return $this->renderPartial('test1',['model'=>$model,]);
     // }
 
 

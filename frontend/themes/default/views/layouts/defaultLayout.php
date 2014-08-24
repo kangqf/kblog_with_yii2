@@ -5,14 +5,13 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\DefaultLayoutAsset;
 use kartik\widgets\ActiveForm;
-use frontend\models\ContactForm;
 use common\models\User;
+use frontend\models\SearchForm;
 
 DefaultLayoutAsset::register($this);
 
 $this->title = "KBlog";
-
-$model = new User();
+$SearchModel = new SearchForm;
 
 ?>
 
@@ -44,7 +43,7 @@ $model = new User();
           [
               ['label' => 'Home', 'url' => ['/kblog/index']],
               ['label' => 'About', 'url' => ['/kblog/static?view=about']],
-              ['label' => 'callback', 'url' => ['/kblog/callback']],
+              ['label' => 'Signup', 'url' => ['/kblog/signup']],
               ['label' => 'Test', 'url' => ['kblog/test']],
 
           ];
@@ -56,10 +55,10 @@ $model = new User();
 
           <ul class="col-md-2 col-sm-3 col-md-offset-2 col-sm-offset-0 kqf-search-form">
             <?php   //竖直
-              $form = ActiveForm::begin([ 'type'=>ActiveForm::TYPE_HORIZONTAL,'formConfig'=>['deviceSize'=>ActiveForm::SIZE_SMALL], ]);
+              $form = ActiveForm::begin(['action'=>'/kblog/search', 'type'=>ActiveForm::TYPE_HORIZONTAL,'formConfig'=>['deviceSize'=>ActiveForm::SIZE_SMALL], ]);
             ?>
 
-                <?php echo $form->field($model, 'username', [
+                <?php echo $form->field($SearchModel, 'keyWord', [
                     'showLabels'=>false,
                     'addon' => [
                         'append' => ['content'=>
@@ -94,7 +93,7 @@ $model = new User();
                     ],
                     [
                         'label' => '退出',
-                        'url' => ['/user/default/logout'],
+                        'url' => ['/kblog/logout'],
                         'linkOptions' => ['data-method' => 'post']
                     ],
                 ],

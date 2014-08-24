@@ -1,7 +1,9 @@
 <?php
+
 namespace frontend\models;
 
 use Yii;
+use common\models\User;
 
 class LoginForm extends yii\base\Model
 {
@@ -50,6 +52,7 @@ class LoginForm extends yii\base\Model
     {
         if ($this->validate())
         {
+          // dump($this->getUser());die();
             return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
         else
