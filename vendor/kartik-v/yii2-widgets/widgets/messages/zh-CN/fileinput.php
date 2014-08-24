@@ -17,11 +17,11 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'Note:' => '放水电费',
-    'multiple file upload' => '',
-    'file preview and multiple file upload' => '',
-    'Your browser does not support {validation}. Try an alternative or more recent browser to access these features.' => '',
-    'Browse' => 'ASF',
-    'Remove' => '盛大',
-    'Upload' => '盛大',
+    'Note:' => '注意',
+    'multiple file upload' => '多个文件上传',
+    'file preview and multiple file upload' => '文件预览和多个文件上传',
+    'Your browser does not support {validation}. Try an alternative or more recent browser to access these features.' => '你的浏览器不支持我们的技术，请更换高级的浏览器',
+    'Browse' => '选择',
+    'Remove' => '移除',
+    'Upload' => '上传',
 ];

@@ -13,6 +13,7 @@ class SignupForm extends \yii\base\Model
     public $username;
     public $email;
     public $password;
+    public $avatar;
 
     /**
      * @inheritdoc
@@ -32,6 +33,8 @@ class SignupForm extends \yii\base\Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
+            ['avatar', 'file', 'skipOnEmpty' => true, 'extensions'=>'jpg, gif, png','wrongExtension' => '文件格式不对',
+            'maxSize'=>209715, 'tooBig' => '文件不能超过 200KB. 请上传一份更小的文件.'],
         ];
     }
 
@@ -45,6 +48,7 @@ class SignupForm extends \yii\base\Model
             'email' => '邮箱',
             'password' => '密码',
             'username' => '用户名',
+            'avatar' => '头像',
             ];
     }
 
