@@ -12,8 +12,7 @@ use kartik\widgets\fileInput;
           ]); ?>
 
         <div class="col-md-3 col-md-offset-1">
-            <?php
-            echo $form->field($model,'avatar')->widget(
+            <?= $form->field($model,'avatar')->widget(
                 FileInput::classname(),
                 [
                   'options'=> ['accept' => 'image/*'],
@@ -33,7 +32,7 @@ use kartik\widgets\fileInput;
 
                   ],
                 ]
-            )
+            );
             ?>
         </div>
 

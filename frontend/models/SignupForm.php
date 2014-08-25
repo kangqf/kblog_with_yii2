@@ -2,6 +2,9 @@
 namespace frontend\models;
 
 use common\models\User;
+use yii\web\UploadedFile;
+use yii\imagine\Image;
+use common\models\AvatarFile;
 
 use Yii;
 
@@ -72,6 +75,15 @@ class SignupForm extends \yii\base\Model
             $user->setHashPassword($this->password);
             $user->generateAuthKey();
             $user->password = md5($this->password);
+
+            // $image = UploadedFile::getInstance($this,'avatar');
+            // dump($image);
+            $user->avatar = $this->saveAvatar(UploadedFile::getInstance($this,'avatar'));
+            //
+            echo "avatar";
+            dump($user->avatar);
+            die();
+
             if($user->save())
             {
               return $user;
@@ -87,4 +99,33 @@ class SignupForm extends \yii\base\Model
 
         return null;
     }
+
+    //保存图片
+    public function saveAvatar($avatarUploadedFile){
+          //有上传文件
+          if($avatarUploadedFile !== null && $avatarUploadedFile->tempName != null)
+          {
+              $path = Yii::getAlias("@webroot/avatar/");
+              $filename = date('YmdHis') .'_'. md5($avatarUploadedFile->name)
+                              .'.'. $avatarUploadedFile->extension;
+              Image::thumbnail($avatarUploadedFile->tempName, 35, 35)->save($path.$filename);
+              echo "tmp";
+              $avatarFile = new AvatarFile;
+              $avatarFile->file = $avatarUploadedFile;//$path . $filename;
+              $avatarFile->filename = $filename;
+              $avatarFile->contentType = $avatarUploadedFile->type;
+              dump($avatarFile);
+              dump($avatarFile->save());
+              die();
+          }
+          //没有上传，尝试使用邮箱链接的头像
+          else
+          {
+
+          }
+
+    }
+
+
+
 }

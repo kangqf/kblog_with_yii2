@@ -84,6 +84,8 @@ class KblogController extends \yii\web\Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post()))
         {
+          // dump($model);
+          // die();
             if ($user = $model->signup())
             {
                 if (Yii::$app->getUser()->login($user,3600 * 24 * 30))
