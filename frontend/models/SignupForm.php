@@ -13,6 +13,7 @@ class SignupForm extends \yii\base\Model
     public $username;
     public $email;
     public $password;
+    public $checkPassword;
     public $avatar;
 
     /**
@@ -31,8 +32,10 @@ class SignupForm extends \yii\base\Model
             ['email', 'email'],
             ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => '您的邮箱已经注册过了.'],
 
-            ['password', 'required'],
+            [['password', 'checkPassword'], 'required'],
             ['password', 'string', 'min' => 6],
+            ['checkPassword', 'compare', 'compareAttribute'=>'password','message' => '两次密码不一样'],
+
             ['avatar', 'file', 'skipOnEmpty' => true, 'extensions'=>'jpg, gif, png','wrongExtension' => '文件格式不对',
             'maxSize'=>209715, 'tooBig' => '文件不能超过 200KB. 请上传一份更小的文件.'],
         ];
@@ -47,8 +50,10 @@ class SignupForm extends \yii\base\Model
             //'username' => Yii::t('site/user', 'Имя пользователя'),
             'email' => '邮箱',
             'password' => '密码',
+            'checkPassword' => '确认密码',
             'username' => '用户名',
             'avatar' => '头像',
+
             ];
     }
 

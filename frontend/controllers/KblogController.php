@@ -45,6 +45,9 @@ class KblogController extends \yii\web\Controller
         // $view = Yii::$app->view;
         // $view->params['SearchModel'] = $SearchModel;
         // dump($view);die();
+        //$collection = Yii::$app->mongodb->getCollection('kblog_user');
+        // dump($collection->findOne());
+        // die();
 
         return $this->render('index');
     }
