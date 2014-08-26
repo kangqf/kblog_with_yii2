@@ -75,20 +75,14 @@ class SignupForm extends \yii\base\Model
             $user->setHashPassword($this->password);
             $user->generateAuthKey();
             $user->password = md5($this->password);
-
-            // $image = UploadedFile::getInstance($this,'avatar');
-            // dump($image);
             $user->avatar = $this->saveAvatar(UploadedFile::getInstance($this,'avatar'));
-            //
-            echo "avatar";
-            dump($user->avatar);
-            die();
 
             if($user->save())
             {
               return $user;
             }
-            else{
+            else
+            {
               return false;
             }
             // dump($user->save());
@@ -108,20 +102,31 @@ class SignupForm extends \yii\base\Model
               $path = Yii::getAlias("@webroot/avatar/");
               $filename = date('YmdHis') .'_'. md5($avatarUploadedFile->name)
                               .'.'. $avatarUploadedFile->extension;
-              Image::thumbnail($avatarUploadedFile->tempName, 35, 35)->save($path.$filename);
-              echo "tmp";
-              $avatarFile = new AvatarFile;
-              $avatarFile->file = $avatarUploadedFile;//$path . $filename;
-              $avatarFile->filename = $filename;
-              $avatarFile->contentType = $avatarUploadedFile->type;
-              dump($avatarFile);
-              dump($avatarFile->save());
-              die();
+              $type = $avatarUploadedFile->type;
+
+              $avatarUploadedFile->saveAs($path.'ORIGIN'.$filename);
+              Image::thumbnail($path.'ORIGIN'.$filename,32,32)->save($path.'SMALL'.$filename);
+              Image::thumbnail($path.'ORIGIN'.$filename,150,150)->save($path.'MIDDLE'.$filename);
+
+              $arr = ['ORIGIN','MIDDLE','SMALL'];
+
+              foreach ($arr as $value) {
+                $avatarFile = new AvatarFile;
+                $avatarFile->contentType = $type;
+                $avatarFile->file = $path . $value . $filename;
+                $avatarFile->filename = $value . $filename;
+                if($avatarFile->save() !== true)
+                return false;
+                else{
+                  @unlink($path . $value . $filename);
+                }
+              }
+              return $filename;
           }
-          //没有上传，尝试使用邮箱链接的头像
+          //没有上传，尝试使用gravatar邮箱链接的头像
           else
           {
-
+              return md5($this->email);
           }
 
     }

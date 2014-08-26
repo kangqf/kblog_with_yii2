@@ -60,6 +60,8 @@ class Tencent extends OAuth2
 
     public $openidUrl = 'https://graph.qq.com/oauth2.0/me';
 
+    public $openid;
+
     /**
      * @inheritdoc
      */
@@ -76,6 +78,7 @@ class Tencent extends OAuth2
         $params['access_token'] = $accessToken->getToken();
         $Openid = $this->getOpenId($accessToken, $url, $method, $params, []);
         $params['openid'] = $Openid['openid'];
+        $this->openid = $Openid['openid'];
         $params['oauth_consumer_key'] = $this->clientId;
         return $this->sendRequest($method, $url, $params, $headers);
     }

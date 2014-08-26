@@ -1,6 +1,8 @@
 <?php
 return [
     'components' => [
+
+        //数据库配置
         'db' => [
             'class' => 'yii\db\Connection',
             'dsn' => 'mysql:host=localhost;dbname=kblog',
@@ -9,6 +11,7 @@ return [
             'charset' => 'utf8',
             'tablePrefix' => 'kblog',
         ],
+        //发送邮件配置
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             'viewPath' => '@common/mail',
