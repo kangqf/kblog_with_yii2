@@ -6,10 +6,10 @@
 
 namespace frontend\controllers;
 
+use common\models\User;
 use frontend\models\LoginForm;
 use frontend\models\SignupForm;
 use Yii;
-use yii\imagine\Image;
 use common\models\OpenUser;
 
 class KblogController extends \yii\web\Controller
@@ -118,7 +118,7 @@ class KblogController extends \yii\web\Controller
 
         }
 
-        die();
+        // die();
         // user login or signup comes here
     }
 

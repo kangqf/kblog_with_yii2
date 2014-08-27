@@ -254,7 +254,9 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         if ($this->_role === null) {
             $roles = self::getRoleArray();
-            $this->_role = $roles[$this->role];
+            if (!empty($roles[$this->role])) {
+                $this->_role = $roles[$this->role];
+            }
         }
         return $this->_role;
     }

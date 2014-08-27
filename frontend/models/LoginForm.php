@@ -5,7 +5,7 @@ namespace frontend\models;
 use Yii;
 use common\models\User;
 
-class LoginForm extends yii\base\Model
+class LoginForm extends \yii\base\Model
 {
     public $email;
     public $password;
@@ -93,4 +93,5 @@ class LoginForm extends yii\base\Model
             'rememberMe' => '自动登录',
         ];
     }
+
 }
