@@ -3,7 +3,7 @@
 namespace common\models;
 
 
-
+//第三方用户信息提取类
 class OpenUser
 {
     public $openId;
@@ -12,31 +12,32 @@ class OpenUser
     public $email;
 
 
-    function __construct($client){
+    function __construct($client)
+    {
         switch($client->getId())
         {
           case 'tencent':
             $attributes = $client->getUserAttributes();
-            $this->openId = date('YmdHis').$client->openid;
-            $this->avatarUrl = $attributes['figureurl_2'];
+              $this->openId = $client->openid;
+              $this->avatarUrl = $attributes['figureurl_2'];
             $this->name = $attributes['nickname'];
             $this->email = '';
-            $tmp = file_get_contents($this->avatarUrl);
-            dump($tmp);
-            break;
+              // $tmp = file_get_contents($this->avatarUrl);
+              // dump($tmp);
+              break;
 
           case 'weibo':
             $attributes = $client->getUserAttributes();
-            $this->openId = date('YmdHis').$attributes['id'];
-            $this->avatarUrl = $attributes['avatar_hd'];
+              $this->openId = $attributes['id'];
+              $this->avatarUrl = $attributes['avatar_hd'];
             $this->name = $attributes['name'];
             $this->email = '';
             break;
 
           case 'github':
             $attributes = $client->getUserAttributes();
-            $this->openId = date('YmdHis').$attributes['id'];
-            $this->avatarUrl = $attributes['avatar_url'];
+              $this->openId = $attributes['id'];
+              $this->avatarUrl = $attributes['avatar_url'];
             $this->name = $attributes['name'];
             $this->email = $attributes['email'];
             break;
@@ -70,8 +71,6 @@ class OpenUser
 
         if($filename == "")
         {
-
-
       		//我就随便将图片文件名保存为时间戳了，你可自行修改
       		$filename = time().$ext;
       	}

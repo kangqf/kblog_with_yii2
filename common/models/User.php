@@ -59,7 +59,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     protected $_role;
 
     /**
-     * @var string 用户状态   
+     * @var string 用户状态
      */
     protected $_status;
 
@@ -180,7 +180,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     }
 
     /**
-	   * 通过邮箱查找用户
+     * 通过邮箱查找用户
      * @param  string      $email
      * @return static|null
      */
@@ -189,7 +189,16 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         return self::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
     }
 
-
+    /**
+     * 通过第三方用户ID查找用户
+     * @param $openid
+     * @internal param string $openID
+     * @return static|null
+     */
+    public static function findByOpenId($openid)
+    {
+        return self::findOne(['open_id' => $openid, 'status' => self::STATUS_ACTIVE]);
+    }
 
 
     /**

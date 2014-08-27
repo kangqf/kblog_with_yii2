@@ -42,6 +42,7 @@ class KblogController extends \yii\web\Controller
     //默认Action
     public function actionIndex()
     {
+        //phpinfo();die();
         // $SearchModel = new SearchForm;
         //
         // $view = Yii::$app->view;
@@ -111,7 +112,9 @@ class KblogController extends \yii\web\Controller
         else
         {
           $openUser = new OpenUser($client);
-          dump($openUser);die();
+            $user = User::findByOpenId($openUser->openId);
+            dump($user);
+            die();
 
         }
 
