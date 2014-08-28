@@ -21,7 +21,7 @@ class LoginForm extends \yii\base\Model
         return [
             // username and password are both required
             [['email', 'password'], 'required'],
-            [['email'],'email'],
+            [['email'], 'email'],
             // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
@@ -50,23 +50,19 @@ class LoginForm extends \yii\base\Model
      */
     public function login()
     {
-        if ($this->validate())
-        {
-          $this->_user->scenario = 'login';
-          $this->_user->login_count++;
-          
-          if($this->_user->save()){
-            return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
-          }
-          else {
-            return false;
-          }
-          //  $user = new User(['scenario' => 'login']);
-          // dump($this->getUser());die();
+        if ($this->validate()) {
+            $this->_user->scenario = 'login';
+            $this->_user->login_count++;
 
-        }
-        else
-        {
+            if ($this->_user->save()) {
+                return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+            } else {
+                return false;
+            }
+            //  $user = new User(['scenario' => 'login']);
+            // dump($this->getUser());die();
+
+        } else {
             return false;
         }
     }

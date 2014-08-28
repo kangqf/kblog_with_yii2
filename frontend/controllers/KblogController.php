@@ -15,10 +15,10 @@ use common\models\OpenUser;
 class KblogController extends \yii\web\Controller
 {
 
-  public function actions()
+    public function actions()
     {
         return [
-          //错误处理
+            //错误处理
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
@@ -42,7 +42,7 @@ class KblogController extends \yii\web\Controller
     //默认Action
     public function actionIndex()
     {
-        //phpinfo();die();
+        // phpinfo();die();
         // $SearchModel = new SearchForm;
         //
         // $view = Yii::$app->view;
@@ -59,20 +59,17 @@ class KblogController extends \yii\web\Controller
     public function actionLogin()
     {
         $loginModel = new LoginForm();
-        if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login())
-        {
+        if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login()) {
             return $this->goBack();
-        }
-        else
-        {
-            return $this->render('login',['loginModel' => $loginModel]);
+        } else {
+            return $this->render('login', ['loginModel' => $loginModel]);
         }
 
     }
 
-   /**
-    *注销
-    */
+    /**
+     *注销
+     */
     public function actionLogout()
     {
         Yii::$app->user->logout();
@@ -85,12 +82,11 @@ class KblogController extends \yii\web\Controller
     public function actionSignup()
     {
         $model = new SignupForm();
-        if ($model->load(Yii::$app->request->post()))
-        {
-            if ($user = $model->signup())
-            {
-                if (Yii::$app->getUser()->login($user,3600 * 24 * 30))
-                {
+        if ($model->load(Yii::$app->request->post())) {
+            if ($user = $model->signup()) {
+                dump(Yii::$app->getUser());
+                die();
+                if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
                     return $this->goHome();
                 }
             }
@@ -107,12 +103,23 @@ class KblogController extends \yii\web\Controller
     //第三方登陆回调函数
     public function successCallback($client = null)
     {
-        if($client === null)
-          return $this->render('index');
-        else
-        {
-          $openUser = new OpenUser($client);
-            $user = User::findByOpenId($openUser->openId);
+        if ($client === null)
+            return $this->render('index');
+        else {
+            $openUser = new OpenUser($client);
+            $user = User::findByOpenId('0');
+            if ($user !== null) {
+                if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
+                    echo "<script> window.close();";
+                    echo "closed";
+                    echo "<script> window.close();";
+
+                    //return $this->render('index');
+
+                }
+            }
+
+
             dump($user);
             die();
 
