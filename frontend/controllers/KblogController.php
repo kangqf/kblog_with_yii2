@@ -35,6 +35,7 @@ class KblogController extends \yii\web\Controller
             'auth' => [
                 'class' => 'yii\authclient\AuthAction',
                 'successCallback' => [$this, 'successCallback'],
+//                'successUrl' => Yii::$app->homeUrl,
             ],
         ];
     }
@@ -67,6 +68,13 @@ class KblogController extends \yii\web\Controller
 
     }
 
+    public function onAuthSuccess($client)
+      {
+          $attributes = $client->getUserAttributes();
+          // user login or signup comes here
+      }
+
+
     /**
      *注销
      */
@@ -87,7 +95,7 @@ class KblogController extends \yii\web\Controller
                 dump(Yii::$app->getUser());
                 die();
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
-                    return $this->goHome();
+                    return ;
                 }
             }
         }
@@ -110,18 +118,20 @@ class KblogController extends \yii\web\Controller
             $user = User::findByOpenId('0');
             if ($user !== null) {
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
-                    echo "<script> window.close();";
-                    echo "closed";
-                    echo "<script> window.close();";
+                    echo "<script> window.close(); window.alert(\"message\");</script>";
+                    return true;
+//                    echo "closed";
+//                    echo "<script> window.close();";
+                    //return $this->redirect(['index']);
 
                     //return $this->render('index');
 
                 }
             }
 
-
-            dump($user);
-            die();
+//            return $this->render('index');
+//            dump($user);
+//            die();
 
         }
 
