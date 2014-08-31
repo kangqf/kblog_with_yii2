@@ -106,10 +106,11 @@ $SearchModel = new SearchForm;
           </ul>
 
         <?php
-        $user = Yii::$app->user->identity;
-        dump($user);
-        die();
+            $user = Yii::$app->user->identity;
+            dump($user);
+            die();
         ?>
+
         <ul>
 
         </ul>
