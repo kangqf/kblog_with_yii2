@@ -2,6 +2,7 @@
 namespace common\models;
 
 use yii\mongodb\file\ActiveRecord;
+use yii\mongodb\file\Query;
 
 /**
  * Class Asset
@@ -40,5 +41,35 @@ class AvatarFile extends ActiveRecord
               ['contentType']
           );
     }
+
+    //size: 1->小图像  2->中等大小图像 3->原始图像
+    public function getAvatar($fileName, $size = 1)
+    {
+        switch ($size) {
+            case 1:
+                $file = 'SMALL' . $fileName;
+                break;
+            case 2:
+                $file = 'MIDDLE' . $fileName;
+                break;
+            case 3:
+                $file = 'ORIGIN' . $fileName;
+                break;
+                defaut:
+                $file = 'SMALL' . $fileName;
+                break;
+        }
+
+        $query = new Query();
+        $row = $query->from('avatar')->where(['filename' => $file])->one();
+        if ($row != null) {
+            return ['contentType' => $row['contentType'], 'byte' => $row['file']->getBytes()];
+        } else {
+            return false;
+        }
+
+
+    }
+
 }
 ?>

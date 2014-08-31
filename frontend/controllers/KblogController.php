@@ -11,6 +11,7 @@ use frontend\models\LoginForm;
 use frontend\models\SignupForm;
 use Yii;
 use common\models\OpenUser;
+use common\models\AvatarFile;
 
 
 use frontend\models\Category;
@@ -74,6 +75,20 @@ class KblogController extends \yii\web\Controller
         } else {
             return $this->render('login', ['loginModel' => $loginModel]);
         }
+    }
+
+    public function  actionGetAvatar($fileName, $size)
+    {
+        $avatarFile = new AvatarFile();
+        $row = $avatarFile->get($fileName, $size);
+        if ($row) {
+            header('Content-type: ' . $row['contentType']);
+            echo $row['byte'];
+        } else {
+            echo "";
+        }
+
+
     }
 
     /**

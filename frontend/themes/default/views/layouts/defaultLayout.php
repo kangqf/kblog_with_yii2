@@ -9,6 +9,8 @@ use kartik\widgets\ActiveForm;
 use frontend\models\Category;
 use frontend\models\SearchForm;
 
+use yii\helpers\Url;
+
 DefaultLayoutAsset::register($this);
 
 $this->title = "KBlog";
@@ -105,14 +107,17 @@ $SearchModel = new SearchForm;
             <?php ActiveForm::end(); ?>
           </ul>
 
-        <?php
-            $user = Yii::$app->user->identity;
-            dump($user);
-            die();
-        ?>
 
         <ul>
+            gfdsg
+            <?php
+            $user = YIi::$app->user->identity;
+            echo Html::img(
+                Url::toRoute(['getAvatar', 'fileName' => $user->avatar, 'size' => 1], true), ['id' => 'avatar', 'alt' => $user->username]
+            );
 
+
+            ?>
         </ul>
 
 
