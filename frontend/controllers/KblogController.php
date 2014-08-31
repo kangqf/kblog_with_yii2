@@ -43,6 +43,7 @@ class KblogController extends \yii\web\Controller
     //默认Action
     public function actionIndex()
     {
+        //dump($auth);die();
         // phpinfo();die();
         // $SearchModel = new SearchForm;
         //
@@ -65,15 +66,7 @@ class KblogController extends \yii\web\Controller
         } else {
             return $this->render('login', ['loginModel' => $loginModel]);
         }
-
     }
-
-    public function onAuthSuccess($client)
-      {
-          $attributes = $client->getUserAttributes();
-          // user login or signup comes here
-      }
-
 
     /**
      *注销
@@ -92,14 +85,12 @@ class KblogController extends \yii\web\Controller
         $model = new SignupForm();
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
-                dump(Yii::$app->getUser());
-                die();
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
-                    return ;
+                    echo "<script> window.alert(\"注册成功，即将跳转到首页\");</script>";
+                    return;
                 }
             }
         }
-
         return $this->render('signup', ['model' => $model,]);
     }
 
@@ -111,32 +102,34 @@ class KblogController extends \yii\web\Controller
     //第三方登陆回调函数
     public function successCallback($client = null)
     {
-        if ($client === null)
+        if ($client === null) {
             return $this->render('index');
-        else {
+        } else {
             $openUser = new OpenUser($client);
-            $user = User::findByOpenId('0');
+            $user = User::findByOpenId($openUser->openId);
+            //曾进行过第三方登陆
             if ($user !== null) {
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
-                    echo "<script> window.close(); window.alert(\"message\");</script>";
+                    echo "<script> window.alert(\"第三方登录成功，即将关闭当前窗口，并跳转到首页\");</script>";
                     return true;
-//                    echo "closed";
-//                    echo "<script> window.close();";
-                    //return $this->redirect(['index']);
-
-                    //return $this->render('index');
-
                 }
+            } //未曾进行过第三方登陆
+            else {
+                $avatarFileName = $openUser->grabImage();
+                if ($avatarFileName) {
+                    $signupModel = new SignupForm();
+                    $signupModel->avatar = Yii::getAlias("@webroot/avatar/") . $avatarFileName;
+                    $signupModel->email = $openUser->email;
+                    $signupModel->username = $openUser->name;
+                    $signupModel->openId = $openUser->openId;
+                    $this->render('signupFinish', ['model' => $signupModel,]);
+                } else {
+                    echo "<script> window.alert(\"第三方登录抓取图片失败，即将关闭当前窗口，并跳转到首页\");</script>";
+                    return false;
+                }
+                // dump($openUser);die();
             }
-
-//            return $this->render('index');
-//            dump($user);
-//            die();
-
         }
-
-        // die();
-        // user login or signup comes here
     }
 
 
@@ -146,7 +139,6 @@ class KblogController extends \yii\web\Controller
     //     return $this->render('about');
     // }
 
-
     // //错误处理动作
     // public function actionError()
     // {
@@ -155,6 +147,4 @@ class KblogController extends \yii\web\Controller
     //       return $this->render('error', ['exception' => $exception]);
     //   }
     // }
-
-
 }
