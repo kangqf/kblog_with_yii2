@@ -12,6 +12,9 @@ use frontend\models\SignupForm;
 use Yii;
 use common\models\OpenUser;
 
+
+use frontend\models\Category;
+
 class KblogController extends \yii\web\Controller
 {
 
@@ -43,7 +46,12 @@ class KblogController extends \yii\web\Controller
     //默认Action
     public function actionIndex()
     {
-        //dump($auth);die();
+//        $data = Category::getTopCategory();
+//        foreach($data as $value){
+//            print_r($value->name);
+//        }
+//       // print_r($data);
+//        die();
         // phpinfo();die();
         // $SearchModel = new SearchForm;
         //
@@ -87,7 +95,7 @@ class KblogController extends \yii\web\Controller
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
                     echo "<script> window.alert(\"注册成功，即将跳转到首页\");</script>";
-                    return;
+                    return $this->goHome();
                 }
             }
         }

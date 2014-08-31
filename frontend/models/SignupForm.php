@@ -76,7 +76,8 @@ class SignupForm extends \yii\base\Model
             $user->generateAuthKey();
             $user->password = md5($this->password);
             $user->avatar = $this->saveAvatar(UploadedFile::getInstance($this, 'avatar'));
-            $user->open_id = $this->openId;
+//            if(isset($this->openId))
+//             $user->open_id = $this->openId;
 
             if ($user->save()) {
                 return $user;

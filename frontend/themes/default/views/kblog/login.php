@@ -32,11 +32,8 @@ col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
         <span style="float:left; margin-top:-10px">
           <?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
       </span>
-      <span style="float:left; margin-top:0px; margin-left:30px">
+      <span style="float:right; margin-top:0px; margin-left:30px">
         <?= Html::a('找回密码', ['kblog/request-password-reset']) ?>
-      </span>
-      <span style="float:right; margin-top:0px">
-          <?= Html::a('注册', ['kblog/signup']) ?>
       </span>
         <?= Html::submitButton('登录', ['class' => 'btn btn-primary btn-block']) ?>
         <div class="authclient">

@@ -1,11 +1,12 @@
 <?php
 use yii\helpers\Html;
+use yii\helpers\StringHelper;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\DefaultLayoutAsset;
 use kartik\widgets\ActiveForm;
-use common\models\User;
+use frontend\models\Category;
 use frontend\models\SearchForm;
 
 DefaultLayoutAsset::register($this);
@@ -36,25 +37,56 @@ $SearchModel = new SearchForm;
           ([
               'brandLabel' => Yii::$app->name,
               'brandUrl' => Yii::$app->urlManagerBackend->createUrl(['/site/login']),
-              'brandOptions' => ['id'=>'brand','class'=>'pull-right',],
-              'options' => ['class' => 'navbar-inverse','id'=>'navbar' ],
+                  'brandOptions' => ['id' => 'brand', 'class' => 'pull-left',],
+                  'options' => ['class' => 'navbar-inverse','id'=>'navbar' ],
           ]);
           $menuItems =
           [
-              ['label' => 'Home', 'url' => ['/kblog/index']],
-              ['label' => 'About', 'url' => ['/kblog/static?view=about']],
-              ['label' => 'Signup', 'url' => ['/kblog/signup']],
-              ['label' => 'Test', 'url' => ['kblog/test']],
-
+              [
+                  'label' => 'Home',
+                  'url' => ['/kblog/index'],
+              ]
           ];
-          echo Nav::widget
+
+      $topMenu = Category::getTopCategory();
+      foreach ($topMenu as $topValue) {
+          $secondMenu = Category::getSecondCategory($topValue->cgid);
+          $secondItems = [];
+          foreach ($secondMenu as $secondValue) {
+              $secondItems[] = [
+                  'label' => $secondValue->name,
+                  'url' => ['/category/' . $secondValue->cgid],
+              ];
+          }
+          if ($secondItems != null) {
+              $menuItems[] = [
+                  'label' => $topValue->name,
+                  // 'url' => ['/category/'.$topValue->cgid],
+                  'linkOptions' => ['data-method' => 'get'],
+                  'items' => $secondItems,
+              ];
+          } else {
+              $menuItems[] = [
+                  'label' => $topValue->name,
+                  'url' => ['/category/' . $topValue->cgid],
+                  'linkOptions' => ['data-method' => 'get'],
+              ];
+          }
+      }
+
+      $menuItems[] = [
+          'label' => 'About',
+          'url' => ['/kblog/static?view=about'],
+      ];
+
+      echo Nav::widget
           ([
               'options' => ['class' => 'navbar-nav navbar-left'],
               'items' => $menuItems,
           ]);?>
 
-          <ul class="col-md-2 col-sm-3 col-md-offset-2 col-sm-offset-0 kqf-search-form">
-            <?php   //竖直
+        <ul class="col-md-2 col-sm-3 col-md-offset-1 col-sm-offset-0 kqf-search-form">
+        <?php   //竖直
               $form = ActiveForm::begin(['action'=>'/kblog/search', 'type'=>ActiveForm::TYPE_HORIZONTAL,'formConfig'=>['deviceSize'=>ActiveForm::SIZE_SMALL], ]);
             ?>
 
@@ -73,19 +105,29 @@ $SearchModel = new SearchForm;
             <?php ActiveForm::end(); ?>
           </ul>
 
-          <?php
+        <?php
+        $user = Yii::$app->user->identity;
+        dump($user);
+        die();
+        ?>
+        <ul>
+
+        </ul>
+
+
+        <?php
             $menuItems = [];
             if (Yii::$app->user->isGuest)
             {
-              $menuItems[] = [ 'label' => '登录', 'url' => ['/kblog/login'], ];
+                $menuItems = [['label' => '登录', 'url' => ['/kblog/login'],], ['label' => '注册', 'url' => ['/kblog/signup'],]];
             }
             else
             {
               $menuItems[] =
               [
-                'label' => 'Logout (' . Yii::$app->user->identity->username . ')',
-                'url' => ['/kblog/logout'],
-                'linkOptions' => ['data-method' => 'post'],
+                  'label' => StringHelper::truncate(Yii::$app->user->identity->username, 5),
+                  // 'url' => ['/kblog/logout'],
+                  'linkOptions' => ['data-method' => 'post'],
                 'items' => [
                     [
                         'label' => '个人资料',
