@@ -59,7 +59,9 @@ class KblogController extends \yii\web\Controller
         // $view = Yii::$app->view;
         // $view->params['SearchModel'] = $SearchModel;
         // dump($view);die();
-        //$collection = Yii::$app->mongodb->getCollection('kblog_user');
+
+
+        //$collection = Yii::$app->mongodb->getCollection('kblog');
         // dump($collection->findOne());
         // die();
 
@@ -77,13 +79,13 @@ class KblogController extends \yii\web\Controller
         }
     }
 
-    public function  actionGetAvatar($fileName, $size)
+    public function  actionGetAvatar($file_name = '20140831214007_304de1027bcd348d087830217763712d.jpg', $size = 1)
     {
         $avatarFile = new AvatarFile();
-        $row = $avatarFile->get($fileName, $size);
+        $row = $avatarFile->get($file_name, $size);
         if ($row) {
             header('Content-type: ' . $row['contentType']);
-            echo $row['byte'];
+            return $row['byte'];
         } else {
             echo "";
         }
@@ -109,7 +111,7 @@ class KblogController extends \yii\web\Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
-                    echo "<script> window.alert(\"注册成功，即将跳转到首页\");</script>";
+                    // echo "<script> window.alert(\"注册成功，即将跳转到首页\");</script>";
                     return $this->goHome();
                 }
             }
@@ -120,6 +122,18 @@ class KblogController extends \yii\web\Controller
     public function actionSearch()
     {
         return $this->render('search');
+    }
+
+    public function actionSignupFinish($email, $openid, $username, $avatar)
+    {
+
+
+        $response = Yii::$app->getResponse();
+        $redirectPath = Yii::getAlias("@frontend/themes/default/views/kblog/") . 'redirect.php';
+        $response->content = Yii::$app->getView()->renderFile($redirectPath, ['url' => 'index', 'enforceRedirect' => true]);
+        return $response;
+
+        // return $this->renser('signupFinish');
     }
 
     //第三方登陆回调函数
@@ -133,24 +147,26 @@ class KblogController extends \yii\web\Controller
             //曾进行过第三方登陆
             if ($user !== null) {
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
-                    echo "<script> window.alert(\"第三方登录成功，即将关闭当前窗口，并跳转到首页\");</script>";
+
                     return true;
                 }
             } //未曾进行过第三方登陆
             else {
-                $avatarFileName = $openUser->grabImage();
+                $avatarFileName = 'ss'; //$openUser->grabImage();
                 if ($avatarFileName) {
-                    $signupModel = new SignupForm();
-                    $signupModel->avatar = Yii::getAlias("@webroot/avatar/") . $avatarFileName;
-                    $signupModel->email = $openUser->email;
-                    $signupModel->username = $openUser->name;
-                    $signupModel->openId = $openUser->openId;
-                    $this->render('signupFinish', ['model' => $signupModel,]);
+//                    $signupModel = new SignupForm();
+//                    $signupModel->avatar = Yii::getAlias("@webroot/avatar/") . $avatarFileName;
+//                    $signupModel->email = $openUser->email;
+//                    $signupModel->username = $openUser->name;
+//                    $signupModel->openId = $openUser->openId;
+                    echo "<script type=\'text/javascript\'> window.alert(\"第三方验证成功，即将关闭当前窗口，并跳转到完成注册页面\");</script>";
+                    // $this->redirect('index');
+                    $this->redirect(['signup-finish', 'email' => $openUser->email, 'openid' => $openUser->openId, 'username' => $openUser->name, 'avatar' => $avatarFileName]);
+
                 } else {
                     echo "<script> window.alert(\"第三方登录抓取图片失败，即将关闭当前窗口，并跳转到首页\");</script>";
                     return false;
                 }
-                // dump($openUser);die();
             }
         }
     }

@@ -22,118 +22,118 @@ $SearchModel = new SearchForm;
 
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
-  <head>
+<head>
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head(); ?>
-  </head>
+</head>
 
-  <body>
-    <?php $this->beginBody() ?>
-    <div class="wrap">
+<body>
+<?php $this->beginBody() ?>
+<div class="wrap">
 
-      <?php
-          NavBar::begin
-          ([
-              'brandLabel' => Yii::$app->name,
-              'brandUrl' => Yii::$app->urlManagerBackend->createUrl(['/site/login']),
-                  'brandOptions' => ['id' => 'brand', 'class' => 'pull-left',],
-                  'options' => ['class' => 'navbar-inverse','id'=>'navbar' ],
-          ]);
-          $menuItems =
-          [
-              [
-                  'label' => 'Home',
-                  'url' => ['/kblog/index'],
-              ]
-          ];
+    <?php
+    NavBar::begin
+        ([
+            'brandLabel' => Yii::$app->name,
+            'brandUrl' => Yii::$app->urlManagerBackend->createUrl(['/site/login']),
+            'brandOptions' => ['id' => 'brand', 'class' => 'pull-left',],
+            'options' => ['class' => 'navbar-inverse', 'id' => 'navbar'],
+        ]);
+    $menuItems =
+        [
+            [
+                'label' => 'Home',
+                'url' => ['/kblog/index'],
+            ]
+        ];
 
-      $topMenu = Category::getTopCategory();
-      foreach ($topMenu as $topValue) {
-          $secondMenu = Category::getSecondCategory($topValue->cgid);
-          $secondItems = [];
-          foreach ($secondMenu as $secondValue) {
-              $secondItems[] = [
-                  'label' => $secondValue->name,
-                  'url' => ['/category/' . $secondValue->cgid],
-              ];
-          }
-          if ($secondItems != null) {
-              $menuItems[] = [
-                  'label' => $topValue->name,
-                  // 'url' => ['/category/'.$topValue->cgid],
-                  'linkOptions' => ['data-method' => 'get'],
-                  'items' => $secondItems,
-              ];
-          } else {
-              $menuItems[] = [
-                  'label' => $topValue->name,
-                  'url' => ['/category/' . $topValue->cgid],
-                  'linkOptions' => ['data-method' => 'get'],
-              ];
-          }
-      }
+    $topMenu = Category::getTopCategory();
+    foreach ($topMenu as $topValue) {
+        $secondMenu = Category::getSecondCategory($topValue->cgid);
+        $secondItems = [];
+        foreach ($secondMenu as $secondValue) {
+            $secondItems[] = [
+                'label' => $secondValue->name,
+                'url' => ['/category/' . $secondValue->cgid],
+            ];
+        }
+        if ($secondItems != null) {
+            $menuItems[] = [
+                'label' => $topValue->name,
+                // 'url' => ['/category/'.$topValue->cgid],
+                'linkOptions' => ['data-method' => 'get'],
+                'items' => $secondItems,
+            ];
+        } else {
+            $menuItems[] = [
+                'label' => $topValue->name,
+                'url' => ['/category/' . $topValue->cgid],
+                'linkOptions' => ['data-method' => 'get'],
+            ];
+        }
+    }
 
-      $menuItems[] = [
-          'label' => 'About',
-          'url' => ['/kblog/static?view=about'],
-      ];
+    $menuItems[] = [
+        'label' => 'About',
+        'url' => ['/kblog/static?view=about'],
+    ];
 
-      echo Nav::widget
-          ([
-              'options' => ['class' => 'navbar-nav navbar-left'],
-              'items' => $menuItems,
-          ]);?>
+    echo Nav::widget
+        ([
+            'options' => ['class' => 'navbar-nav navbar-left'],
+            'items' => $menuItems,
+        ]);?>
 
-        <ul class="col-md-2 col-sm-3 col-md-offset-1 col-sm-offset-0 kqf-search-form">
-        <?php   //竖直
-              $form = ActiveForm::begin(['action'=>'/kblog/search', 'type'=>ActiveForm::TYPE_HORIZONTAL,'formConfig'=>['deviceSize'=>ActiveForm::SIZE_SMALL], ]);
-            ?>
+    <ul class="col-md-2 col-sm-3 col-md-offset-1 col-sm-offset-0 kqf-search-form">
+        <?php //竖直
+        $form = ActiveForm::begin(['action' => '/kblog/search', 'type' => ActiveForm::TYPE_HORIZONTAL, 'formConfig' => ['deviceSize' => ActiveForm::SIZE_SMALL],]);
+        ?>
 
-                <?php echo $form->field($SearchModel, 'keyWord', [
-                    'showLabels'=>false,
-                    'addon' => [
-                        'append' => ['content'=>
-                          '<button class="btn btn-default">
-                            <i class="glyphicon glyphicon-search"></i>
-                            </button>',
-                            'asButton'=>true,
-                        ],
-                    ]
-                  ])->textInput(['placeholder'=>'输入要查找的内容',]);
-                ?>
-            <?php ActiveForm::end(); ?>
-          </ul>
-
-
-        <ul>
-            gfdsg
-            <?php
-            $user = YIi::$app->user->identity;
-            echo Html::img(
-                Url::toRoute(['getAvatar', 'fileName' => $user->avatar, 'size' => 1], true), ['id' => 'avatar', 'alt' => $user->username]
-            );
+        <?php echo $form->field($SearchModel, 'keyWord', [
+            'showLabels' => false,
+            'addon' => [
+                'append' => ['content' =>
+                    '<button class="btn btn-default">
+                      <i class="glyphicon glyphicon-search"></i>
+                      </button>',
+                    'asButton' => true,
+                ],
+            ]
+        ])->textInput(['placeholder' => '输入要查找的内容',]);
+        ?>
+        <?php ActiveForm::end(); ?>
+    </ul>
 
 
-            ?>
-        </ul>
 
 
-        <?php
-            $menuItems = [];
-            if (Yii::$app->user->isGuest)
-            {
-                $menuItems = [['label' => '登录', 'url' => ['/kblog/login'],], ['label' => '注册', 'url' => ['/kblog/signup'],]];
-            }
-            else
-            {
-              $menuItems[] =
-              [
-                  'label' => StringHelper::truncate(Yii::$app->user->identity->username, 5),
-                  // 'url' => ['/kblog/logout'],
-                  'linkOptions' => ['data-method' => 'post'],
+    <?php
+
+
+    ?>
+
+
+
+    <?php
+    $menuItems = [];
+    if (Yii::$app->user->isGuest) {
+        $menuItems = [['label' => '登录', 'url' => ['/kblog/login'],], ['label' => '注册', 'url' => ['/kblog/signup'],]];
+    } else {
+//                $user = Yii::$app->user->identity;
+//                if($user != null){
+//                    echo Html::img(
+//                        Url::toRoute(['get-avatar', 'file_name' => $user->avatar, 'size' => 1], false), ['id' => 'avatar', 'alt' => $user->username]
+//                    );
+//                }
+
+        $menuItems[] =
+            [
+                'label' => StringHelper::truncate(Yii::$app->user->identity->username, 5),
+                // 'url' => ['/kblog/logout'],
+                'linkOptions' => ['data-method' => 'post'],
                 'items' => [
                     [
                         'label' => '个人资料',
@@ -145,44 +145,44 @@ $SearchModel = new SearchForm;
                         'linkOptions' => ['data-method' => 'post']
                     ],
                 ],
-              ];
-            }
-            echo Nav::widget
-            ([
-                'options' => ['class' => 'navbar-nav navbar-right','id'=>'logPlace'],
-                'items' => $menuItems,
-            ]);
-            NavBar::end();
-          ?>
+            ];
+    }
+    echo Nav::widget
+        ([
+            'options' => ['class' => 'navbar-nav navbar-right', 'id' => 'logPlace'],
+            'items' => $menuItems,
+        ]);
+    NavBar::end();
+    ?>
 
-      <div class="container" id="breadCrumbs">
+    <div class="container" id="breadCrumbs">
         <?=
-          Breadcrumbs::widget
-          ([
-              'encodeLabels' => false,
-              'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-              'homeLink' => ['label' => '<span class="glyphicon glyphicon-home"></span>', 'url' =>Yii::$app->homeUrl],
-          ])
+        Breadcrumbs::widget
+            ([
+                'encodeLabels' => false,
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                'homeLink' => ['label' => '<span class="glyphicon glyphicon-home"></span>', 'url' => Yii::$app->homeUrl],
+            ])
         ?>
-      </div>
-
-      <div id="content" class="container">
-        <?= $content ?>
-      </div>
-
     </div>
 
-    <!-- 页脚 -->
-    <footer class="footer" id="footer">
-        <div class="container">
-          Copyright &copy; <?= date('Y') ?> by My CQUPT.<br/>
-			      All Rights Reserved.<br/>
-            <?= Yii::powered() ?>
-        </div>
-    </footer>
+    <div id="content" class="container">
+        <?= $content ?>
+    </div>
 
-    <?php $this->endBody() ?>
-  </body>
+</div>
+
+<!-- 页脚 -->
+<footer class="footer" id="footer">
+    <div class="container">
+        Copyright &copy; <?= date('Y') ?> by My CQUPT.<br/>
+        All Rights Reserved.<br/>
+        <?= Yii::powered() ?>
+    </div>
+</footer>
+
+<?php $this->endBody() ?>
+</body>
 </html>
 
 <?php $this->endPage() ?>
