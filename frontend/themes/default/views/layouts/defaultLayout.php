@@ -87,8 +87,8 @@ $SearchModel = new SearchForm;
             'items' => $menuItems,
         ]);?>
 
-    <ul class="col-md-2 col-sm-3 col-md-offset-1 col-sm-offset-0 kqf-search-form">
-        <?php //竖直
+    <ul class="col-md-2 col-sm-2 col-md-offset-0 col-sm-offset-0 kqf-search-form">
+    <?php //竖直
         $form = ActiveForm::begin(['action' => '/kblog/search', 'type' => ActiveForm::TYPE_HORIZONTAL, 'formConfig' => ['deviceSize' => ActiveForm::SIZE_SMALL],]);
         ?>
 

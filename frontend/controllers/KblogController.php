@@ -126,14 +126,26 @@ class KblogController extends \yii\web\Controller
 
     public function actionSignupFinish($email, $openid, $username, $avatar)
     {
+        $signupModel = new SignupForm();
+        $signupModel->avatar = $avatar; //Yii::getAlias("@webroot/avatar/") .
+        $signupModel->email = $email;
+        $signupModel->username = $username;
+        $signupModel->openId = $openid;
 
+        if ($signupModel->load(Yii::$app->request->post())) {
+            if ($user = $signupModel->signup()) {
+                if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
+                    echo "<script> window.alert(\"注册成功，即将跳转到首页\");</script>";
+                    $response = Yii::$app->getResponse();
+                    $redirectPath = Yii::getAlias("@frontend/themes/default/views/kblog/") . 'redirect.php';
+                    $response->content = Yii::$app->getView()->renderFile($redirectPath, ['url' => 'index', 'enforceRedirect' => true]);
+                    return $response;
+                }
+            }
+        }
+        return $this->render('signupFinish', ['model' => $signupModel,]);
 
-        $response = Yii::$app->getResponse();
-        $redirectPath = Yii::getAlias("@frontend/themes/default/views/kblog/") . 'redirect.php';
-        $response->content = Yii::$app->getView()->renderFile($redirectPath, ['url' => 'index', 'enforceRedirect' => true]);
-        return $response;
-
-        // return $this->renser('signupFinish');
+        // dump($signupModel);die();
     }
 
     //第三方登陆回调函数
@@ -145,14 +157,14 @@ class KblogController extends \yii\web\Controller
             $openUser = new OpenUser($client);
             $user = User::findByOpenId($openUser->openId);
             //曾进行过第三方登陆
-            if ($user !== null) {
+            if ($user != null) {
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
 
                     return true;
                 }
             } //未曾进行过第三方登陆
             else {
-                $avatarFileName = 'ss'; //$openUser->grabImage();
+                $avatarFileName = $openUser->grabImage();
                 if ($avatarFileName) {
 //                    $signupModel = new SignupForm();
 //                    $signupModel->avatar = Yii::getAlias("@webroot/avatar/") . $avatarFileName;
