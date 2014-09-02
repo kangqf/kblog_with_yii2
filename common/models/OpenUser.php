@@ -25,7 +25,7 @@ class OpenUser
 
             case 'weibo':
                 $this->openId = $attributes['id'];
-                $this->avatarUrl = $attributes['avatar_hd'];
+                $this->avatarUrl = strpos($attributes['avatar_hd'], '.jpg') ? $attributes['avatar_hd'] : $attributes['avatar_hd'] . '.jpg';
                 $this->name = $attributes['name'];
                 $this->email = '';
                 break;

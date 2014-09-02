@@ -152,6 +152,7 @@ class KblogController extends \yii\web\Controller
     //第三方登陆回调函数
     public function successCallback($client = null)
     {
+        // dump($client->getUserAttributes());die();
         if ($client === null) {
             return $this->render('index');
         } else {
