@@ -69,6 +69,17 @@ class Weibo extends OAuth2
     /**
      * @inheritdoc
      */
+    protected function defaultViewOptions()
+    {
+        return [
+            'popupWidth' => 880,
+            'popupHeight' => 520,
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     protected function initUserAttributes()
     {
         return $this->api('users/show.json', 'GET');
@@ -90,4 +101,5 @@ class Weibo extends OAuth2
         return '新浪微博';
     }
 }
- ?>
+
+?>

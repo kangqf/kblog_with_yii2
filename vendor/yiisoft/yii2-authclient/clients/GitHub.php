@@ -79,6 +79,17 @@ class GitHub extends OAuth2
     /**
      * @inheritdoc
      */
+    protected function defaultViewOptions()
+    {
+        return [
+            'popupWidth' => 880,
+            'popupHeight' => 520,
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     protected function defaultName()
     {
         return 'github';

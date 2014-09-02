@@ -42,7 +42,6 @@ use yii\helpers\Json;
  * @author kangqingfei <kangqingfei@gmail.com> http://weibo.com/u/3227269845
  * @since 1.0
  */
-
 class Tencent extends OAuth2
 {
     /**
@@ -86,6 +85,17 @@ class Tencent extends OAuth2
     /**
      * @inheritdoc
      */
+    protected function defaultViewOptions()
+    {
+        return [
+            'popupWidth' => 880,
+            'popupHeight' => 520,
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     protected function defaultName()
     {
         return 'tencent';
@@ -104,7 +114,7 @@ class Tencent extends OAuth2
      */
     protected function getOpenId($accessToken, $url, $method, array $params, array $headers)
     {
-        $openidParams = ['grant_type' => 'openid_code','access_token' =>  $params['access_token']];
+        $openidParams = ['grant_type' => 'openid_code', 'access_token' => $params['access_token']];
         $curlOptions = $this->mergeCurlOptions(
             $this->defaultCurlOptions(),
             $this->getCurlOptions(),
@@ -130,13 +140,13 @@ class Tencent extends OAuth2
         curl_close($openidCurlResource);
 
         if ($errorNumber > 0) {
-            throw new Exception('Curl error requesting "' .  $url . '": #' . $errorNumber . ' - ' . $errorMessage);
+            throw new Exception('Curl error requesting "' . $url . '": #' . $errorNumber . ' - ' . $errorMessage);
         }
         if ($outputHeaders['http_code'] != 200) {
             throw new InvalidResponseException($outputHeaders, $output, 'Request failed with code: ' . $outputHeaders['http_code'] . ', message: ' . $output);
         }
         $temp = [];
-        preg_match('/callback\(\s+(.*?)\s+\)/i', $output,$temp);
+        preg_match('/callback\(\s+(.*?)\s+\)/i', $output, $temp);
         $outputOpenid = Json::decode($temp[1], true);
         if (isset($outputOpenid['error'])) {
             throw new Exception('Response error: ' . $outputOpenid['error']);

@@ -14,19 +14,16 @@ class OpenUser
 
     function __construct($client)
     {
+        $attributes = $client->getUserAttributes();
         switch ($client->getId()) {
             case 'tencent':
-                $attributes = $client->getUserAttributes();
                 $this->openId = $client->openid;
                 $this->avatarUrl = $attributes['figureurl_2'] . '.png';
                 $this->name = $attributes['nickname'];
                 $this->email = '';
-                // $tmp = file_get_contents($this->avatarUrl);
-                // dump($tmp);
                 break;
 
             case 'weibo':
-                $attributes = $client->getUserAttributes();
                 $this->openId = $attributes['id'];
                 $this->avatarUrl = $attributes['avatar_hd'];
                 $this->name = $attributes['name'];
@@ -34,11 +31,17 @@ class OpenUser
                 break;
 
             case 'github':
-                $attributes = $client->getUserAttributes();
                 $this->openId = $attributes['id'];
                 $this->avatarUrl = $attributes['avatar_url'] . '.jpg';
                 $this->name = $attributes['name'];
                 $this->email = $attributes['email'];
+                break;
+
+            case 'google':
+                $this->openId = $attributes['id'];
+                $this->avatarUrl = str_replace("?sz=50", "", $attributes['image']['url']);
+                $this->name = $attributes['displayName'];
+                $this->email = $attributes['emails'][0]['value'];
                 break;
 
             default:
