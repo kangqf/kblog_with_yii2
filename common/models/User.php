@@ -100,15 +100,15 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         return [
             [['status'], 'default', 'value' => self::STATUS_ACTIVE],
             [['role'], 'default', 'value' => self::ROLE_USER],
-            ['role', 'in', 'range' => [self::ROLE_SUPERADMIN,self::ROLE_USER]],
+            ['role', 'in', 'range' => [self::ROLE_SUPERADMIN, self::ROLE_USER]],
             // [['auth_key', 'password_hash', 'role', 'status', 'email',
             // 'created_time', 'updated_time'], 'required', 'message'=>'用户信息不完整'],
-            [['login_count', 'created_time', 'updated_time', 'role','status', 'open_id'], 'integer'],
+            [['login_count', 'created_time', 'updated_time', 'role', 'status',], 'integer', 'message' => '用户信息格式错误'],
             [['username'], 'string', 'max' => 30],
             [['password'], 'string', 'max' => 64],
             [['email'], 'string', 'max' => 50],
-            [['email'],'email'],
-            [['email'], 'unique', 'message'=>'该邮箱已被注册'],
+            [['email'], 'email'],
+            [['email'], 'unique', 'message' => '该邮箱已被注册'],
             [['avatar'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['password_hash', 'password_reset_token'], 'string', 'max' => 255],
@@ -131,15 +131,15 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         //$scenarios['login'] = ['username', 'password'];
         return [
 
-            'signup' => ['username','email', 'password','avatar','open_id','status', 'role','auth_key'],
-             'login' => ['login_count'],
+            'signup' => ['username', 'email', 'password', 'avatar', 'open_id', 'status', 'role', 'auth_key'],
+            'login' => ['login_count'],
             // 'updated' => ['username', 'password'],
             // 'password_reset_request' => ['email'],
             // 'reset_password' => ['password'],
             // 'updated' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
             // 'created' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
             // 'delete' => [],
-            ];
+        ];
     }
 
     /**
@@ -156,21 +156,20 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
             'avatar' => '头像',
             'login_count' => '登陆次数',
             'created_time' => '创建时间',
-            'updated_time'=> '上次登录时间',
+            'updated_time' => '上次登录时间',
             'status' => '状态',
             'role' => '级别',
             'open_id' => '第三方ID',
-            'auth_key' =>'授权密钥',
+            'auth_key' => '授权密钥',
             'password_hash' => '哈希密码',
             'password_reset_token' => '重设访问令牌',
         ];
     }
 
 
-
     /**
-	   * 通过用户名查找用户身份
-     * @param  string      $username
+     * 通过用户名查找用户身份
+     * @param  string $username
      * @return static|null
      */
     public static function findByUsername($username)
@@ -181,7 +180,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
 
     /**
      * 通过邮箱查找用户
-     * @param  string      $email
+     * @param  string $email
      * @return static|null
      */
     public static function findByEmail($email)
@@ -203,7 +202,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
 
     /**
      * 验证密码
-     * @param  string  $password
+     * @param  string $password
      * @return boolean
      */
     public function validatePassword($password)
@@ -228,7 +227,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         $this->auth_key = Yii::$app->getSecurity()->generateRandomString();
     }
 
-     /**
+    /**
      * 生成重置令牌
      */
     public function generatePasswordResetToken()
@@ -243,8 +242,6 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         $this->password_reset_token = null;
     }
-
-
 
 
     /**
@@ -278,7 +275,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
             self::ROLE_SUPERMANAGER => '超级主管',
             self::ROLE_ADMIN => '管理员',
             self::ROLE_SUPERADMIN => '超级管理员'
-            ];
+        ];
     }
 
     /**
@@ -303,10 +300,8 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
             self::STATUS_INACTIVE => '未激活',
             self::STATUS_BANNED => '冻结',
             self::STATUS_DELETED => '删除',
-            ];
+        ];
     }
-
-
 
 
     /**
@@ -323,7 +318,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      * @inheritdoc
      * 必须继承的方法2，通过访问令牌查找用户身份，未实现
      */
-    public static function findIdentityByAccessToken($token,$type = null)
+    public static function findIdentityByAccessToken($token, $type = null)
     {
         //return static::findOne(['access_token' => $token]);
         throw new NotSupportedException('"findIdentityByAccessToken" 没有被实现.');

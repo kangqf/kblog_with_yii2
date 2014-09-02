@@ -51,7 +51,6 @@ class SignupForm extends \yii\base\Model
     public function attributeLabels()
     {
         return [
-            //'username' => Yii::t('site/user', 'Имя пользователя'),
             'email' => '邮箱',
             'password' => '密码',
             'checkPassword' => '确认密码',
@@ -75,13 +74,12 @@ class SignupForm extends \yii\base\Model
             $user->setHashPassword($this->password);
             $user->generateAuthKey();
             $user->password = md5($this->password);
-            $user->avatar = $this->saveAvatar(UploadedFile::getInstance($this, 'avatar'));
-            if (isset($this->openId))
-                $user->open_id = $this->openId;
-
+            $user->avatar = UploadedFile::getInstance($this, 'avatar') ? $this->saveAvatar(UploadedFile::getInstance($this, 'avatar')) : md5($this->email);
+            $user->open_id = $this->openId ? $this->openId : '0';
             if ($user->save()) {
                 return $user;
             } else {
+                echo "<script> window.alert(\"完成注册失败，请检查你的填写\");</script>";
                 return false;
             }
             // dump($user->save());

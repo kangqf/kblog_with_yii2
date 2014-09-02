@@ -73,6 +73,7 @@ class KblogController extends \yii\web\Controller
     {
         $loginModel = new LoginForm();
         if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login()) {
+            echo "<script> window.alert(\"登陆成功，即将跳转到前页\");</script>";
             return $this->goBack();
         } else {
             return $this->render('login', ['loginModel' => $loginModel]);
@@ -99,6 +100,7 @@ class KblogController extends \yii\web\Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
+        echo "<script> window.alert(\"注销成功，即将跳转到首页\");</script>";
         return $this->goHome();
     }
 
@@ -111,7 +113,7 @@ class KblogController extends \yii\web\Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
-                    // echo "<script> window.alert(\"注册成功，即将跳转到首页\");</script>";
+                    echo "<script> window.alert(\"注册成功，即将跳转到首页\");</script>";
                     return $this->goHome();
                 }
             }
@@ -127,11 +129,12 @@ class KblogController extends \yii\web\Controller
     public function actionSignupFinish($email, $openid, $username, $avatar)
     {
         $signupModel = new SignupForm();
-        $signupModel->avatar = $avatar; //Yii::getAlias("@webroot/avatar/") .
-        $signupModel->email = $email;
-        $signupModel->username = $username;
-        $signupModel->openId = $openid;
-
+        if (!empty($openid)) {
+            $signupModel->avatar = $avatar;
+            $signupModel->email = $email;
+            $signupModel->username = $username;
+            $signupModel->openId = $openid;
+        }
         if ($signupModel->load(Yii::$app->request->post())) {
             if ($user = $signupModel->signup()) {
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
@@ -144,8 +147,6 @@ class KblogController extends \yii\web\Controller
             }
         }
         return $this->render('signupFinish', ['model' => $signupModel,]);
-
-        // dump($signupModel);die();
     }
 
     //第三方登陆回调函数
@@ -158,21 +159,18 @@ class KblogController extends \yii\web\Controller
             $user = User::findByOpenId($openUser->openId);
             //曾进行过第三方登陆
             if ($user != null) {
-                if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
-
-                    return true;
+                $user->scenario = 'login';
+                $user->login_count++;
+                if ($user->save()) {
+                    if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
+                        return true;
+                    }
                 }
             } //未曾进行过第三方登陆
             else {
                 $avatarFileName = $openUser->grabImage();
                 if ($avatarFileName) {
-//                    $signupModel = new SignupForm();
-//                    $signupModel->avatar = Yii::getAlias("@webroot/avatar/") . $avatarFileName;
-//                    $signupModel->email = $openUser->email;
-//                    $signupModel->username = $openUser->name;
-//                    $signupModel->openId = $openUser->openId;
                     echo "<script type=\'text/javascript\'> window.alert(\"第三方验证成功，即将关闭当前窗口，并跳转到完成注册页面\");</script>";
-                    // $this->redirect('index');
                     $this->redirect(['signup-finish', 'email' => $openUser->email, 'openid' => $openUser->openId, 'username' => $openUser->name, 'avatar' => $avatarFileName]);
 
                 } else {
