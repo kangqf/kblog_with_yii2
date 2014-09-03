@@ -13,11 +13,49 @@ use Yii;
 use common\models\OpenUser;
 use common\models\AvatarFile;
 
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+
 
 use frontend\models\Category;
 
 class KblogController extends \yii\web\Controller
 {
+
+    public function behaviors()
+    {
+        return [
+            //ACF的配置
+            'access' => [
+                'class' => AccessControl::className(),
+                //ACF错误回调函数
+//                'denyCallback' => function () {
+//                        throw new \Exception('You are not allowed to access this page 您没有被允许访问这个页面！');
+//                    },
+                'only' => ['logout', 'signup', 'login'],
+                'rules' => [
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'], //@代表已授权用户，?代表未授权用户（访客）
+                    ],
+                    [
+                        'actions' => ['signup', 'signup-finish', 'login'],
+                        'allow' => true,
+                        'roles' => ['?'], //@代表已授权用户，?代表未授权用户（访客）
+                    ],
+                ],
+            ],
+
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['get'],
+                ],
+            ],
+
+        ];
+    }
 
     public function actions()
     {

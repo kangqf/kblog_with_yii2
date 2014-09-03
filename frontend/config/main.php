@@ -102,6 +102,13 @@ return [
             'errorAction' => 'kblog/error',
         ],
 
+        // RBAC 授权管理器配置
+        // 授权管理器现在可以通过\Yii::$app->authManager来访问
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager', //yii\rbac\DbManager
+            'defaultRoles' => ['guest'],
+        ],
+
 
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
