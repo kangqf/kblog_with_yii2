@@ -16,6 +16,9 @@ use common\models\AvatarFile;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 
+use frontend\models\PasswordResetRequestForm;
+use frontend\models\ResetPasswordForm;
+
 
 use frontend\models\Category;
 
@@ -96,7 +99,7 @@ class KblogController extends \yii\web\Controller
     {
         $loginModel = new LoginForm();
         if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login()) {
-            echo "<script> window.alert(\"登陆成功，即将跳转到前页\");</script>";
+            echo "<script type=\'text/javascript\' charset=\'gb2312\'> window.alert(\"登陆成功，即将跳转到前页\");</script>";
             return $this->goBack();
         } else {
             return $this->render('login', ['loginModel' => $loginModel]);
@@ -136,7 +139,7 @@ class KblogController extends \yii\web\Controller
         if ($model->load(Yii::$app->request->post())) {
             if ($user = $model->signup()) {
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
-                    echo "<script> window.alert(\"注册成功，即将跳转到首页\");</script>";
+                    echo "<script type=\'text/javascript\' charset=\'gb2312\'> window.alert(\"注册成功，即将跳转到首页\");</script>";
                     return $this->goHome();
                 }
             }
@@ -161,7 +164,7 @@ class KblogController extends \yii\web\Controller
         if ($signupModel->load(Yii::$app->request->post())) {
             if ($user = $signupModel->signup($avatar)) {
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
-                    echo "<script> window.alert(\"注册成功，即将跳转到首页\");</script>";
+                    echo "<script type=\'text/javascript\' charset=\'gb2312\'> window.alert(\"注册成功，即将跳转到首页\");</script>";
                     $response = Yii::$app->getResponse();
                     $redirectPath = Yii::getAlias("@frontend/themes/default/views/kblog/") . 'redirect.php';
                     $response->content = Yii::$app->getView()->renderFile($redirectPath, ['url' => 'index', 'enforceRedirect' => true]);
@@ -192,17 +195,56 @@ class KblogController extends \yii\web\Controller
                 }
             } //未曾进行过第三方登陆
             else {
+                $openUser->storeInfo($client);
                 $avatarFileName = $openUser->grabImage();
                 if ($avatarFileName) {
-                    echo "<script type=\'text/javascript\'> window.alert(\"第三方验证成功，即将关闭当前窗口，并跳转到完成注册页面\");</script>";
+                    echo "<script type=\'text/javascript\' charset=\'gb2312\'> window.alert(\"第三方验证成功，即将关闭当前窗口，并跳转到完成注册页面\");</script>";
                     $this->redirect(['signup-finish', 'email' => $openUser->email, 'openid' => $openUser->openId, 'username' => $openUser->name, 'avatar' => $avatarFileName]);
 
                 } else {
-                    echo "<script> window.alert(\"第三方登录抓取图片失败，即将关闭当前窗口，并跳转到首页\");</script>";
+                    echo "<script type=\'text/javascript\' charset=\'gb2312\'> window.alert(\"第三方登录抓取图片失败，即将关闭当前窗口，并跳转到首页\");</script>";
                     return false;
                 }
             }
         }
+    }
+
+
+    public function actionRequestPasswordReset()
+    {
+        $model = new PasswordResetRequestForm();
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            if ($model->sendEmail()) {
+                Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
+
+                return $this->goHome();
+            } else {
+                Yii::$app->getSession()->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+            }
+        }
+
+        return $this->render('requestPasswordResetToken', [
+            'model' => $model,
+        ]);
+    }
+
+    public function actionResetPassword($token)
+    {
+        try {
+            $model = new ResetPasswordForm($token);
+        } catch (InvalidParamException $e) {
+            throw new BadRequestHttpException($e->getMessage());
+        }
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+            Yii::$app->getSession()->setFlash('success', 'New password was saved.');
+
+            return $this->goHome();
+        }
+
+        return $this->render('resetPassword', [
+            'model' => $model,
+        ]);
     }
 
 

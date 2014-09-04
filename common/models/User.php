@@ -134,8 +134,8 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
             'signup' => ['username', 'email', 'password', 'avatar', 'open_id', 'status', 'role', 'auth_key'],
             'login' => ['login_count'],
             // 'updated' => ['username', 'password'],
-            // 'password_reset_request' => ['email'],
-            // 'reset_password' => ['password'],
+            'password_reset_request' => ['email'],
+            'reset_password' => ['password'],
             // 'updated' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
             // 'created' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
             // 'delete' => [],
@@ -301,6 +301,28 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
             self::STATUS_BANNED => '冻结',
             self::STATUS_DELETED => '删除',
         ];
+    }
+
+    /**
+     * Finds user by password reset token
+     *
+     * @param  string $token password reset token
+     * @return static|null
+     */
+    public static function findByPasswordResetToken($token)
+    {
+        $expire = \Yii::$app->params['user.passwordResetTokenExpire'];
+        $parts = explode('_', $token);
+        $timestamp = (int)end($parts);
+        if ($timestamp + $expire < time()) {
+            // token expired
+            return null;
+        }
+
+        return static::findOne([
+            'password_reset_token' => $token,
+            'status' => self::STATUS_ACTIVE,
+        ]);
     }
 
 

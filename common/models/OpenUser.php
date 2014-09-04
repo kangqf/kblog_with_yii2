@@ -11,6 +11,7 @@ class OpenUser
     public $avatarUrl;
     public $name;
     public $email;
+    public $attributes;
 
     function __construct($client)
     {
@@ -52,6 +53,12 @@ class OpenUser
                 break;
 
         }
+    }
+
+    public function storeInfo($client)
+    {
+        $collection = Yii::$app->mongodb->getCollection('open_user_info');
+        $collection->insert($client->getUserAttributes());
     }
 
     public function grabImage($url = "", $filename = "", $path = "")
