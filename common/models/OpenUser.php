@@ -69,7 +69,7 @@ class OpenUser
 
         if ($filename == "") {
             //我就随便将图片文件名保存为时间戳了，你可自行修改
-            $filename = time() . $extName;
+            $filename = date('YmdHis') . md5($this->email) . $extName;
         }
         if ($path == "") {
             $path = Yii::getAlias("@webroot/avatar/");

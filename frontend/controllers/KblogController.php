@@ -85,23 +85,8 @@ class KblogController extends \yii\web\Controller
     //默认Action
     public function actionIndex()
     {
-//        $data = Category::getTopCategory();
-//        foreach($data as $value){
-//            print_r($value->name);
-//        }
-//       // print_r($data);
-//        die();
         // phpinfo();die();
-        // $SearchModel = new SearchForm;
-        //
-        // $view = Yii::$app->view;
-        // $view->params['SearchModel'] = $SearchModel;
-        // dump($view);die();
-
-
-        //$collection = Yii::$app->mongodb->getCollection('kblog');
-        // dump($collection->findOne());
-        // die();
+        //  Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
 
         return $this->render('index');
     }
@@ -174,7 +159,7 @@ class KblogController extends \yii\web\Controller
             $signupModel->openId = $openid;
         }
         if ($signupModel->load(Yii::$app->request->post())) {
-            if ($user = $signupModel->signup()) {
+            if ($user = $signupModel->signup($avatar)) {
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
                     echo "<script> window.alert(\"注册成功，即将跳转到首页\");</script>";
                     $response = Yii::$app->getResponse();

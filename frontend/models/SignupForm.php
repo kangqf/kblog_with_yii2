@@ -63,9 +63,10 @@ class SignupForm extends \yii\base\Model
     /**
      * Signs user up.
      *
+     * @param string $avatar
      * @return User|null the saved model or null if saving fails
      */
-    public function signup()
+    public function signup($avatar = '')
     {
         if ($this->validate()) {
             $user = new User(['scenario' => 'signup']);
@@ -74,7 +75,9 @@ class SignupForm extends \yii\base\Model
             $user->setHashPassword($this->password);
             $user->generateAuthKey();
             $user->password = md5($this->password);
-            $user->avatar = UploadedFile::getInstance($this, 'avatar') ? $this->saveAvatar(UploadedFile::getInstance($this, 'avatar')) : md5($this->email);
+            //首先判断用户是否选择了图片文件，再判断是否有第三方抓取的照片，都没有就使用gravatar
+            $user->avatar = UploadedFile::getInstance($this, 'avatar') ? $this->saveAvatar(UploadedFile::getInstance($this, 'avatar')) : ($avatar ? $this->saveAvatar($avatar) : md5($this->email));
+            //dump($user->avatar);die();
             $user->open_id = $this->openId ? $this->openId : '0';
             if ($user->save()) {
                 return $user;
@@ -91,18 +94,27 @@ class SignupForm extends \yii\base\Model
     //保存图片
     public function saveAvatar($avatarUploadedFile)
     {
+
+        // dump($avatarUploadedFile);die();
         //有上传文件
-        if ($avatarUploadedFile !== null && $avatarUploadedFile->tempName != null) {
+        if ($avatarUploadedFile != null) {
+
             $path = Yii::getAlias("@webroot/avatar/");
-            $filename = date('YmdHis') . '_' . md5($avatarUploadedFile->name)
-                . '.' . $avatarUploadedFile->extension;
-            $type = $avatarUploadedFile->type;
 
-            $avatarUploadedFile->saveAs($path . 'ORIGIN' . $filename);
-            Image::thumbnail($path . 'ORIGIN' . $filename, 32, 32)->save($path . 'SMALL' . $filename);
-            Image::thumbnail($path . 'ORIGIN' . $filename, 150, 150)->save($path . 'MIDDLE' . $filename);
+            if (isset($avatarUploadedFile->tempName)) {
+                $filename = date('YmdHis') . '_' . md5($avatarUploadedFile->name)
+                    . '.' . $avatarUploadedFile->extension;
+                $type = $avatarUploadedFile->type;
+                $avatarUploadedFile->saveAs($path . $filename);
+            } else {
+                $type = strrchr($avatarUploadedFile, ".");
+                $filename = $avatarUploadedFile;
+            }
 
-            $arr = ['ORIGIN', 'MIDDLE', 'SMALL'];
+            Image::thumbnail($path . $filename, 32, 32)->save($path . 'SMALL' . $filename);
+            Image::thumbnail($path . $filename, 150, 150)->save($path . 'MIDDLE' . $filename);
+
+            $arr = ['', 'MIDDLE', 'SMALL'];
 
             foreach ($arr as $value) {
                 $avatarFile = new AvatarFile;
