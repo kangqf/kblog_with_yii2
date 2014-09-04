@@ -11,18 +11,42 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+
+
+    //yii2-admin所用组件
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'admin/*', // add or remove allowed actions to this list
+        ],
+    ],
+
+    //模块
+    'modules' => [
+        //https://github.com/mdmsoft/yii2-admin
+        'admin' => [
+            'class' => 'mdm\admin\Module',
+        ],
+    ],
     'components' => [
 
+        //授权管理
+        'authManager' => [
+            'class' => 'yii\rbac\PhpManager', // or use 'yii\rbac\DbManager'
+        ],
+
+        //路由控制器
         'urlManager' => [
           'enablePrettyUrl' => true,
           'showScriptName' => false,
-          'suffix' => '.html',
-          'rules' => [
+            // 'suffix' => '.html',
+            'rules' => [
               ['class' => 'yii\rest\UrlRule', 'controller' => 'kblog'],
 
           ],
         ],
+
+
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-d0CtO5UOtyeO3hSTkB9hVBXgFiD00wl',

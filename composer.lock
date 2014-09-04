@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "5569e97d00ba031a866a9086f34534e7",
+    "hash": "b3c08399e546427b873c930ab218eb49",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -1189,6 +1189,51 @@
                 "yii2"
             ],
             "time": "2014-07-31 07:59:31"
+        },
+        {
+            "name": "mdmsoft/yii2-admin",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mdmsoft/yii2-admin.git",
+                "reference": "61dcf6c47a3952772539b490cfc90eee4191b3b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mdmsoft/yii2-admin/zipball/61dcf6c47a3952772539b490cfc90eee4191b3b4",
+                "reference": "61dcf6c47a3952772539b490cfc90eee4191b3b4",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "*",
+                "yiisoft/yii2-jui": "*"
+            },
+            "suggest": {
+                "yiisoft/yii2-bootstrap": "Use for display"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "mdm\\admin\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Misbahul Munir",
+                    "email": "misbahuldmunir@gmail.com"
+                }
+            ],
+            "description": "Auth manager for Yii2 ",
+            "keywords": [
+                "admin",
+                "auth",
+                "yii"
+            ],
+            "time": "2014-09-01 11:24:41"
         },
         {
             "name": "swiftmailer/swiftmailer",

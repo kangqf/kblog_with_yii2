@@ -20,7 +20,7 @@
         "yiisoft/yii2-swiftmailer": "*",
 
         "yiisoft/yii2-mongodb": "*",
-		    "kartik-v/yii2-widgets": "*",
+        "kartik-v/yii2-widgets": "*",
         "kartik-v/yii2-grid": "dev-master",
         "kartik-v/yii2-datecontrol": "dev-master",
         "kartik-v/yii2-detail-view": "dev-master",
@@ -28,7 +28,8 @@
         "kartik-v/yii2-nav-x": "dev-master",
         "warrence/yii2-kartikgii": "dev-master",
         "yiisoft/yii2-authclient": "*",
-        "yiisoft/yii2-imagine": "*"
+        "yiisoft/yii2-imagine": "*",
+        "mdmsoft/yii2-admin": "*"
 
     },
     "require-dev": {
