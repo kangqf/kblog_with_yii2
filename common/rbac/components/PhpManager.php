@@ -5,16 +5,24 @@ use Yii;
 use yii\rbac\Role;
 
 /**
- * Файловый компонент модуля [[RBAC]]
+ * 模块组件 [[RBAC]]
  */
 class PhpManager extends \yii\rbac\PhpManager
 {
 	/**
 	 * @inheritdoc
 	 */
-	public $authFile = '@common/modules/user/modules/rbac/data/rbac.php';
+    //authFile已经被废除
+    //public $authFile = '@common/rbac/data/rbac.php';
 
-	/**
+    public $itemFile = '@common/rbac/data/items.php';
+
+    public $assignmentFile = '@common/rbac/data/assignments.php';
+
+    public $ruleFile = '@common/rbac/data/rules.php';
+
+
+    /**
 	 * @inheritdoc
 	 */
     public function init()

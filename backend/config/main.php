@@ -13,29 +13,38 @@ return [
     'bootstrap' => ['log'],
 
 
-    //yii2-admin所用组件
-    'as access' => [
-        'class' => 'mdm\admin\components\AccessControl',
-        'allowActions' => [
-            'admin/*', // add or remove allowed actions to this list
-        ],
-    ],
+    //yii2-admin所用组件 除了allowActions里面的内容全部都需要经过这里的检查
+//    'as access' => [
+//        'class' => 'mdm\admin\components\AccessControl',
+//        'allowActions' => [
+//            '*',
+//           // 'admin/*', // add or remove allowed actions to this list
+//           //  'site/*',
+//        ],
+//    ],
 
     //模块
     'modules' => [
 
-        //https://github.com/mdmsoft/yii2-admin
-        'admin' => [
-            'class' => 'mdm\admin\Module',
-            'layout' => 'left-menu', // or right-menu
-            'allowActions' => [
-                '*'
-            ],
-        ],
+        //yii2所用模块https://github.com/mdmsoft/yii2-admin
+//        'admin' => [
+//            'class' => 'mdm\admin\Module',
+//            'layout' => 'left-menu', // or right-menu
+//            'allowActions' => [
+//                '*'
+//            ],
+//        ],
 
 
     ],
     'components' => [
+
+        //用户验证的类
+        'user' => [
+            'identityClass' => 'common\models\User',
+            'enableAutoLogin' => true,
+            'loginUrl' => ['site/login'],
+        ],
 
         //路由控制器
         'urlManager' => [

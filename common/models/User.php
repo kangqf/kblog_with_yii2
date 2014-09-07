@@ -265,16 +265,16 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         return [
             self::ROLE_USER => '用户',
-            self::ROLE_ORG => '员工',
-            self::ROLE_ORGLEADER => '经理',
-            self::ROLE_FIN => '金融管理者',
-            self::ROLE_ANALYTIC => '分析师',
-            self::ROLE_OPERATOR => '维护人员',
-            self::ROLE_MANAGER => '管理',
-            self::ROLE_MANAGLEADER => '主管',
-            self::ROLE_SUPERMANAGER => '超级主管',
-            self::ROLE_ADMIN => '管理员',
-            self::ROLE_SUPERADMIN => '超级管理员'
+            self::ROLE_ORG => '运营商（合作伙伴）-9',
+            self::ROLE_ORGLEADER => '经理（合伙人）-8',
+            self::ROLE_FIN => '财务-7',
+            self::ROLE_ANALYTIC => '数据分析师-6',
+            self::ROLE_OPERATOR => '运营商-5',
+            self::ROLE_MANAGER => '经理-4',
+            self::ROLE_MANAGLEADER => '领导-3',
+            self::ROLE_SUPERMANAGER => '高级领导-2',
+            self::ROLE_ADMIN => '管理员-1',
+            self::ROLE_SUPERADMIN => '超级管理员-0'
         ];
     }
 

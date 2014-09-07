@@ -11,12 +11,12 @@ return [
 
         //授权管理
         'authManager' => [
-            //'class' => 'yii\rbac\PhpManager', // or use 'yii\rbac\DbManager'
+            'class' => 'common\rbac\components\PhpManager', // 'yii\rbac\PhpManager', // or use 'yii\rbac\DbManager'
             //'authFile' => '@app/runtime/rbac.php'
 //            'itemFile' => '@vova07/rbac/data/items.php',
 //            'assignmentFile' => '@vova07/rbac/data/assignments.php',
 //            'ruleFile' => '@vova07/rbac/data/rules.php',
-            // 'defaultRoles' => ['guest'],
+            'defaultRoles' => ['guest'],
         ],
 
         'cache' => ['class' => 'yii\caching\FileCache', ],
