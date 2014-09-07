@@ -1,28 +1,33 @@
 <?php
 return [
     'items' => [
+
+        //许可的配置
         'accessFrontend' => [
             'type' => 2,
-            'description' => 'Доступ к основному сайту',
+            'description' => '进入前台主网站',
         ],
         'accessUserData' => [
             'type' => 2,
-            'description' => 'Доступ к данным пользователя',
+            'description' => '访问用户数据',
         ],
         'accessBackend' => [
             'type' => 2,
-            'description' => 'Доступ к бекенду',
+            'description' => '访问后端',
         ],
+
+
+        //角色的配置
         'guest' => [
             'type' => 1,
-            'description' => 'Гость',
+            'description' => '游客',
             'children' => [
                 'accessFrontend',
             ],
         ],
         10 => [
             'type' => 1,
-            'description' => 'Пользователь',
+            'description' => '用户',
             'children' => [
                 'guest',
                 'accessUserData',
@@ -30,7 +35,7 @@ return [
         ],
         9 => [
             'type' => 1,
-            'description' => 'Оператор (партнер)',
+            'description' => '运营商（合作伙伴）',
             'children' => [
                 10,
                 'accessBackend',
@@ -38,14 +43,14 @@ return [
         ],
         8 => [
             'type' => 1,
-            'description' => 'Менеджер (партнер)',
+            'description' => '经理（合伙人）',
             'children' => [
                 9,
             ],
         ],
         7 => [
             'type' => 1,
-            'description' => 'Финансист',
+            'description' => '财务',
             'children' => [
                 10,
                 'accessBackend',
@@ -53,7 +58,7 @@ return [
         ],
         6 => [
             'type' => 1,
-            'description' => 'Аналитик',
+            'description' => '数据分析师',
             'children' => [
                 10,
                 'accessBackend',
@@ -61,7 +66,7 @@ return [
         ],
         5 => [
             'type' => 1,
-            'description' => 'Оператор',
+            'description' => '运营商',
             'children' => [
                 10,
                 'accessBackend',
@@ -69,35 +74,35 @@ return [
         ],
         4 => [
             'type' => 1,
-            'description' => 'Mенеджер',
+            'description' => '经理',
             'children' => [
                 5,
             ],
         ],
         3 => [
             'type' => 1,
-            'description' => 'Руководство',
+            'description' => '领导',
             'children' => [
                 4,
             ],
         ],
         2 => [
             'type' => 1,
-            'description' => 'Суперменеджер',
+            'description' => '高级领导',
             'children' => [
                 3,
             ],
         ],
         1 => [
             'type' => 1,
-            'description' => 'Администратор',
+            'description' => '管理员',
             'children' => [
                 2,
             ],
         ],
         0 => [
             'type' => 1,
-            'description' => 'Супер-админ',
+            'description' => '超级管理员',
             'children' => [
                 1,
             ],
@@ -108,5 +113,7 @@ return [
             ],
         ],
     ],
+
     'rules' => [],
+
 ];

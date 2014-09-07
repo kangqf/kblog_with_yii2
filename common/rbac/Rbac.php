@@ -1,9 +1,9 @@
 <?php
-namespace common\modules\user\modules\rbac;
+namespace common\rbac;
 
 /**
- * Общий-модуль [[RBAC]]
- * Контролирует права пользователей на сайте.
+ * 总模块 [[RBAC]]
+ * 控制网站上的用户权限.
  */
 class Rbac extends \yii\base\Module
 {

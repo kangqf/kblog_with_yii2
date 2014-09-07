@@ -1,5 +1,5 @@
 <?php
-namespace common\modules\user\modules\rbac\components;
+namespace common\rbac\components;
 
 use Yii;
 use yii\rbac\Role;

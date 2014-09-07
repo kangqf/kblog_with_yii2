@@ -25,6 +25,7 @@ $SearchModel = new SearchForm;
 <head>
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head(); ?>
@@ -88,7 +89,7 @@ $SearchModel = new SearchForm;
         ]);?>
 
     <ul class="col-md-2 col-sm-2 col-md-offset-0 col-sm-offset-0 kqf-search-form">
-    <?php //竖直
+        <?php //竖直
         $form = ActiveForm::begin(['action' => '/kblog/search', 'type' => ActiveForm::TYPE_HORIZONTAL, 'formConfig' => ['deviceSize' => ActiveForm::SIZE_SMALL],]);
         ?>
 

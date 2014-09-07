@@ -23,17 +23,19 @@ return [
 
     //模块
     'modules' => [
+
         //https://github.com/mdmsoft/yii2-admin
         'admin' => [
             'class' => 'mdm\admin\Module',
+            'layout' => 'left-menu', // or right-menu
+            'allowActions' => [
+                '*'
+            ],
         ],
+
+
     ],
     'components' => [
-
-        //授权管理
-        'authManager' => [
-            'class' => 'yii\rbac\PhpManager', // or use 'yii\rbac\DbManager'
-        ],
 
         //路由控制器
         'urlManager' => [
