@@ -14,26 +14,26 @@ return [
 
 
     //yii2-admin所用组件 除了allowActions里面的内容全部都需要经过这里的检查
-//    'as access' => [
-//        'class' => 'mdm\admin\components\AccessControl',
-//        'allowActions' => [
-//            '*',
-//           // 'admin/*', // add or remove allowed actions to this list
-//           //  'site/*',
-//        ],
-//    ],
+    'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+           // '*',
+            'admin/*', // add or remove allowed actions to this list
+           //  'site/*',
+        ],
+    ],
 
     //模块
     'modules' => [
 
         //yii2所用模块https://github.com/mdmsoft/yii2-admin
-//        'admin' => [
-//            'class' => 'mdm\admin\Module',
-//            'layout' => 'left-menu', // or right-menu
-//            'allowActions' => [
-//                '*'
-//            ],
-//        ],
+        'admin' => [
+            'class' => 'mdm\admin\Module',
+            'layout' => 'left-menu', // or right-menu
+            'allowActions' => [
+                '*'
+            ],
+        ],
 
 
     ],
@@ -52,7 +52,7 @@ return [
           'showScriptName' => false,
             // 'suffix' => '.html',
             'rules' => [
-              ['class' => 'yii\rest\UrlRule', 'controller' => 'kblog'],
+              ['class' => 'yii\rest\UrlRule', 'controller' => 'site'],
 
           ],
         ],
