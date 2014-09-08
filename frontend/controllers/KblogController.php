@@ -90,6 +90,8 @@ class KblogController extends \yii\web\Controller
     {
         // phpinfo();die();
         //  Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
+        // dump(Yii::$app->getAuthManager()->checkAccess());die();
+        // dump(Yii::$app->user->can("accessBackend"));die();
 
         return $this->render('index');
     }

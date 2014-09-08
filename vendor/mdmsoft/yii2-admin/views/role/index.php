@@ -22,7 +22,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?php
     Pjax::begin([
-        'enablePushState'=>false,
+        'enablePushState' => true,
     ]);
     echo GridView::widget([
         'dataProvider' => $dataProvider,

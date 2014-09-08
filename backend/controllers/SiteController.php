@@ -55,6 +55,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+        dump(Yii::$app->getAuthManager());
+        die();
         return $this->render('index');
     }
 

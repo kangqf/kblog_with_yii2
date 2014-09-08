@@ -38,10 +38,11 @@ class RoleController extends Controller
     {
         $searchModel = new AuthItemSearch(['type' => Item::TYPE_ROLE]);
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
+        // dump($dataProvider);die();
 
         return $this->render('index', [
-                'dataProvider' => $dataProvider,
-                'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
+            'searchModel' => $searchModel,
         ]);
     }
 
@@ -52,7 +53,7 @@ class RoleController extends Controller
      */
     public function actionView($id)
     {
-        $model = $this->findModel($id);
+        $model = $this->findModel(10 - $id);
         $authManager = Yii::$app->getAuthManager();
         $avaliable = $assigned = [
             'Roles' => [],
@@ -219,9 +220,9 @@ class RoleController extends Controller
     /**
      * Finds the AuthItem model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param  string        $id
+     * @param  string $id
+     * @throws \yii\web\NotFoundHttpException
      * @return AuthItem      the loaded model
-     * @throws HttpException if the model cannot be found
      */
     protected function findModel($id)
     {

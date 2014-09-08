@@ -39,7 +39,7 @@ $SearchModel = new SearchForm;
     NavBar::begin
         ([
             'brandLabel' => Yii::$app->name,
-            'brandUrl' => Yii::$app->urlManagerBackend->createUrl(['/site/login']),
+            'brandUrl' => Yii::$app->user->can("accessBackend") ? Yii::$app->urlManagerBackend->createUrl(['/site/index']) : ['index'],
             'brandOptions' => ['id' => 'brand', 'class' => 'pull-left',],
             'options' => ['class' => 'navbar-inverse', 'id' => 'navbar'],
         ]);

@@ -3,7 +3,7 @@ $params = array_merge(
     require(__DIR__ . '/../../common/config/params.php'),
     //require(__DIR__ . '/../../common/config/params-local.php'),
     require(__DIR__ . '/params.php')
-    //require(__DIR__ . '/params-local.php')
+//require(__DIR__ . '/params-local.php')
 );
 
 return [
@@ -17,9 +17,9 @@ return [
     'as access' => [
         'class' => 'mdm\admin\components\AccessControl',
         'allowActions' => [
-           // '*',
-            'admin/*', // add or remove allowed actions to this list
-           //  'site/*',
+            '*',
+            // 'admin/*', // add or remove allowed actions to this list
+            //  'site/*',
         ],
     ],
 
@@ -30,9 +30,9 @@ return [
         'admin' => [
             'class' => 'mdm\admin\Module',
             'layout' => 'left-menu', // or right-menu
-            'allowActions' => [
-                '*'
-            ],
+//            'allowActions' => [
+//                '*'
+//            ],
         ],
 
 
@@ -48,13 +48,13 @@ return [
 
         //路由控制器
         'urlManager' => [
-          'enablePrettyUrl' => true,
-          'showScriptName' => false,
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
             // 'suffix' => '.html',
             'rules' => [
-              ['class' => 'yii\rest\UrlRule', 'controller' => 'site'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'site'],
 
-          ],
+            ],
         ],
 
 
