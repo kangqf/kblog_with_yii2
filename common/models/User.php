@@ -325,6 +325,19 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         ]);
     }
 
+    public static function findByAuthKey($token)
+    {
+        if ($token) {
+            return static::findOne([
+                'auth_key' => $token,
+                'status' => self::STATUS_ACTIVE,
+            ]);
+        } else {
+            return false;
+        }
+
+    }
+
 
     /**
      * @inheritdoc

@@ -7,7 +7,9 @@ $params = array_merge(
 );
 
 return [
-    'id' => 'app-backend',
+    'id' => 'KBlogBackend',
+
+
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
@@ -34,9 +36,8 @@ return [
 //                '*'
 //            ],
         ],
-
-
     ],
+
     'components' => [
 
         //用户验证的类
@@ -57,15 +58,25 @@ return [
             ],
         ],
 
+        //前台路由管理
+        'urlManagerFrontend' => [
+            'class' => 'yii\web\urlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            // 'suffix' => '.html',
+            'baseUrl' => $params['frontendDomain'],
+            'hostInfo' => $params['frontendDomain'],
+            'rules' => [
+
+            ],
+        ],
+
 
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-d0CtO5UOtyeO3hSTkB9hVBXgFiD00wl',
         ],
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-        ],
+
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -79,5 +90,7 @@ return [
             'errorAction' => 'site/error',
         ],
     ],
+
     'params' => $params,
+
 ];

@@ -4,7 +4,7 @@ namespace backend\controllers;
 use Yii;
 use yii\filters\AccessControl;
 use yii\web\Controller;
-use common\models\LoginForm;
+use common\models\User;
 use yii\filters\VerbFilter;
 
 /**
@@ -18,20 +18,21 @@ class SiteController extends Controller
     public function behaviors()
     {
         return [
-//            'access' => [
-//                'class' => AccessControl::className(),
-//                'rules' => [
-//                    [
-//                        'actions' => ['login', 'error'],
-//                        'allow' => true,
-//                    ],
-//                    [
-//                        'actions' => ['logout', 'index'],
-//                        'allow' => true,
-//                        'roles' => ['@'],
-//                    ],
-//                ],
-//            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['login', 'error', 'logout', 'index',],
+                'rules' => [
+                    [
+                        'actions' => ['login', 'error'],
+                        'allow' => true,
+                    ],
+                    [
+                        'actions' => ['logout', 'index'],
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
@@ -53,11 +54,19 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex()
+    public function actionIndex($user)
     {
-        dump(Yii::$app->getAuthManager());
+
+        dump(Yii::$app->getRequest()->url);
         die();
-        return $this->render('index');
+
+        $userInfo = User::findByAuthKey($user);
+        if (Yii::$app->user->login($userInfo)) {
+            return $this->render('index');
+        } else {
+            $url = Yii::$app->urlManagerFrontend->createUrl(['/kblog/index',]);
+            $this->redirect($url);
+        }
     }
 
     public function actionLogin()

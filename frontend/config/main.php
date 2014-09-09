@@ -53,7 +53,7 @@ return [
             'class' => 'yii\web\urlManager',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'suffix' => '.html',
+            // 'suffix' => '.html',
             'baseUrl' => $params['backendDomain'],
             'hostInfo' => $params['backendDomain'],
             'rules' => [
