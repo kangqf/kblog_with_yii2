@@ -7,6 +7,7 @@ use yii\web\Controller;
 use common\models\User;
 use yii\filters\VerbFilter;
 
+
 use mdm\admin\components\MenuHelper;
 
 /**
@@ -47,7 +48,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['get'],
                 ],
             ],
         ];
@@ -84,6 +85,8 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
+//       $sysInfo = new systemInfo();
+//        dump($sysInfo->getPhpInfo());die();
         return $this->render('index');
     }
 

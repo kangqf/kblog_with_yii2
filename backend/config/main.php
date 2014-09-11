@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'KBlogBackend',
+    'name' => 'KAdmin',
 
 
     'basePath' => dirname(__DIR__),
