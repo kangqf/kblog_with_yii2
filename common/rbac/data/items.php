@@ -12,9 +12,7 @@ return [
         'type' => 2,
         'description' => '访问后端',
     ],
-
-
-    "guest" => [
+    'guest' => [
         'type' => 1,
         'description' => '游客',
         'children' => [
@@ -102,5 +100,41 @@ return [
         'children' => [
             1,
         ],
+    ],
+    '/admin/assigment/index' => [
+        'type' => 2,
+    ],
+    '/admin/assigment/view' => [
+        'type' => 2,
+    ],
+    '/admin/assigment/assign' => [
+        'type' => 2,
+    ],
+    '/admin/assigment/role-search' => [
+        'type' => 2,
+    ],
+    '/admin/assigment/*' => [
+        'type' => 2,
+    ],
+    '/admin/role/index' => [
+        'type' => 2,
+    ],
+    '/admin/role/view' => [
+        'type' => 2,
+    ],
+    '/admin/role/create' => [
+        'type' => 2,
+    ],
+    '/admin/role/update' => [
+        'type' => 2,
+    ],
+    '/admin/role/delete' => [
+        'type' => 2,
+    ],
+    '/admin/role/assign' => [
+        'type' => 2,
+    ],
+    '/admin/role/role-search' => [
+        'type' => 2,
     ],
 ];

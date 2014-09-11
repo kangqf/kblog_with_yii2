@@ -7,6 +7,8 @@ use yii\web\Controller;
 use common\models\User;
 use yii\filters\VerbFilter;
 
+use mdm\admin\components\MenuHelper;
+
 /**
  * Site controller
  */
@@ -27,9 +29,18 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout',],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+
+                    [
+                        'actions' => ['index'],
+                        'allow' => true,
+//                        'matchCallback' => function ($rule, $action) {
+//                                dump($rule);dump($action);die();
+//                               // return date('d-m') === '31-10';
+//                            }
                     ],
                 ],
             ],
@@ -54,46 +65,37 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex($user)
+    public function actionAuth($user)
     {
-
-        dump(Yii::$app->getRequest()->url);
-        die();
-
         $userInfo = User::findByAuthKey($user);
-        if (Yii::$app->user->login($userInfo)) {
-            return $this->render('index');
+        if ($userInfo && Yii::$app->user->login($userInfo)) {
+            $url = Yii::$app->urlManager->createUrl(['',]);
+            $this->redirect($url);
+
+            //dump(MenuHelper::getAssignedMenu(Yii::$app->user->id));
+            // die();
+
         } else {
             $url = Yii::$app->urlManagerFrontend->createUrl(['/kblog/index',]);
             $this->redirect($url);
         }
+
+    }
+
+    public function actionIndex()
+    {
+        return $this->render('index');
     }
 
     public function actionLogin()
     {
-        // dump(\Yii::$app->authManager);die();
-
-        //dump(Yii::$app->getUser());
-        //die();
         return $this->render('login');
-//        if (!\Yii::$app->user->isGuest) {
-//            return $this->goHome();
-//        }
-//
-//        $model = new LoginForm();
-//        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-//            return $this->goBack();
-//        } else {
-//            return $this->render('login', [
-//                'model' => $model,
-//            ]);
-//        }
     }
 
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
-        return $this->goHome();
+        $url = Yii::$app->urlManagerFrontend->createUrl(['/kblog/index',]);
+        $this->redirect($url);
     }
 }
