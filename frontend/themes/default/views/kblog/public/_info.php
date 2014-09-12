@@ -39,14 +39,21 @@ use kartik\widgets\fileInput;
         <div class="col-md-4 col-md-offset-1">
           <br/>
             <?= $form->field($model, 'username',
-              ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-user"></i>'] ],
-              'showLabels'=>false])->textInput(['placeholder'=>'请输入用户名']);
+
+              [
+                  'addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-user"></i>'] ],
+                  'showLabels'=>false,
+                   'enableAjaxValidation' => true,
+              ])->textInput(['placeholder'=>'请输入用户名']);
             ?>
             <br/>
 
             <?= $form->field($model, 'email',
-              ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-envelope"></i>'] ],
-              'showLabels'=>false])->textInput(['placeholder'=>'请输入邮箱']);
+              [
+                  'addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-envelope"></i>'] ],
+                  'showLabels'=>false,
+                  'enableAjaxValidation' => true,
+              ])->textInput(['placeholder'=>'请输入邮箱']);
             ?>
             <br/>
 
