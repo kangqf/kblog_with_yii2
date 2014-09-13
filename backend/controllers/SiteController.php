@@ -7,6 +7,8 @@ use yii\web\Controller;
 use common\models\User;
 use yii\filters\VerbFilter;
 
+use common\models\systemInfo;
+
 
 use mdm\admin\components\MenuHelper;
 
@@ -38,6 +40,7 @@ class SiteController extends Controller
                     [
                         'actions' => ['index'],
                         'allow' => true,
+                        'roles' => ['@'],
 //                        'matchCallback' => function ($rule, $action) {
 //                                dump($rule);dump($action);die();
 //                               // return date('d-m') === '31-10';
@@ -85,14 +88,21 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-//       $sysInfo = new systemInfo();
-//        dump($sysInfo->getPhpInfo());die();
-        return $this->render('index');
+        //echo $sysInfo->getPhpInfo();
+        $sysInfo = new systemInfo();
+        $info = $sysInfo->save();
+        $sysInfo->load($info);
+        if (Yii::$app->request->isAjax) {
+            return $sysInfo->getPhpInfo();
+        }
+        return $this->render('index', ['sysInfo' => $sysInfo]);
     }
 
     public function actionLogin()
     {
-        return $this->render('login');
+        $url = Yii::$app->urlManagerFrontend->createUrl(['/kblog/index',]);
+        $this->redirect($url);
+        //  return $this->render('login');
     }
 
     public function actionLogout()

@@ -1,6 +1,6 @@
 <?php
 
-use common\models\systemInfo;
+use yii\helpers\Html;
 
 $this->title = '系统信息';
 
@@ -8,9 +8,6 @@ $this->title = '系统信息';
 <div id="systemInfo">
 
     <?php
-        $sysInfo = new systemInfo();
-        $info = $sysInfo->save();
-        $sysInfo->load($info);
         $extensions = $sysInfo->getExtensions();
     ?>
     <h1>服务器系统信息</h1>
@@ -25,8 +22,6 @@ $this->title = '系统信息';
             '调试模式' => $sysInfo->data['application']['debug'] ? '开' : '关',
         ],
     ]);
-
-
 
     echo $this->render('table', [
         'caption' => 'PHP 信息',
@@ -64,14 +59,34 @@ $this->title = '系统信息';
         ],
     ]);
 
-
     if (!empty($extensions)) {
-    echo $this->render('table', [
-    'caption' => '扩展信息',
-    'values' => $extensions,
-    ]);
+        echo $this->render('table', [
+            'caption' => '扩展信息',
+            'values' => $extensions,
+        ]);
     }
 
+
+    $script = <<< JS
+    $('#phpInfo').on('click', function() {
+        $.ajax({
+           url: '/site/index',
+           type: 'get',
+          // data: {id: '<id>', 'other': '<other>'},
+           success: function(data) {
+             console.log(data);
+             document.getElementById('info').innerHTML = data;
+           }
+        });
+    });
+JS;
+    $this->registerJs($script, $this::POS_END);
+
+
+    echo Html::button('请求phpinfo', ['id' => 'phpInfo', 'class' => 'btn btn-info btn-block',]);
+
     ?>
+    <div id="info">
+    </div>
 </div>
 
