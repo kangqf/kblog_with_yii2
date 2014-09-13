@@ -39,10 +39,11 @@ return [
 
     'modules' => [
 
-        //  'gridview' =>  [
-        //       'class' => '\kartik\grid\Module'
-        //   ],
-        //
+        //gridview组件
+          'gridview' =>  [
+               'class' => '\kartik\grid\Module'
+           ],
+
         //  'datecontrol' =>  [
         //     'class' => 'kartik\datecontrol\Module',
         //
