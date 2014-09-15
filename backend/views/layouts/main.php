@@ -43,6 +43,10 @@ $this->title = "KAdmin";
             [
                 'label' => '系统信息',
                 'url' => ['/site/index'],
+            ],
+            [
+                'label' => '用户管理',
+                'url' => ['/user/index'],
             ]
         ];
 
@@ -98,7 +102,7 @@ $this->title = "KAdmin";
     <!--    内容-->
 
     <div id="content" class="container">
-    <?= $content ?>
+        <?= $content ?>
     </div>
 
 </div>

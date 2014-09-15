@@ -43,7 +43,7 @@ use kartik\widgets\fileInput;
               [
                   'addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-user"></i>'] ],
                   'showLabels'=>false,
-                   'enableAjaxValidation' => true,
+                  //   'enableAjaxValidation' => true,
               ])->textInput(['placeholder'=>'请输入用户名']);
             ?>
             <br/>
@@ -52,7 +52,7 @@ use kartik\widgets\fileInput;
               [
                   'addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-envelope"></i>'] ],
                   'showLabels'=>false,
-                  'enableAjaxValidation' => true,
+                  //   'enableAjaxValidation' => true,
               ])->textInput(['placeholder'=>'请输入邮箱']);
             ?>
             <br/>
