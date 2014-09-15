@@ -6,7 +6,7 @@ use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use frontend\assets\DefaultLayoutAsset;
 use kartik\widgets\ActiveForm;
-use frontend\models\Category;
+use common\models\Category;
 use frontend\models\SearchForm;
 
 use yii\helpers\Url;

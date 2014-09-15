@@ -1,6 +1,6 @@
 <?php
 
-namespace frontend\models;
+namespace common\models;
 
 use Yii;
 
@@ -24,6 +24,9 @@ class Category extends \yii\db\ActiveRecord
     const LEVEL_TOP = 0;
     const LEVEL_SECOND = 1;
 
+    const VISUAL_DISABLE = 0;
+    const VISUAL_ENABLE = 1;
+
     /**
      * @inheritdoc
      */
@@ -38,7 +41,12 @@ class Category extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['level', 'staus', 'visual_able', 'parent_id'], 'integer'],
+            [['parent_id'], 'default', 'value' => 0],
+            [['visual_able'], 'default', 'value' => self::STATUS_ACTIVE],
+            [['status'], 'default', 'value' => self::VISUAL_ENABLE],
+
+
+            [['level', 'status', 'visual_able', 'parent_id'], 'integer'],
             [['name'], 'string', 'max' => 30]
         ];
     }
