@@ -161,6 +161,10 @@ class KblogController extends \yii\web\Controller
     public function actionSignupFinish($email, $openid, $username, $avatar)
     {
         $signupModel = new SignupForm();
+        if (Yii::$app->request->isAjax && $signupModel->load($_POST)) {
+            Yii::$app->response->format = 'json';
+            return \yii\widgets\ActiveForm::validate($signupModel);
+        }
         if (!empty($openid)) {
             $signupModel->avatar = $avatar;
             $signupModel->email = $email;
