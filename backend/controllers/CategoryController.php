@@ -35,14 +35,11 @@ class CategoryController extends Controller
       //  dump(Category::getTopCategory());die();
         $searchModel = new CategorySearch;
         $dataProvider = $searchModel->search(Yii::$app->request->getQueryParams());
-//        $levelArray = ['0'=>'一级','1'=>'二级'];
-//        $visualEnable = ['0'=>'不可见','1'=>'可见'];
+
 
         return $this->render('index', [
             'dataProvider' => $dataProvider,
             'searchModel' => $searchModel,
-//            'levelArray' => $levelArray,
-//            'visualEnable'=>$visualEnable,
         ]);
     }
 

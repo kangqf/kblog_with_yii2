@@ -58,7 +58,7 @@ class Category extends \yii\db\ActiveRecord
     {
         return [
             'cgid' => 'ID',
-            'level' => '级别',
+            'level' => '菜单级别',
             'name' => '名称',
             'status' => '状态',
             'visual_able' => '是否可见',
@@ -107,8 +107,15 @@ class Category extends \yii\db\ActiveRecord
             $arr[$value->cgid] = $value->name;
         }
         return $arr;
+    }
 
-       // dump($arr);die();
+    public static function getTopCategoryArray(){
+        $obj = self::getTopCategory();
+        $arr =[0=>'顶级菜单'];
+        foreach($obj as $value){
+            $arr[$value->cgid] = $value->name;
+        }
+        return $arr;
 
     }
 }

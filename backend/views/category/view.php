@@ -27,22 +27,27 @@ $this->params['breadcrumbs'][] = $this->title;
             'panel'=>[
             'heading'=>$this->title,
             'type'=>DetailView::TYPE_INFO,
+            'hAlign' =>'center',
         ],
+
         'attributes' => [
-            'cgid',
-            'level',
+         //   'cgid',
+            ['attribute'=>'level', 'type'=>DetailView::INPUT_DROPDOWN_LIST],
+           // 'level',
             'name',
             'status',
             'visual_able',
             'parent_id',
         ],
+
         'deleteOptions'=>[
-        'url'=>['delete', 'id' => $model->cgid],
-        'data'=>[
-        'confirm'=>Yii::t('app', 'Are you sure you want to delete this item?'),
-        'method'=>'post',
+            'url'=>['delete', 'id' => $model->cgid],
+            'data'=>[
+            'confirm'=> '你确定要删除这一项?',
+            'method'=>'post',
+            ],
         ],
-        ],
+
         'enableEditMode'=>true,
     ]) ?>
 

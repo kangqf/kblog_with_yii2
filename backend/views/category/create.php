@@ -7,14 +7,12 @@ use yii\helpers\Html;
  * @var common\models\Category $model
  */
 
-$this->title = 'Create Category';
+$this->title = '添加文章类别';
 $this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-create">
-    <div class="page-header">
-        <h1><?= Html::encode($this->title) ?></h1>
-    </div>
+    <h2 class="col-lg-offset-3" style="margin-bottom: 50px"><?= Html::encode($this->title) ?></h2>
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
