@@ -3,7 +3,7 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-grid
- * @version 1.6.0
+ * @version 2.0.0
  */
 
 namespace kartik\grid;
@@ -26,6 +26,16 @@ use yii\base\InvalidConfigException;
  */
 class ActionColumn extends \yii\grid\ActionColumn
 {
+    use ColumnTrait;
+    
+    /**
+     * @var boolean whether the column is hidden from display. This is different 
+     * than the `visible` property, in the sense, that the column is rendered,
+     * but hidden from display. This will allow you to still export the column
+     * using the export function.
+     */
+    public $hidden;
+
     /**
      * @var bool whether the action buttons are to be displayed as a dropdown
      */
@@ -140,14 +150,16 @@ class ActionColumn extends \yii\grid\ActionColumn
     public function init()
     {
         $this->_isDropdown = ($this->grid->bootstrap && $this->dropdown);
-        $this->grid->formatColumn($this->hAlign, $this->vAlign, $this->noWrap, $this->width, $this->headerOptions, $this->contentOptions, $this->pageSummaryOptions, $this->footerOptions);
         if (!isset($this->header)) {
             $this->header = Yii::t('kvgrid', 'Actions');
         }
+        $this->parseFormat();
+        $this->parseVisibility();
         parent::init();
         $this->initDefaultButtons();
+        $this->setPageRows();
     }
-
+    
     /**
      * Render default action buttons
      *
@@ -227,71 +239,6 @@ class ActionColumn extends \yii\grid\ActionColumn
             return Html::tag('div', $dropdown, ['class'=>'dropdown']);
         }
         return $content;
-    }
-    
-    /**
-     * Renders the header cell.
-     */
-    public function renderHeaderCell()
-    {
-        if ($this->grid->filterModel !== null && $this->mergeHeader && $this->grid->filterPosition === GridView::FILTER_POS_BODY) {
-            $this->headerOptions['rowspan'] = 2;
-            Html::addCssClass($this->headerOptions, 'kv-merged-header');
-        }
-        return parent::renderHeaderCell();
-    }
-
-    /**
-     * Renders the filter cell.
-     */
-    public function renderFilterCell()
-    {
-        if ($this->grid->filterPosition === GridView::FILTER_POS_BODY && $this->mergeHeader) {
-            return null;
-        }
-        return parent::renderFilterCell();
-    }
-
-    /**
-     * Renders the page summary cell.
-     */
-    public function renderPageSummaryCell()
-    {
-        return Html::tag('td', $this->renderPageSummaryCellContent(), $this->pageSummaryOptions);
-    }
-
-    /**
-     * Gets the raw page summary cell content.
-     *
-     * @return string the rendering result
-     */
-    protected function getPageSummaryCellContent()
-    {
-        return $this->pageSummary === false ? null : $this->pageSummary;
-    }
-
-    /**
-     * Renders the page summary cell content.
-     *
-     * @return string the rendering result
-     */
-    protected function renderPageSummaryCellContent()
-    {
-        if ($this->hidePageSummary) {
-            return $this->grid->emptyCell;
-        }
-        $content = $this->getPageSummaryCellContent();
-        return ($content == null) ? $this->grid->emptyCell : $content;
-    }
-
-    /**
-     * Get the raw footer cell content.
-     *
-     * @return string the rendering result
-     */
-    protected function getFooterCellContent()
-    {
-        return $this->footer;
     }
 
 }

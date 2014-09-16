@@ -1,7 +1,27 @@
+Version 2.0.0
+=============
+**Date:** 14-Sep-2014
+
+1. (enh #80): Add hidden property for columns to be hidden from display but available on export.
+2. (bug #81): CSS class `kv-grid-hide` configured for hidden columns.
+3. (enh #82): Created a reusable `ColumnTrait` for all custom yii2-grid columns.
+4. (enh #83): Upgraded jQuery floatTheader plugin to latest version.
+
+Version 1.9.0
+=============
+**Date:** 21-Aug-2014
+
+1. (enh #65): Various enhancements to the widget to work with Pjax 
+2. (enh #67): Fix Chrome bug for displaying loading indicator on tbody.
+3. (enh #72): Enhancement for EditableColumn `beforeInput` and `afterInput`.
+4. (enh #73): Enhancement for EditableColumn options to be configured as callback.
+5. (enh #74,76): Enhance EditableColumn to allow grid refresh on successful update.
+
+
 Version 1.8.0
 =============
 
-**Date:** 01-Jul-2014
+**Date:** 01-Aug-2014
 
 1. (enh #58, #59): Russian language translation included
 2. (enh #60): Added a new `EditableColumn` column to the grid that uses the enhanced `kartik\editable\Editable` widget to make the grid content editable.

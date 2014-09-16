@@ -3,7 +3,7 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-grid
- * @version 1.6.0
+ * @version 2.0.0
  */
 
 namespace kartik\grid;
@@ -22,7 +22,6 @@ use yii\base\InvalidConfigException;
  */
 class BooleanColumn extends DataColumn
 {
-
     /**
      * @var string the horizontal alignment of each column. Should be one of
      * 'left', 'right', or 'center'. Defaults to `center`.

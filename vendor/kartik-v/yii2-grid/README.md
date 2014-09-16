@@ -7,7 +7,8 @@ Refer [detailed documentation](http://demos.krajee.com/grid) and/or a [complete 
 ![GridView Screenshot](https://lh6.googleusercontent.com/-IebDj1WBLKE/U8yvTtaPqWI/AAAAAAAAAI4/sr8rlfZG_l8/w860-h551-no/yii2-grid.jpg)
 
 ## Latest Release
-The latest version of the module is v1.8.0 released on 01-Aug-2014. Refer the [CHANGE LOG](https://github.com/kartik-v/yii2-grid/blob/master/CHANGE.md) for details.
+The latest version of the module is v1.9.0 released on 21-Aug-2014. Refer the [CHANGE LOG](https://github.com/kartik-v/yii2-grid/blob/master/CHANGE.md) for details.
+With v1.9.0, the GridView by default has embedded Pjax support. To enable Pjax processing, set `pjax` property to `true` and control pjax behavior using `pjaxSettings`.
 
 > NOTE: This extension depends on the [kartik-v/yii2-widgets](https://github.com/kartik-v/yii2-widgets) extension which in turn depends on the
 [yiisoft/yii2-bootstrap](https://github.com/yiisoft/yii2/tree/master/extensions/bootstrap) extension. Check the 
@@ -32,7 +33,10 @@ The extension has been created as a module to enable access to advanced features
 The following functionalities have been added/enhanced:
 
 ### Table Styling (Enhanced)
-Control various options to style your grid table. Added `containerOptions` to customize your grid table container.
+Control various options to style your grid table. Added `containerOptions` to customize your grid table container. Enhancements for grid and columns to work with yii\widgets\Pjax.
+
+### Pjax Settings (New)
+Inbuilt support for Pjax. Enhancements for grid and columns to work with `yii\widgets\Pjax`. Auto-reinitializes embedded javascript plugins when GridView is refreshed via Pjax. Added `pjax` property to enable pjax and `pjaxSettings` to customize the pjax behavior.
 
 ### Custom Header & Footer (New)
 Add custom header or footer rows, above / below your default grid header and footer.
@@ -69,7 +73,7 @@ For example, this currently is set as a default to convert the HTML formatted ic
 ### \kartik\grid\DataColumn
 The default Yii data column has been enhanced with various additional parameters. Refer [documentation](http://demos.krajee.com/grid#data-column) for details.
 
-## Editable Column (Enhanced)
+## Editable Column (New)
 ### \kartik\grid\EditableColumn
 An enhanced data column that allows you to edit the cell content using [kartik\editable\Editable](http://demos.krajee.com/editable) widget. Refer [documentation](http://demos.krajee.com/grid#editable-column) for details.
 
@@ -184,6 +188,7 @@ echo GridView::widget([
         Yii::t('kvgrid', 'Add Book'), ['type'=>'button', 'class'=>'btn btn-success']) . ' ' .
         Html::a('<i class="glyphicon glyphicon-repeat"></i> ' . 
         Yii::t('kvgrid', 'Reset Grid'), ['grid-demo'], ['class' => 'btn btn-info']),
+    'pjax' => true,
     'bordered' => true,
     'striped' => false,
     'condensed' => false,

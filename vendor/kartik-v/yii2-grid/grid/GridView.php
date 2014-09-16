@@ -3,7 +3,7 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-grid
- * @version 1.7.0
+ * @version 2.0.0
  */
 
 namespace kartik\grid;
@@ -16,6 +16,8 @@ use yii\helpers\Json;
 use yii\helpers\Html;
 use yii\base\InvalidConfigException;
 use yii\bootstrap\ButtonDropdown;
+use yii\widgets\Pjax;
+use yii\web\View;
 
 /**
  * Enhances the Yii GridView widget with various options to include Bootstrap
@@ -45,7 +47,7 @@ class GridView extends \yii\grid\GridView
      */
     const ICON_ACTIVE = '<span class="glyphicon glyphicon-ok text-success"></span>';
     const ICON_INACTIVE = '<span class="glyphicon glyphicon-remove text-danger"></span>';
-    
+
     /**
      * Alignment
      */
@@ -208,7 +210,7 @@ HTML;
      * - options: array, the HTML attributes for the table row
      */
     public $afterFooter = [];
-    
+
     /**
      * @var string the toolbar content to be rendered.
      */
@@ -235,6 +237,29 @@ HTML;
      * @var array the HTML attributes for the grid table element
      */
     public $tableOptions = [];
+
+    /**
+     * @var boolean whether the grid view will be rendered within a pjax container.
+     * Defaults to `false`. If set to `true`, the entire GridView widget will be parsed 
+     * via Pjax and auto-rendered inside a yii\widgets\Pjax widget container. If set to 
+     * `false` pjax will be disabled and none of the pjax settings will be applied.
+     */
+    public $pjax = false;
+
+    /**
+     * @var array the pjax settings for the widget. This will be considered only when
+     * [[pjax]] is set to true. The following settings are recognized:
+     * - `neverTimeout`: boolean, whether the pjax request should never timeout. Defaults to `true`.
+     *    The pjax:timeout event will be configured to disable timing out of pjax requests for the pjax
+     *    container.
+     * - `options`: array, the options for the [[yii\widgets\Pjax]] widget.
+     * - `loadingCssClass`: boolean/string, the CSS class to be applied to the grid when loading via pjax.
+     *    If set to `false` - no css class will be applied. If it is empty, null, or set to `true`, will
+     *    default to `kv-grid-loading`.
+     * - `beforeGrid`: string, any content to be embedded within pjax container before the Grid widget.
+     * - `afterGrid`: string, any content to be embedded within pjax container after the Grid widget.
+     */
+    public $pjaxSettings = [];
 
     /**
      * @var boolean whether the grid view will have Bootstrap table styling.
@@ -355,10 +380,10 @@ HTML;
      * - options: array, HTML attributes for the export format menu item.
      */
     public $exportConfig = [];
-    
+
     /**
      * @var array, conversion of defined patterns in the grid cells as a preprocessing before
-     * the gridview is formatted for export. Each array row must consist of the following 
+     * the gridview is formatted for export. Each array row must consist of the following
      * two keys:
      * - `from`: string, is the pattern to search for in each grid column's cells
      * - `to`: string, is the string to replace the pattern in the grid column cells
@@ -373,26 +398,33 @@ HTML;
     public $exportConversions = [];
 
     /**
-     * @var array|boolean the HTML attributes for the grid container. The grid table items 
-     * will be wrapped in a `div` container with the configured HTML attributes. If
-     * set to `false`, the grid table will not be wrapped in a container.
+     * @var array|boolean the HTML attributes for the grid container. The grid table items
+     * will be wrapped in a `div` container with the configured HTML attributes. The ID for
+     * the container will be auto generated.
      */
     public $containerOptions = [];
-    
+
+    /**
+     * @var string the generated javascript for grid export initialization
+     */
+    protected $_jsExportScript = '';
+
+    /**
+     * @var string the generated javascript for grid float table header initialization
+     */
+    protected $_jsFloatTheadScript = '';
+
     public function init()
     {
         $module = Yii::$app->getModule('gridview');
-        if (!is_array($this->containerOptions) && $this->containerOptions !== false) {
-            $this->containerOptions = [];
-        }
         if ($module == null || !$module instanceof \kartik\grid\Module) {
             throw new InvalidConfigException('The "gridview" module MUST be setup in your Yii configuration file and assigned to "\kartik\grid\Module" class.');
         }
         $this->exportConversions = ArrayHelper::merge([
-            ['from'=>self::ICON_ACTIVE, 'to'=>Yii::t('kvgrid', 'Active')],
-            ['from'=>self::ICON_INACTIVE, 'to'=>Yii::t('kvgrid', 'Inactive')]
+            ['from' => self::ICON_ACTIVE, 'to' => Yii::t('kvgrid', 'Active')],
+            ['from' => self::ICON_INACTIVE, 'to' => Yii::t('kvgrid', 'Inactive')]
         ], $this->exportConversions);
-        
+
         if ($this->export !== false) {
             $this->export = ArrayHelper::merge([
                 'label' => Yii::t('kvgrid', 'Export'),
@@ -453,7 +485,6 @@ HTML;
                     'options' => ['title' => Yii::t('kvgrid', 'Save as Excel')]
                 ],
             ];
-            $exportConfig = [];
             if (is_array($this->exportConfig) && !empty($this->exportConfig)) {
                 foreach ($this->exportConfig as $format => $setting) {
                     $setup = is_array($this->exportConfig[$format]) ? $this->exportConfig[$format] : [];
@@ -463,6 +494,9 @@ HTML;
                 $this->exportConfig = $exportConfig;
             } else {
                 $this->exportConfig = $defaultExportConfig;
+            }
+            foreach ($this->exportConfig as $format => $setting) {
+                $this->exportConfig[$format]['options']['data-pjax'] = false;
             }
         }
         if ($this->filterPosition === self::FILTER_POS_HEADER) {
@@ -484,17 +518,18 @@ HTML;
             if ($this->condensed) {
                 Html::addCssClass($this->tableOptions, 'table-condensed');
             }
-            if ($this->responsive && $this->containerOptions !== false) {
+            if ($this->responsive) {
                 Html::addCssClass($this->containerOptions, 'table-responsive');
             }
         }
         parent:: init();
+        $this->containerOptions['id'] = $this->options['id'] . '-container';
         $this->registerAssets();
     }
 
     public function run()
     {
-        if ($this->bootstrap && !empty($this->panel)) {
+        if ($this->bootstrap && is_array($this->panel) && !empty($this->panel)) {
             $this->renderPanel();
         }
         if (strpos($this->layout, '{export}') > 0) {
@@ -505,10 +540,51 @@ HTML;
         } else {
             $this->layout = strtr($this->layout, ['{toolbar}' => $this->toolbar]);
         }
-        if ($this->containerOptions !== false) {
-            $this->layout = str_replace('{items}', Html::tag('div', '{items}', $this->containerOptions), $this->layout);
-        }
+        $this->layout = str_replace('{items}', Html::tag('div', '{items}', $this->containerOptions), $this->layout);
+        $this->renderPjax();
+        
         parent::run();
+        if ($this->pjax) {
+            echo ArrayHelper::getValue($this->pjaxSettings, 'afterGrid', '');
+            Pjax::end();
+        }
+    }
+
+    protected function renderPjax()
+    {
+        if (!$this->pjax) {
+            return;
+        }
+        $view = $this->getView();
+        if (empty($this->pjaxSettings['options']['id'])) {
+            $this->pjaxSettings['options']['id'] = $this->options['id'] . '-pjax';
+        }
+        $container = 'jQuery("#' . $this->pjaxSettings['options']['id'] . '")';
+        if (ArrayHelper::getvalue($this->pjaxSettings, 'neverTimeout', true)) {
+            $view->registerJs("{$container}.on('pjax:timeout', function(e){e.preventDefault()});");
+        }
+        $loadingCss = ArrayHelper::getvalue($this->pjaxSettings, 'loadingCssClass', 'kv-grid-loading');
+        $postPjaxJs = '';
+        if ($loadingCss !== false) {
+            $grid = 'jQuery("#' . $this->containerOptions['id'] . '")';
+            if ($loadingCss === true) {
+                $loadingCss = 'kv-grid-loading';
+            }
+            $view->registerJs("{$container}.on('pjax:send', function(){{$grid}.addClass('{$loadingCss}')});"); 
+            $postPjaxJs = "{$grid}.removeClass('{$loadingCss}');";
+        }
+        if (!empty($this->_jsExportScript)) {
+            $id = 'jQuery("#' . $this->id . ' .export-csv")';
+            $postPjaxJs .= "\n{$this->_jsExportScript}";
+        }
+        if (!empty($this->_jsFloatTheadScript)) {
+            $postPjaxJs .= "\n{$this->_jsFloatTheadScript}";
+        }
+        if (!empty($postPjaxJs)) {
+            $view->registerJs("{$container}.on('pjax:complete', function(){{$postPjaxJs}});");
+        }
+        Pjax::begin($this->pjaxSettings['options']);
+        echo ArrayHelper::getValue($this->pjaxSettings, 'beforeGrid', '');
     }
 
     /**
@@ -652,8 +728,16 @@ HTML;
             $action = [$action];
         }
         $frameId = $this->options['id'] . '_export';
-        $form = Html::beginForm($action, 'post', ['class' => 'kv-export-form', 'style' => 'display:none', 'target' => '_blank']) .
-            Html::textInput('export_filetype') . Html::textInput('export_filename') . Html::textArea('export_content') . '</form>';
+        $form = Html::beginForm($action, 'post', [
+            'class' => 'kv-export-form', 
+            'style' => 'display:none', 
+            'target' => '_blank', 
+            'data-pjax' => false
+        ]) . 
+        Html::textInput('export_filetype') . 
+        Html::textInput('export_filename') . 
+        Html::textArea('export_content') . 
+        '</form>';
         return ButtonDropdown::widget([
             'label' => $title,
             'dropdown' => ['items' => $items, 'encodeLabels' => false],
@@ -661,7 +745,7 @@ HTML;
             'encodeLabel' => false
         ]) . $form;
     }
-
+    
     /**
      * Register assets
      */
@@ -675,8 +759,8 @@ HTML;
             $js = '';
             $popup = ArrayHelper::getValue($this->export, 'browserPopupsMsg', '');
             foreach ($this->exportConfig as $format => $setting) {
-                $id = '$("#' . $this->id . ' .export-' . $format . '")';
-                $grid = new JsExpression('$("#' . $this->id . '")');
+                $id = 'jQuery("#' . $this->id . ' .export-' . $format . '")';
+                $grid = new JsExpression('jQuery("#' . $this->id . '")');
                 $options = [
                     'grid' => $grid,
                     'filename' => $setting['filename'],
@@ -691,18 +775,23 @@ HTML;
                     'cssFile' => ArrayHelper::getValue($setting, 'cssFile', ''),
                     'exportConversions' => $this->exportConversions
                 ];
-                $view->registerJs($id . '.gridexport(' . Json::encode($options) . ');');
+                $opts = Json::encode($options);
+                $this->_jsExportScript .= "\n{$id}.gridexport({$opts});";
             }
-
+            if (!empty($this->_jsExportScript)) {
+                $view->registerJs($this->_jsExportScript);
+            }
         }
+
         if ($this->floatHeader) {
             GridFloatHeadAsset::register($view);
             $this->floatHeaderOptions = ArrayHelper::merge([
                 'floatTableClass' => 'kv-table-float',
                 'floatContainerClass' => 'kv-thead-float',
             ], $this->floatHeaderOptions);
-            $js = '$("#' . $this->id . ' table").floatThead(' . Json::encode($this->floatHeaderOptions) . ');';
-            $view->registerJs($js);
+            $opts = Json::encode($this->floatHeaderOptions);
+            $this->_jsFloatTheadScript = "jQuery('#{$this->id} table').floatThead({$opts});";
+            $view->registerJs($this->_jsFloatTheadScript);
         }
     }
 

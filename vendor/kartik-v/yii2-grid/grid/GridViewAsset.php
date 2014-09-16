@@ -3,12 +3,13 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-grid
- * @version 1.6.0
+ * @version 2.0.0
  */
 
 namespace kartik\grid;
 
 use kartik\widgets\AssetBundle;
+use yii\web\View;
 
 /**
  * Asset bundle for GridView Widget
@@ -18,7 +19,7 @@ use kartik\widgets\AssetBundle;
  */
 class GridViewAsset extends AssetBundle
 {
-
+   
 	public function init()
 	{
 		$this->setSourcePath(__DIR__ . '/assets');

@@ -3,7 +3,7 @@
 /**
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
  * @package yii2-grid
- * @version 1.6.0
+ * @version 2.0.0
  */
 
 namespace kartik\grid;
@@ -23,7 +23,6 @@ use yii\base\InvalidConfigException;
  */
 class FormulaColumn extends DataColumn
 {
-
     const SUMMARY = -10000;
     const FOOTER = -20000;
 
@@ -84,23 +83,6 @@ class FormulaColumn extends DataColumn
             return ($this->pageSummary === true) ? $summary : call_user_func($this->pageSummary, $summary, [], $this);
         }
         return parent::getPageSummaryCellContent();
-    }
-
-    /**
-     * Renders the page summary cell content.
-     *
-     * @return string the rendering result
-     */
-    protected function renderPageSummaryCellContent()
-    {
-        if ($this->hidePageSummary) {
-            return $this->grid->emptyCell;
-        }
-        $content = $this->getPageSummaryCellContent();
-        if ($this->pageSummary === true) {
-            return $this->grid->formatter->format($content, $this->format);
-        }
-        return ($content === null) ? $this->grid->emptyCell : $content;
     }
 
     /**

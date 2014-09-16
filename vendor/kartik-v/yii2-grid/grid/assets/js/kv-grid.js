@@ -1,6 +1,6 @@
 /*!
  * @copyright Copyright &copy; Kartik Visweswaran, Krajee.com, 2014
- * @version 1.6.0
+ * @version 2.0.0
  *
  * Client actions for yii2-grid 
  * 
@@ -10,13 +10,19 @@
  * For more Yii related demos visit http://demos.krajee.com
  */
 
-function selectRow($grid, css) {
+var selectRow = function(gridId, css) {
+    var $grid = jQuery('#' + gridId);
     $grid.find(".kv-row-select input").on('change', function () {
-        $(this).parents("tr:first").toggleClass(css);
+        var $el = $(this);
+        if ($el.is(':checked')) {
+            $el.parents("tr:first").removeClass(css).addClass(css);
+        } else {
+            $el.parents("tr:first").removeClass(css);
+        }
     });
     $grid.find(".kv-all-select input").on('change', function () {
         if ($(this).is(':checked')) {
-            $grid.find(".kv-row-select").parents("tr").addClass(css);
+            $grid.find(".kv-row-select").parents("tr").removeClass(css).addClass(css);
         }
         else {
             $grid.find(".kv-row-select").parents("tr").removeClass(css);

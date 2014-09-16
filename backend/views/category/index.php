@@ -24,6 +24,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php Pjax::begin(); echo GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'pjax'=>true,
+        'pjaxSettings'=>[
+            'neverTimeout'=>true,
+            'beforeGrid'=>'',
+            'afterGrid'=>'',
+        ],
         'columns' => [
             ['class' => 'kartik\grid\SerialColumn'],//序号
 
@@ -38,7 +44,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
            // 'level',
-            'name',
+           // 'name',
+            [
+                'attribute' => 'name',
+                'format' => 'html',
+                'value' => function ($model) {
+                        return Html::a($model->name,
+                            Yii::$app->urlManager->createUrl(['category/update','id' => $model->cgid,]),
+                            ['title' => Yii::t('yii', 'Edit'),]
+                        );
+                    },
+            ],
           //  'status',
             [
                 'attribute' => 'visual_able',
