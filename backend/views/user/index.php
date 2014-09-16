@@ -14,9 +14,6 @@ $this->title = '用户管理';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="user-index">
-    <div class="page-header">
-        <h5> <?php //echo Html::encode($this->title) ?></h5>
-    </div>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>

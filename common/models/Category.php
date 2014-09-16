@@ -57,12 +57,12 @@ class Category extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'cgid' => 'Cgid',
-            'level' => 'Level',
-            'name' => 'Name',
-            'status' => 'status',
-            'visual_able' => 'Visual Able',
-            'parent_id' => 'Parent ID',
+            'cgid' => 'ID',
+            'level' => '级别',
+            'name' => '名称',
+            'status' => '状态',
+            'visual_able' => '是否可见',
+            'parent_id' => '上级菜单',
         ];
     }
 
@@ -77,5 +77,38 @@ class Category extends \yii\db\ActiveRecord
             ->where(['parent_id' => $parentId ,'status' => self::STATUS_ACTIVE,'level' => self::LEVEL_SECOND])
             ->orderBy('cgid')
             ->all();
+    }
+
+    public static function getLevelArray() {
+        return ['0'=>'一级','1'=>'二级'];
+    }
+    public static function getVisualEnableArray() {
+        return ['0'=>'不可见','1'=>'可见'];
+    }
+    public static function getCategoryArray() {
+        $obj = self::find()
+            ->where(['status' => self::STATUS_ACTIVE,'level' => self::LEVEL_TOP])
+            ->orderBy('cgid')
+            ->all();
+        return self::buildArray($obj);
+
+    }
+    public static function getParentName($pid) {
+        return self::find()
+            ->where(['cgid' => $pid ,'status' => self::STATUS_ACTIVE,'level' => self::LEVEL_TOP])
+            ->orderBy('cgid')
+            ->one();
+    }
+
+    public static function buildArray($obj){
+        $arr =[];
+        foreach($obj as $value){
+           // dump($value);
+            $arr[$value->cgid] = $value->name;
+        }
+        return $arr;
+
+       // dump($arr);die();
+
     }
 }

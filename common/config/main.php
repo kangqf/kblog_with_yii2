@@ -8,7 +8,6 @@ return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
 
-
         //授权管理
         'authManager' => [
             'class' => 'common\rbac\components\PhpManager', // 'yii\rbac\PhpManager', // or use 'yii\rbac\DbManager'
@@ -39,10 +38,13 @@ return [
 
     'modules' => [
 
+
         //gridview组件
           'gridview' =>  [
                'class' => '\kartik\grid\Module'
            ],
+
+
 
         //  'datecontrol' =>  [
         //     'class' => 'kartik\datecontrol\Module',
@@ -66,6 +68,8 @@ return [
         //
         // ]
     ],
+
+
 
 
 ];
