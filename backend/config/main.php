@@ -29,6 +29,8 @@ return [
     //模块
     'modules' => [
 
+
+
         //yii2所用模块https://github.com/mdmsoft/yii2-admin
         'admin' => [
             'class' => 'mdm\admin\Module',
@@ -40,6 +42,15 @@ return [
     ],
 
     'components' => [
+
+//                'UrlAsset' => [
+//                'name' => 'UrlAsset',
+//                'version' => '1.0',
+//                'alias' =>
+//                    [
+//                        '@yii/UrlAsset/' =>  '/UrlAsset',
+//                    ],
+//            ],
 
         //用户验证的类
         'user' => [

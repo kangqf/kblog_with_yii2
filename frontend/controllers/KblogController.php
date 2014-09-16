@@ -88,10 +88,11 @@ class KblogController extends \yii\web\Controller
     //默认Action
     public function actionIndex()
     {
+
         // phpinfo();die();
         //  Yii::$app->session->setFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.');
         // dump(Yii::$app->getAuthManager()->checkAccess());die();
-        // dump(Yii::$app->user->can("accessBackend"));die();
+        // dump(Yii::$app->getViewPath());die();
 
         return $this->render('index');
     }
