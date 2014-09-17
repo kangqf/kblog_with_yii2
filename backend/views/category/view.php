@@ -13,6 +13,7 @@ use common\models\Category;
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Categories', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="category-view col-lg-6 col-lg-offset-3">
     <div class="page-header">
