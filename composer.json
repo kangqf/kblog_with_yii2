@@ -30,7 +30,9 @@
         "kartik-v/yii2-builder": "dev-master",
         "kartik-v/yii2-nav-x": "dev-master",
         "warrence/yii2-kartikgii": "dev-master",
-        "mdmsoft/yii2-admin": "*"
+        "mdmsoft/yii2-admin": "*",
+        "kartik-v/yii2-markdown": "*",
+        "xj/yii2-ueditor-widget": "*"
 
     },
     "require-dev": {
