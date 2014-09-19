@@ -127,11 +127,11 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
      */
     public function scenarios()
     {
-        //$scenarios = parent::scenarios();
-        //$scenarios['login'] = ['username', 'password'];
-        return [
+        $scenarios = parent::scenarios();
+        $scenarios[] = [
 
             'signup' => ['username', 'email', 'password', 'avatar', 'open_id', 'status', 'role', 'auth_key'],
+            'create' => ['username', 'email', 'password', 'avatar', 'open_id', 'status', 'role', 'auth_key'],
             'login' => ['login_count'],
             // 'updated' => ['username', 'password'],
             'password_reset_request' => ['email'],
@@ -140,6 +140,8 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
             // 'created' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
             // 'delete' => [],
         ];
+        //$scenarios['login'] = ['username', 'password'];
+        return $scenarios;
     }
 
     /**
