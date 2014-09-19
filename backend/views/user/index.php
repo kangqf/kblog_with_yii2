@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use kartik\grid\GridView;
 use yii\widgets\Pjax;
+use common\models\User;
 
 /**
  * @var yii\web\View $this
@@ -27,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'kartik\grid\SerialColumn'],
 
-            'uid',
+       //     'uid',
             'username',
             'email:email',
 //            'password',
@@ -35,8 +36,22 @@ $this->params['breadcrumbs'][] = $this->title;
 //            'created_time:datetime',
 //            'updated_time:datetime',
             'login_count',
-            'status',
-            'role',
+          //  'status',
+            [
+                'attribute' => 'status',
+                'value' => function ($model) {
+                            return User::getStatusArray()[$model->status];
+                    },
+                'filter' => Html::activeDropDownList($searchModel, 'status', User::getStatusArray(), ['class' => 'form-control','style'=>'width:100px' ,'prompt' => ''])
+            ],
+         //   'role',
+            [
+                'attribute' => 'role',
+                'value' => function ($model) {
+                        return User::getRoleArray()[$model->role];
+                    },
+                'filter' => Html::activeDropDownList($searchModel, 'role', User::getRoleArray(), ['class' => 'form-control','style'=>'width:200px' ,'prompt' => ''])
+            ],
             'open_id',
 //            'auth_key',
 //            'password_hash',

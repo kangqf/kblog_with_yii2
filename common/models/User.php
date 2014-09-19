@@ -290,6 +290,12 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         return $this->_status;
     }
 
+//    public static function getStatusName($status)
+//    {
+//            $statuses = self::getStatusArray();
+//            return $statuses[$status];
+//    }
+
     /**
      * @return array 返回状态标签数组
      */
