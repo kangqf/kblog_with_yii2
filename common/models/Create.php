@@ -52,8 +52,8 @@ class Create extends \yii\base\Model
     public function rules()
     {
         return [
-            [['status'], 'default', 'value' => self::STATUS_ACTIVE],
-            [['role'], 'default', 'value' => self::ROLE_USER],
+//            [['status'], 'default', 'value' => self::STATUS_ACTIVE],
+//            [['role'], 'default', 'value' => self::ROLE_USER],
 
 
             ['username', 'filter', 'filter' => 'trim'],
@@ -98,6 +98,9 @@ class Create extends \yii\base\Model
             $user->setHashPassword($this->password);
             $user->generateAuthKey();
             $user->password = md5($this->password);
+            $user->role = $this->role;
+            $user->status = $this->status;
+           // dump($this->role);die();
             //首先判断用户是否选择了图片文件，再判断是否有第三方抓取的照片，都没有就使用gravatar
             $user->avatar = md5($this->email);
             //dump($user->avatar);die();

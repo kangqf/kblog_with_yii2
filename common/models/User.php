@@ -100,6 +100,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         return [
             [['status'], 'default', 'value' => self::STATUS_ACTIVE],
             [['role'], 'default', 'value' => self::ROLE_USER],
+            
             ['role', 'in', 'range' => [self::ROLE_SUPERADMIN, self::ROLE_USER]],
             // [['auth_key', 'password_hash', 'role', 'status', 'email',
             // 'created_time', 'updated_time'], 'required', 'message'=>'用户信息不完整'],

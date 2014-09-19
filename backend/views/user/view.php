@@ -4,6 +4,8 @@ use yii\helpers\Html;
 use kartik\detail\DetailView;
 use kartik\datecontrol\DateControl;
 
+use common\models\User;
+
 /**
  * @var yii\web\View $this
  * @var common\models\User $model
@@ -30,19 +32,21 @@ $this->params['breadcrumbs'][] = $this->title;
             'type' => DetailView::TYPE_INFO,
         ],
         'attributes' => [
-            'uid',
+        //    'uid',
             'username',
             'email:email',
             'password',
-            'avatar',
-            'created_time:datetime',
-            'updated_time:datetime',
-            'login_count',
-            'status',
-            'role',
-            'open_id',
+         //   'avatar',
+        //    'created_time:datetime',
+        //    'updated_time:datetime',
+        //    'login_count',
+        //    'status',
+            ['attribute'=>'status','items' => User::getStatusArray(), 'type'=>DetailView::INPUT_DROPDOWN_LIST],
+        //    'role',
+            ['attribute'=>'role','items' => User::getRoleArray(), 'type'=>DetailView::INPUT_DROPDOWN_LIST],
+         //   'open_id',
             'auth_key',
-            'password_hash',
+        //    'password_hash',
             'password_reset_token',
         ],
         'deleteOptions' => [
