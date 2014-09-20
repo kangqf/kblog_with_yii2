@@ -100,8 +100,8 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         return [
             [['status'], 'default', 'value' => self::STATUS_ACTIVE],
             [['role'], 'default', 'value' => self::ROLE_USER],
-            
-            ['role', 'in', 'range' => [self::ROLE_SUPERADMIN, self::ROLE_USER]],
+
+        //    ['role', 'in', 'range' => [self::ROLE_SUPERADMIN, self::ROLE_USER]],
             // [['auth_key', 'password_hash', 'role', 'status', 'email',
             // 'created_time', 'updated_time'], 'required', 'message'=>'用户信息不完整'],
             [['login_count', 'created_time', 'updated_time', 'role', 'status',], 'integer', 'message' => '用户信息格式错误'],
@@ -132,7 +132,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         $scenarios[] = [
 
             'signup' => ['username', 'email', 'password', 'avatar', 'open_id', 'status', 'role', 'auth_key'],
-            'create' => ['username', 'email', 'password', 'avatar', 'open_id', 'status', 'role', 'auth_key'],
+            'create' => ['username', 'email', 'password', 'avatar', 'open_id', 'status', 'role', ],
             'login' => ['login_count'],
             // 'updated' => ['username', 'password'],
             'password_reset_request' => ['email'],
