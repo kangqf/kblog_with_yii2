@@ -42,8 +42,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'set_recommend',
             'click_count',
             'status',
-            'creat_time:datetime',
-            'update_time:datetime',
+            'created_time:datetime',
+            'updated_time:datetime',
         ],
         'deleteOptions'=>[
         'url'=>['delete', 'id' => $model->aid],

@@ -15,7 +15,7 @@ class ArticleSearch extends Article
     public function rules()
     {
         return [
-            [['aid', 'author_id', 'category_id', 'set_index', 'set_top', 'set_recommend', 'click_count', 'status', 'creat_time', 'update_time'], 'integer'],
+            [['aid', 'author_id', 'category_id', 'set_index', 'set_top', 'set_recommend', 'click_count', 'status', 'created_time', 'updated_time'], 'integer'],
             [['title', 'content', 'tags', 'keywords', 'summary'], 'safe'],
         ];
     }
@@ -47,8 +47,8 @@ class ArticleSearch extends Article
             'set_recommend' => $this->set_recommend,
             'click_count' => $this->click_count,
             'status' => $this->status,
-            'creat_time' => $this->creat_time,
-            'update_time' => $this->update_time,
+            'created_time' => $this->creat_time,
+            'updated_time' => $this->update_time,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

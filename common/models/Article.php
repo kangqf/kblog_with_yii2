@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * This is the model class for table "kblog_article".
@@ -10,7 +11,6 @@ use Yii;
  * @property integer $aid
  * @property integer $author_id
  * @property integer $category_id
- * @property integer $comment_id
  * @property string $title
  * @property string $content
  * @property string $tags
@@ -21,8 +21,8 @@ use Yii;
  * @property integer $set_recommend
  * @property integer $click_count
  * @property integer $status
- * @property integer $creat_time
- * @property integer $update_time
+ * @property integer $created_time
+ * @property integer $updated_time
  */
 class Article extends \yii\db\ActiveRecord
 {
@@ -34,13 +34,30 @@ class Article extends \yii\db\ActiveRecord
         return 'kblog_article';
     }
 
+    public function behaviors()
+    {
+        return [
+
+            //自动用当前时间戳填充制定字段
+            'timestamp' => [
+                //yii自己预定义的行为
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_time', 'updated_time'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_time'],
+                ],
+            ],
+
+        ];
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['author_id', 'category_id', 'comment_id', 'set_index', 'set_top', 'set_recommend', 'click_count', 'status', 'creat_time', 'update_time'], 'integer'],
+            [['author_id', 'category_id', 'set_index', 'set_top', 'set_recommend', 'click_count', 'status', 'created_time', 'updated_time'], 'integer'],
             [['content'], 'required'],
             [['content', 'tags', 'keywords'], 'string'],
             [['title'], 'string', 'max' => 50],
@@ -54,22 +71,21 @@ class Article extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'aid' => Yii::t('app', 'Aid'),
-            'author_id' => Yii::t('app', 'Author ID'),
-            'category_id' => Yii::t('app', 'Category ID'),
-            'comment_id' => Yii::t('app', 'Comment ID'),
-            'title' => Yii::t('app', 'Title'),
-            'content' => Yii::t('app', '这会是内容'),
-            'tags' => Yii::t('app', 'Tags'),
-            'keywords' => Yii::t('app', 'Keywords'),
-            'summary' => Yii::t('app', 'Summary'),
-            'set_index' => Yii::t('app', 'Set Index'),
-            'set_top' => Yii::t('app', 'Set Top'),
-            'set_recommend' => Yii::t('app', 'Set Recommend'),
-            'click_count' => Yii::t('app', 'Click Count'),
-            'status' => Yii::t('app', 'Status'),
-            'creat_time' => Yii::t('app', 'Creat Time'),
-            'update_time' => Yii::t('app', 'Update Time'),
+            'aid' => '文章ID',
+            'author_id' => '作者',
+            'category_id' => '类别',
+            'title' => '标题',
+            'content' => '内容',
+            'tags' => '标签',
+            'keywords' => '关键词',
+            'summary' => '总结',
+            'set_index' => '首页',
+            'set_top' => '置顶',
+            'set_recommend' => '推荐',
+            'click_count' => '点击次数',
+            'status' => '状态',
+            'created_time' => '创建时间',
+            'updated_time' => '更新时间',
         ];
     }
 }

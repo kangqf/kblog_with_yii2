@@ -50,11 +50,15 @@ $this->title = "KAdmin";
             ],
             [
             'label' => '类别管理',
-            'url' => ['/category'],
+            'url' => ['/category/index'],
             ],
             [
                 'label' => 'RBAC',
                 'url' => ['/admin'],
+            ],
+            [
+                'label' => '文章管理',
+                'url' => ['/article/index'],
             ],
 
         ];

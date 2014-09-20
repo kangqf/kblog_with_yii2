@@ -14,9 +14,6 @@ $this->title = Yii::t('app', 'Articles');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="article-index">
-    <div class="page-header">
-            <h1><?= Html::encode($this->title) ?></h1>
-    </div>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
@@ -30,31 +27,36 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
+//            [
+//                'class' => '\kartik\grid\CheckboxColumn',
+//                'contentOptions' => ['class' => 'kv-row-select'],
+//                'headerOptions' => ['class' => 'kv-all-select'],
+//            ],
 
-            'aid',
+    //        'aid',
             'author_id',
             'category_id',
             'title',
-            'content:ntext',
-//            'tags:ntext', 
+//            'content:ntext',
+//            'tags:ntext',
 //            'keywords:ntext', 
 //            'summary', 
-//            'set_index', 
-//            'set_top', 
-//            'set_recommend', 
-//            'click_count', 
-//            'status', 
-//            'creat_time:datetime', 
-//            'update_time:datetime', 
+            'set_index',
+            'set_top',
+            'set_recommend',
+            'click_count',
+            'status',
+            'created_time:datetime',
+            'updated_time:datetime',
 
             [
-                'class' => 'yii\grid\ActionColumn',
+                'class' => 'kartik\grid\ActionColumn',
                 'buttons' => [
                 'update' => function ($url, $model) {
-                                    return Html::a('<span class="glyphicon glyphicon-pencil"></span>', Yii::$app->urlManager->createUrl(['article/view','id' => $model->aid,'edit'=>'t']), [
-                                                    'title' => Yii::t('yii', 'Edit'),
-                                                  ]);}
-
+                     return Html::a('<span class="glyphicon glyphicon-pencil"></span>',
+                         Yii::$app->urlManager->createUrl(['article/view','id' => $model->aid,'edit'=>'t']),
+                         [ 'title' => Yii::t('yii', 'Edit'),]);
+                    }
                 ],
             ],
         ],
@@ -72,6 +74,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'before'=>Html::a('<i class="glyphicon glyphicon-plus"></i> Add', ['create'], ['class' => 'btn btn-success']),                                                                                                                                                          'after'=>Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset List', ['index'], ['class' => 'btn btn-info']),
             'showFooter'=>false
         ],
-    ]); Pjax::end(); ?>
+    ]);
+
+    Pjax::end(); ?>
 
 </div>

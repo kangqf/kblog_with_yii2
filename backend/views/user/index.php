@@ -53,6 +53,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter' => Html::activeDropDownList($searchModel, 'role', User::getRoleArray(), ['class' => 'form-control','style'=>'width:200px' ,'prompt' => ''])
             ],
             'open_id',
+//            [
+//                'class' => '\kartik\grid\CheckboxColumn',
+//                'contentOptions' => ['class' => 'kv-row-select'],
+//                'headerOptions' => ['class' => 'kv-all-select'],
+//            ],
 //            'auth_key',
 //            'password_hash',
 //            'password_reset_token',
@@ -91,7 +96,9 @@ $this->params['breadcrumbs'][] = $this->title;
             'heading' => '<h3 class="panel-title"><i class="glyphicon glyphicon-th-list"></i> ' . Html::encode($this->title) . ' </h3>',
             'type' => 'info',
             'before' => Html::a('<i class="glyphicon glyphicon-plus"></i> Add', ['create'], ['class' => 'btn btn-success']),
-            'after' => Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset List', ['index'], ['class' => 'btn btn-info']),
+            'after' => Html::a('<i class="glyphicon glyphicon-repeat"></i> Reset List', ['index'], ['class' => 'btn btn-info']). '&nbsp; ' ,
+             //   Html::a( '<i class="glyphicon glyphicon-remove"></i> Delete', ['delete'],['class'=>'btn btn-danger'] ) ,
+
             'showFooter' => false
         ],
     ]);
