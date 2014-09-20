@@ -25,7 +25,7 @@ use kartik\datecontrol\DateControl;
 
 'category_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Category ID...']], 
 
-'comment_id'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Comment ID...']], 
+'comment_id'=>['type'=> TabularForm::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Comment ID...']], 
 
 'set_index'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Set Index...']], 
 

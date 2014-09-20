@@ -23,11 +23,9 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'category_id') ?>
 
-    <?= $form->field($model, 'comment_id') ?>
-
     <?= $form->field($model, 'title') ?>
 
-    <?php // echo $form->field($model, 'content') ?>
+    <?= $form->field($model, 'content') ?>
 
     <?php // echo $form->field($model, 'tags') ?>
 

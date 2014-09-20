@@ -32,7 +32,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'aid',
             'author_id',
             'category_id',
-            'comment_id',
             'title',
             'content:ntext',
             'tags:ntext',

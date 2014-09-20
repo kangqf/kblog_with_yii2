@@ -15,7 +15,7 @@ class ArticleSearch extends Article
     public function rules()
     {
         return [
-            [['aid', 'author_id', 'category_id', 'comment_id', 'set_index', 'set_top', 'set_recommend', 'click_count', 'status', 'creat_time', 'update_time'], 'integer'],
+            [['aid', 'author_id', 'category_id', 'set_index', 'set_top', 'set_recommend', 'click_count', 'status', 'creat_time', 'update_time'], 'integer'],
             [['title', 'content', 'tags', 'keywords', 'summary'], 'safe'],
         ];
     }
@@ -42,7 +42,6 @@ class ArticleSearch extends Article
             'aid' => $this->aid,
             'author_id' => $this->author_id,
             'category_id' => $this->category_id,
-            'comment_id' => $this->comment_id,
             'set_index' => $this->set_index,
             'set_top' => $this->set_top,
             'set_recommend' => $this->set_recommend,
