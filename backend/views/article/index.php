@@ -3,6 +3,11 @@
 use yii\helpers\Html;
 use kartik\grid\GridView;
 use yii\widgets\Pjax;
+use common\models\User;
+use common\models\Category;
+use common\models\Article;
+
+
 
 /**
  * @var yii\web\View $this
@@ -34,19 +39,62 @@ $this->params['breadcrumbs'][] = $this->title;
 //            ],
 
     //        'aid',
-            'author_id',
-            'category_id',
+          //  'author_id',
+            [
+                'attribute' => 'author_id',
+                'value' => function ($model) {
+                      //  dump($model);die();
+                        return User::getNameById($model->author_id);
+                    },
+              //  'filter' => Html::activeInput($searchModel, 'author_id', User::getStatusArray(), ['class' => 'form-control','style'=>'width:100px' ,'prompt' => ''])
+            ],
+         //   'category_id',
+            [
+                'attribute' => 'category_id',
+                'value' => function ($model) {
+                        return Category::getAllCategoryArray()[$model->category_id];
+                    },
+                 'filter' => Html::activeDropDownList($searchModel, 'category_id', Category::getAllCategoryArray(), ['class' => 'form-control','style'=>'width:100px' ,'prompt' => ''])
+            ],
             'title',
 //            'content:ntext',
 //            'tags:ntext',
 //            'keywords:ntext', 
 //            'summary', 
-            'set_index',
-            'set_top',
-            'set_recommend',
+          //  'set_index',
+            [
+                'attribute' => 'set_index',
+                'value' => function ($model) {
+                        return Article::getYNArray()[$model->set_index];
+                    },
+                'filter' => Html::activeDropDownList($searchModel, 'set_index',  Article::getYNArray(), ['class' => 'form-control','style'=>'width:100px' ,'prompt' => ''])
+            ],
+         //   'set_top',
+            [
+                'attribute' => 'set_top',
+                'value' => function ($model) {
+                        return Article::getYNArray()[$model->set_top];
+                    },
+                'filter' => Html::activeDropDownList($searchModel, 'set_top',  Article::getYNArray(), ['class' => 'form-control','style'=>'width:100px' ,'prompt' => ''])
+            ],
+         //   'set_recommend',
+            [
+                'attribute' => 'set_recommend',
+                'value' => function ($model) {
+                        return Article::getYNArray()[$model->set_recommend];
+                    },
+                'filter' => Html::activeDropDownList($searchModel, 'set_recommend',  Article::getYNArray(), ['class' => 'form-control','style'=>'width:100px' ,'prompt' => ''])
+            ],
             'click_count',
-            'status',
-            'created_time:datetime',
+        //    'status',
+           'created_time:datetime',
+//            [
+//                'attribute' => 'created_time',
+//               // 'hidden'=>true,
+//             //   'format'=>['date', 'dd-MMM-Y'],
+//                'filterType'=>GridView::FILTER_DATE,
+//              //  'filter' => GridView::FILTER_DATE($searchModel, 'set_recommend',  Article::getYNArray(), ['class' => 'form-control','style'=>'width:100px' ,'prompt' => ''])
+//            ],
             'updated_time:datetime',
 
             [

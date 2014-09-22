@@ -18,8 +18,6 @@ use common\models\Category;
 
     <?php
 
-    $model->author_id = Yii::$app->user->getIdentity()->getId();
-
     $form = ActiveForm::begin(['type'=>ActiveForm::TYPE_HORIZONTAL]);
 
 

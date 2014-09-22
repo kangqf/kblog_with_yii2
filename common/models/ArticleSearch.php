@@ -6,6 +6,7 @@ use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use common\models\Article;
+use common\models\User;
 
 /**
  * ArticleSearch represents the model behind the search form about `common\models\Article`.
@@ -15,8 +16,8 @@ class ArticleSearch extends Article
     public function rules()
     {
         return [
-            [['aid', 'author_id', 'category_id', 'set_index', 'set_top', 'set_recommend', 'click_count', 'status', 'created_time', 'updated_time'], 'integer'],
-            [['title', 'content', 'tags', 'keywords', 'summary'], 'safe'],
+            [['aid', 'category_id', 'set_index', 'set_top', 'set_recommend', 'click_count', 'status', 'created_time', 'updated_time'], 'integer'],
+            [['title', 'author_id', 'content', 'tags', 'keywords', 'summary'], 'safe'],
         ];
     }
 
@@ -40,15 +41,15 @@ class ArticleSearch extends Article
 
         $query->andFilterWhere([
             'aid' => $this->aid,
-            'author_id' => $this->author_id,
+            'author_id' =>$this->author_id ? User::getIdByName($this->author_id) : $this->author_id,
             'category_id' => $this->category_id,
             'set_index' => $this->set_index,
             'set_top' => $this->set_top,
             'set_recommend' => $this->set_recommend,
             'click_count' => $this->click_count,
             'status' => $this->status,
-            'created_time' => $this->creat_time,
-            'updated_time' => $this->update_time,
+            'created_time' => $this->created_time,
+            'updated_time' => $this->updated_time,
         ]);
 
         $query->andFilterWhere(['like', 'title', $this->title])

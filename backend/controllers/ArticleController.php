@@ -15,7 +15,7 @@ use yii\filters\VerbFilter;
 class ArticleController extends Controller
 {
     public function actions() {
-        
+
         return [
             'upload' => [
                 'class' => \xj\ueditor\actions\Upload::className(),
@@ -95,8 +95,10 @@ class ArticleController extends Controller
     {
         $model = new Article;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->aid]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->author_id =$model->author_id = Yii::$app->user->getIdentity()->getId();
+                if($model->save())
+                    return $this->redirect(['view', 'id' => $model->aid]);
         } else {
             return $this->render('create', [
                 'model' => $model,

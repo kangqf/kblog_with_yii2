@@ -397,4 +397,24 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
     {
         return $this->getAuthKey() === $authKey;
     }
+
+    public static function getNameById($id)
+    {
+        $val = static::findOne($id);
+        return $val->username;
+       // dump($val);die();
+        //return self::findOne($id);
+    }
+    public static function getIdByName($name)
+    {
+        $val = self::findOne(['username' => $name, 'status' => self::STATUS_ACTIVE]);
+       //  static::findOne($name);
+      //  dump($val);die();
+        if($val)
+        return $val->uid;
+        else
+            return 0;
+        // dump($val);die();
+        //return self::findOne($id);
+    }
 }
