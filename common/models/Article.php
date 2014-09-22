@@ -58,7 +58,7 @@ class Article extends \yii\db\ActiveRecord
     {
         return [
             [['author_id', 'category_id', 'set_index', 'set_top', 'set_recommend', 'click_count', 'status', 'created_time', 'updated_time'], 'integer'],
-            [['content'], 'required'],
+            [['content','title'], 'required'],
             [['content', 'tags', 'keywords'], 'string'],
             [['title'], 'string', 'max' => 50],
             [['summary'], 'string', 'max' => 300]
@@ -86,6 +86,20 @@ class Article extends \yii\db\ActiveRecord
             'status' => '状态',
             'created_time' => '创建时间',
             'updated_time' => '更新时间',
+        ];
+    }
+
+    public static function getYNArray(){
+        return[
+            0 => '否',
+            1 => '是',
+        ];
+    }
+
+    public static function getStatusArray(){
+        return[
+            0 => '正常',
+            1 => '不正常',
         ];
     }
 }

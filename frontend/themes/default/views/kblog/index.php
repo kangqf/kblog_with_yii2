@@ -1,3 +1,20 @@
+<?php
+//use frontend\assets\DefaultLayoutAsset;
+//defaultLayoutAsset::register($this);
+
+?>
+<?php
+//$this->beginPage()
+?>
+<?php
+//$this->head();
+?>
+
+<?php
+//$this->beginBody()
+?>
+
+
 <div>
 
     <!-- Yii::$app->session->getFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.'); -->
@@ -7,3 +24,10 @@
 
 
 </div>
+
+<?php
+//$this->endBody()
+?>
+<?php
+//$this->endPage()
+?>

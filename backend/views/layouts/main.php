@@ -9,7 +9,7 @@ use backend\assets\defaultLayoutAsset;
 DefaultLayoutAsset::register($this);
 
 
-$this->title = "KAdmin";
+//$this->title = "KAdmin";
 
 ?>
 

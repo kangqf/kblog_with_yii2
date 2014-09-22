@@ -93,6 +93,28 @@ class Category extends \yii\db\ActiveRecord
         return self::buildArray($obj);
 
     }
+    public static function getAllCategoryArray() {
+        $obj = self::find()
+            ->where(['status' => self::STATUS_ACTIVE])
+            ->orderBy('cgid')
+            ->all();
+        $pid = [];
+        foreach($obj as $value)
+        {
+            if($value->parent_id)
+            {
+                $pid[] = $value->parent_id;
+            }
+        }
+        $allCategory = self::buildArray($obj);
+
+        foreach($pid as $pidValue){
+            unset($allCategory[$pidValue]);
+        }
+
+        return $allCategory;
+
+    }
     public static function getParentName($pid) {
         return self::find()
             ->where(['cgid' => $pid ,'status' => self::STATUS_ACTIVE,'level' => self::LEVEL_TOP])
