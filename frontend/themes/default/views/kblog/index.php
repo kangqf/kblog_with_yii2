@@ -1,6 +1,7 @@
 <?php
 //use frontend\assets\DefaultLayoutAsset;
 //defaultLayoutAsset::register($this);
+use yii\widgets\ListView;
 
 ?>
 <?php
@@ -18,9 +19,22 @@
 <div>
 
     <!-- Yii::$app->session->getFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.'); -->
-    <h2>
-        这是默认首页
-    </h2>
+    <?php
+        echo ListView::widget([
+        'dataProvider' => $dataProvider,
+        'itemOptions' => ['class' => 'item'],
+        'itemView' => 'public/_item',
+        'pager' => [
+            'class' => \kop\y2sp\ScrollPager::className(),
+            'negativeMargin' => 500,
+            'noneLeftText' => '没有更多内容',
+            'triggerText' => '加载更多',
+
+            ],
+
+        'summary' => '',
+        ]);
+    ?>
 
 
 </div>

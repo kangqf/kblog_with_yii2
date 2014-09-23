@@ -18,8 +18,8 @@ return [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'smtp.gmail.com',
-                'username' => 'kangqingfei@gmail.com',
-                'password' => '你猜猜',
+                'username' => 'kangqingfei1@gmail.com',
+                'password' => 'kangqingfei',
                 'port' => '587',
                 'encryption' => 'tls'
             ],

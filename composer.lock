@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "2f1254f1fca390bd33ed56724c72a352",
+    "hash": "c5b7dd7a4f3614bc61447368dd0860c8",
     "packages": [
         {
             "name": "cebe/markdown",
@@ -1191,6 +1191,57 @@
             "time": "2014-07-31 07:59:31"
         },
         {
+            "name": "kop/yii2-scroll-pager",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kop/yii2-scroll-pager.git",
+                "reference": "abe6a56d2235a04a02a45db1c82f841586bde726"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kop/yii2-scroll-pager/zipball/abe6a56d2235a04a02a45db1c82f841586bde726",
+                "reference": "abe6a56d2235a04a02a45db1c82f841586bde726",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "webcreate/jquery-ias": "2.1.2",
+                "yiisoft/yii2": "*"
+            },
+            "require-dev": {
+                "codeception/codeception": "~2.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "kop\\y2sp\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Koptiev",
+                    "email": "ikoptev@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Infinite AJAX scrolling for Yii2 ListView widget",
+            "homepage": "http://kop.github.io/yii2-scroll-pager/",
+            "keywords": [
+                "pager",
+                "pagination",
+                "scroll",
+                "scrolling",
+                "yii",
+                "yii2"
+            ],
+            "time": "2014-08-05 09:35:20"
+        },
+        {
             "name": "mdmsoft/yii2-admin",
             "version": "dev-master",
             "source": {
@@ -1483,6 +1534,46 @@
             ],
             "description": "Gii Generator base on Kartik-V extension https://github.com/kartik-v",
             "time": "2014-05-29 07:30:14"
+        },
+        {
+            "name": "webcreate/jquery-ias",
+            "version": "v2.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webcreate/infinite-ajax-scroll.git",
+                "reference": "32cf4d91c2ffc61c88f6e973e0b196ddcaa6b233"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webcreate/infinite-ajax-scroll/zipball/32cf4d91c2ffc61c88f6e973e0b196ddcaa6b233",
+                "reference": "32cf4d91c2ffc61c88f6e973e0b196ddcaa6b233",
+                "shasum": ""
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary",
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "fieg",
+                    "email": "jeroen@fieg.nl",
+                    "homepage": "http://webcreate.nl"
+                }
+            ],
+            "description": "Infinite AJAX Scroll: A jQuery plugin that turns your server-side pagination into an infinite scrolling one using AJAX",
+            "homepage": "http://infiniteajaxscroll.com",
+            "keywords": [
+                "ajax",
+                "ias",
+                "infinite",
+                "jquery",
+                "pagination",
+                "scroll",
+                "scrolling"
+            ],
+            "time": "2014-07-05 13:52:46"
         },
         {
             "name": "xj/yii2-ueditor-widget",
@@ -2120,7 +2211,8 @@
         "kartik-v/yii2-detail-view": 20,
         "kartik-v/yii2-builder": 20,
         "kartik-v/yii2-nav-x": 20,
-        "warrence/yii2-kartikgii": 20
+        "warrence/yii2-kartikgii": 20,
+        "kop/yii2-scroll-pager": 20
     },
     "prefer-stable": false,
     "platform": {

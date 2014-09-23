@@ -32,7 +32,8 @@
         "warrence/yii2-kartikgii": "dev-master",
         "mdmsoft/yii2-admin": "*",
         "kartik-v/yii2-markdown": "*",
-        "xj/yii2-ueditor-widget": "*"
+        "xj/yii2-ueditor-widget": "*",
+        "kop/yii2-scroll-pager": "dev-master"
 
     },
     "require-dev": {

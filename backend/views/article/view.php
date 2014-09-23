@@ -33,7 +33,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'author_id',
             'category_id',
             'title',
-            'content:ntext',
+          //  'content:ntext',
             'tags:ntext',
             'keywords:ntext',
             'summary',
@@ -44,6 +44,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'status',
             'created_time:datetime',
             'updated_time:datetime',
+            [
+                'attribute' => 'content',
+                'format' => 'html',
+            ]
         ],
         'deleteOptions'=>[
         'url'=>['delete', 'id' => $model->aid],

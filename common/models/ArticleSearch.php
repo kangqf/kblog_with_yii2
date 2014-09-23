@@ -29,10 +29,14 @@ class ArticleSearch extends Article
 
     public function search($params)
     {
+       // dump($params);die();
         $query = Article::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
+            'pagination' => [
+                'pageSize' => 10,
+            ],
         ]);
 
         if (!($this->load($params) && $this->validate())) {
