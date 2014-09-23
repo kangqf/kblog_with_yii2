@@ -122,12 +122,18 @@ $SearchModel = new SearchForm;
     if (Yii::$app->user->isGuest) {
         $menuItems = [['label' => '登录', 'url' => ['/kblog/login'],], ['label' => '注册', 'url' => ['/kblog/signup'],]];
     } else {
-//                $user = Yii::$app->user->identity;
-//                if($user != null){
-//                    echo Html::img(
-//                        Url::toRoute(['get-avatar', 'file_name' => $user->avatar, 'size' => 1], false), ['id' => 'avatar', 'alt' => $user->username]
-//                    );
-//                }
+            $user = Yii::$app->user->identity;
+            if($user != null){
+                if(strlen($user->avatar)>32){
+                    echo Html::img(
+                        Url::toRoute(['get-avatar', 'file_name' => $user->avatar, 'size' => 1], false), ['id' => 'avatar', 'alt' => $user->username]
+                    );
+                }
+                else if(strlen($user->avatar) == 32){
+                    echo Html::img('http://www.gravatar.com/avatar/'.$user->avatar.'?s=40',['id' => 'avatar', 'alt' => $user->username]);
+                }
+
+            }
 
         $menuItems[] =
             [

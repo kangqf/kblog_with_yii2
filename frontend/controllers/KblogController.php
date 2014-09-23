@@ -109,13 +109,13 @@ class KblogController extends \yii\web\Controller
         }
     }
 
-    public function  actionGetAvatar($file_name = '20140831214007_304de1027bcd348d087830217763712d.jpg', $size = 1)
+    public function  actionGetAvatar($file_name , $size = 1)
     {
         $avatarFile = new AvatarFile();
-        $row = $avatarFile->get($file_name, $size);
+        $row = $avatarFile->getAvatar($file_name, $size);
         if ($row) {
-            header('Content-type: ' . $row['contentType']);
-            return $row['byte'];
+            header('Content-type: '.$row->contentType);
+            echo $row->file->getBytes();
         } else {
             echo "";
         }

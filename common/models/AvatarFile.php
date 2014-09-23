@@ -59,14 +59,20 @@ class AvatarFile extends ActiveRecord
                 $file = 'SMALL' . $fileName;
                 break;
         }
-
-        $query = new Query();
-        $row = $query->from('avatar')->where(['filename' => $file])->one();
-        if ($row != null) {
-            return ['contentType' => $row['contentType'], 'byte' => $row['file']->getBytes()];
-        } else {
+         $val = $this->findOne(['filename' => $file]);
+        if($val)
+            return $val;
+        else
             return false;
-        }
+      //  dump($val);die();
+
+//        $query = new Query();
+//        $row = $query->from('avatar')->where(['filename' => $file])->one();
+//        if ($row != null) {
+//            return ['contentType' => $row['contentType'], 'byte' => $row['file']->getBytes()];
+//        } else {
+//            return false;
+//        }
 
 
     }

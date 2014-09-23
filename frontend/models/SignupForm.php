@@ -111,7 +111,7 @@ class SignupForm extends \yii\base\Model
                 $filename = $avatarUploadedFile;
             }
 
-            Image::thumbnail($path . $filename, 32, 32)->save($path . 'SMALL' . $filename);
+            Image::thumbnail($path . $filename, 40, 40)->save($path . 'SMALL' . $filename);
             Image::thumbnail($path . $filename, 150, 150)->save($path . 'MIDDLE' . $filename);
 
             $arr = ['', 'MIDDLE', 'SMALL'];
