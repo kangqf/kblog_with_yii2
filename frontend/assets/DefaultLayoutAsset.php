@@ -14,6 +14,8 @@ class DefaultLayoutAsset extends AssetBundle
 
     public $css = [
         'css/defaultLayout.css',
+      //  'css/ihover/ihover.min.css ',
+        'css/ihover/khover.css '
     ];
 
     public $js = [

@@ -11,6 +11,7 @@ use yii\db\ActiveRecord;
  * @property integer $aid
  * @property integer $author_id
  * @property integer $category_id
+ * @property integer $comment_count
  * @property string $title
  * @property string $content
  * @property string $tags
