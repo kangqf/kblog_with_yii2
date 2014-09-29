@@ -423,7 +423,7 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         $user = self::findIdentity($id);
         if(strlen($user->avatar)>32){
             return Html::img(
-                Url::toRoute(['get-avatar', 'file_name' => $user->avatar, 'size' => $size/40],false),
+                Url::toRoute(['kblog/get-avatar', 'file_name' => $user->avatar, 'size' => $size/40],false),
                 $option
             );
         }

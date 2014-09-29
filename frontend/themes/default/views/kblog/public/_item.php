@@ -34,7 +34,7 @@ $khover = [
 
 <div class="col-md-6">
     <div class="ih-item square <?= $khover[$model->aid%10]; ?>">
-        <a href="/">
+        <a href=" <?=Yii::$app->urlManager->createUrl(['article','id' => $model->aid])?>">
             <div class="origin">
                 <h3><?= $model->title ?>
                     <div style=" display: inline-table; float:right;">
