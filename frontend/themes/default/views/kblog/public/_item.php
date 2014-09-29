@@ -7,8 +7,22 @@
  */
 
 use common\models\User;
+use common\models\Category;
 use yii\helpers\Html;
 use yii\helpers\StringHelper;
+
+$khover = [
+    0=> 'effect15 bottom_to_top',
+    1=> 'effect14 right_to_left',
+    2=> 'effect13 right_to_left',
+    3=> 'effect12 top_to_bottom',
+    4=> 'effect11 left_to_right',
+    5=> 'effect8 scale_dowm',
+    6=> 'effect7',
+    7=> 'effect6 from_top_and_bottom',
+    8=> 'effect5 left_to_right',
+    9=> 'effect2',
+];
 
 //  Html::img( Yii::$app->homeUrl . 'image/1.jpg' ,['class' => 'file-preview-image', 'alt' => '没找到默认头像', 'title' => '默认头像']);
 
@@ -19,160 +33,22 @@ use yii\helpers\StringHelper;
 ?>
 
 <div class="col-md-6">
-
-    <!-- colored -->
-
-    <!-- end colored -->
-
-
-    <div class="ih-item square effect15 bottom_to_top">
-        <a href="/login">
-            <div class="img">
-                <h3>1515<?= $model->title ?></h3>
-                <p><?php  echo $model->content;//StringHelper::truncate( ?></p>
-            </div>
-            <div class="info">
-                <h3><?= User::getNameById($model->author_id) ?></h3>
-                <p>点击：<?= $model->click_count ?></p>
-                <p>评论：<?= $model->comment_count ?></p>
-                <p>时间：<?= date("Y-m-d H:i",$model->updated_time); ?></p>
-            </div>
-        </a>
-    </div>
-    <div class="ih-item square effect14 right_to_left">
+    <div class="ih-item square <?= $khover[1]; ?>">
         <a href="/">
-            <div class="img">
-                <h3>1414<?= $model->title ?></h3>
-                <p><?php  echo $model->content;//StringHelper::truncate( ?></p>
+            <div class="origin">
+                <h3><?= $model->title ?> <div style=" display: inline-flex; margin:0px 0px 0px 250px;"> <?= User::getAvatarById($model->author_id); ?> </div></h3>
+                <p><?php  echo $model->content; ?></p>
             </div>
             <div class="info">
-                <h3><?= User::getNameById($model->author_id) ?></h3>
-                <p>点击：<?= $model->click_count ?></p>
-                <p>评论：<?= $model->comment_count ?></p>
-                <p>时间：<?= date("Y-m-d H:i",$model->updated_time); ?></p>
+                <h3>作者：<?= User::getNameById($model->author_id) ?> 分类：<?= Category::getNameById($model->category_id) ?></h3>
+                <p>
+                    点击：<?= $model->click_count ?> &nbsp;&nbsp;&nbsp;
+                    评论：<?= $model->comment_count ?> &nbsp;&nbsp;&nbsp;
+                    时间：<?= date("Y-m-d H:i",$model->updated_time); ?>
+                </p>
             </div>
         </a>
     </div>
-
-    <div class="ih-item square effect13 right_to_left">
-        <a href="/">
-            <div class="img">
-                <h3>1313<?= $model->title ?></h3>
-                <p><?php  echo $model->content;//StringHelper::truncate( ?></p>
-            </div>
-            <div class="info">
-                <h3><?= User::getNameById($model->author_id) ?></h3>
-                <p>点击：<?= $model->click_count ?></p>
-                <p>评论：<?= $model->comment_count ?></p>
-                <p>时间：<?= date("Y-m-d H:i",$model->updated_time); ?></p>
-            </div>
-        </a>
-    </div>
-
-    <div class="ih-item square effect12 top_to_bottom">
-        <a href="/">
-            <div class="img">
-                <h3>1212<?= $model->title ?></h3>
-                <p><?php  echo $model->content;//StringHelper::truncate( ?></p>
-            </div>
-            <div class="info">
-                <h3><?= User::getNameById($model->author_id) ?></h3>
-                <p>点击：<?= $model->click_count ?></p>
-                <p>评论：<?= $model->comment_count ?></p>
-                <p>时间：<?= date("Y-m-d H:i",$model->updated_time); ?></p>
-            </div>
-        </a>
-    </div>
-    <div class="ih-item square effect11 left_to_right">
-        <a href="/">
-            <div class="img">
-                <h3>1111<?= $model->title ?></h3>
-                <p><?php  echo $model->content;//StringHelper::truncate( ?></p>
-            </div>
-            <div class="info">
-                <h3><?= User::getNameById($model->author_id) ?></h3>
-                <p>点击：<?= $model->click_count ?></p>
-                <p>评论：<?= $model->comment_count ?></p>
-                <p>时间：<?= date("Y-m-d H:i",$model->updated_time); ?></p>
-            </div>
-        </a>
-    </div>
-
-
-    <div class="ih-item square effect8 scale_dowm">
-        <a href="/">
-            <div class="img">
-                <h3>888<?= $model->title ?></h3>
-                <p><?php  echo $model->content;//StringHelper::truncate( ?></p>
-            </div>
-            <div class="info">
-                <h3><?= User::getNameById($model->author_id) ?></h3>
-                <p>点击：<?= $model->click_count ?></p>
-                <p>评论：<?= $model->comment_count ?></p>
-                <p>时间：<?= date("Y-m-d H:i",$model->updated_time); ?></p>
-            </div>
-        </a>
-    </div>
-    <div class="ih-item square effect7 ">
-        <a href="/">
-            <div class="img">
-                <h3>777<?= $model->title ?></h3>
-                <p><?php  echo $model->content;//StringHelper::truncate( ?></p>
-            </div>
-            <div class="info">
-                <h3><?= User::getNameById($model->author_id) ?></h3>
-                <p>点击：<?= $model->click_count ?></p>
-                <p>评论：<?= $model->comment_count ?></p>
-                <p>时间：<?= date("Y-m-d H:i",$model->updated_time); ?></p>
-            </div>
-        </a>
-    </div>
-    <div class="ih-item square effect6 from_top_and_bottom">
-        <a href="/">
-            <div class="img">
-                <h3>666<?= $model->title ?></h3>
-                <p><?php  echo $model->content;//StringHelper::truncate( ?></p>
-            </div>
-            <div class="info">
-                <h3><?= User::getNameById($model->author_id) ?></h3>
-                <p>点击：<?= $model->click_count ?></p>
-                <p>评论：<?= $model->comment_count ?></p>
-                <p>时间：<?= date("Y-m-d H:i",$model->updated_time); ?></p>
-            </div>
-        </a>
-    </div>
-    <div class="ih-item square effect5 left_to_right">
-        <a href="/">
-            <div class="img">
-                <h3>555<?= $model->title ?></h3>
-                <p><?php  echo $model->content;//StringHelper::truncate( ?></p>
-            </div>
-            <div class="info">
-                <h3><?= User::getNameById($model->author_id) ?></h3>
-                <p>点击：<?= $model->click_count ?></p>
-                <p>评论：<?= $model->comment_count ?></p>
-                <p>时间：<?= date("Y-m-d H:i",$model->updated_time); ?></p>
-            </div>
-        </a>
-    </div>
-
-    <div class="ih-item square effect2 ">
-        <a href="/">
-            <div class="img">
-                <h3>222<?= $model->title ?></h3>
-                <p><?php  echo $model->content;//StringHelper::truncate( ?></p>
-            </div>
-            <div class="info">
-                <h3><?= User::getNameById($model->author_id) ?></h3>
-                <p>点击：<?= $model->click_count ?></p>
-                <p>评论：<?= $model->comment_count ?></p>
-                <p>时间：<?= date("Y-m-d H:i",$model->updated_time); ?></p>
-            </div>
-        </a>
-    </div>
-
-
-
 
 
 </div>

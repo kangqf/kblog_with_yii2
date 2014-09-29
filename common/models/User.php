@@ -5,6 +5,8 @@ namespace common\models;
 use yii\db\ActiveRecord;
 use Yii;
 use yii\base\NotSupportedException;
+use yii\helpers\Html;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "kblog_user".
@@ -416,5 +418,16 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
             return 0;
         // dump($val);die();
         //return self::findOne($id);
+    }
+    public static function getAvatarById($id,$size = 40 ){
+        $user = self::findIdentity($id);
+        if(strlen($user->avatar)>32){
+            return Html::img(
+                Url::toRoute(['get-avatar', 'file_name' => $user->avatar, 'size' => $size/40], false), ['id' => 'avatar', 'alt' => $user->username]
+            );
+        }
+        else if(strlen($user->avatar) == 32){
+            return Html::img('http://www.gravatar.com/avatar/'.$user->avatar.'?s='.$size,['id' => 'avatar', 'alt' => $user->username]);
+        }
     }
 }

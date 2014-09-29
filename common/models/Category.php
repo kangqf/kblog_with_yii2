@@ -138,6 +138,8 @@ class Category extends \yii\db\ActiveRecord
             $arr[$value->cgid] = $value->name;
         }
         return $arr;
-
+    }
+    public static function getNameById($id){
+        return self::findOne(['cgid' => $id])->name;
     }
 }

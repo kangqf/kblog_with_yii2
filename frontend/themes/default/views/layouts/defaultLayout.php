@@ -8,6 +8,7 @@ use frontend\assets\DefaultLayoutAsset;
 use kartik\widgets\ActiveForm;
 use common\models\Category;
 use frontend\models\SearchForm;
+use common\models\User;
 
 use yii\helpers\Url;
 
@@ -124,15 +125,7 @@ $SearchModel = new SearchForm;
     } else {
             $user = Yii::$app->user->identity;
             if($user != null){
-                if(strlen($user->avatar)>32){
-                    echo Html::img(
-                        Url::toRoute(['get-avatar', 'file_name' => $user->avatar, 'size' => 1], false), ['id' => 'avatar', 'alt' => $user->username]
-                    );
-                }
-                else if(strlen($user->avatar) == 32){
-                    echo Html::img('http://www.gravatar.com/avatar/'.$user->avatar.'?s=40',['id' => 'avatar', 'alt' => $user->username]);
-                }
-
+               echo  User::getAvatarById($user->getId());
             }
 
         $menuItems[] =

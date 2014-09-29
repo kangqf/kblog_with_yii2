@@ -103,4 +103,8 @@ class Article extends \yii\db\ActiveRecord
             1 => '不正常',
         ];
     }
+
+//    public static function getNameById($id){
+//        dump(self::findOne(['aid' => $id]));die();
+//    }
 }
