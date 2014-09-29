@@ -16,7 +16,7 @@ use yii\widgets\ListView;
 ?>
 
 
-<div>
+<div style="margin-top: 0px;margin-bottom:  0px">
 
     <!-- Yii::$app->session->getFlash('success', 'Thank you for contacting us. We will respond to you as soon as possible.'); -->
     <?php

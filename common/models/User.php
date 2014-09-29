@@ -419,15 +419,16 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         // dump($val);die();
         //return self::findOne($id);
     }
-    public static function getAvatarById($id,$size = 40 ){
+    public static function getAvatarById($id,$size = 40,$option = [] ){
         $user = self::findIdentity($id);
         if(strlen($user->avatar)>32){
             return Html::img(
-                Url::toRoute(['get-avatar', 'file_name' => $user->avatar, 'size' => $size/40], false), ['id' => 'avatar', 'alt' => $user->username]
+                Url::toRoute(['get-avatar', 'file_name' => $user->avatar, 'size' => $size/40],false),
+                $option
             );
         }
         else if(strlen($user->avatar) == 32){
-            return Html::img('http://www.gravatar.com/avatar/'.$user->avatar.'?s='.$size,['id' => 'avatar', 'alt' => $user->username]);
+            return Html::img('http://www.gravatar.com/avatar/'.$user->avatar.'?s='.$size,$option);//['id' => 'avatar', 'alt' => $user->username]
         }
     }
 }

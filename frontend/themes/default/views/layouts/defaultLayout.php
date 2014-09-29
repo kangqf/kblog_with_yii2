@@ -125,7 +125,7 @@ $SearchModel = new SearchForm;
     } else {
             $user = Yii::$app->user->identity;
             if($user != null){
-               echo  User::getAvatarById($user->getId());
+               echo  User::getAvatarById($user->getId(),40,['id' => 'avatar', 'alt' => $user->username]);
             }
 
         $menuItems[] =

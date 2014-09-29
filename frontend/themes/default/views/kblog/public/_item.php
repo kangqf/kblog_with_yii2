@@ -33,11 +33,15 @@ $khover = [
 ?>
 
 <div class="col-md-6">
-    <div class="ih-item square <?= $khover[1]; ?>">
+    <div class="ih-item square <?= $khover[$model->aid%10]; ?>">
         <a href="/">
             <div class="origin">
-                <h3><?= $model->title ?> <div style=" display: inline-flex; margin:0px 0px 0px 250px;"> <?= User::getAvatarById($model->author_id); ?> </div></h3>
-                <p><?php  echo $model->content; ?></p>
+                <h3><?= $model->title ?>
+                    <div style=" display: inline-table; float:right;">
+                        <?= User::getAvatarById($model->author_id); ?>
+                    </div>
+                </h3>
+                <p><?php  echo $model->summary; ?></p>
             </div>
             <div class="info">
                 <h3>作者：<?= User::getNameById($model->author_id) ?> 分类：<?= Category::getNameById($model->category_id) ?></h3>

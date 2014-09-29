@@ -60,7 +60,7 @@ use common\models\Category;
 
 
 
-      //  'summary'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Summary...', 'maxlength'=>300]],
+        'summary'=>['type'=> Form::INPUT_TEXT, 'options'=>['placeholder'=>'Enter Summary...', 'maxlength'=>300]],
 
     ]
     ]);
