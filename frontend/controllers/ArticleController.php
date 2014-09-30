@@ -2,11 +2,14 @@
 
 namespace frontend\controllers;
 
+use common\models\Article;
+
 class ArticleController extends \yii\web\Controller
 {
-    public function actionIndex()
+    public function actionIndex($id)
     {
-        return $this->render('index');
+        $model = Article::findOne(['aid'=>$id]);
+        return $this->render('index',['model' => $model]);
     }
 
 }

@@ -21,20 +21,20 @@ return [
     'components' => [
 
         //将框架的view->themes托管给ThemeManager类
-        'view' => [
-            'theme' => [
-                'class' => 'common\models\ThemeManager',
-                'current' => 'default',
-                'themes' => [
-                    'default' => [
-                        'pathMap' => [
-                            '@app/views' => '@frontend/themes/default/views',
-                            '@app/views/layouts' => '@frontend/themes/default/views/layouts',
-                        ],
-                    ],
-                ],
-            ],
-        ],
+//        'view' => [
+//            'theme' => [
+//                'class' => 'common\models\ThemeManager',
+//                'current' => 'default',
+//                'themes' => [
+//                    'default' => [
+//                        'pathMap' => [
+//                            '@app/views' => '@frontend/themes/default/views',
+//                            '@app/views/layouts' => '@frontend/themes/default/views/layouts',
+//                        ],
+//                    ],
+//                ],
+//            ],
+//        ],
 
         //路由管理
         'urlManager' => [
