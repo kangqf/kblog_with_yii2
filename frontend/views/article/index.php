@@ -1,11 +1,15 @@
 <?php
-/**
- * @var yii\web\View $this
- */
-?>
-<h1>article/index</h1>
 
-<p>
-    You may change the content of this page by modifying
-    the file <code><?= __FILE__; ?></code>.
-</p>
+use common\models\User;
+use frontend\assets\ArticleAsset;
+
+ArticleAsset::register($this);
+?>
+
+<div class="col-md-10 col-md-offset-1">
+   <div class="col-md-2" id="author_info">
+       <?= User::getAvatarById($model->author_id,80); ?>
+   </div>
+
+
+</div>
