@@ -428,7 +428,10 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
             );
         }
         else if(strlen($user->avatar) == 32){
-            return Html::img('http://www.gravatar.com/avatar/'.$user->avatar.'?s='.$size,$option);//['id' => 'avatar', 'alt' => $user->username]
+            return Html::img('http://www.gravatar.com/avatar/'.$user->avatar.'?s='.$size.'&d=retro',$option);//['id' => 'avatar', 'alt' => $user->username]
         }
+    }
+    public static function getEmailById($id){
+        return self::findIdentity($id)->email;
     }
 }
