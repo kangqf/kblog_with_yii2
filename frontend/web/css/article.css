@@ -24,13 +24,21 @@
     }
     #one-line-info{
         font-family: courier;
+        font-size: 15px;
+        margin-bottom: 10px;
     }
 }
 
 /*小屏幕*/
 @media (max-width: 768px) {
+    #one-line-info{
+        font-family: courier;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
     #author_info{
         margin: 50px 50px 50px 50px;
+
 
     }
 }
