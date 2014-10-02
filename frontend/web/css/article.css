@@ -13,6 +13,18 @@
 
 /*大屏幕*/
 @media (min-width: 768px) {
+    #author_avatar_div{
+        text-align: center;
+    }
+    #author_name_div{
+        text-align: center;
+        margin-top: 10px;
+    }
+    #author_email_div{
+        text-align: center;
+        margin-top: 10px;
+    }
+
     #author_info{
         margin: 50px 50px 50px -50px;
     }
@@ -31,14 +43,30 @@
 
 /*小屏幕*/
 @media (max-width: 768px) {
+    #author_avatar_div{
+        text-align: center;
+    }
+
+    #author_name_div{
+        text-align: center;
+        margin-top: 5px;
+    }
+    #author_email_div{
+        text-align: center;
+        margin-top: 5px;
+    }
     #one-line-info{
         font-family: courier;
         font-size: 15px;
         margin-bottom: 10px;
     }
     #author_info{
-        margin: 50px 50px 50px 50px;
-
-
+        margin: 20px 0px 20px 0px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #article_info{
+        padding-left: 0;
+        padding-right: 0;
     }
 }

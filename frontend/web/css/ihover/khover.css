@@ -1,5 +1,32 @@
+
+#index_author_avatar{
+    display: inline-table;
+    float:right;
+}
+@media (min-width: 768px) {
+    .ih-item.square {
+        height: 170px;
+    }
+    #index_author_avatar{
+        margin-top: -10px;
+    }
+}
+@media (max-width: 768px) {
+    .ih-item.square {
+        height: auto;
+    }
+    #index_author_avatar{
+
+        margin-top: -2px;
+    }
+    #index_author_image{
+           width: 32px;
+           height: 32px;
+        }
+}
+
 .ih-item {
-	margin-top:50px;
+  margin-top:50px;
   position: relative;
   -webkit-transition: all 0.35s ease-in-out;
   -moz-transition: all 0.35s ease-in-out;
@@ -21,10 +48,10 @@
   width: 100%;
   height: 100%;
 }
+
 .ih-item.square {
   position: relative;
-	width: 100%;
-	height: 170px;
+  width: 100%;
  /* width: 316px;
   height: 216px;*/
   border: 8px solid #fff;

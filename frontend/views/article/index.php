@@ -8,17 +8,16 @@ use common\models\Category;
 ArticleAsset::register($this);
 ?>
 
-<div class="col-md-10 col-md-offset-1 ">
+<div class="">
 
    <div class="col-md-2 " id="author_info">
-       <div id="author_avatar_div" style="text-align: center">
+       <div id="author_avatar_div" >
            <?= User::getAvatarById($model->author_id,80,['id' => 'author_avatar']); ?>
-
        </div>
-       <div style="text-align: center; margin-top: 10px;">
+       <div id="author_name_div" >
            <?= User::getNameById($model->author_id)?>
        </div>
-       <div  style="text-align: center; margin-top: 10px;">
+       <div id="author_email_div" >
             <?= html::a(User::getEmailById($model->author_id)) ?>
        </div>
    </div>

@@ -37,8 +37,8 @@ $khover = [
         <a href=" <?=Yii::$app->urlManager->createUrl(['article','id' => $model->aid])?>">
             <div class="origin">
                 <h3><?= $model->title ?>
-                    <div style=" display: inline-table; float:right; margin-top: -10px;">
-                        <?= User::getAvatarById($model->author_id); ?>
+                    <div id="index_author_avatar" >
+                        <?= User::getAvatarById($model->author_id,40,['id' => 'index_author_image']); ?>
                     </div>
                 </h3>
                 <p><?php  echo $model->summary; ?></p>
