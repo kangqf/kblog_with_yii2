@@ -22,7 +22,7 @@ ArticleAsset::register($this);
        </div>
    </div>
 
-    <div class="col-md-8 " id="article_info">
+    <div class="col-md-10 " id="article_info">
         <div id="title">
             <h2>
                 <?= $model->title ?>
@@ -62,6 +62,12 @@ ArticleAsset::register($this);
         </div>
 
     </div>
+
+    <div class="col-md-10" id="write_comment">
+
+
+    </div>
+
 
 
 </div>
