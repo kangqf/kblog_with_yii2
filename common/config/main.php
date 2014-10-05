@@ -45,21 +45,29 @@ return [
             // the controller action route used for markdown editor preview
             'previewAction' => '/markdown/parse/preview',
 
+            // the controller action route used for downloading the markdown exported file
+            'downloadAction' => '/markdown/parse/download',
+
             // the list of custom conversion patterns for post processing
             'customConversion' => [
                 '<table>' => '<table class="table table-bordered table-striped">'
             ],
 
             // whether to use PHP SmartyPantsTypographer to process Markdown output
-            'smartyPants' => true
+            'smartyPants' => true,
+
+            // array the the internalization configuration for this module
+            'i18n' => [
+                'class' => 'yii\i18n\PhpMessageSource',
+                'basePath' => '@markdown/messages',
+                'forceTranslation' => true
+            ],
         ],
 
-
         //gridview组件
-          'gridview' =>  [
-               'class' => '\kartik\grid\Module'
-           ],
-
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+        ],
 
 
         //  'datecontrol' =>  [
@@ -84,8 +92,6 @@ return [
         //
         // ]
     ],
-
-
 
 
 ];

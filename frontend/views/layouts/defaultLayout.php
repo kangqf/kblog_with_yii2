@@ -26,6 +26,7 @@ $SearchModel = new SearchForm;
 <head>
     <meta charset="<?= Yii::$app->charset ?>"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head(); ?>
@@ -123,10 +124,10 @@ $SearchModel = new SearchForm;
     if (Yii::$app->user->isGuest) {
         $menuItems = [['label' => '登录', 'url' => ['/kblog/login'],], ['label' => '注册', 'url' => ['/kblog/signup'],]];
     } else {
-            $user = Yii::$app->user->identity;
-            if($user != null){
-               echo  User::getAvatarById($user->getId(),40,['id' => 'avatar', 'alt' => $user->username]);
-            }
+        $user = Yii::$app->user->identity;
+        if ($user != null) {
+            echo User::getAvatarById($user->getId(), 40, ['id' => 'avatar', 'alt' => $user->username]);
+        }
 
         $menuItems[] =
             [

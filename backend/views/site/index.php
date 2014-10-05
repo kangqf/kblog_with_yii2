@@ -8,7 +8,7 @@ $this->title = '系统信息';
 <div id="systemInfo">
 
     <?php
-        $extensions = $sysInfo->getExtensions();
+    $extensions = $sysInfo->getExtensions();
     ?>
     <h1>服务器系统信息</h1>
 
@@ -74,7 +74,7 @@ $this->title = '系统信息';
            type: 'get',
           // data: {id: '<id>', 'other': '<other>'},
            success: function(data) {
-             console.log(data);
+           //  console.log(data);
              document.getElementById('info').innerHTML = data;
            }
         });
