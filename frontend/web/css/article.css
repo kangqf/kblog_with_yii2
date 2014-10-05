@@ -11,6 +11,11 @@
 
 }
 
+.comment-item{
+    float: left ;
+    /*margin-left: 20px;*/
+}
+
 /*大屏幕*/
 @media (min-width: 768px) {
     #author_avatar_div{
@@ -38,6 +43,10 @@
         font-family: courier;
         font-size: 15px;
         margin-bottom: 10px;
+    }
+    .comment-item{
+        margin-left: 20px;
+        margin-top: 50px;
     }
 }
 
@@ -68,5 +77,11 @@
     #article_info{
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .comment-item{
+        float: left ;
+        margin-left: 0px;
+        margin-top: 25px;
     }
 }

@@ -104,6 +104,18 @@ class Article extends \yii\db\ActiveRecord
             1 => '不正常',
         ];
     }
+    public static function plusCommentCountByArticleId($aid){
+        $article = self::findOne(['aid'=>$aid]);
+        $article->comment_count++;
+        return $article->save() ;
+
+    }
+    public static function plusClickCountByArticleId($aid){
+        $article = self::findOne(['aid'=>$aid]);
+        $article->click_count++;
+        return $article->save() ;
+
+    }
 
 //    public static function getNameById($id){
 //        dump(self::findOne(['aid' => $id]));die();

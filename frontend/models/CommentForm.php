@@ -7,6 +7,7 @@
  */
 namespace frontend\models;
 
+use common\models\Article;
 use common\models\Comment;
 use yii\base\Model;
 use Yii;
@@ -39,13 +40,24 @@ class CommentForm extends Model
             $comment->message = Markdown::convert($this->message);
             $comment->ip = Yii::$app->request->userIP;
             if ($comment->save())
-                return true;
+            {
+                if(Article::plusCommentCountByArticleId( $this->aid))
+                    return true;
+                else
+                    return false;
+            }
+
             else
                 return false;
 
-        } else {
+        }
+        else {
             return false;
         }
+    }
+    public function attributeLabels()
+    {
+       return ['message' => '评论',];
     }
 
 }
