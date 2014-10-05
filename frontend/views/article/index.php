@@ -178,15 +178,28 @@ ArticleAsset::register($this);
         foreach ($allComment as $key => $value) {
             ?>
 
-            <div class="comment-item col-md-12">
-                <div class="commenter-avatar">
-                    <?= User::getAvatarById($value->user_id,80,[]); ?>
-                </div>
-                <div class="comment-content">
-                    <?= $value->message ?>
+            <div class="comment-item col-md-12 col-sm-12 col-xs-12">
+
+                <div class="commenter-avatar col-md-2 col-sm-4 col-xs-2">
+                    <?= User::getAvatarById($value->user_id,80,['id' => 'commenter-avatar']); ?>
                 </div>
 
+                <div class="comment-info col-md-10  col-xs-10">
 
+                    <div class="comment-author ">
+                        <?= User::getNameById($value->user_id) ?>
+                    </div>
+
+                    <div class="comment-time ">
+                        &nbsp;&nbsp;&nbsp;
+                        <?=  date("Y-m-d H:i",$value->created_time) ?>
+                    </div>
+
+                    <div class="comment-content">
+                        <?= $value->message ?>
+                    </div>
+
+                </div>
 
             </div>
 

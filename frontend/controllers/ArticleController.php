@@ -14,9 +14,13 @@ class ArticleController extends \yii\web\Controller
         $model = Article::findOne(['aid'=>$id]);
         Article::plusClickCountByArticleId($id);
         $comment = new CommentForm();
-        if ($comment->load(Yii::$app->request->post()) && $comment->comment()) {
-            Yii::$app->view->registerJs('$("#comment-success").modal("show")');
-            $comment = new CommentForm();
+        if ($comment->load(Yii::$app->request->post())) {
+            if(Yii::$app->getUser()->isGuest)
+                return $this->redirect('kblog/login');
+            else if( $comment->comment()){
+                Yii::$app->view->registerJs('$("#comment-success").modal("show")');
+                $comment = new CommentForm();
+            }
         }
         return $this->render('index', ['model' => $model, 'comment' => $comment]);
     }
