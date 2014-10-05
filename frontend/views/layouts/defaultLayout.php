@@ -59,7 +59,7 @@ $SearchModel = new SearchForm;
         foreach ($secondMenu as $secondValue) {
             $secondItems[] = [
                 'label' => $secondValue->name,
-                'url' => ['/category/' . $secondValue->cgid],
+                'url' => ['/category?cgid=' . $secondValue->cgid],
             ];
         }
         if ($secondItems != null) {
@@ -72,7 +72,7 @@ $SearchModel = new SearchForm;
         } else {
             $menuItems[] = [
                 'label' => $topValue->name,
-                'url' => ['/category/' . $topValue->cgid],
+                'url' => ['/category?cgid=' . $topValue->cgid],
                 'linkOptions' => ['data-method' => 'get'],
             ];
         }
