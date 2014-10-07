@@ -12,6 +12,30 @@ for both A and B.
 Upgrade from Yii 2.0 Beta
 -------------------------
 
+* If you are using Composer to upgrade Yii, you should run the following command first (once for all) to install
+  the composer-asset-plugin, *before* you update your project:
+
+  ```
+  php composer.phar global require "fxp/composer-asset-plugin:1.0.0-beta2"
+  ```
+
+  You also need to add the following code to your project's `composer.json` file:
+
+  ```json
+  "extra": {
+      "asset-installer-paths": {
+          "npm-asset-library": "vendor/npm",
+          "bower-asset-library": "vendor/bower"
+      }
+  }
+  ```
+  
+  It is also a good idea to upgrade composer itself to the latest version if you see any problems:
+  
+  ```
+  php composer.phar self-update
+  ```
+
 * If you used `clearAll()` or `clearAllAssignments()` of `yii\rbac\DbManager`, you should replace
   them with `removeAll()` and `removeAllAssignments()` respectively.
 
@@ -78,6 +102,8 @@ Upgrade from Yii 2.0 Beta
   `new \yii\caching\TagDependency(['tags' => 'TagName'])`, where `TagName` is similar to the group name that you
   previously used.
 
+* If you are using the constant `YII_PATH` in your code, you should rename it to `YII2_PATH` now.
+
 * You must explicitly configure `yii\web\Request::cookieValidationKey` with a secret key. Previously this is done automatically.
   To do so, modify your application configuration like the following:
 
@@ -91,6 +117,10 @@ Upgrade from Yii 2.0 Beta
       ],
   ];
   ```
+
+  > Note: If you are using the `Advanced Application Template` you should not add this configuration to `common/config`
+  or `console/config` because the console application doesn't have to deal with CSRF and uses its own request that
+  doesn't have `cookieValidationKey` property.
 
 * `yii\rbac\PhpManager` now stores data in three separate files instead of one. In order to convert old file to
 new ones save the following code as `convert.php` that should be placed in the same directory your `rbac.php` is in: 
@@ -194,3 +224,81 @@ new ones save the following code as `convert.php` that should be placed in the s
 
 * The format of the Faker fixture template is changed. For an example, please refer to the file
   `apps/advanced/common/tests/templates/fixtures/user.php`.
+
+* The signature of all file downloading methods in `yii\web\Response` is changed, as summarized below:
+  - `sendFile($filePath, $attachmentName = null, $options = [])`
+  - `sendContentAsFile($content, $attachmentName, $options = [])`
+  - `sendStreamAsFile($handle, $attachmentName, $options = [])`
+  - `xSendFile($filePath, $attachmentName = null, $options = [])`
+
+* The signature of callbacks used in `yii\base\ArrayableTrait::fields()` is changed from `function ($field, $model) {`
+  to `function ($model, $field) {`.
+
+* `Html::radio()`, `Html::checkbox()`, `Html::radioList()`, `Html::checkboxList()` no longer generate the container
+  tag around each radio/checkbox when you specify labels for them. You should manually render such container tags,
+  or set the `item` option for `Html::radioList()`, `Html::checkboxList()` to generate the container tags.
+
+* The formatter class has been refactored to have only one class regardless whether PHP intl extension is installed or not.
+  Functionality of `yii\base\Formatter` has been merged into `yii\i18n\Formatter` and `yii\base\Formatter` has been
+  removed so you have to replace all usage of `yii\base\Formatter` with `yii\i18n\Formatter` in your code.
+  Also the API of the Formatter class has changed in many ways.
+  The signature of the following Methods has changed:
+
+  - `asDate`
+  - `asTime`
+  - `asDateTime`
+  - `asSize` has been split up into `asSize` and `asShortSize`
+  - `asCurrency`
+  - `asDecimal`
+  - `asPercent`
+  - `asScientific`
+
+  The following methods have been removed, this also means that the corresponding format which may be used by a
+  GridView or DetailView is not available anymore:
+
+  - `asNumber`
+  - `asDouble`
+
+  Also due to these changes some formatting defaults have changes so you have to check all your GridView and DetailView
+  configuration and make sure the formatting is displayed correctly.
+
+  The configuration for `asSize()` has changed. It now uses the configuration for the number formatting from intl
+  and only the base is configured using `$sizeFormatBase`.
+
+  The specification of the date and time formats is now using the ICU pattern format even if PHP intl extension is not installed.
+  You can prefix a date format with `php:` to use the old format of the PHP `date()`-function.
+
+* The DateValidator has been refactored to use the same format as the Formatter class now (see previous change).
+  When you use the DateValidator and did not specify a format it will now be what is configured in the formatter class instead of 'Y-m-d'.
+  To get the old behavior of the DateValidator you have to set the format explicitly in your validation rule:
+
+  ```php
+  ['attributeName', 'date', 'format' => 'php:Y-m-d'],
+  ```
+
+* `beforeValidate()`, `beforeValidateAll()`, `afterValidate()`, `afterValidateAll()`, `ajaxBeforeSend()` and `ajaxComplete()`
+  are removed from `ActiveForm`. The same functionality is now achieved via JavaScript event mechanism like the following:
+
+  ```js
+  $('#myform').on('beforeValidate', function (event, messages, deferreds) {
+      // called when the validation is triggered by submitting the form
+      // return false if you want to cancel the validation for the whole form
+  }).on('beforeValidateAttribute', function (event, attribute, messages, deferreds) {
+      // before validating an attribute
+      // return false if you want to cancel the validation for the attribute
+  }).on('afterValidateAttribute', function (event, attribute, messages) {
+      // ...
+  }).on('afterValidate', function (event, messages) {
+      // ...
+  }).on('beforeSubmit', function () {
+      // after all validations have passed
+      // you can do ajax form submission here
+      // return false if you want to stop form submission
+  });
+  ```
+
+* The signature of `View::registerJsFile()` and `View::registerCssFile()` has changed. The `$depends` and `$position`
+  paramaters have been merged into `$options`. The new signatures are as follows:
+  
+  - `registerJsFile($url, $options = [], $key = null)`
+  - `registerCssFile($url, $options = [], $key = null)`

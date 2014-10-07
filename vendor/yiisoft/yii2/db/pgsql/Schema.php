@@ -167,29 +167,6 @@ class Schema extends \yii\db\Schema
     }
 
     /**
-     * Determines the PDO type for the given PHP data value.
-     * @param mixed $data the data whose PDO type is to be determined
-     * @return integer the PDO type
-     * @see http://www.php.net/manual/en/pdo.constants.php
-     */
-    public function getPdoType($data)
-    {
-        // php type => PDO type
-        static $typeMap = [
-            // https://github.com/yiisoft/yii2/issues/1115
-            // Cast boolean to integer values to work around problems with PDO casting false to string '' https://bugs.php.net/bug.php?id=33876
-            'boolean' => \PDO::PARAM_INT,
-            'integer' => \PDO::PARAM_INT,
-            'string' => \PDO::PARAM_STR,
-            'resource' => \PDO::PARAM_LOB,
-            'NULL' => \PDO::PARAM_NULL,
-        ];
-        $type = gettype($data);
-
-        return isset($typeMap[$type]) ? $typeMap[$type] : \PDO::PARAM_STR;
-    }
-
-    /**
      * Returns all table names in the database.
      * @param string $schema the schema of the tables. Defaults to empty string, meaning the current or default schema.
      * @return array all table names in the database. The names have NO schema name prefix.
@@ -412,6 +389,8 @@ SQL;
             } elseif ($column->defaultValue) {
                 if ($column->type === 'timestamp' && $column->defaultValue === 'now()') {
                     $column->defaultValue = new Expression($column->defaultValue);
+                } elseif ($column->type === 'boolean') {
+                        $column->defaultValue = ($column->defaultValue === 'true');
                 } elseif (stripos($column->dbType, 'bit') === 0 || stripos($column->dbType, 'varbit') === 0) {
                     $column->defaultValue = bindec(trim($column->defaultValue, 'B\''));
                 } elseif (preg_match("/^'(.*?)'::/", $column->defaultValue, $matches)) {
@@ -434,7 +413,7 @@ SQL;
      */
     protected function loadColumnSchema($info)
     {
-        $column = new ColumnSchema();
+        $column = $this->createColumnSchema();
         $column->allowNull = $info['is_nullable'];
         $column->autoIncrement = $info['is_autoinc'];
         $column->comment = $info['column_comment'];

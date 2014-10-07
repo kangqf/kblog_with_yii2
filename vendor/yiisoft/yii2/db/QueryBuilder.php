@@ -85,7 +85,7 @@ class QueryBuilder extends \yii\base\Object
      */
     public function build($query, $params = [])
     {
-        $query->prepareBuild($this);
+        $query = $query->prepare($this);
 
         $params = empty($params) ? $query->params : array_merge($params, $query->params);
 
@@ -96,11 +96,10 @@ class QueryBuilder extends \yii\base\Object
             $this->buildWhere($query->where, $params),
             $this->buildGroupBy($query->groupBy),
             $this->buildHaving($query->having, $params),
-            $this->buildOrderBy($query->orderBy),
-            $this->buildLimit($query->limit, $query->offset),
         ];
 
         $sql = implode($this->separator, array_filter($clauses));
+        $sql = $this->buildOrderByAndLimit($sql, $query->orderBy, $query->limit, $query->offset);
 
         $union = $this->buildUnion($query->union, $params);
         if ($union !== '') {
@@ -131,7 +130,8 @@ class QueryBuilder extends \yii\base\Object
      */
     public function insert($table, $columns, &$params)
     {
-        if (($tableSchema = $this->db->getTableSchema($table)) !== null) {
+        $schema = $this->db->getSchema();
+        if (($tableSchema = $schema->getTableSchema($table)) !== null) {
             $columnSchemas = $tableSchema->columns;
         } else {
             $columnSchemas = [];
@@ -139,7 +139,7 @@ class QueryBuilder extends \yii\base\Object
         $names = [];
         $placeholders = [];
         foreach ($columns as $name => $value) {
-            $names[] = $this->db->quoteColumnName($name);
+            $names[] = $schema->quoteColumnName($name);
             if ($value instanceof Expression) {
                 $placeholders[] = $value->expression;
                 foreach ($value->params as $n => $v) {
@@ -152,7 +152,7 @@ class QueryBuilder extends \yii\base\Object
             }
         }
 
-        return 'INSERT INTO ' . $this->db->quoteTableName($table)
+        return 'INSERT INTO ' . $schema->quoteTableName($table)
             . ' (' . implode(', ', $names) . ') VALUES ('
             . implode(', ', $placeholders) . ')';
     }
@@ -178,7 +178,8 @@ class QueryBuilder extends \yii\base\Object
      */
     public function batchInsert($table, $columns, $rows)
     {
-        if (($tableSchema = $this->db->getTableSchema($table)) !== null) {
+        $schema = $this->db->getSchema();
+        if (($tableSchema = $schema->getTableSchema($table)) !== null) {
             $columnSchemas = $tableSchema->columns;
         } else {
             $columnSchemas = [];
@@ -192,7 +193,7 @@ class QueryBuilder extends \yii\base\Object
                     $value = $columnSchemas[$columns[$i]]->dbTypecast($value);
                 }
                 if (is_string($value)) {
-                    $value = $this->db->quoteValue($value);
+                    $value = $schema->quoteValue($value);
                 } elseif ($value === false) {
                     $value = 0;
                 } elseif ($value === null) {
@@ -204,10 +205,10 @@ class QueryBuilder extends \yii\base\Object
         }
 
         foreach ($columns as $i => $name) {
-            $columns[$i] = $this->db->quoteColumnName($name);
+            $columns[$i] = $schema->quoteColumnName($name);
         }
 
-        return 'INSERT INTO ' . $this->db->quoteTableName($table)
+        return 'INSERT INTO ' . $schema->quoteTableName($table)
         . ' (' . implode(', ', $columns) . ') VALUES ' . implode(', ', $values);
     }
 
@@ -753,6 +754,27 @@ class QueryBuilder extends \yii\base\Object
     }
 
     /**
+     * Builds the ORDER BY and LIMIT/OFFSET clauses and appends them to the given SQL.
+     * @param string $sql the existing SQL (without ORDER BY/LIMIT/OFFSET)
+     * @param array $orderBy the order by columns. See [[Query::orderBy]] for more details on how to specify this parameter.
+     * @param integer $limit the limit number. See [[Query::limit]] for more details.
+     * @param integer $offset the offset number. See [[Query::offset]] for more details.
+     * @return string the SQL completed with ORDER BY/LIMIT/OFFSET (if any)
+     */
+    public function buildOrderByAndLimit($sql, $orderBy, $limit, $offset)
+    {
+        $orderBy = $this->buildOrderBy($orderBy);
+        if ($orderBy !== '') {
+            $sql .= $this->separator . $orderBy;
+        }
+        $limit = $this->buildLimit($limit, $offset);
+        if ($limit !== '') {
+            $sql .= $this->separator . $limit;
+        }
+        return $sql;
+    }
+
+    /**
      * @param array $columns
      * @return string the ORDER BY clause built from [[Query::$orderBy]].
      */
@@ -1200,6 +1222,7 @@ class QueryBuilder extends \yii\base\Object
      * @param array $operands contains two column names.
      * @param array $params the binding parameters to be populated
      * @return string the generated SQL expression
+     * @throws InvalidParamException if wrong number of operands have been given.
      */
     public function buildSimpleCondition($operator, $operands, &$params)
     {
@@ -1213,9 +1236,12 @@ class QueryBuilder extends \yii\base\Object
             $column = $this->db->quoteColumnName($column);
         }
 
-        $phName = self::PARAM_PREFIX . count($params);
-        $params[$phName] = $value === null ? 'NULL' : $value;
-
-        return "$column $operator $phName";
+        if ($value === null) {
+            return "$column $operator NULL";
+        } else {
+            $phName = self::PARAM_PREFIX . count($params);
+            $params[$phName] = $value;
+            return "$column $operator $phName";
+        }
     }
 }

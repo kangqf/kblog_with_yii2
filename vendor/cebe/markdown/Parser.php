@@ -6,8 +6,6 @@ namespace cebe\markdown;
  * A generic parser for markdown-like languages.
  *
  * @author Carsten Brandt <mail@cebe.cc>
- * @license https://github.com/cebe/markdown/blob/master/LICENSE
- * @link https://github.com/cebe/markdown#readme
  */
 class Parser
 {

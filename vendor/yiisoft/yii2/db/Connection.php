@@ -118,8 +118,6 @@ use yii\caching\Cache;
  * read-only.
  * @property QueryBuilder $queryBuilder The query builder for the current DB connection. This property is
  * read-only.
- * @property array $queryCacheInfo The current query cache information, or null if query cache is not enabled.
- * This property is read-only.
  * @property Schema $schema The schema information for the database opened by this connection. This property
  * is read-only.
  * @property Connection $slave The currently active slave connection. Null is returned if there is slave
@@ -465,22 +463,38 @@ class Connection extends Component
     /**
      * Returns the current query cache information.
      * This method is used internally by [[Command]].
+     * @param integer $duration the preferred caching duration. If null, it will be ignored.
+     * @param \yii\caching\Dependency $dependency the preferred caching dependency. If null, it will be ignored.
      * @return array the current query cache information, or null if query cache is not enabled.
      * @internal
      */
-    public function getQueryCacheInfo()
+    public function getQueryCacheInfo($duration, $dependency)
     {
+        if (!$this->enableQueryCache) {
+            return null;
+        }
+
         $info = end($this->_queryCacheInfo);
-        if ($this->enableQueryCache) {
+        if (is_array($info)) {
+            if ($duration === null) {
+                $duration = $info[0];
+            }
+            if ($dependency === null) {
+                $dependency = $info[1];
+            }
+        }
+
+        if ($duration === 0 || $duration > 0) {
             if (is_string($this->queryCache) && Yii::$app) {
                 $cache = Yii::$app->get($this->queryCache, false);
             } else {
                 $cache = $this->queryCache;
             }
             if ($cache instanceof Cache) {
-                return is_array($info) ? [$cache, $info[0], $info[1]] : [$cache, null, null];
+                return [$cache, $duration, $dependency];
             }
         }
+
         return null;
     }
 
