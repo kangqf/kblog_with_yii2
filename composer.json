@@ -33,7 +33,14 @@
             "npm-asset-library": "vendor/npm",
             "bower-asset-library": "vendor/bower"
         }
-    }
+    },
+    "repositories": [
+	        { "packagist": false },
+	        {
+	            "type": "composer",
+	            "url": "http://218.244.132.204/proxy/packagist"
+	        }
+    ]
 
 }
 
