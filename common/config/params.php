@@ -5,7 +5,7 @@ return [
     'user.passwordResetTokenExpire' => 3600,
     'frontendDomain' => 'http://www.kkk.com',
   //  'frontendDomain' => 'http://kblog.wicp.net',
-    'backendDomain' => 'http://www.aaa.com',
-   //  'backendDomain' => 'http://kangqf.vicp.cc',
+   // 'backendDomain' => 'http://www.aaa.com',
+     'backendDomain' => 'http://kangqf.vicp.cc',
 
 ];

@@ -239,7 +239,8 @@ class systemInfo extends Component
      */
     public function getMysqlVersion()
     {
-        $con = mysql_connect("localhost", "root", "kqf911");
+        $con = mysql_connect("localhost", "kqf", "kqf911");
+        //dump($con);die();
         return mysql_get_server_info($con);
     }
 
