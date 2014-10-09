@@ -36,7 +36,7 @@ CHANGELOG
 * Fixed phpdoc for DateTime magic methods (stof)
 * Added doc about seeding with maximum timestamp using dateTime formatters (fzaninotto)
 * Added Maximum Timestamp option to get always same unix timestamp when using a fixed seed (csanquer)
-* Added Montenegrian (me_ME) providers
+* Added Montenegrian (me_ME) providers (ognjenm)
 * Added ean barcode provider (nineinchnick)
 * Added fullPath parameter to Image provider (stefanosala)
 * Added more Polish company formats (nineinchnick)
@@ -44,7 +44,7 @@ CHANGELOG
 * Fixed remaining non-seedable random generators (terite)
 * Added randomElements provider (terite)
 * Added French realText provider (fzaninotto)
-* Fixed realText provider bootstrap slowness (fzaninotto) 
+* Fixed realText provider bootstrap slowness (fzaninotto)
 * Added realText provider for English and German, based on Markov Chains Generator (TimWolla)
 * Fixed address format in nl_NL provider (doenietzomoeilijk)
 * Fixed potentially offensive word from last name list (joshuajabbour)

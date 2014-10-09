@@ -8,6 +8,23 @@ if you want to upgrade from version A to version C and there is
 version B between A and C, you need to following the instructions
 for both A and B.
 
+Upgrade from Yii 2.0 RC
+-----------------------
+
+* If you've implemented `yii\rbac\ManagerInterface` you need to add implementation for new method `removeChildren()`.
+
+* The input dates for datetime formatting are now assumed to be in UTC unless a timezone is explicitly given.
+  Before, the timezone assumed for input dates was the default timezone set by PHP which is the same as `Yii::$app->timeZone`.
+  This causes trouble because the formatter uses `Yii::$app->timeZone` as the default values for output so no timezone conversion
+  was possible. If your timestamps are stored in the database without a timezone identifier you have to ensure they are in UTC or
+  add a timezone identifier explicitly.
+  
+* `yii\bootstrap\Collapse` is now encoding labels by default. `encode` item option and global `encodeLabels` property were
+ introduced to disable it. Keys are no longer used as labels. You need to remove keys and use `label` item option instead.
+ 
+* The `yii\base\View::beforeRender()` and `yii\base\View::afterRender()` methods have two extra parameters `$viewFile`
+  and `$params`. If you are overriding these methods, you should adjust the method signature accordingly.
+
 
 Upgrade from Yii 2.0 Beta
 -------------------------
@@ -179,12 +196,7 @@ new ones save the following code as `convert.php` that should be placed in the s
   return [
       'components' => [
           'security' => [
-              'cryptBlockSize' => 16,
-              'cryptKeySize' => 24,
               'derivationIterations' => 1000,
-              'deriveKeyStrategy' => 'hmac', // for PHP version < 5.5.0
-              //'deriveKeyStrategy' => 'pbkdf2', // for PHP version >= 5.5.0
-              'useDeriveKeyUniqueSalt' => false,
           ],
           // ...
       ],

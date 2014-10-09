@@ -47,12 +47,12 @@ class Base
     }
 
     /**
-     * Returns a random number with 0 to $nbDigits digits.
+     * Returns a random integer with 0 to $nbDigits digits.
      *
      * The maximum value returned is mt_getrandmax()
      *
      * @param integer $nbDigits Defaults to a random number between 1 and 9
-     * @param boolean $strict Whether the returned number should have exactly $nbDigits
+     * @param boolean $strict   Whether the returned number should have exactly $nbDigits
      * @example 79907610
      *
      * @return integer
@@ -72,6 +72,7 @@ class Base
         if ($strict) {
             return mt_rand(pow(10, $nbDigits - 1), $max);
         }
+
         return mt_rand(0, $max);
     }
 
@@ -108,7 +109,7 @@ class Base
      * Returns a random number between $min and $max
      *
      * @param integer $min default to 0
-     * @param integer $max   defaults to 32 bit max integer, ie 2147483647
+     * @param integer $max defaults to 32 bit max integer, ie 2147483647
      * @example 79907610
      *
      * @return integer
@@ -126,6 +127,14 @@ class Base
     public static function randomLetter()
     {
         return chr(mt_rand(97, 122));
+    }
+
+    /**
+     * Returns a random ASCII character (excluding accents and special chars)
+     */
+    public static function randomAscii()
+    {
+        return chr(mt_rand(33, 126));
     }
 
     /**
@@ -255,6 +264,19 @@ class Base
     }
 
     /**
+     * Replaces * signs with random numbers and letters and special characters
+     *
+     * @example $faker->asciify(''********'); // "s5'G!uC3"
+     *
+     * @param  string $string String that needs to bet parsed
+     * @return string
+     */
+    public static function asciify($string = '****')
+    {
+        return preg_replace_callback('/\*/u', 'static::randomAscii', $string);
+    }
+
+    /**
      * Converts string to lowercase.
      * Uses mb_string extension if available.
      *
@@ -281,7 +303,7 @@ class Base
     /**
      * Chainable method for making any formatter optional.
      *
-     * @param  float      $weight Set the probability of receiving a null value.
+     * @param float $weight Set the probability of receiving a null value.
      *                            "0" will always return null, "1" will always return the generator.
      * @return mixed|null
      */
@@ -302,9 +324,9 @@ class Base
      * $faker->unique()->randomElement(array(1, 2, 3));
      * </code>
      *
-     * @param  boolean           $reset      If set to true, resets the list of existing values
-     * @param  integer           $maxRetries Maximum number of retries to find a unique value,
-     *                                       After which an OverflowExcption is thrown.
+     * @param boolean $reset      If set to true, resets the list of existing values
+     * @param integer $maxRetries Maximum number of retries to find a unique value,
+     *                                       After which an OverflowException is thrown.
      * @throws OverflowException When no unique value can be found by iterating $maxRetries times
      *
      * @return UniqueGenerator A proxy class returning only non-existing values

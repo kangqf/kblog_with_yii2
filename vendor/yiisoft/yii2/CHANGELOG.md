@@ -1,6 +1,24 @@
 Yii Framework 2 Change Log
 ==========================
 
+2.0.0 under development
+-----------------------
+
+- Bug #5252: Null values are not properly handled by `RangeValidator` (githubjeka, qiangxue)
+- Bug #5260: `yii\i18n\Formatter::decimalSeparator` and `yii\i18n\Formatter::thousandSeparator` where not configurable when intl is not installed (execut, cebe)
+- Bug #5314: Fixed typo in the implementation of `yii\web\Session::getHasSessionId()` (qiangxue)
+- Bug #5323: Nested dropdown does not work for `yii\bootstrap\DropDown` (aryraditya)
+- Bug #5336: `yii\bootstrap\DropDown` should register bootstrap plugin asset (zelenin)
+- Bug #5379: `Module::afterAction()` was called even when `beforeAction()` returned false (cebe)
+- Bug #5424: `Html::addCssStyle()` wasn't correctly setting style passed in array (kartik-v, samdark) 
+- Bug: Date and time formatting now assumes UTC as the timezone for input dates unless a timezone is explicitly given (cebe)
+- Enh #4040: Added `$viewFile` and `$params` to the `EVENT_BEFORE_RENDER` and `EVENT_AFTER_RENDER` events for `View` (qiangxue) 
+- Enh #4275: Added `removeChildren()` to `yii\rbac\ManagerInterface` and implementations (samdark)
+- Enh: Added `yii\base\Application::loadedModules` (qiangxue)
+- Enh #5316: Added `startsWith()` and `endsWith()` to `yii\helpers\StringHelper`. Methods are binary-safe, multibyte-safe and optionally case-insensitive (armab)
+- Chg #2037: Dropped the support for using `yii\base\Module` as concrete module classes (qiangxue)
+
+
 2.0.0-rc September 27, 2014
 ---------------------------
 
@@ -616,6 +634,7 @@ Yii Framework 2 Change Log
 - New: Added `yii\filters\RateLimiter` (qiangxue)
 - New: Added various authentication methods, including `HttpBasicAuth`, `HttpBearerAuth`, `QueryParamAuth`, and `CompositeAuth` (qiangxue)
 - New: Added `HtmlResponseFormatter` and `JsonResponseFormatter` (qiangxue)
+
 
 2.0.0-alpha, December 1, 2013
 -----------------------------

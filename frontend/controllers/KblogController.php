@@ -200,7 +200,7 @@ class KblogController extends \yii\web\Controller
                 if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
                     echo "<script type=\'text/javascript\' charset=\'gb2312\'> window.alert(\"注册成功，即将跳转到首页\");</script>";
                     $response = Yii::$app->getResponse();
-                    $redirectPath = Yii::getAlias("@frontend/themes/default/views/kblog/") . 'redirect.php';
+                    $redirectPath = Yii::getAlias("@frontend/views/kblog/") . 'redirect.php';
                     $response->content = Yii::$app->getView()->renderFile($redirectPath, ['url' => 'index', 'enforceRedirect' => true]);
                     return $response;
                 }
