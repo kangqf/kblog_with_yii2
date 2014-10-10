@@ -1,4 +1,4 @@
-# yii console command
+﻿# yii console command
 /yii
 
 # phpstorm project files
@@ -30,4 +30,4 @@ phpunit.phar
 /back
 
 # composer vendor dir
-#/vendor
+/vendor
