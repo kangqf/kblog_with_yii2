@@ -7,9 +7,7 @@
 
 namespace yii\i18n;
 
-use DateInterval;
 use DateTime;
-use DateTimeInterface;
 use DateTimeZone;
 use IntlDateFormatter;
 use NumberFormatter;
@@ -332,38 +330,36 @@ class Formatter extends Component
     /**
      * Formats the value as a mailto link.
      * @param mixed $value the value to be formatted.
-     * @param array $options the tag options in terms of name-value pairs. See [[Html::mailto()]].
      * @return string the formatted result.
      */
-    public function asEmail($value, $options = [])
+    public function asEmail($value)
     {
         if ($value === null) {
             return $this->nullDisplay;
         }
-        return Html::mailto(Html::encode($value), $value, $options);
+        return Html::mailto(Html::encode($value), $value);
     }
 
     /**
      * Formats the value as an image tag.
      * @param mixed $value the value to be formatted.
-     * @param array $options the tag options in terms of name-value pairs. See [[Html::img()]].
+     * @param string $altText an optional `alt`-tag to be added to the image.
      * @return string the formatted result.
      */
-    public function asImage($value, $options = [])
+    public function asImage($value, $altText = '')
     {
         if ($value === null) {
             return $this->nullDisplay;
         }
-        return Html::img($value, $options);
+        return Html::img($value, ['alt' => $altText]);
     }
 
     /**
      * Formats the value as a hyperlink.
      * @param mixed $value the value to be formatted.
-     * @param array $options the tag options in terms of name-value pairs. See [[Html::a()]].
      * @return string the formatted result.
      */
-    public function asUrl($value, $options = [])
+    public function asUrl($value)
     {
         if ($value === null) {
             return $this->nullDisplay;
@@ -373,7 +369,7 @@ class Formatter extends Component
             $url = 'http://' . $url;
         }
 
-        return Html::a(Html::encode($value), $url, $options);
+        return Html::a(Html::encode($value), $url);
     }
 
     /**
@@ -570,7 +566,7 @@ class Formatter extends Component
      */
     protected function normalizeDatetimeValue($value)
     {
-        if ($value === null || $value instanceof DateTime || $value instanceof DateTimeInterface) {
+        if ($value === null || $value instanceof DateTime) {
             // skip any processing
             return $value;
         }
@@ -599,13 +595,13 @@ class Formatter extends Component
 
     /**
      * Formats a date, time or datetime in a float number as UNIX timestamp (seconds since 01-01-1970).
-     * @param integer|string|DateTime $value the value to be formatted. The following
+     * @param integer|string|DateTime|\DateInterval $value the value to be formatted. The following
      * types of value are supported:
      *
      * - an integer representing a UNIX timestamp
-     * - a string that can be [parsed to create a DateTime object](http://php.net/manual/en/datetime.formats.php).
-     *   The timestamp is assumed to be in UTC unless a timezone is explicitly given.
-     * - a PHP [DateTime](http://php.net/manual/en/class.datetime.php) object
+     * - a string that can be parsed into a UNIX timestamp via `strtotime()` or that can be passed to a DateInterval constructor.
+     * - a PHP DateTime object
+     * - a PHP DateInterval object (a positive time interval will refer to the past, a negative one to the future)
      *
      * @return string the formatted result.
      */
@@ -621,23 +617,15 @@ class Formatter extends Component
     /**
      * Formats the value as the time interval between a date and now in human readable form.
      *
-     * This method can be used in three different ways:
-     *
-     * 1. Using a timestamp that is relative to `now`.
-     * 2. Using a timestamp that is relative to the `$referenceTime`.
-     * 3. Using a `DateInterval` object.
-     *
-     * @param integer|string|DateTime|DateInterval $value the value to be formatted. The following
+     * @param integer|string|DateTime|\DateInterval $value the value to be formatted. The following
      * types of value are supported:
      *
      * - an integer representing a UNIX timestamp
-     * - a string that can be [parsed to create a DateTime object](http://php.net/manual/en/datetime.formats.php).
-     *   The timestamp is assumed to be in UTC unless a timezone is explicitly given.
-     * - a PHP [DateTime](http://php.net/manual/en/class.datetime.php) object
+     * - a string that can be parsed into a UNIX timestamp via `strtotime()` or that can be passed to a DateInterval constructor.
+     * - a PHP DateTime object
      * - a PHP DateInterval object (a positive time interval will refer to the past, a negative one to the future)
      *
-     * @param integer|string|DateTime $referenceTime if specified the value is used as a reference time instead of `now`
-     * when `$value` is not a `DateInterval` object.
+     * @param integer|string|DateTime|\DateInterval $referenceTime if specified the value is used instead of `now`.
      * @return string the formatted result.
      * @throws InvalidParamException if the input value can not be evaluated as a date value.
      */
@@ -647,7 +635,7 @@ class Formatter extends Component
             return $this->nullDisplay;
         }
 
-        if ($value instanceof DateInterval) {
+        if ($value instanceof \DateInterval) {
             $interval = $value;
         } else {
             $timestamp = $this->normalizeDatetimeValue($value);
@@ -656,7 +644,7 @@ class Formatter extends Component
                 // $value is not a valid date/time value, so we try
                 // to create a DateInterval with it
                 try {
-                    $interval = new DateInterval($value);
+                    $interval = new \DateInterval($value);
                 } catch (\Exception $e) {
                     // invalid date/time and invalid interval
                     return $this->nullDisplay;

@@ -256,10 +256,9 @@
                 data = $form.data('yiiActiveForm'),
                 needAjaxValidation = false,
                 messages = {},
-                deferreds = deferredArray(),
-                submitting = data.submitting;
+                deferreds = deferredArray();
 
-            if (submitting) {
+            if (data.submitting) {
                 var event = $.Event(events.beforeValidate);
                 $form.trigger(event, [messages, deferreds]);
                 if (event.result === false) {
@@ -325,9 +324,9 @@
                                         delete msgs[this.id];
                                     }
                                 });
-                                updateInputs($form, $.extend(messages, msgs), submitting);
+                                updateInputs($form, $.extend(messages, msgs));
                             } else {
-                                updateInputs($form, messages, submitting);
+                                updateInputs($form, messages);
                             }
                         },
                         error: function () {
@@ -337,10 +336,10 @@
                 } else if (data.submitting) {
                     // delay callback so that the form can be submitted without problem
                     setTimeout(function () {
-                        updateInputs($form, messages, submitting);
+                        updateInputs($form, messages);
                     }, 200);
                 } else {
-                    updateInputs($form, messages, submitting);
+                    updateInputs($form, messages);
                 }
             });
         },
@@ -350,6 +349,10 @@
                 data = $form.data('yiiActiveForm');
 
             if (data.validated) {
+                if (!data.submitting) {
+                    // form is being submitted. Do nothing to avoid duplicated form submission
+                    return false;
+                }
                 data.submitting = false;
                 var event = $.Event(events.beforeSubmit);
                 $form.trigger(event);
@@ -469,12 +472,11 @@
      * Updates the error messages and the input containers for all applicable attributes
      * @param $form the form jQuery object
      * @param messages array the validation error messages
-     * @param submitting whether this method is called after validation triggered by form submission
      */
-    var updateInputs = function ($form, messages, submitting) {
+    var updateInputs = function ($form, messages) {
         var data = $form.data('yiiActiveForm');
 
-        if (submitting) {
+        if (data.submitting) {
             var errorInputs = [];
             $.each(data.attributes, function () {
                 if (!this.cancelled && updateInput($form, this, messages)) {

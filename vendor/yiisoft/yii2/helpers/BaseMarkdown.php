@@ -37,10 +37,6 @@ class BaseMarkdown
             'html5' => true,
             'enableNewlines' => true,
         ],
-        'extra' => [
-            'class' => 'cebe\markdown\MarkdownExtra',
-            'html5' => true,
-        ],
     ];
     /**
      * @var string the markdown flavor to use when none is specified explicitly.

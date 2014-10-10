@@ -7,10 +7,6 @@
 
 namespace yii\console;
 
-use cebe\markdown\block\FencedCodeTrait;
-use cebe\markdown\inline\CodeTrait;
-use cebe\markdown\inline\EmphStrongTrait;
-use cebe\markdown\inline\StrikeoutTrait;
 use yii\helpers\Console;
 
 /**
@@ -23,11 +19,6 @@ use yii\helpers\Console;
  */
 class Markdown extends \cebe\markdown\Parser
 {
-    use FencedCodeTrait;
-    use CodeTrait;
-    use EmphStrongTrait;
-    use StrikeoutTrait;
-
     /**
      * @var array these are "escapeable" characters. When using one of these prefixed with a
      * backslash, the character will be outputted without the backslash and is not interpreted
@@ -38,9 +29,49 @@ class Markdown extends \cebe\markdown\Parser
         '`', // backtick
         '*', // asterisk
         '_', // underscore
-        '~', // tilde
     ];
 
+
+    /**
+     * @inheritDoc
+     */
+    protected function identifyLine($lines, $current)
+    {
+        if (isset($lines[$current]) && (strncmp($lines[$current], '```', 3) === 0 || strncmp($lines[$current], '~~~', 3) === 0)) {
+            return 'fencedCode';
+        }
+        return parent::identifyLine($lines, $current);
+    }
+
+    /**
+     * Consume lines for a fenced code block
+     *
+     * @param array $lines
+     * @param integer $current
+     * @return array
+     */
+    protected function consumeFencedCode($lines, $current)
+    {
+        // consume until ```
+        $block = [
+            'type' => 'code',
+            'content' => [],
+        ];
+        $line = rtrim($lines[$current]);
+        $fence = substr($line, 0, $pos = strrpos($line, $line[0]) + 1);
+        $language = substr($line, $pos);
+        if (!empty($language)) {
+            $block['language'] = $language;
+        }
+        for ($i = $current + 1, $count = count($lines); $i < $count; $i++) {
+            if (rtrim($line = $lines[$i]) !== $fence) {
+                $block['content'][] = $line;
+            } else {
+                break;
+            }
+        }
+        return [$block, $i];
+    }
 
     /**
      * Renders a code block
@@ -48,56 +79,112 @@ class Markdown extends \cebe\markdown\Parser
      * @param array $block
      * @return string
      */
-   	protected function renderCode($block)
-   	{
-        return Console::ansiFormat($block['content'], [Console::NEGATIVE]) . "\n\n";
-   	}
+    protected function renderCode($block)
+    {
+        return Console::ansiFormat(implode("\n", $block['content']), [Console::NEGATIVE]) . "\n";
+    }
 
     /**
      * @inheritdoc
      */
     protected function renderParagraph($block)
     {
-        return rtrim($this->renderAbsy($block['content'])) . "\n\n";
+        return rtrim($this->parseInline(implode("\n", $block['content']))) . "\n";
     }
 
     /**
-     * Renders an inline code span `` ` ``.
-     * @param array $element
-     * @return string
+     * @inheritDoc
      */
-    protected function renderInlineCode($element)
+    protected function inlineMarkers()
     {
-        return Console::ansiFormat($element[1], [Console::UNDERLINE]);
+        return [
+            '*'     => 'parseEmphStrong',
+            '_'     => 'parseEmphStrong',
+            '\\'    => 'parseEscape',
+            '`'     => 'parseCode',
+            '~~'    => 'parseStrike',
+        ];
     }
 
     /**
-     * Renders empathized elements.
-     * @param array $element
-     * @return string
+     * Parses an inline code span `` ` ``.
+     * @param string $text
+     * @return array
      */
-    protected function renderEmph($element)
+    protected function parseCode($text)
     {
-        return Console::ansiFormat($this->renderAbsy($element[1]), Console::ITALIC);
+        // skip fenced code
+        if (strncmp($text, '```', 3) === 0) {
+            return [$text[0], 1];
+        }
+        if (preg_match('/^(`+) (.+?) \1/', $text, $matches)) { // code with enclosed backtick
+            return [
+                Console::ansiFormat($matches[2], [Console::UNDERLINE]),
+                strlen($matches[0])
+            ];
+        } elseif (preg_match('/^`(.+?)`/', $text, $matches)) {
+            return [
+                Console::ansiFormat($matches[1], [Console::UNDERLINE]),
+                strlen($matches[0])
+            ];
+        }
+        return [$text[0], 1];
     }
 
     /**
-     * Renders strong elements.
-     * @param array $element
-     * @return string
+     * Parses empathized and strong elements.
+     * @param string $text
+     * @return array
      */
-    protected function renderStrong($element)
+    protected function parseEmphStrong($text)
     {
-        return Console::ansiFormat($this->renderAbsy($element[1]), Console::BOLD);
+        $marker = $text[0];
+
+        if (!isset($text[1])) {
+            return [$text[0], 1];
+        }
+
+        if ($marker == $text[1]) { // strong
+            if ($marker == '*' && preg_match('/^[*]{2}((?:[^*]|[*][^*]*[*])+?)[*]{2}(?![*])/s', $text, $matches) ||
+                $marker == '_' && preg_match('/^__((?:[^_]|_[^_]*_)+?)__(?!_)/us', $text, $matches)) {
+
+                return [Console::ansiFormat($this->parseInline($matches[1]), Console::BOLD), strlen($matches[0])];
+            }
+        } else { // emph
+            if ($marker == '*' && preg_match('/^[*]((?:[^*]|[*][*][^*]+?[*][*])+?)[*](?![*])/s', $text, $matches) ||
+                $marker == '_' && preg_match('/^_((?:[^_]|__[^_]*__)+?)_(?!_)\b/us', $text, $matches)) {
+                return [Console::ansiFormat($this->parseInline($matches[1]), Console::ITALIC), strlen($matches[0])];
+            }
+        }
+        return [$text[0], 1];
     }
 
     /**
-     * Renders the strike through feature.
-     * @param array $element
-     * @return string
+     * Parses the strikethrough feature.
+     * @param string $markdown
+     * @return array
      */
-    protected function renderStrike($element)
+    protected function parseStrike($markdown)
     {
-        return Console::ansiFormat($this->parseInline($this->renderAbsy($element[1])), [Console::CROSSED_OUT]);
+        if (preg_match('/^~~(.+?)~~/', $markdown, $matches)) {
+            return [
+                Console::ansiFormat($this->parseInline($matches[1]), [Console::CROSSED_OUT]),
+                strlen($matches[0])
+            ];
+        }
+        return [$markdown[0] . $markdown[1], 2];
+    }
+
+    /**
+     * Parses escaped special characters.
+     * @param string $text
+     * @return array
+     */
+    protected function parseEscape($text)
+    {
+        if (isset($text[1]) && in_array($text[1], $this->escapeCharacters)) {
+            return [$text[1], 2];
+        }
+        return [$text[0], 1];
     }
 }
