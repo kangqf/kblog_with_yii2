@@ -5,8 +5,8 @@ return [
         //数据库配置
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=kblog',
-            'username' => 'kqf',
+            'dsn' => 'mysql:host=121.40.120.73;dbname=kblog',
+            'username' => 'root',
             'password' => 'kqf911',
             'charset' => 'utf8',
             'tablePrefix' => 'kblog',

@@ -22,7 +22,7 @@ return [
         //使用MongoDB 的配置
         'mongodb' => [
             'class' => '\yii\mongodb\Connection',
-            'dsn' => 'mongodb://kqf:kqf911@localhost:27017/kblog',
+            'dsn' => 'mongodb://121.40.120.73:27017/kblog',
         ],
     ],
 
