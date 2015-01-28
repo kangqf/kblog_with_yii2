@@ -7,15 +7,21 @@ $params = array_merge(
 );
 
 return [
+    'name' => 'KBlog',              //app名称
+    'defaultRoute' => 'frontend',   //添加以设置默认控制器 yii1中为defaultController
+    'layout' => 'frontendLayout',    //修改默认布局文件
     'id' => 'app-frontend',
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
+        //用户验证的类
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
+            'loginUrl' => ['frontend/login'],
         ],
+        //日志写入组件
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
             'targets' => [
@@ -25,9 +31,11 @@ return [
                 ],
             ],
         ],
+        //错误处理组件
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'frontend/error',
         ],
+        //路由管理组件
         'urlManager' => [
             //'enableStrictParsing' => true,
             //'suffix' => '.html',//伪URL后缀
@@ -40,5 +48,5 @@ return [
             ],
         ],
     ],
-    'params' => $params,
+    'params' => $params,        //生成变量组件
 ];

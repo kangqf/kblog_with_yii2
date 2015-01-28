@@ -23,16 +23,10 @@ class PasswordResetRequestForm extends Model
             ['email', 'exist',
                 'targetClass' => '\common\models\User',
                 'filter' => ['status' => User::STATUS_ACTIVE],
-                'message' => '该邮箱未注册！或用户已被管理员冻结！'
+                'message' => 'There is no user with such email.'
             ],
         ];
     }
-
-    public function attributeLabels()
-    {
-        return ['email' => '邮箱',];
-    }
-
 
     /**
      * Sends an email with a link, for resetting the password.
@@ -42,20 +36,21 @@ class PasswordResetRequestForm extends Model
     public function sendEmail()
     {
         /* @var $user User */
-
         $user = User::findOne([
             'status' => User::STATUS_ACTIVE,
             'email' => $this->email,
         ]);
-        $user->scenario = 'password_reset_request';
 
         if ($user) {
-            $user->generatePasswordResetToken();
+            if (!User::isPasswordResetTokenValid($user->password_reset_token)) {
+                $user->generatePasswordResetToken();
+            }
+
             if ($user->save()) {
                 return \Yii::$app->mailer->compose('passwordResetToken', ['user' => $user])
-                    ->setFrom([\Yii::$app->params['supportEmail'] => \Yii::$app->name . '(冷小飞侠的博客)'])
+                    ->setFrom([\Yii::$app->params['supportEmail'] => \Yii::$app->name . ' robot'])
                     ->setTo($this->email)
-                    ->setSubject('重置 ' . \Yii::$app->name . '的密码')
+                    ->setSubject('Password reset for ' . \Yii::$app->name)
                     ->send();
             }
         }

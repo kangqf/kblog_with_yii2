@@ -1,0 +1,147 @@
+
+#author_avatar{
+    width: 80px;
+    height: 80px;
+    padding:2px;
+    background: #ececec;
+    border-radius:80px;
+    box-shadow: 0px 0px 1px rgba(0,0,0,0.4);
+    -moz-border-radius: 80px;
+    -webkit-border-radius: 80px;
+
+}
+
+.comment-item{
+    float: left ;
+
+    /*margin-left: 20px;*/
+}
+
+.comment-author{
+    display: inline-table;
+}
+
+.comment-time{
+    display: inline-table;
+
+}
+.comment-info{
+    font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    font-size: 14px;
+}
+
+
+/*大屏幕*/
+@media (min-width: 768px) {
+    #author_avatar_div{
+        text-align: center;
+    }
+    #author_name_div{
+        text-align: center;
+        margin-top: 10px;
+    }
+    #author_email_div{
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    #author_info{
+        margin: 50px 50px 50px -50px;
+    }
+    #article_info{
+        margin-top: 20px;
+    }
+    #title{
+        margin-bottom:20px;
+    }
+    #one-line-info{
+        font-family: courier;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .comment-item{
+        margin-left: 20px;
+        margin-top: 50px;
+    }
+    #commenter-avatar{
+        width: 80px;
+        height: 80px;
+        padding:2px;
+        background: #ececec;
+        border-radius:80px;
+        box-shadow: 0px 0px 1px rgba(0,0,0,0.4);
+        -moz-border-radius: 80px;
+        -webkit-border-radius: 80px;
+    }
+    .comment-info{
+        margin-left: -80px;
+    }
+    .comment-author{
+        vertical-align: middle;
+    }
+    .comment-content{
+        margin-top: 10px;
+    }
+
+}
+
+/*小屏幕*/
+@media (max-width: 768px) {
+    #author_avatar_div{
+        text-align: center;
+    }
+
+    #author_name_div{
+        text-align: center;
+        margin-top: 5px;
+    }
+    #author_email_div{
+        text-align: center;
+        margin-top: 5px;
+    }
+    #one-line-info{
+        font-family: courier;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    #author_info{
+        margin: 20px 0px 20px 0px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    #article_info{
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .comment-item{
+        float: left ;
+        margin-left: 0px;
+        margin-top: 25px;
+    }
+
+    #commenter-avatar{
+        width: 40px;
+        height: 40px;
+        padding:2px;
+        background: #ececec;
+        border-radius:80px;
+        box-shadow: 0px 0px 1px rgba(0,0,0,0.4);
+        -moz-border-radius: 40px;
+        -webkit-border-radius: 40px;
+
+    }
+
+    .commenter-avatar{
+        display: inline-table;
+        margin-left: -30px;
+    }
+    .comment-info{
+        display: inline-table;
+        margin-left: -25px;
+    }
+    .comment-content{
+
+    }
+
+}

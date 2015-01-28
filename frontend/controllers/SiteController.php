@@ -12,6 +12,7 @@ use yii\web\BadRequestHttpException;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use yii\web\User;
 
 /**
  * Site controller
@@ -67,7 +68,9 @@ class SiteController extends Controller
 
     public function actionIndex()
     {
-        return $this->render('index');
+        $auth = Yii::$app->getAuthManager();
+        if(Yii::$app->user->can('manager'))
+            return $this->render('index');
     }
 
     public function actionLogin()

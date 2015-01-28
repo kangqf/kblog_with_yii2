@@ -1,18 +1,10 @@
 <?php
- /**
-  * @link http://kangqingfei.com/
-  * @copyright Copyright (c) 2015 kangqingfei
-  * @license MIT
-  */
-namespace common\models;
+
+namespace frontend\models;
 
 use Yii;
+use common\models\User;
 
-/**
- * 登录模型
- * @author kangqingfei <kangqingfei@gmail.com>
- * @since 1.0
- */
 class LoginForm extends \yii\base\Model
 {
     public $email;
@@ -27,30 +19,19 @@ class LoginForm extends \yii\base\Model
     public function rules()
     {
         return [
-            // username 和 password 不能为空
+            // username and password are both required
             [['email', 'password'], 'required'],
-            // email 必须满足邮箱的格式
             [['email'], 'email'],
-            // rememberMe必须是bool型
+            // rememberMe must be a boolean value
             ['rememberMe', 'boolean'],
-            // 调用validatePassword()来验证密码
+            // password is validated by validatePassword()
             ['password', 'validatePassword'],
-        ];
-    }
-    /**
-     * @inheritdoc
-     */
-    public function attributeLabels()
-    {
-        return [
-            'email' => Yii::t('common', 'Email'),
-            'password' => Yii::t('common', 'Password'),
-            'rememberMe' => Yii::t('common', 'RememberMe'),
         ];
     }
 
     /**
-     * 验证密码的内联方法，由rules调用进行验证
+     * 验证密码
+     * 验证密码的内联方法
      */
     public function validatePassword()
     {
@@ -64,13 +45,16 @@ class LoginForm extends \yii\base\Model
 
     /**
      * 用用户名和密码登陆
+     *
      * @return boolean 是否登陆成功
      */
     public function login()
     {
         if ($this->validate()) {
+
             $this->_user->scenario = 'login';
             $this->_user->login_count++;
+           // dump(parent::scenarios());die();
 
             if ($this->_user->save()) {
                 return Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
@@ -99,6 +83,13 @@ class LoginForm extends \yii\base\Model
         return $this->_user;
     }
 
-
+    public function attributeLabels()
+    {
+        return [
+            'email' => '输入的邮箱',
+            'password' => '密码',
+            'rememberMe' => '自动登录',
+        ];
+    }
 
 }
