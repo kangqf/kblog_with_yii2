@@ -31,7 +31,7 @@ You can then install the application using the following command:
 
 ~~~
 php composer.phar global require "fxp/composer-asset-plugin:1.0.0"
-php composer.phar create-project --prefer-dist --stability=dev kangqf/kBlog_with_yii2 kblog
+php composer.phar create-project --prefer-dist --stability=dev kangqf/kblog_with_yii2 kblog
 ~~~
 
 
