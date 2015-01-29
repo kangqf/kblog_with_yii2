@@ -1,12 +1,12 @@
 {
-    "name": "yiisoft/yii2-app-advanced",
-    "description": "Yii 2 Advanced Application Template",
-    "keywords": ["yii2", "framework", "advanced", "application template"],
-    "homepage": "http://www.yiiframework.com/",
+    "name": "kangqf/kBlog_with_yii2",
+    "description": "Not just A Blog Based On Yii 2 Advanced Application Template",
+    "keywords": ["yii2", "framework", "advanced", "Blog"],
+    "homepage": "http://www.kangqingfei.cn/",
     "type": "project",
-    "license": "BSD-3-Clause",
+    "license": "MIT",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+        "issues": "https://github.com/kangqf/kblog_with_yii2/issues?state=open",
         "forum": "http://www.yiiframework.com/forum/",
         "wiki": "http://www.yiiframework.com/wiki/",
         "irc": "irc://irc.freenode.net/yii",
