@@ -1,4 +1,4 @@
-kBlog_with_yii2
+kblog_with_yii2
 ===================================
 
 Not Just A Blog Based On Yii 2 Advanced Application Template
