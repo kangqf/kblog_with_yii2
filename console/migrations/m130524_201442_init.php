@@ -5,6 +5,9 @@ use yii\db\Migration;
 
 class m130524_201442_init extends Migration
 {
+    /**
+     * 数据库初始化配置，创建一个config表
+     */
     public function up()
     {
         $tableOptions = null;
@@ -20,33 +23,10 @@ class m130524_201442_init extends Migration
             'key' => Schema::TYPE_STRING . '(64) NOT NULL PRIMARY KEY',
             'value' => Schema::TYPE_TEXT . ' NOT NULL',
         ], $tableOptions);
-
-        /**
-         * 用户表
-         */
-        $this->createTable('{{%user}}', [
-            'user_id' => Schema::TYPE_PK,
-            'username' => Schema::TYPE_STRING . ' NOT NULL',
-            'auth_key' => Schema::TYPE_STRING . '(32) NOT NULL',
-            'email' => Schema::TYPE_STRING . ' NOT NULL',
-            'password' => Schema::TYPE_STRING . ' NOT NULL',
-            'password_hash' => Schema::TYPE_STRING . ' NOT NULL',
-            'password_reset_token' => Schema::TYPE_STRING,
-            'created_at' => Schema::TYPE_INTEGER . ' NOT NULL',
-            'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL',
-            'role' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 10',
-            'status' => Schema::TYPE_SMALLINT . ' NOT NULL DEFAULT 10',
-            'avatar' => Schema::TYPE_STRING . ' NOT NULL',
-            'login_count' => Schema::TYPE_INTEGER . ' NOT NULL DEFAULT 0 ',
-            'access_token' => Schema::TYPE_STRING . ' NOT NULL',
-//            'oauth_id' => Schema::TYPE_STRING . ' NOT NULL',
-//            'developer_id'  => Schema::TYPE_INTEGER . ' UNSIGNED NOT NULL',
-        ], $tableOptions);
     }
 
     public function down()
     {
         $this->dropTable('{{%config}}');
-        $this->dropTable('{{%user}}');
     }
 }

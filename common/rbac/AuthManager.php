@@ -22,10 +22,10 @@ class AuthManager extends \yii\rbac\DbManager
     public function init()
     {
         parent::init();
-        if (!Yii::$app->user->isGuest) {
+        //if (!Yii::$app->user->isGuest) {
             //我们假设用户的角色是存储在身份
-            $this->assign(Yii::$app->user->identity->id, Yii::$app->user->identity->role);
-        }
+           // $this->assign(Yii::$app->user->identity->id, Yii::$app->user->identity->role);
+       // }
 
 //        $user = Yii::$app->getUser();
 //        if (!$user->isGuest) {

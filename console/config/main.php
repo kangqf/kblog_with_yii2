@@ -15,6 +15,10 @@ return [
         'gii' => 'yii\gii\Module',
     ],
     'components' => [
+        //覆盖common中的配置，使用自带的DbManager
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager',
+        ],
         'log' => [
             'targets' => [
                 [

@@ -15,12 +15,6 @@ return [
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
     'components' => [
-        //用户验证的类
-        'user' => [
-            'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
-            'loginUrl' => ['frontend/login'],
-        ],
         //日志写入组件
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,

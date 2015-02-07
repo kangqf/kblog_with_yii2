@@ -10,7 +10,7 @@ use yii\helpers\Console;
 /**
  * 引入自带rbac数据库迁移文件
  */
-//require Yii::getAlias('@yii/rbac/migrations/m140506_102106_rbac_init.php');
+require Yii::getAlias('@yii/rbac/migrations/m140506_102106_rbac_init.php');
 
 /**
  * rbac数据库创建
@@ -20,42 +20,34 @@ use yii\helpers\Console;
 class m150206_131408_init_rbac extends m140506_102106_rbac_init
 {
 
+    /**
+     * 使用父类方法初始化表后进行数据初始化
+     */
     public function up()
     {
-        if($this->isDbAuth()) {
-            parent::up();
-            $this->rbacInit();
-        }
+        parent::up();
+        $this->rbacInit();
     }
 
+    /**
+     * 使用父类方法撤销 migrate
+     */
     public function down()
     {
-        $this->isDbAuth() && parent::down();
+        parent::down();
     }
 
     /**
-     * 判断是否db类型的authManager.
-     * @return
-     */
-    public function isDbAuth()
-    {
-        static $isDbAuth;
-        if ($isDbAuth === null) {
-            $auth = Yii::$app->authManager;
-            $isDbAuth = $auth && property_exists($auth, 'db');
-        }
-        return $isDbAuth;
-    }
-
-    /**
-     * 初始化rbac 默认设置
+     * 初始化 RBAC 默认设置
      */
     public function rbacInit()
     {
-        Console::output('初始化RBAC数据 ....');
+        Console::output('create rbac table success, start init RBAC data ....');
         $auth = Yii::$app->authManager;
 
-        /* ================= 权限 ================= */
+        /**
+         * 写入原始的 RBAC 数据
+         */
         $visitAdmin = $auth->createPermission('visitAdmin');
         $visitAdmin->description = '访问后台管理界面';
         $auth->add($visitAdmin);
@@ -80,17 +72,6 @@ class m150206_131408_init_rbac extends m140506_102106_rbac_init
         $auth->add($founder);
         $auth->addChild($founder, $admin); // 创始人 > 管理员
 
-        Console::output('初始化RBAC数据完成 ....');
+        Console::output('init RBAC data success ....');
     }
-//    public function up()
-//    {
-//
-//    }
-//
-//    public function down()
-//    {
-//        echo "m150206_131408_init_rbac cannot be reverted.\n";
-//
-//        return false;
-//    }
 }
