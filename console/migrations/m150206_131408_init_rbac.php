@@ -1,6 +1,6 @@
 <?php
 /**
- * @link http://kangqingfei.com/
+ * @link http://kangqingfei.cn/
  * @copyright Copyright (c) 2015 kangqingfei
  * @license MIT
  */
@@ -22,11 +22,11 @@ class m150206_131408_init_rbac extends m140506_102106_rbac_init
 
     /**
      * 使用父类方法初始化表后进行数据初始化
+     * 也可以在Console中完成数据的初始化
      */
     public function up()
     {
         parent::up();
-        $this->rbacInit();
     }
 
     /**

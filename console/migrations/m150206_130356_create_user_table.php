@@ -1,4 +1,9 @@
 <?php
+/**
+ * @link http://kangqingfei.cn/
+ * @copyright Copyright (c) 2015 kangqingfei
+ * @license MIT
+ */
 
 use yii\db\Schema;
 use yii\db\Migration;

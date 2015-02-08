@@ -1,6 +1,6 @@
 <?php
 /**
- * @link http://kangqingfei.com/
+ * @link http://kangqingfei.cn/
  * @copyright Copyright (c) 2015 kangqingfei
  * @license MIT
  */
@@ -13,6 +13,7 @@ use yii\web\AssetBundle;
  * @author kangqingfei <kangqingfei@gmail.com>
  * @since 1.0
  */
+
 class FrontendLayoutAsset extends AssetBundle
 {
     public $basePath = '@webroot';

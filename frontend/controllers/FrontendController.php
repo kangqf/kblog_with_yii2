@@ -1,6 +1,6 @@
 <?php
 /**
- * @link http://kangqingfei.com/
+ * @link http://kangqingfei.cn/
  * @copyright Copyright (c) 2015 kangqingfei
  * @license MIT
  */

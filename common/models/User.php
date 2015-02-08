@@ -1,6 +1,6 @@
 <?php
 /**
- * @link http://kangqingfei.com/
+ * @link http://kangqingfei.cn/
  * @copyright Copyright (c) 2015 kangqingfei
  * @license MIT
  */
@@ -48,8 +48,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * 用户级别
      */
-    const ROLE_USER = 10;
-    const ROLE_ORG = 9;
+    const ROLE_GUEST = 10;
+    const ROLE_USER = 9;
     const ROLE_ORGLEADER = 8;
     const ROLE_FIN = 7;
     const ROLE_ANALYTIC = 6;
@@ -140,8 +140,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public static function getRoleArray()
     {
         return [
-            self::ROLE_USER => '用户',
-            self::ROLE_ORG => '运营商（合作伙伴）-9',
+            self::ROLE_GUEST => '访客-10',
+            self::ROLE_USER => '用户-9',
             self::ROLE_ORGLEADER => '经理（合伙人）-8',
             self::ROLE_FIN => '财务-7',
             self::ROLE_ANALYTIC => '数据分析师-6',
