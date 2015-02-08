@@ -13,8 +13,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
+use frontend\widgets\TopMenu;
 
 use frontend\assets\FrontendLayoutAsset;
 
@@ -39,18 +38,7 @@ $this->title = "kblog";
 
     <body>
     <?php $this->beginBody() ?>
-        <?php
-            NavBar::begin(['brandLabel' => 'NavBar Test']);
-
-                echo Nav::widget([
-                    'items' => [
-                       ['label' => 'Home', 'url' => ['/site/index']],
-                       ['label' => 'About', 'url' => ['/site/about']],
-                    ],
-                ]);
-
-            NavBar::end();
-        ?>
+        <?= TopMenu::widget() ?>
         <!-- 导航栏 -->
         <div class="container" id="breadCrumbs">
             <?=
