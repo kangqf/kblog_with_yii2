@@ -1,1 +1,98 @@
 /* 导航栏css文件 */
+
+/* 覆盖bootstrap的默认设置 */
+.navbar{
+    min-height: 40px !important;
+    border-radius: 0 !important;
+}
+.navbar-brand {
+    height: 40px !important;
+}
+.navbar-brand,.navbar-nav>li>a{
+    padding: 10px 20px !important;
+}
+/*导航栏字体大小*/
+.nav > li {
+    font-size: 16px;
+}
+/* 导航栏按钮设置 */
+.navbar-toggle{
+    margin-top: 3px !important;
+    margin-bottom: 3px !important;
+}
+/* logo */
+#brand {
+    padding-right: 0;
+    padding-left: 0;
+    float: left;
+    font-weight: bold;
+    font-size: 22px;
+    color: #000;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .125);
+    -webkit-transition: all .5s linear;
+    -moz-transition: all .5s linear;
+    transition: all .5s linear;
+}
+/*logo鼠标悬停*/
+#brand:hover {
+    text-decoration: none;
+    color: #FAA732;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, .1), 0 0 30px rgba(255, 255, 255, .4);
+}
+
+/*搜索区域*/
+.kqf-search-form {
+    height: 40px;
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+
+
+
+
+
+
+/*导航条
+#breadCrumbs {
+    margin-top: -20px;
+}
+*/
+
+
+/* 大屏幕 */
+@media (min-width: 768px) {
+
+    #brand {
+        margin-left: -60px;
+        margin-right: 10px;
+    }
+
+    /*头像*/
+    /*#avatar {*/
+        /*float: right;*/
+        /*position: relative;*/
+        /*left: 60px;*/
+        /*margin-top: 2px;*/
+    /*}*/
+
+    /*#logPlace {*/
+        /*float: right;*/
+        /*margin-right: -60px;*/
+        /*margin-left: 0;*/
+    /*}*/
+
+}
+
+/* 小屏幕 */
+@media (max-width: 768px) {
+
+    #brand {
+        padding-left: 10px;
+    }
+
+    /*#avatar {*/
+        /*visibility: hidden;*/
+    /*}*/
+
+}

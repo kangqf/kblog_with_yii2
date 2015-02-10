@@ -19,14 +19,15 @@ TopMenuAsset::register($this);
 NavBar::begin
 ([
     'brandLabel' => Yii::$app->name,
-    'brandUrl' => 'http://www.baidu.com',
+    'brandUrl' => $options['brandUrl'],
     'brandOptions' => ['id' => 'brand', 'class' => 'pull-left',],
     'options' => ['class' => 'navbar-inverse', 'id' => 'navbar'],
 ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'encodeLabels' => false,
-        'items' => $items
-    ]);
+
+echo Nav::widget([
+    'options' => ['class' => 'navbar-nav navbar-right'],
+    'encodeLabels' => false,
+    'items' => $category
+]);
 
 NavBar::end();
