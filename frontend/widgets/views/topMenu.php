@@ -24,10 +24,26 @@ NavBar::begin
     'options' => ['class' => 'navbar-inverse', 'id' => 'navbar'],
 ]);
 
+
+/** @var array $category 文章分类 */
 echo Nav::widget([
-    'options' => ['class' => 'navbar-nav navbar-right'],
+    'options' => ['class' => 'navbar-nav navbar-right','id' => 'category'],
     'encodeLabels' => false,
     'items' => $category
+]);
+
+/** @var array $searchForm 搜索框 */
+echo Nav::widget([
+    'options' => ['class' => 'navbar-nav navbar-right','id' => 'searchForm'],
+    'encodeLabels' => false,
+    'items' => $searchForm
+]);
+
+/** @var array $userInfo 用户信息 */
+echo Nav::widget([
+    'options' => ['class' => 'navbar-nav navbar-right','id' => 'userInfo'],
+    'encodeLabels' => false,
+    'items' => $userInfo
 ]);
 
 NavBar::end();
