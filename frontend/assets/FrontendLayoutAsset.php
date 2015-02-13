@@ -13,7 +13,6 @@ use yii\web\AssetBundle;
  * @author kangqingfei <kangqingfei@gmail.com>
  * @since 1.0
  */
-
 class FrontendLayoutAsset extends AssetBundle
 {
     public $basePath = '@webroot';
