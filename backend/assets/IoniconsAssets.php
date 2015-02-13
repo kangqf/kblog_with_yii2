@@ -16,5 +16,17 @@ use yii\web\AssetBundle;
  */
 class IoniconsAssets extends AssetBundle
 {
+    public $sourcePath = '@bower/adminlte';
+    public $css = [
+//        'css/AdminLTE.css',
+    ];
+    public $js = [
+//        'js/AdminLTE/app.js',
+    ];
 
+    public $depends = [
+//        'yii\web\YiiAsset',
+//        'yii\bootstrap\BootstrapAsset',
+//        'yii\bootstrap\BootstrapPluginAsset'
+    ];
 }
