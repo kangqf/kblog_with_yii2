@@ -5,7 +5,6 @@
   * @license MIT
   */
 ?>
-
-<header class="header">
-    header
-</header>
+<section class="content-header">
+    contentHeader
+</section>

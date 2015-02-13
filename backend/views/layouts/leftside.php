@@ -5,7 +5,6 @@
   * @license MIT
   */
 ?>
-
-<header class="header">
-    header
-</header>
+<aside class="left-side sidebar-offcanvas">
+    leftSide
+</aside>

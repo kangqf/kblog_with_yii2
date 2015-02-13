@@ -16,9 +16,9 @@ use yii\web\AssetBundle;
  */
 class FontAwesomeAssets extends AssetBundle
 {
-    public $sourcePath = '@bower/adminlte';
+    public $sourcePath = '@bower/font-awesome';
     public $css = [
-//        'css/AdminLTE.css',
+        'css/font-awesome.css',
     ];
     public $js = [
 //        'js/AdminLTE/app.js',
