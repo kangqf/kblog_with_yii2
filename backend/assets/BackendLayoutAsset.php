@@ -20,7 +20,7 @@ class BackendLayoutAsset extends AssetBundle
     public $baseUrl = '@web';
 
     public $css = [
-//        'css/frontendLayout.css',
+        'css/AdminLTEOveride.css',
 //        'css/ihover/khover.css '
     ];
 

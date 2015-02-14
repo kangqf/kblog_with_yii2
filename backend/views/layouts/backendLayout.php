@@ -26,7 +26,7 @@ FontAwesomeAssets::register($this);
         <?php $this->head() ?>
     </head>
 
-    <body class="skin-blue">
+    <body class="skin-black">
     <?php $this->beginBody() ?>
 
         <!-- header logo: style can be found in header.less -->

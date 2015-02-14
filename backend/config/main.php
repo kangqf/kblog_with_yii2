@@ -7,6 +7,7 @@ $params = array_merge(
 );
 
 return [
+    'name' => 'KBlog-Admin',              //app名称
     'defaultRoute' => 'backend',
     'layout' => 'backendLayout',
     'id' => 'app-backend',

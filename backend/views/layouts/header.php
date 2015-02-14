@@ -10,27 +10,25 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlte';
+
 /* @var $this \yii\web\View */
 /* @var $content string */
 ?>
 
 <header class="header">
-
-    <?= Html::a(Yii::$app->name, Yii::$app->homeUrl, ['class' => 'logo']) ?>
-
+    <!-- 导航栏左侧logo -->
+    <?= Html::a(Yii::$app->name, Yii::$app->homeUrl , ['class' => 'logo']) ?>
     <nav class="navbar navbar-static-top" role="navigation">
-
+        <!--   leftside触发按钮     -->
         <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </a>
-
+        <!-- 导航栏右侧 -->
         <div class="navbar-right">
-
             <ul class="nav navbar-nav">
-
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope"></i>
@@ -107,6 +105,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                         <li class="footer"><a href="#">See All Messages</a></li>
                     </ul>
                 </li>
+
                 <!-- Notifications: style can be found in dropdown.less -->
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -228,6 +227,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                         </li>
                     </ul>
                 </li>
+
                 <?php
                 if (Yii::$app->user->isGuest) {
                     ?>

@@ -6,14 +6,16 @@
   */
 
 use yii\bootstrap\Nav;
+use backend\web\widgets\AdminLTELeftNav;
+
 
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlte';
 
 ?>
+
+
 <aside class="left-side sidebar-offcanvas">
-
     <section class="sidebar">
-
         <?php if (!Yii::$app->user->isGuest) : ?>
             <div class="user-panel">
                 <div class="pull-left image">
@@ -28,35 +30,81 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
             </div>
         <?php endif ?>
 
-        <form action="#" method="get" class="sidebar-form">
-            <div class="input-group">
-                <input type="text" name="q" class="form-control" placeholder="Search..."/>
-                            <span class="input-group-btn">
-                                <button type='submit' name='search' id='search-btn' class="btn btn-flat"><i
-                                        class="fa fa-search"></i></button>
-                            </span>
-            </div>
-        </form>
+        <ul class="sidebar-menu">
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-bar-chart-o"></i>
+                    <span>Charts</span>
+                    <i class="fa fa-angle-left pull-right"></i>
+                </a>
+                <ul class="treeview-menu">
+                    <li>
+                        <a href="#"><i class="fa fa-angle-double-right"></i> Morris</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-angle-double-right"></i>Flot</a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-angle-double-right"></i> Inline charts</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-calendar"></i> <span>Calendar</span>
+                    <small class="badge pull-right bg-red">3</small>
+                </a>
+            </li>
+        </ul>
 
-        <?=
-        Nav::widget(
+        <?= AdminLTELeftNav::widget([
+        'options' => ['class' => 'sidebar-menu'],
+        'items' => [
             [
-                'encodeLabels' => false,
-                'options' => ['class' => 'sidebar-menu'],
-                'items' => [
-                    [
-                        'label' => '<span class="fa fa-angle-down"></span><span class="text-info">Menu Yii2</span>',
-                        'url' => '#'
-                    ],
-                    ['label' => '<span class="fa fa-file-code-o"></span> Gii', 'url' => ['/gii']],
-                    ['label' => '<span class="fa fa-dashboard"></span> Debug', 'url' => ['/debug']],
+                'label' => 'Calendar',
+                'url' => '#',
+                'fa' => [
+                    'icon' => 'calendar',
                 ],
-            ]
-        );
+                'badge' => [
+                    'color' => 'red',
+                    'number' => 3,
+                ],
+            ],
+
+            [
+                'label' => 'Charts',
+                'fa' => [
+                    'icon' => 'calendar',
+                ],
+                'items' => [
+                    ['label' => 'Morris', 'url' => '#'],
+                    ['label' => 'Flot action', 'url' => '#'],
+                    ['label' => 'Inline charts', 'url' => '#'],
+                ],
+            ],
+        ],
+        'encodeLabels' => false
+        ]); ?>
+
+        <?php
+//        Nav::widget(
+//            [
+//                'encodeLabels' => false,
+//                'options' => ['class' => 'sidebar-menu'],
+//                'items' => [
+//                    [
+//                        'label' => '<span class="fa fa-angle-down"></span><span class="text-info">Menu Yii2</span>',
+//                        'url' => '#'
+//                    ],
+//                    ['label' => '<span class="fa fa-file-code-o"></span> Gii', 'url' => ['/gii']],
+//                    ['label' => '<span class="fa fa-dashboard"></span> Debug', 'url' => ['/debug']],
+//                ],
+//            ]
+//        );
         ?>
 
-        <!-- You can delete next ul.sidebar-menu. It's just demo. -->
-
+        <!-- You can delete next ul.sidebar-menu. It's just demo.
         <ul class="sidebar-menu">
             <li>
                 <a href="#" class="navbar-link">
@@ -178,7 +226,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                                 class="fa fa-angle-double-right"></i> Blank Page</a></li>
                 </ul>
             </li>
-        </ul>
+        </ul> -->
 
     </section>
 
