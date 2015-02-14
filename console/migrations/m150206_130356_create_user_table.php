@@ -10,6 +10,7 @@ use yii\db\Migration;
 
 class m150206_130356_create_user_table extends Migration
 {
+    const TBL_NAME = '{{%user}}';
     public function up()
     {
         $tableOptions = null;
@@ -20,7 +21,7 @@ class m150206_130356_create_user_table extends Migration
         /**
          * 用户表
          */
-        $this->createTable('{{%user}}', [
+        $this->createTable(self::TBL_NAME, [
             'user_id' => Schema::TYPE_PK,
             'username' => Schema::TYPE_STRING . ' NOT NULL',
             'auth_key' => Schema::TYPE_STRING . '(32) NOT NULL',
@@ -38,11 +39,13 @@ class m150206_130356_create_user_table extends Migration
 //            'oauth_id' => Schema::TYPE_STRING . ' NOT NULL',
 //            'developer_id'  => Schema::TYPE_INTEGER . ' UNSIGNED NOT NULL',
         ], $tableOptions);
+        $this->createIndex('username', self::TBL_NAME, ['username'],true);
+        $this->createIndex('email', self::TBL_NAME, ['email'],true);
     }
 
     public function down()
     {
-        $this->dropTable('{{%user}}');
+        $this->dropTable(self::TBL_NAME);
         echo "m150206_130356_create_user_table had been reverted.\n";
     }
 }
