@@ -11,7 +11,6 @@ use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 use yii\base\InvalidConfigException;
 use yii\bootstrap\Nav;
-use yii\bootstrap\Dropdown;
 
 /**
  * 可用于生成AdminLTE的左侧导航窗口的小物件
@@ -20,11 +19,6 @@ use yii\bootstrap\Dropdown;
  */
 class AdminLTELeftNav extends Nav
 {
-    /**
-     * @var string the class name to render the Dropdown items.
-     * Defaults to `\kartik\dropdown\DropdownX`.
-     */
-    public $dropdownClass = '\yii\bootstrap\Dropdown';
     /**
      * @var array the dropdown widget options
      */
@@ -37,11 +31,6 @@ class AdminLTELeftNav extends Nav
      * @var array 右边标记
      */
     public $badge = [];
-
-    /**
-     * @var string the caret indicator to display for dropdowns
-     */
-//    public $dropdownIndicator = ' <i class="fa fa-angle-left pull-right"></i>';
 
     /**
      * @inheritdoc
@@ -79,21 +68,23 @@ class AdminLTELeftNav extends Nav
         }
 
         if ($items !== null) {
+            //具有二级菜单
             Html::addCssClass($options, 'treeview');
             $fa['rightIcon'] = 'angle-left';
+
             if (is_array($items)) {
                 if ($this->activateItems) {
                     $items = $this->isChildActive($items, $active);
                 }
-                $dropdown = $this->dropdownClass;
                 $dropdownOptions = ArrayHelper::merge($this->dropdownOptions, [
                     'items' => $items,
                     'encodeLabels' => $this->encodeLabels,
                     'clientOptions' => false,
                     'view' => $this->getView(),
                 ]);
-                $items = $dropdown::widget($dropdownOptions);
+                $items = \backend\web\widgets\AdminLTEDropdown::widget($dropdownOptions);
             }
+
         }
 
         if ($this->activateItems && $active) {
@@ -103,21 +94,24 @@ class AdminLTELeftNav extends Nav
         $label = Html::tag('span',$label);
 
         if (!empty($fa)) {
+            //左边图标
             if(!empty($fa['icon'])) {
                 $labelOptions = [];
                 Html::addCssClass($labelOptions, ' fa fa-' . $fa['icon']);
                 $labelIcon = Html::tag('i', '', $labelOptions);
                 $label = $labelIcon . $label;
             }
+            //二级菜单右边图标
             if(!empty($fa['rightIcon'])) {
                 $labelOptions = [
                     'class' => 'pull-right'
                 ];
-                Html::addCssClass($labelOptions,' fa fa-' . $fa['rightIcon'] );
+                Html::addCssClass($labelOptions,'fa fa-' . $fa['rightIcon'] );
                 $labelIcon = Html::tag('i', '', $labelOptions);
                 $label =  $label.$labelIcon;
             }
         }
+        //气泡提示
         if(!empty($badge))
         {
             $badgeOptions = [];
