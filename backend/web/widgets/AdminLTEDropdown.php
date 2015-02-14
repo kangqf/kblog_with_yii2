@@ -7,6 +7,7 @@
 
 namespace backend\web\widgets;
 
+use yii\base\InvalidConfigException;
 use yii\helpers\Html;
 use yii\helpers\ArrayHelper;
 
@@ -61,6 +62,10 @@ class AdminLTEDropdown extends \yii\bootstrap\Dropdown
                     $content = $label;
                     Html::addCssClass($itemOptions, 'dropdown-header');
                 } else {
+                    $labelOptions = [];
+                    Html::addCssClass($labelOptions,'fa fa-angle-double-right');
+                    $labelIcon = Html::tag('i', '', $labelOptions);
+                    $label = $labelIcon.$label;
                     $content = Html::a($label, $url, $linkOptions);
                 }
             } else {

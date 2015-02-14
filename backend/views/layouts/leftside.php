@@ -30,33 +30,6 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
             </div>
         <?php endif ?>
 
-        <ul class="sidebar-menu">
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-bar-chart-o"></i>
-                    <span>Charts</span>
-                    <i class="fa fa-angle-left pull-right"></i>
-                </a>
-                <ul class="treeview-menu">
-                    <li>
-                        <a href="#"><i class="fa fa-angle-double-right"></i> Morris</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-double-right"></i>Flot</a>
-                    </li>
-                    <li>
-                        <a href="#"><i class="fa fa-angle-double-right"></i> Inline charts</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa fa-calendar"></i> <span>Calendar</span>
-                    <small class="badge pull-right bg-red">3</small>
-                </a>
-            </li>
-        </ul>
-
         <?= AdminLTELeftNav::widget([
         'options' => ['class' => 'sidebar-menu'],
         'items' => [
@@ -75,7 +48,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
             [
                 'label' => 'Charts',
                 'fa' => [
-                    'icon' => 'calendar',
+                    'icon' => 'bar-chart-o',
                 ],
                 'items' => [
                     ['label' => 'Morris', 'url' => '#'],
@@ -87,22 +60,6 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
         'encodeLabels' => false
         ]); ?>
 
-        <?php
-//        Nav::widget(
-//            [
-//                'encodeLabels' => false,
-//                'options' => ['class' => 'sidebar-menu'],
-//                'items' => [
-//                    [
-//                        'label' => '<span class="fa fa-angle-down"></span><span class="text-info">Menu Yii2</span>',
-//                        'url' => '#'
-//                    ],
-//                    ['label' => '<span class="fa fa-file-code-o"></span> Gii', 'url' => ['/gii']],
-//                    ['label' => '<span class="fa fa-dashboard"></span> Debug', 'url' => ['/debug']],
-//                ],
-//            ]
-//        );
-        ?>
 
         <!-- You can delete next ul.sidebar-menu. It's just demo.
         <ul class="sidebar-menu">

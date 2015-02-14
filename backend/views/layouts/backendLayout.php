@@ -47,6 +47,7 @@ FontAwesomeAssets::register($this);
 
                 <!-- Main content -->
                 <?php $this->beginContent('@backend/views/layouts/content.php'); ?>
+                <?= $content ?>
                 <?php $this->endContent(); ?>
                 <!-- /.content -->
             </aside><!-- /.right-side -->
