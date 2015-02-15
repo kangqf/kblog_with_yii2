@@ -18,7 +18,7 @@ return [
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
         ],
         'log' => [
             'traceLevel' => YII_DEBUG ? 3 : 0,
@@ -29,8 +29,21 @@ return [
                 ],
             ],
         ],
+        // 错误处理组件
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'backend/error',
+        ],
+        // 路由管理组件
+        'urlManager' => [
+            //'enableStrictParsing' => true,
+            //'suffix' => '.html',//伪URL后缀
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'visit'],
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'kblog'],
+
+            ],
         ],
     ],
     'params' => $params,

@@ -21,6 +21,19 @@ return [
             'class' => 'common\rbac\AuthManager',
             'defaultRoles' => ['10'],
         ],
+        'i18n' => [
+            'translations' => [
+                '*' => [
+                    'class' => 'yii\i18n\PhpMessageSource',
+                    'basePath' => '@app/messages',
+                    'sourceLanguage' => 'en',
+                    'fileMap' => [
+//                        'app' => 'app.php',
+//                        'app/error' => 'error.php',
+                    ],
+                ],
+            ],
+        ],
 
     ],
 ];

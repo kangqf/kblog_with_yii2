@@ -5,12 +5,11 @@
   * @license MIT
   */
  /**
-  * 英语语言配置文件
+  * 汉语语言配置文件
   * @author kangqingfei <kangqingfei@gmail.com>
   * @since 1.0
   */
 return[
-  'key' => 'value',
   'Cgid' => 'Cgid',
   'Name' => 'Name',
   'Level' => 'Level',
@@ -20,4 +19,16 @@ return[
   'Created At' => 'Created At',
   'Updated At' => 'Updated At',
   'Created By' => 'Created By',
+  'key' => 'value',
+  'key' => 'value',
+  'key' => 'value',
+  'key' => 'value',
+  'key' => 'value',
+  'key' => 'value',
+  'key' => 'value',
+  'key' => 'value',
+  'key' => 'value',
+  'key' => 'value',
+  'key' => 'value',
+  'key' => 'value',
 ];

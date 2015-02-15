@@ -16,6 +16,9 @@ use backend\models\SystemInfo;
  */
 class BackendController extends \yii\web\Controller
 {
+    /**
+     * @inheritdoc
+     */
     public function actionIndex()
     {
         $sysInfo = new systemInfo();
@@ -25,5 +28,17 @@ class BackendController extends \yii\web\Controller
             return $sysInfo->getPhpInfo();
         }
         return $this->render('index', ['sysInfo' => $sysInfo]);
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+        ];
     }
 }
