@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @link http://kangqingfei.cn/
+ * @copyright Copyright (c) 2015 kangqingfei
+ * @license MIT
+ */
 use yii\helpers\Html;
 use yii\grid\GridView;
 
@@ -11,14 +15,10 @@ $this->title = Yii::t('category', 'Categories');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="category-index">
-
-    <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a(Yii::t('category', 'Create {modelClass}', [
-    'modelClass' => 'Category',
-]), ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a(Yii::t('category', 'Create {modelClass}', ['modelClass' => 'Category',]), ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?= GridView::widget([
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'cgid',
+            //'cgid',
             'name',
             'level',
             'visual_able',

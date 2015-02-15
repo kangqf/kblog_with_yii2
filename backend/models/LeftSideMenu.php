@@ -38,7 +38,8 @@ class LeftSideMenu extends \yii\base\Component
                         'icon' => 'user',
                     ],
                     'items' => [
-                        ['label' => 'add','url' => '/user/add'],
+
+                        ['label' => 'create','url' => '/user/add'],
                         ['label' => 'update','url' => '/user/update'],
                         ['label' => 'set','url' => '/user/set'],
                     ],
@@ -50,8 +51,8 @@ class LeftSideMenu extends \yii\base\Component
                         'icon' => 'briefcase',
                     ],
                     'items' => [
-                        ['label' => 'add','url' => '/category/add'],
-                        ['label' => 'update','url' => '/category/update'],
+                        ['label' => 'All','url' => '/category/index'],
+                        ['label' => 'Create','url' => '/category/create'],
                         ['label' => 'set','url' => '/category/set'],
                     ],
                 ],

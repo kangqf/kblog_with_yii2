@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @link http://kangqingfei.cn/
+ * @copyright Copyright (c) 2015 kangqingfei
+ * @license MIT
+ */
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -29,7 +33,8 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'created_by')->textInput() ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('category', 'Create') : Yii::t('category', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($model->isNewRecord ? Yii::t('category', 'Create') : Yii::t('category', 'Update'),
+            ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

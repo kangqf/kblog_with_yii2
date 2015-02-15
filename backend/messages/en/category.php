@@ -5,7 +5,7 @@
   * @license MIT
   */
  /**
-  * 汉语语言配置文件
+  * 英语语言配置文件
   * @author kangqingfei <kangqingfei@gmail.com>
   * @since 1.0
   */
