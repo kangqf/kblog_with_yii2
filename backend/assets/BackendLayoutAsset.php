@@ -21,10 +21,13 @@ class BackendLayoutAsset extends AssetBundle
 
     public $css = [
         'css/AdminLTEOveride.css',
+        'css/backend.css',
+
 //        'css/ihover/khover.css '
     ];
 
     public $js = [
+        'js/backend.js'
     ];
 
     public $depends = [

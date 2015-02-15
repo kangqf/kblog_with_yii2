@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * @link http://kangqingfei.cn/
+ * @copyright Copyright (c) 2015 kangqingfei
+ * @license MIT
+ */
 use backend\assets\BackendLayoutAsset;
 use backend\assets\AdminLteAsset;
 use backend\assets\IoniconsAssets;
@@ -8,11 +12,10 @@ use yii\helpers\Html;
 
 /* @var $this \yii\web\View */
 /* @var $content string */
-BackendLayoutAsset::register($this);
 AdminLteAsset::register($this);
 IoniconsAssets::register($this);
 FontAwesomeAssets::register($this);
-
+BackendLayoutAsset::register($this);
 ?>
 
 <?php $this->beginPage() ?>
