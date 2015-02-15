@@ -5,9 +5,10 @@
   * @license MIT
   */
 
-use yii\bootstrap\Nav;
 use backend\web\widgets\AdminLTELeftNav;
-
+/**
+ * @var array $leftSideMenu
+ */
 
 $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlte';
 
@@ -22,7 +23,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                     <img src="<?= $directoryAsset ?>/img/avatar5.png" class="img-circle" alt="User Image"/>
                 </div>
                 <div class="pull-left info">
-                    <p>Hello, <?= @Yii::$app->user->identity->username ?></p>
+                    <p>Hello, <?= Yii::$app->user->identity->username ?></p>
                     <a href="<?= $directoryAsset ?>/#">
                         <i class="fa fa-circle text-success"></i> Online
                     </a>
@@ -30,35 +31,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
             </div>
         <?php endif ?>
 
-        <?= AdminLTELeftNav::widget([
-        'options' => ['class' => 'sidebar-menu'],
-        'items' => [
-            [
-                'label' => 'Calendar',
-                'url' => '#',
-                'fa' => [
-                    'icon' => 'calendar',
-                ],
-                'badge' => [
-                    'color' => 'red',
-                    'number' => 3,
-                ],
-            ],
-
-            [
-                'label' => 'Charts',
-                'fa' => [
-                    'icon' => 'bar-chart-o',
-                ],
-                'items' => [
-                    ['label' => 'Morris', 'url' => '#'],
-                    ['label' => 'Flot action', 'url' => '#'],
-                    ['label' => 'Inline charts', 'url' => '#'],
-                ],
-            ],
-        ],
-        'encodeLabels' => false
-        ]); ?>
+        <?= AdminLTELeftNav::widget($leftSideMenu); ?>
 
 
         <!-- You can delete next ul.sidebar-menu. It's just demo.
