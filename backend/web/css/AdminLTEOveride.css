@@ -1,3 +1,55 @@
+/* LOGO的样式 */
 body > .header .logo {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+/* 导航条的分割符 */
+.right-side > .content-header > .breadcrumb > li + li:before {
+    content: '\00BB';
+}
+/* 导航条的字体大小和距离顶部的大小 */
+.right-side > .content-header > .breadcrumb {
+    font-size: 14px;
+    top: -5px;
+}
+
+
+/* 首页图标距离右侧的间距 */
+.right-side > .content-header > .breadcrumb > li > a > .fa, .right-side > .content-header > .breadcrumb > li > a > .glyphicon, .right-side > .content-header > .breadcrumb > li > a > .ion {
+     margin-right: -5px;
+}
+
+/* 全局的字体样式 */
+html, body {
+    overflow-x: hidden!important;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100%;
+    background: #f9f9f9;
+}
+
+/* 提示数字的字体样式 */
+body > .header .navbar .nav > li > a > .label {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* 按钮样式 */
+.btn.btn-success {
+    color: #ffffff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+.btn.btn-success:hover,
+.btn.btn-success:active,
+.btn.btn-success.hover {
+    color: #ffffff;
+    background-color: #449d44;
+    border-color: #398439;
+}
+
+/* 表单的圆角的大小 */
+.form-control {
+    -webkit-border-radius: 4px !important;
+    -moz-border-radius: 4px !important;
+    border-radius: 4px !important;
 }

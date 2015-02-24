@@ -29,7 +29,8 @@ return[
   'Delete' => '删除',
   'Are you sure you want to delete this item?' => '你确定要删除这个类别吗？',
   'Create {modelClass}' => '添加类别',
-  'key' => '内容',
+  'Create Article {modelClass}' => '添加文章类别',
+  'Article' => '文章',
   'key' => '内容',
   'key' => '内容',
 ];

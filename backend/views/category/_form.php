@@ -5,16 +5,28 @@
  * @license MIT
  */
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
+use yii\bootstrap\ActiveForm;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\Category */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<div class="category-form">
+<div class="category-form col-lg-6 col-lg-offset-3">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'layout' => 'horizontal',
+        'fieldConfig' => [
+            'template' => "{label}\n{beginWrapper}\n{input}\n{hint}\n{error}\n{endWrapper}",
+            'horizontalCssClasses' => [
+                'label' => 'col-sm-4',
+                'offset' => 'col-sm-offset-4',
+                'wrapper' => 'col-sm-8',
+                'error' => '',
+                'hint' => '',
+            ],
+        ],
+    ]); ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => 255]) ?>
 
@@ -24,13 +36,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'order')->textInput() ?>
 
-    <?= $form->field($model, 'parent_id')->textInput() ?>
-
-    <?= $form->field($model, 'created_at')->textInput() ?>
-
-    <?= $form->field($model, 'updated_at')->textInput() ?>
-
-    <?= $form->field($model, 'created_by')->textInput() ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? Yii::t('category', 'Create') : Yii::t('category', 'Update'),

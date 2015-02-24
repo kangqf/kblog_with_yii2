@@ -62,7 +62,7 @@ BackendLayoutAsset::register($this);
                 <?php //$content ?>
                 <!-- /.content -->
                 <footer class="footer" id="footer">
-                    <div class="container">
+                    <div class="container col-lg-12">
                         Copyright &copy; <?= date('Y') ?> by My CQUPT.<br/>
                         All Rights Reserved.<br/>
                         <?= Yii::powered() ?>

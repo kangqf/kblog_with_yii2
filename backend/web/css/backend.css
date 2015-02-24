@@ -9,3 +9,7 @@
     margin: 10px 20px;
     text-align: center;
 }
+
+.form-group > button{
+    float: right;
+}
