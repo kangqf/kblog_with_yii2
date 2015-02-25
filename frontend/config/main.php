@@ -48,8 +48,10 @@ return [
                 'signin' => '/frontend/login',
                 'signup' => '/frontend/register',
                 'signout' => '/frontend/logout',
+                'request-password-reset' => '/frontend/request-password-reset',
+                'reset-password' => '/frontend/reset-password',
                 'auth' => '/frontend/auth',
-                'reset-password' => '/frontend/resetPassword',
+
 
             ],
         ],

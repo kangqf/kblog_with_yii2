@@ -41,7 +41,7 @@ col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
           <?= $form->field($loginModel, 'rememberMe')->checkbox() ?>
       </span>
       <span style="float:right; margin-top:0px; margin-left:30px">
-        <?= Html::a('找回密码', ['kblog/request-password-reset']) ?>
+        <?= Html::a('找回密码', [Yii::$app->homeUrl.'/request-password-reset']) ?>
       </span>
         <?= Html::submitButton('登录', ['class' => 'btn btn-primary btn-block']) ?>
         <div class="authclient">

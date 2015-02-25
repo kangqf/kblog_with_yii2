@@ -10,6 +10,10 @@ namespace frontend\controllers;
 use common\models\LoginForm;
 use Yii;
 use frontend\models\RegisterForm;
+use frontend\models\ResetPasswordForm;
+use frontend\models\PasswordResetRequestForm;
+use yii\base\InvalidParamException;
+use yii\web\BadRequestHttpException;
 
 /**
  * 前台默认控制器
@@ -56,6 +60,16 @@ class FrontendController extends \yii\web\Controller
     }
 
     /**
+     *注销
+     */
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+        echo "<script> window.alert(\"注销成功，即将跳转到首页\");</script>";
+        return $this->goHome();
+    }
+
+    /**
      * @return array|string|\yii\web\Response 注册方法
      */
     public function actionRegister()
@@ -82,11 +96,14 @@ class FrontendController extends \yii\web\Controller
         $model = new PasswordResetRequestForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             if ($model->sendEmail()) {
-                Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
-
+                Yii::$app->session->setFlash('alert', '邮件发送成功');
+                Yii::$app->session->setFlash('alert-type', 'alert-success');
+                //Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
                 return $this->goHome();
             } else {
-                Yii::$app->getSession()->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
+                Yii::$app->session->setFlash('alert', '邮件发送失败');
+                Yii::$app->session->setFlash('alert-type', 'alert-danger');
+                //Yii::$app->getSession()->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
             }
         }
 
@@ -95,6 +112,11 @@ class FrontendController extends \yii\web\Controller
         ]);
     }
 
+    /**
+     * @param $token
+     * @return string|\yii\web\Response
+     * @throws BadRequestHttpException
+     */
     public function actionResetPassword($token)
     {
         try {
@@ -104,8 +126,9 @@ class FrontendController extends \yii\web\Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            Yii::$app->getSession()->setFlash('success', 'New password was saved.');
-
+            //Yii::$app->getSession()->setFlash('success', 'New password was saved.');
+            Yii::$app->session->setFlash('alert', '密码更新成功');
+            Yii::$app->session->setFlash('alert-type', 'alert-success');
             return $this->goHome();
         }
 

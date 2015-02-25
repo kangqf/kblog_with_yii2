@@ -16,5 +16,5 @@ body {
 }
 
 .breadcrumb > li + li:before {
-    content: '\00BB';
+    content: '\00BB' !important;
 }
