@@ -14,6 +14,12 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+    'controllerMap' => [
+        'article' => [
+            'class' => 'app\controllers\PostController',
+            'enableCsrfValidation' => false,
+        ],
+    ],
     'components' => [
         //日志写入组件
         'log' => [
@@ -38,6 +44,12 @@ return [
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'visit'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'kblog'],
+
+                'signin' => '/frontend/login',
+                'signup' => '/frontend/register',
+                'signout' => '/frontend/logout',
+                'auth' => '/frontend/auth',
+                'reset-password' => '/frontend/resetPassword',
 
             ],
         ],

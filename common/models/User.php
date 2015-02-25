@@ -9,6 +9,7 @@ namespace common\models;
 
 use Yii;
 use yii\web\IdentityInterface;
+use yii\db\ActiveRecord;
 
 /**
  * 用户模型，用处极大
@@ -27,11 +28,9 @@ use yii\web\IdentityInterface;
  * @property integer $login_count
  * @property integer $status
  * @property integer $role
- * @property string $oauth_id
  * @property string $auth_key
  * @property string $password_hash
  * @property string $password_reset_token
- * @property integer $developer_id
  *
  * @property string $access_token
  */
@@ -77,6 +76,52 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return 'user';
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+
+            //自动用当前时间戳填充制定字段
+            'timestamp' => [
+                //yii自己预定义的行为
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+            ],
+
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     * 场景，针对不用场景，指定不同的激活属性
+     */
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenariosNew =
+            [
+                'register' => ['username', 'email', 'password', 'avatar', 'status', 'role', 'auth_key'],
+                'login' => ['username', 'password', ],
+//
+//                'create' => ['username', 'email', 'password', 'avatar', 'open_id', 'status', 'role', ],
+//
+//                'password_reset_request' => ['email'],
+//                'reset_password' => ['password'],
+//                 'updated' => ['username', 'password'],
+//
+//                 'updated' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
+//                 'created' => ['username', 'email', 'status', 'role', 'password', 'organization_id'],
+//                 'delete' => [],
+            ];
+        return array_merge($scenarios,$scenariosNew);
+    }
+
 
     /**
      * @inheritdoc
@@ -178,6 +223,133 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             self::STATUS_DELETED => '删除',
         ];
     }
+
+    /**
+     * 通过用户名查找用户身份
+     * @param  string $username
+     * @return static|null
+     */
+    public static function findByUsername($username)
+    {
+        //findOne是ActiveRecord的方法
+        return self::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    /**
+     * 通过邮箱查找用户
+     * @param  string $email
+     * @return static|null
+     */
+    public static function findByEmail($email)
+    {
+        return self::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    /**
+     * 通过第三方用户ID查找用户
+     * @param $openid
+     * @internal param string $openID
+     * @return static|null
+     */
+    public static function findByOpenId($openid)
+    {
+        return self::findOne(['open_id' => $openid, 'status' => self::STATUS_ACTIVE]);
+    }
+
+    /**
+     * 通过 password reset token 查找用户
+     * @param  string $token password reset token
+     * @return static|null
+     */
+    public static function findByPasswordResetToken($token)
+    {
+        $expire = \Yii::$app->params['user.passwordResetTokenExpire'];
+        $parts = explode('_', $token);
+        $timestamp = (int)end($parts);
+        if ($timestamp + $expire < time()) {
+            // token 过期
+            return null;
+        }
+
+        return static::findOne([
+            'password_reset_token' => $token,
+            'status' => self::STATUS_ACTIVE,
+        ]);
+    }
+
+    /**
+     * 通过 $token 查找用户
+     * @param $token
+     * @return bool|static
+     */
+    public static function findByAuthKey($token)
+    {
+        if ($token) {
+            return static::findOne([
+                'auth_key' => $token,
+                'status' => self::STATUS_ACTIVE,
+            ]);
+        }
+        else {
+            return false;
+        }
+
+    }
+
+    /**
+     * 验证密码
+     * @param  string $password
+     * @return boolean
+     */
+    public function validatePassword($password)
+    {
+        return Yii::$app->getSecurity()->validatePassword($password, $this->password_hash);
+    }
+
+    /**
+     * 设置哈希密码
+     * @param string $password
+     */
+    public function setHashPassword($password)
+    {
+        $this->password_hash = Yii::$app->getSecurity()->generatePasswordHash($password);
+    }
+
+    /**
+     * 生成验证密钥
+     */
+    public function generateAuthKey()
+    {
+        $this->auth_key = Yii::$app->getSecurity()->generateRandomString();
+    }
+
+    /**
+     * 生成access_token
+     */
+    public function generateAccessToken()
+    {
+        $this->access_token = Yii::$app->getSecurity()->generateRandomString();
+    }
+
+    /**
+     * 生成重置令牌
+     */
+    public function generatePasswordResetToken()
+    {
+        $this->password_reset_token = Yii::$app->getSecurity()->generateRandomString() . '_' . time();
+    }
+
+    /**
+     * 移除重置令牌
+     */
+    public function removePasswordResetToken()
+    {
+        $this->password_reset_token = null;
+    }
+
+
+
+
 
 
     /**

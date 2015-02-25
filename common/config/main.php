@@ -10,7 +10,7 @@ return [
             'class' => 'yii\web\User',
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
-            'loginUrl' => ['frontend/login'],
+            'loginUrl' => [Yii::$app->homeUrl . '/signin'],
         ],
         //缓存管理的类
         'cache' => [

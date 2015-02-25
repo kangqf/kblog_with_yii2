@@ -50,6 +50,16 @@ $this->title = "kblog";
             ])
             ?>
         </div>
+        <div class="container" id="alert">
+        <?php
+            if(Yii::$app->session->hasFlash('alert')) {
+            echo yii\bootstrap\Alert::widget([
+            'options' => ['class' => Yii::$app->session->getFlash('alert-type') ? Yii::$app->session->getFlash('alert-type') : 'alert-info'],
+            'body' => Yii::$app->session->getFlash('alert')
+            ]);
+            }
+        ?>
+        </div>
         <!--    页面主体内容    -->
         <div id="content" class="container">
             <?= $content ?>

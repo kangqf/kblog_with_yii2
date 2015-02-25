@@ -7,5 +7,14 @@
 }
 /* 主页中央区域颜色 */
 body {
-    background-color: #F3F3F3;
+    /*background-color: #F3F3F3;*/
+}
+
+/*导航条*/
+#breadCrumbs {
+    margin-top: -20px;
+}
+
+.breadcrumb > li + li:before {
+    content: '\00BB';
 }

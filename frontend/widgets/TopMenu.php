@@ -46,20 +46,15 @@ class TopMenu extends \yii\base\Widget
             [
                 'label' => '登录',
                 'url' => $user = Yii::$app->getUser()->loginUrl,
-                'linkOptions' => [
-                    'id' => 'login',
-                    'data-toggle' => "modal",
-                    'data-target' => '#loginModal'
-                ]
             ],
             [
                 'label' => '注册',
-                'url' => ['/kblog'],
-                'linkOptions' => [
-                    'id' => 'register',
-                    'data-toggle' => "modal",
-                    'data-target' => '#registerModal'
-                ]
+                'url' => Yii::$app->params['registerUrl'],
+//                'linkOptions' => [
+//                    'id' => 'register',
+//                    'data-toggle' => "modal",
+//                    'data-target' => '#registerModal'
+//                ]
             ],
         ];
         return $category;

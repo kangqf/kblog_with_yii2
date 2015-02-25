@@ -45,7 +45,7 @@ class LoginForm extends \yii\base\Model
         return [
             'email' => Yii::t('common', 'Email'),
             'password' => Yii::t('common', 'Password'),
-            'rememberMe' => Yii::t('common', 'RememberMe'),
+            'rememberMe' => Yii::t('common', '记住密码'),
         ];
     }
 
@@ -77,17 +77,15 @@ class LoginForm extends \yii\base\Model
             } else {
                 return false;
             }
-            //  $user = new User(['scenario' => 'login']);
-            // dump($this->getUser());die();
-
-        } else {
+        }
+        else {
             return false;
         }
     }
 
     /**
      * 通过 [[username]] 查找用户信息
-     *
+     * 魔术方法
      * @return User|null
      */
     public function getUser()
@@ -98,7 +96,5 @@ class LoginForm extends \yii\base\Model
 
         return $this->_user;
     }
-
-
 
 }
