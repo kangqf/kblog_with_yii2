@@ -246,14 +246,14 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
     /**
-     * 通过第三方用户ID查找用户
-     * @param $openid
-     * @internal param string $openID
+     * 通过用户ID查找用户
+     * @param $uid
+     * @internal param string $uid
      * @return static|null
      */
-    public static function findByOpenId($openid)
+    public static function findByUserId($uid)
     {
-        return self::findOne(['open_id' => $openid, 'status' => self::STATUS_ACTIVE]);
+        return self::findOne(['user_id' => $uid, 'status' => self::STATUS_ACTIVE]);
     }
 
     /**

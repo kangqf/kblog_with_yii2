@@ -44,7 +44,7 @@ return [
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'visit'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'kblog'],
-                '<action:(request-password-reset|reset-password|auth|test)>' => 'frontend/<action>',
+                '<action:(request-password-reset|reset-password|auth|test|finish-register)>' => 'frontend/<action>',
                 '<view:(about)>' => 'frontend/static',//把view省去了即frontend/static?view=about，
                 'signin' => '/frontend/login',
                 'signup' => '/frontend/register',

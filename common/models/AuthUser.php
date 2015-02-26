@@ -10,7 +10,7 @@ use Yii;
  * @property string $auth_user_id
  * @property string $type
  * @property integer $uid
- * @property integer $detail_info_id
+ * @property string $detail_info_id
  * @property integer $created_at
  * @property integer $updated_at
  *
@@ -26,6 +26,12 @@ class AuthUser extends \yii\db\ActiveRecord
         return '{{%auth_user}}';
     }
 
+
+    public static function findByOpenId($openId)
+    {
+        return self::findOne(['auth_user_id' => $openId,]);
+    }
+
     /**
      * @inheritdoc
      */
@@ -33,8 +39,8 @@ class AuthUser extends \yii\db\ActiveRecord
     {
         return [
             [['auth_user_id', 'type'], 'required'],
-            [['uid', 'detail_info_id', 'created_at', 'updated_at'], 'integer'],
-            [['auth_user_id', 'type'], 'string', 'max' => 255]
+            [['uid', 'created_at', 'updated_at'], 'integer'],
+            [['auth_user_id', 'type', 'detail_info_id'], 'string', 'max' => 255]
         ];
     }
 
@@ -56,7 +62,7 @@ class AuthUser extends \yii\db\ActiveRecord
     /**
      * @return \yii\db\ActiveQuery
      */
-    public function getU()
+    public function getUid()
     {
         return $this->hasOne(User::className(), ['user_id' => 'uid']);
     }

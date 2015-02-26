@@ -23,7 +23,8 @@
         "bower-asset/font-awesome": "~4.3",
         "kartik-v/yii2-widget-fileinput": "v1.0.0",
         "kartik-v/yii2-widget-activeform": "v1.4.1",
-        "kangqf/yii2-authclient": "2.0.2"
+        "kangqf/yii2-authclient": "2.0.2",
+        "yiisoft/yii2-mongodb": "2.0.2"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "2.0.2",

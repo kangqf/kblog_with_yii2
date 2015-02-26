@@ -31,8 +31,8 @@ use kartik\file\FileInput;
                         'browseIcon' => '<i class="glyphicon glyphicon-picture"></i> ',
                         'browseLabel' =>  '更换头像',
                         'initialPreview' => [
-                            Html::img($model['avatar'] ? Yii::$app->homeUrl . 'avatar/' . $model['avatar'] : Yii::$app->homeUrl . 'default.png', ['class' => 'file-preview-image',
-                                'alt' => '没找到默认头像', 'title' => '默认头像']),
+                          //  Html::img($model['avatar'] ? Yii::$app->homeUrl . 'avatar/' . $model['avatar'] : Yii::$app->homeUrl . 'default.png', ['class' => 'file-preview-image',
+                           //     'alt' => '没找到默认头像', 'title' => '默认头像']),
                         ],
 
                     ],

@@ -18,7 +18,7 @@ class m150226_101437_create_auth_user_table extends Migration
             'auth_user_id' => Schema::TYPE_STRING . " NOT NULL DEFAULT 'auth_id'",
             'type' => Schema::TYPE_STRING . " NOT NULL DEFAULT 'type'",
             'uid' => Schema::TYPE_INTEGER . ' NOT NULL DEFAULT 0',
-            'detail_info_id' => Schema::TYPE_INTEGER . ' NOT NULL DEFAULT 0',
+            'detail_info_id' => Schema::TYPE_STRING . ' NOT NULL DEFAULT 0',
             'created_at' => Schema::TYPE_INTEGER . ' NOT NULL DEFAULT 0',
             'updated_at' => Schema::TYPE_INTEGER . ' NOT NULL DEFAULT 0',
         ], $tableOptions);

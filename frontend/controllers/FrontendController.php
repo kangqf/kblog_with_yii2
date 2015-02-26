@@ -17,6 +17,7 @@ use yii\web\BadRequestHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\OpenUser;
+use common\models\User;
 
 /**
  * 前台默认控制器
@@ -29,6 +30,8 @@ class FrontendController extends \yii\web\Controller
      * @return string 测试方法
      */
     public  function  actionTest(){
+        //$collection = Yii::$app->mongodb->getCollection('customer');
+        //var_dump($collection->insert(['name' => 'John Smith', 'status' => 1]));
         //Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
         //echo "<script> window.alert(\"注销成功，即将跳转到首页\");</script>";
         return $this->render('test');
@@ -199,7 +202,7 @@ class FrontendController extends \yii\web\Controller
             throw new BadRequestHttpException($e->getMessage());
         }
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
+        if($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
             Yii::$app->session->setFlash('alert', '密码更新成功');
             Yii::$app->session->setFlash('alert-type', 'alert-success');
             return $this->goHome();
@@ -210,6 +213,14 @@ class FrontendController extends \yii\web\Controller
         ]);
     }
 
+    public function finishRegister($model)
+    {
+        echo $this->render('finishRegister',['model' => $model]);
+//        echo "finish";
+//        var_dump($model);
+//        die();
+    }
+
 
     /**
      * 第三方登陆回调函数
@@ -218,36 +229,32 @@ class FrontendController extends \yii\web\Controller
      */
     public function successCallback($client = null)
     {
-        var_dump($client->getUserAttributes());
-        die();
         if ($client === null) {
             return $this->render('index');
         } else {
             $openUser = new OpenUser($client);
-            $user = User::findByOpenId($openUser->openId);
+            $authUser = $openUser->isNewUser();
             //曾进行过第三方登陆
-            if ($user != null) {
+            if ($authUser) {
+                /**  @var \common\models\User $user  */
+                $user = User::findByUserId($authUser);
                 $user->scenario = 'login';
                 $user->login_count++;
                 if ($user->save()) {
                     if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
+                        Yii::$app->session->setFlash('alert', '登录成功');
+                        Yii::$app->session->setFlash('alert-type', 'alert-info');
                         return true;
                     }
                 }
-            } //未曾进行过第三方登陆
+            }
+            //未曾进行过第三方登陆
             else {
-                $openUser->storeInfo($client);
-                $avatarFileName = $openUser->grabImage();
-                if ($avatarFileName) {
-                    echo "<script type=\'text/javascript\' charset=\'gb2312\'> window.alert(\"第三方验证成功，即将关闭当前窗口，并跳转到完成注册页面\");</script>";
-                    $this->redirect(['signup-finish', 'email' => $openUser->email, 'openid' => $openUser->openId, 'username' => $openUser->name, 'avatar' => $avatarFileName]);
-
-                } else {
-                    echo "<script type=\'text/javascript\' charset=\'gb2312\'> window.alert(\"第三方登录抓取图片失败，即将关闭当前窗口，并跳转到首页\");</script>";
-                    return false;
-                }
+                //$this->finishRegister($openUser);
+                echo $this->render('finishRegister',['model' => $openUser]);
             }
         }
+        return false;
     }
 
 
