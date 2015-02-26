@@ -6,11 +6,7 @@
  */
 
 /**
- * 前台首页
+ * 测试页面
  */
 ?>
-
-<p>
-    You may change the content of this page by modifying
-    the file
-</p>
+<h1> test 哈哈哈</h1>

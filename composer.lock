@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "dc1a4b09408cc4581417c30ac4e4cbf8",
+    "hash": "0c8665d09ebb505129e640e8327a6709",
     "packages": [
         {
             "name": "bower-asset/adminlte",
@@ -408,6 +408,49 @@
                 "html"
             ],
             "time": "2013-11-30 08:25:19"
+        },
+        {
+            "name": "kangqf/yii2-authclient",
+            "version": "2.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kangqf/yii2-authclient.git",
+                "reference": "bc8d0e5ff980b7d7619a8959f45926afc4e093ef"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kangqf/yii2-authclient/zipball/bc8d0e5ff980b7d7619a8959f45926afc4e093ef",
+                "reference": "bc8d0e5ff980b7d7619a8959f45926afc4e093ef",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yii\\authclient\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                }
+            ],
+            "description": "External authentication via OAuth and OpenID for the Yii framework",
+            "keywords": [
+                "OpenId",
+                "auth",
+                "oauth",
+                "yii2"
+            ],
+            "time": "2015-02-25 17:41:15"
         },
         {
             "name": "kartik-v/bootstrap-fileinput",

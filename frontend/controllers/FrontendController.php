@@ -14,6 +14,9 @@ use frontend\models\ResetPasswordForm;
 use frontend\models\PasswordResetRequestForm;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
+use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use common\models\OpenUser;
 
 /**
  * 前台默认控制器
@@ -23,14 +26,81 @@ use yii\web\BadRequestHttpException;
 class FrontendController extends \yii\web\Controller
 {
     /**
-     * @inheritdoc
+     * @return string 测试方法
      */
+    public  function  actionTest(){
+        //Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
+        //echo "<script> window.alert(\"注销成功，即将跳转到首页\");</script>";
+        return $this->render('test');
+    }
+
+    /**
+     * @inheritdoc
+     * @return array
+     */
+    public function behaviors()
+    {
+        return [
+
+            //ACF的配置
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['logout', 'signup', 'login'],
+                'rules' => [
+                    [
+                        'actions' => ['logout'],
+                        'allow' => true,
+                        'roles' => ['@'], //@代表已授权用户，?代表未授权用户（访客）
+                    ],
+                    [
+                        'actions' => ['signup', 'signup-finish', 'login'],
+                        'allow' => true,
+                        'roles' => ['?'],
+                    ],
+                ],
+//                 ACF错误回调函数
+//                'denyCallback' => function () {
+//                        throw new \Exception('You are not allowed to access this page 您没有被允许访问这个页面！');
+//                 },
+            ],
+
+            //过滤器设置
+            'verbs' => [
+                'class' => VerbFilter::className(),
+                'actions' => [
+                    'logout' => ['get'],
+                ],
+            ],
+
+        ];
+    }
+
+    /**
+     * @inheritdoc 相当于构造函数是
+    */
     public function actions()
     {
         return [
+            //错误处理
             'error' => [
                 'class' => 'yii\web\ErrorAction',
             ],
+            //静态页面的配置
+            'static' => [
+                'class' => '\yii\web\ViewAction',
+            ],
+            //第三方登录的配置
+            'auth' => [
+                'class' => 'yii\authclient\AuthAction',
+                'successCallback' => [$this, 'successCallback'],
+//                'successUrl' => Yii::$app->homeUrl,
+            ],
+
+//             //验证码
+//             'captcha' => [
+//                 'class' => 'yii\captcha\CaptchaAction',
+//                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
+//             ],
         ];
     }
 
@@ -41,7 +111,6 @@ class FrontendController extends \yii\web\Controller
     {
         return $this->render('index');
     }
-
 
     /**
      * @return string|\yii\web\Response 登录方法
@@ -59,13 +128,20 @@ class FrontendController extends \yii\web\Controller
         }
     }
 
+
     /**
-     *注销
+     * @return \yii\web\Response 注销方法
      */
     public function actionLogout()
     {
-        Yii::$app->user->logout();
-        echo "<script> window.alert(\"注销成功，即将跳转到首页\");</script>";
+        if(Yii::$app->user->logout()) {
+            Yii::$app->session->setFlash('alert', '用户注销成功');
+            Yii::$app->session->setFlash('alert-type', 'alert-info');
+        } else{
+            Yii::$app->session->setFlash('alert', '用户注销失败');
+            Yii::$app->session->setFlash('alert-type', 'alert-danger');
+        }
+
         return $this->goHome();
     }
 
@@ -98,12 +174,10 @@ class FrontendController extends \yii\web\Controller
             if ($model->sendEmail()) {
                 Yii::$app->session->setFlash('alert', '邮件发送成功');
                 Yii::$app->session->setFlash('alert-type', 'alert-success');
-                //Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
                 return $this->goHome();
             } else {
                 Yii::$app->session->setFlash('alert', '邮件发送失败');
                 Yii::$app->session->setFlash('alert-type', 'alert-danger');
-                //Yii::$app->getSession()->setFlash('error', 'Sorry, we are unable to reset password for email provided.');
             }
         }
 
@@ -126,7 +200,6 @@ class FrontendController extends \yii\web\Controller
         }
 
         if ($model->load(Yii::$app->request->post()) && $model->validate() && $model->resetPassword()) {
-            //Yii::$app->getSession()->setFlash('success', 'New password was saved.');
             Yii::$app->session->setFlash('alert', '密码更新成功');
             Yii::$app->session->setFlash('alert-type', 'alert-success');
             return $this->goHome();
@@ -138,6 +211,44 @@ class FrontendController extends \yii\web\Controller
     }
 
 
+    /**
+     * 第三方登陆回调函数
+     * @param null $client
+     * @return bool|string
+     */
+    public function successCallback($client = null)
+    {
+        var_dump($client->getUserAttributes());
+        die();
+        if ($client === null) {
+            return $this->render('index');
+        } else {
+            $openUser = new OpenUser($client);
+            $user = User::findByOpenId($openUser->openId);
+            //曾进行过第三方登陆
+            if ($user != null) {
+                $user->scenario = 'login';
+                $user->login_count++;
+                if ($user->save()) {
+                    if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
+                        return true;
+                    }
+                }
+            } //未曾进行过第三方登陆
+            else {
+                $openUser->storeInfo($client);
+                $avatarFileName = $openUser->grabImage();
+                if ($avatarFileName) {
+                    echo "<script type=\'text/javascript\' charset=\'gb2312\'> window.alert(\"第三方验证成功，即将关闭当前窗口，并跳转到完成注册页面\");</script>";
+                    $this->redirect(['signup-finish', 'email' => $openUser->email, 'openid' => $openUser->openId, 'username' => $openUser->name, 'avatar' => $avatarFileName]);
+
+                } else {
+                    echo "<script type=\'text/javascript\' charset=\'gb2312\'> window.alert(\"第三方登录抓取图片失败，即将关闭当前窗口，并跳转到首页\");</script>";
+                    return false;
+                }
+            }
+        }
+    }
 
 
 

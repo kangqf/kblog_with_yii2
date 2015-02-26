@@ -45,7 +45,7 @@ col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
       </span>
         <?= Html::submitButton('登录', ['class' => 'btn btn-primary btn-block']) ?>
         <div class="authclient">
-            <?php //yii\authclient\widgets\AuthChoice::widget(['baseAuthUrl' => ['kblog/auth']]); ?>
+            <?= yii\authclient\widgets\AuthChoice::widget(['baseAuthUrl' => ['/auth']]); ?>
         </div>
     </div>
 

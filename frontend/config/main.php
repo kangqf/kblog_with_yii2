@@ -44,15 +44,17 @@ return [
             'rules' => [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'visit'],
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'kblog'],
-
+                '<action:(request-password-reset|reset-password|auth|test)>' => 'frontend/<action>',
+                '<view:(about)>' => 'frontend/static',//把view省去了即frontend/static?view=about，
                 'signin' => '/frontend/login',
                 'signup' => '/frontend/register',
                 'signout' => '/frontend/logout',
-                'request-password-reset' => '/frontend/request-password-reset',
-                'reset-password' => '/frontend/reset-password',
-                'auth' => '/frontend/auth',
-
-
+//                'list/tag/<tag:>' => 'article/index', 同理等价于 article/index?tag=xxx相当于把<tag>(<tag:>)作为参数冒号无关紧要
+//                'page/<view:>' => 'frontend/static',
+//                '<_a:(update|captcha|confirm-email|dummy)>' => 'person/<_a>',
+//                '<category_slug:>/<slug:>' => 'article/view',
+//                'article/<slug:>' => 'article/view',
+//                'sitemap.xml' => 'site/sitemap',
             ],
         ],
     ],
