@@ -40,12 +40,33 @@ class FrontendController extends \yii\web\Controller
         // 集合方式
         //$local = Yii::$app->fileSystem->get('local');
         //$local->write('test.txt', 'hello world');
-        //echo $local->read('test.txt');
+        //$text = $local->read('test.txt');
 
         /** @var \callmez\file\system\Filesystem $qiniu */
         $qiniu = Yii::$app->fileSystem->get('qiniu');
-        //$qiniu->write('test.txt', 'hello world');
-        echo $qiniu->read('kk.jpg');
+        if($qiniu->has('test.txt', 'hello world'))
+        {
+            echo "has";
+        }
+        else {
+            $qiniu->write('test.txt', 'hello world');
+            echo "create";
+        }
+
+        //if($qiniu->copy('kk.jpg','jjj1.jpg')) {
+        if($qiniu->urlCopy('http://ww3.sinaimg.cn/crop.191.1.764.764.1024/c05c3ad5gw1ec9zga452wj20sg0lcqat.jpg','kqf1.jpg')) {
+            echo "copy";
+        }
+        else{
+            echo "not copy";
+        }
+//        if(Yii::$app->fileSystem->copy('local://test.txt', 'test/test2.txt')) {
+//            echo "copy";
+//        }
+//        else{
+//            echo "not copy";
+//        }
+
 
 
         //return $this->render('test');

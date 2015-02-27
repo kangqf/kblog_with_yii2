@@ -46,8 +46,8 @@ return [
                     );
                 },
                 'qiniu' => function() {
-                    return new \callmez\file\system\FileSystem(
-                        new \callmez\file\system\adapters\Qiniu(
+                    return new \common\compoents\FileSystem(
+                        new \common\compoents\Qiniu(
                             'kangqingfei',
                             'sumxVFQJtnjrUDjd9puCc3EEWDqTbTiwAp8Lcy8L',
                             'TBmIgg2Nm8JXdX9D_Qx1AI7rlQUMw2PMHZ0be7An'
