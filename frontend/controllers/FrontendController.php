@@ -34,7 +34,21 @@ class FrontendController extends \yii\web\Controller
         //var_dump($collection->insert(['name' => 'John Smith', 'status' => 1]));
         //Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
         //echo "<script> window.alert(\"注销成功，即将跳转到首页\");</script>";
-        return $this->render('test');
+
+
+        /** @var \callmez\file\system\Filesystem $local */
+        // 集合方式
+        //$local = Yii::$app->fileSystem->get('local');
+        //$local->write('test.txt', 'hello world');
+        //echo $local->read('test.txt');
+
+        /** @var \callmez\file\system\Filesystem $qiniu */
+        $qiniu = Yii::$app->fileSystem->get('qiniu');
+        //$qiniu->write('test.txt', 'hello world');
+        echo $qiniu->read('kk.jpg');
+
+
+        //return $this->render('test');
     }
 
     /**
@@ -250,6 +264,7 @@ class FrontendController extends \yii\web\Controller
             }
             //未曾进行过第三方登陆
             else {
+
                 //$this->finishRegister($openUser);
                 echo $this->render('finishRegister',['model' => $openUser]);
             }

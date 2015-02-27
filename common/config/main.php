@@ -5,14 +5,14 @@ return [
     'timeZone' => 'Asia/Chongqing', //时区
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'components' => [
-        //用户验证的类
+        //用户验证的组件
         'user' => [
             'class' => 'yii\web\User',
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
             'loginUrl' => [Yii::$app->homeUrl . '/signin'],
         ],
-        //缓存管理的类
+        //缓存管理的组件
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
@@ -21,6 +21,7 @@ return [
             'class' => 'common\rbac\AuthManager',
             'defaultRoles' => ['10'],
         ],
+        //国际化的组件
         'i18n' => [
             'translations' => [
                 '*' => [
@@ -33,6 +34,28 @@ return [
                     ],
                 ],
             ],
+        ],
+        //文件系统组件
+        'fileSystem' => [
+            'class' => 'callmez\file\system\Collection',
+            'fileSystems' => [
+                //根据需求可设置多个存储, 以下来使用例子
+                'local' => function() {
+                    return new \callmez\file\system\FileSystem(
+                        new \callmez\file\system\adapters\Local(\Yii::getAlias('@upload/images'))
+                    );
+                },
+                'qiniu' => function() {
+                    return new \callmez\file\system\FileSystem(
+                        new \callmez\file\system\adapters\Qiniu(
+                            'kangqingfei',
+                            'sumxVFQJtnjrUDjd9puCc3EEWDqTbTiwAp8Lcy8L',
+                            'TBmIgg2Nm8JXdX9D_Qx1AI7rlQUMw2PMHZ0be7An'
+                            //'七牛的空间域名,默认为 {bucket}.qiniu.com 选填'
+                        )
+                    );
+                }
+            ]
         ],
 
     ],
