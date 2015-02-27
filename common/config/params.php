@@ -6,5 +6,6 @@ return [
     'frontendDomain' => 'http://www.kangqingfei.cn',
     'backendDomain' => 'http://admin.kangqingfei.cn',
     'uploadPath' => Yii::$app->basePath . '/uploads/',
-    'uploadUrl' => Yii::$app->urlManager->baseUrl . '/uploads/',
+    'uploadUrl' => Yii::getAlias('@upload'),
+    'defaultAvatar' => 'http://kangqingfei.qiniudn.com/default.jpg',
 ];

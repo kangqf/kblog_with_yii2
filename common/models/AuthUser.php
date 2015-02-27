@@ -2,6 +2,7 @@
 
 namespace common\models;
 
+use yii\db\ActiveRecord;
 use Yii;
 
 /**
@@ -44,6 +45,25 @@ class AuthUser extends \yii\db\ActiveRecord
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
+    public function behaviors()
+    {
+        return [
+
+            //自动用当前时间戳填充制定字段
+            'timestamp' => [
+                //yii自己预定义的行为
+                'class' => 'yii\behaviors\TimestampBehavior',
+                'attributes' => [
+                    ActiveRecord::EVENT_BEFORE_INSERT => ['created_at', 'updated_at'],
+                    ActiveRecord::EVENT_BEFORE_UPDATE => ['updated_at'],
+                ],
+            ],
+
+        ];
+    }
     /**
      * @inheritdoc
      */

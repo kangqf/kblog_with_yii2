@@ -9,6 +9,8 @@ namespace common\models;
 
 use MongoId;
 use Yii;
+use common\models\AuthUser;
+use common\models\User;
 
 /**
  * 用于提取第三方登录用户信息
@@ -23,14 +25,15 @@ class OpenUser extends \yii\base\Model
     public $email;
     public $type;
     public $attributes;
-    public $password;
-    public $checkPassword;
 
     /**
      * @param \yii\authclient\BaseClient $client
      */
     function __construct($client)
     {
+        /**
+         * TODO correct if has two same email or name
+         */
         $this->attributes = $client->getUserAttributes();
         $this->type = $client->getId();
         switch ($this->type) {
@@ -57,7 +60,7 @@ class OpenUser extends \yii\base\Model
 
             case 'google':
                 $this->openId = $this->attributes['id'];
-                $this->avatar = str_replace("?sz=50", "", $this->attributes['image']['url']);
+                $this->avatar = str_replace("?sz=50", "", str_replace("https://", "http://", $this->attributes['image']['url']));
                 $this->username = $this->attributes['displayName'];
                 $this->email = $this->attributes['emails'][0]['value'];
                 break;
@@ -72,7 +75,6 @@ class OpenUser extends \yii\base\Model
         }
     }
 
-
     /**
      * @return MongoId
      * @throws \yii\mongodb\Exception
@@ -83,37 +85,17 @@ class OpenUser extends \yii\base\Model
         $collection = Yii::$app->mongodb->getCollection('auth_user_attributes');
         return $collection->insert($this->attributes);
     }
-//
-//    public function grabImage($url = "", $filename = "", $path = "")
-//    {
-//        if ($url == "")
-//            $url = $this->avatar;
-//        if ($url == "")
-//            return false;
-//
-//        $extName = strrchr($url, "."); //获取扩展名
-//        $ext_arr = array(".gif", ".png", ".jpg", ".bmp");
-//
-//        //判断扩展名是否为图片
-//        if (!in_array($extName, $ext_arr)) return false;
-//
-//        if ($filename == "") {
-//            //我就随便将图片文件名保存为时间戳了，你可自行修改
-//            $filename = date('YmdHis') . md5($this->email) . $extName;
-//        }
-//        if ($path == "") {
-//            $path = Yii::getAlias("@webroot/avatar/");
-//        }
-//        ob_start(); //打开浏览器的缓冲区
-//        readfile($url); //将图片读入缓冲区，耗时较久，后期可以考虑使用异步队列
-//        $img = ob_get_contents(); //获取缓冲区的内容复制给变量$img
-//        ob_end_clean(); //关闭并清空缓冲
-//        $fp = @fopen($path . $filename, "a"); //将文件绑定到流
-//        fwrite($fp, $img); //写入文件
-//        fclose($fp); //关闭文件指针
-//        return $filename;
-//    }
 
+    public function getAvatarType($filename = '')
+    {
+        $name = $filename ? $filename : $this->avatar;
+        $extName = strrchr($name, "."); //获取扩展名
+        $ext_arr = [".gif", ".png", ".jpg", ".bmp"];
+        if (in_array($extName, $ext_arr))//判断扩展名是否为图片
+            return $extName;
+        else
+            return false;
+    }
 
     /**
      * 该第三方用户是否是第一次进行登录
@@ -121,8 +103,111 @@ class OpenUser extends \yii\base\Model
      */
     public function isNewUser()
     {
+        /**
+         * TODO use open user type to find
+         */
         $authUser = AuthUser::findByOpenId($this->openId);
         return $authUser ? $authUser->uid : null;
     }
 
+    /**
+     * 抓取图片
+     * @return bool
+     */
+    public function fetchAvatar()
+    {
+        $type = $this->getAvatarType();
+        if($type) {
+            $ident = $this->email?md5($this->email):md5($this->openId);
+            $key = $ident . $type;//date('YmdHis') .
+        }
+        else {
+            $this->avatar = 'default';//获取图片类型失败 使用默认头像
+            return true;
+        }
+        $qiniu = Yii::$app->fileSystem->get('qiniu');
+        if($qiniu->urlCopy($this->avatar,$key)) {
+            $this->avatar = $key;
+            return true;
+        }
+        else {
+            if($this->email){
+                if($qiniu->urlCopy('http://www.gravatar.com/avatar/'. md5($this->email) . '?s=500&d=retro',md5($this->email).'.png')) {
+                    $this->avatar = $key;
+                    return true;
+                }
+                else {
+                    $this->avatar = 'default';//存储gavatar失败 使用默认头像
+                    return true;
+                }
+            }
+            else {
+                $this->avatar = 'default';//存使用默认头像
+                return true;
+            }
+        }
+    }
+
+    public function createUser(){
+        $user = new User(['scenario' => 'register']);
+        $user->username = $this->username;
+        $user->email = $this->email;
+        $user->avatar = $this->avatar;
+        $user->generateAuthKey();
+        $user->generateAccessToken();
+        if ($user->save()) {
+            return $user;
+        }
+        else {
+            return false;
+        }
+    }
+    public function createAuthUser($uid,$detailId){
+        $user = new AuthUser();
+        $user->uid = $uid;
+        $user->detail_info_id = $detailId;
+        $user->type = $this->type;
+        $user->auth_user_id = strval($this->openId);
+        //var_dump($user->save());die();
+        if ($user->save()) {
+            return $user;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public function registerUser(){
+        $this->fetchAvatar();
+        $detail_id = $this->storeAttributeToMongoDB(); //将详细信息存进MongoDB
+        $detail_id = $detail_id->{'$id'};
+        if($detail_id){
+            $user = $this->createUser();
+            if($user) {
+                $authUser  = $this->createAuthUser($user->getId(),$detail_id);
+                if($authUser){
+                    if (Yii::$app->getUser()->login($user, 3600 * 24)) {
+                        return true;
+                    }
+                    return true;
+                } else {
+                    /**
+                     * TODO delete User info
+                     */
+                    return false;
+                }
+
+
+            }
+            else {
+                /**
+                 * TODO delete mongo info
+                 */
+                return false;
+            }
+
+        } else {
+            return false;
+        }
+    }
 }

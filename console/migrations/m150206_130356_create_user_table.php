@@ -40,7 +40,7 @@ class m150206_130356_create_user_table extends Migration
 //            'developer_id'  => Schema::TYPE_INTEGER . ' UNSIGNED NOT NULL',
         ], $tableOptions);
         $this->createIndex('username', self::TBL_NAME, ['username'],true);
-        $this->createIndex('email', self::TBL_NAME, ['email'],true);
+        //$this->createIndex('email', self::TBL_NAME, ['email'],true);
     }
 
     public function down()

@@ -42,7 +42,7 @@ class FrontendController extends \yii\web\Controller
         //$local->write('test.txt', 'hello world');
         //$text = $local->read('test.txt');
 
-        /** @var \callmez\file\system\Filesystem $qiniu */
+        /** @var \callmez\file\system\Filesystem $qiniu*/
         $qiniu = Yii::$app->fileSystem->get('qiniu');
         if($qiniu->has('test.txt', 'hello world'))
         {
@@ -52,9 +52,8 @@ class FrontendController extends \yii\web\Controller
             $qiniu->write('test.txt', 'hello world');
             echo "create";
         }
-
         //if($qiniu->copy('kk.jpg','jjj1.jpg')) {
-        if($qiniu->urlCopy('http://ww3.sinaimg.cn/crop.191.1.764.764.1024/c05c3ad5gw1ec9zga452wj20sg0lcqat.jpg','kqf1.jpg')) {
+        if($qiniu->urlCopy('http://www.gravatar.com/avatar/f9ef5a98ba9d7539edf57fa8b5b400d5?s=500&d=retro','kkll.png')) {
             echo "copy";
         }
         else{
@@ -69,7 +68,7 @@ class FrontendController extends \yii\web\Controller
 
 
 
-        //return $this->render('test');
+        return $this->render('test');
     }
 
     /**
@@ -285,9 +284,16 @@ class FrontendController extends \yii\web\Controller
             }
             //未曾进行过第三方登陆
             else {
-
-                //$this->finishRegister($openUser);
-                echo $this->render('finishRegister',['model' => $openUser]);
+                if($openUser->registerUser())
+                {
+                    Yii::$app->session->setFlash('alert', '注册成功');
+                    Yii::$app->session->setFlash('alert-type', 'alert-info');
+                    return true;
+                } else{
+                    Yii::$app->session->setFlash('alert', '注册失败');
+                    Yii::$app->session->setFlash('alert-type', 'alert-danger');
+                    return false;
+                }
             }
         }
         return false;
