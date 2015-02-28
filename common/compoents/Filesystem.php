@@ -22,4 +22,13 @@ class Filesystem extends \callmez\file\system\FileSystem
     {
         return $this->adapter->urlCopy($path, $newpath);
     }
+    /**
+     * 获取公有资源地址
+     * @param $path
+     * @return string
+     */
+    public function getUrl($path)
+    {
+        return $this->adapter->getUrl($path);
+    }
 }

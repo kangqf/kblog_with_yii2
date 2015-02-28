@@ -11,6 +11,8 @@ use MongoId;
 use Yii;
 use common\models\AuthUser;
 use common\models\User;
+use yii\helpers\StringHelper;
+use yii\web\NotAcceptableHttpException;
 
 /**
  * 用于提取第三方登录用户信息
@@ -32,7 +34,7 @@ class OpenUser extends \yii\base\Model
     function __construct($client)
     {
         /**
-         * TODO correct if has two same email or name
+         * 初始化模型参数
          */
         $this->attributes = $client->getUserAttributes();
         $this->type = $client->getId();
@@ -71,7 +73,29 @@ class OpenUser extends \yii\base\Model
                 $this->username = '';
                 $this->email = '';
                 break;
+        }
+        /**
+         * 检查模型的邮箱和名字是否存在
+         */
+        $this->checkEmail();
+        $this->checkUserName();
+    }
 
+    /**
+     * 邮箱注册过则将邮箱置空
+     */
+    protected function checkEmail(){
+        if(User::findByEmail($this->email)){
+            $this->email = '';
+        }
+    }
+
+    /**
+     * 名称存在则将名称加上openid
+     */
+    protected function checkUserName(){
+        if(User::findByUsername($this->username)){
+            $this->username .= StringHelper::truncate($this->openId, 5);
         }
     }
 
@@ -84,6 +108,13 @@ class OpenUser extends \yii\base\Model
         /** @var \yii\mongodb\Collection $collection */
         $collection = Yii::$app->mongodb->getCollection('auth_user_attributes');
         return $collection->insert($this->attributes);
+    }
+
+    protected function removeAttributeToMongoDB($line)
+    {
+        /** @var \yii\mongodb\Collection $collection */
+        $collection = Yii::$app->mongodb->getCollection('auth_user_attributes');
+        return $collection->remove($line);
     }
 
     public function getAvatarType($filename = '')
@@ -106,7 +137,7 @@ class OpenUser extends \yii\base\Model
         /**
          * TODO use open user type to find
          */
-        $authUser = AuthUser::findByOpenId($this->openId);
+        $authUser = AuthUser::findByOpenId(['auth_user_id' => $this->openId,'type' => $this->type]);
         return $authUser ? $authUser->uid : null;
     }
 
@@ -116,6 +147,7 @@ class OpenUser extends \yii\base\Model
      */
     public function fetchAvatar()
     {
+        //判断图片类型，按理第三方登录的都能抓取到类型
         $type = $this->getAvatarType();
         if($type) {
             $ident = $this->email?md5($this->email):md5($this->openId);
@@ -125,29 +157,35 @@ class OpenUser extends \yii\base\Model
             $this->avatar = 'default';//获取图片类型失败 使用默认头像
             return true;
         }
+
         $qiniu = Yii::$app->fileSystem->get('qiniu');
-        if($qiniu->urlCopy($this->avatar,$key)) {
-            $this->avatar = $key;
+        if($qiniu->has($key) || $qiniu->urlCopy($this->avatar,$key)) {
+            $this->avatar = $qiniu->getUrl($key);
             return true;
         }
         else {
             if($this->email){
-                if($qiniu->urlCopy('http://www.gravatar.com/avatar/'. md5($this->email) . '?s=500&d=retro',md5($this->email).'.png')) {
-                    $this->avatar = $key;
+                //如果获取到地址则尝试抓取gavatar到七牛云
+                if($qiniu->urlCopy('http://www.gravatar.com/avatar/' . md5($this->email) . '?s=500&d=retro',md5($this->email))) {
+                    $this->avatar = $qiniu->getUrl($key);
                     return true;
                 }
                 else {
-                    $this->avatar = 'default';//存储gavatar失败 使用默认头像
+                    $this->avatar = 'http://www.gravatar.com/avatar/' . md5($this->email);//存储gavatar失败 使用gavatar地址
                     return true;
                 }
             }
             else {
-                $this->avatar = 'default';//存使用默认头像
+                $this->avatar =  $qiniu->getUrl('default.jpg');//存使用默认头像
                 return true;
             }
         }
     }
 
+    /**
+     * 建立用户记录
+     * @return bool|User
+     */
     public function createUser(){
         $user = new User(['scenario' => 'register']);
         $user->username = $this->username;
@@ -162,6 +200,13 @@ class OpenUser extends \yii\base\Model
             return false;
         }
     }
+
+    /**
+     * 建立第三方用户注册记录
+     * @param $uid
+     * @param $detailId
+     * @return bool|AuthUser
+     */
     public function createAuthUser($uid,$detailId){
         $user = new AuthUser();
         $user->uid = $uid;
@@ -177,33 +222,48 @@ class OpenUser extends \yii\base\Model
         }
     }
 
+    /**
+     * 注册用户，分别写入User表 和Detail_info表 和Auth_User
+     * @return bool
+     * @throws NotAcceptableHttpException
+     * @throws \Exception
+     */
     public function registerUser(){
         $this->fetchAvatar();
         $detail_id = $this->storeAttributeToMongoDB(); //将详细信息存进MongoDB
-        $detail_id = $detail_id->{'$id'};
         if($detail_id){
             $user = $this->createUser();
             if($user) {
-                $authUser  = $this->createAuthUser($user->getId(),$detail_id);
+                $authUser  = $this->createAuthUser($user->getId(),$detail_id->{'$id'});
                 if($authUser){
                     if (Yii::$app->getUser()->login($user, 3600 * 24)) {
                         return true;
                     }
                     return true;
                 } else {
-                    /**
-                     * TODO delete User info
-                     */
-                    return false;
+                    //创建失败删除新创建的用户
+                    if($user->delete()){
+                        if($this->removeAttributeToMongoDB(['_id' => $detail_id])){
+                            return false;
+                        } else{
+                            throw new NotAcceptableHttpException("failed to delete detail info");
+                        }
+                    }
+                    else{
+                        throw new NotAcceptableHttpException("failed to delete user");
+                    }
                 }
 
 
             }
             else {
-                /**
-                 * TODO delete mongo info
-                 */
-                return false;
+                //删除创建失败的用户的详细信息
+                if($this->removeAttributeToMongoDB(['_id' => $detail_id])){
+                    return false;
+                } else{
+                    throw new NotAcceptableHttpException("failed to delete detail info");
+                }
+
             }
 
         } else {

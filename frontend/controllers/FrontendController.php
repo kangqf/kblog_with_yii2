@@ -30,8 +30,11 @@ class FrontendController extends \yii\web\Controller
      * @return string 测试方法
      */
     public  function  actionTest(){
-        //$collection = Yii::$app->mongodb->getCollection('customer');
+     //   $collection = Yii::$app->mongodb->getCollection('auth_user_attributes');
         //var_dump($collection->insert(['name' => 'John Smith', 'status' => 1]));
+//        $collection->insert(['name' => '是倒萨大 Smith', 'status' => 1]);
+//        $kkk = $collection->insert(['name' => 'CCC Smith', 'status' => 1]);
+//        var_dump($collection->remove(["_id" => $kkk]));
         //Yii::$app->getSession()->setFlash('success', 'Check your email for further instructions.');
         //echo "<script> window.alert(\"注销成功，即将跳转到首页\");</script>";
 
@@ -43,22 +46,23 @@ class FrontendController extends \yii\web\Controller
         //$text = $local->read('test.txt');
 
         /** @var \callmez\file\system\Filesystem $qiniu*/
-        $qiniu = Yii::$app->fileSystem->get('qiniu');
-        if($qiniu->has('test.txt', 'hello world'))
-        {
-            echo "has";
-        }
-        else {
-            $qiniu->write('test.txt', 'hello world');
-            echo "create";
-        }
+//        $qiniu = Yii::$app->fileSystem->get('qiniu');
+//        if($qiniu->has('test.txt'))
+//        {
+//            echo "has".$qiniu->read('test.txt');
+//        }
+//        else {
+//            if($qiniu->write('test.txt', 'hello world'))
+//            echo "create";
+//        }
         //if($qiniu->copy('kk.jpg','jjj1.jpg')) {
-        if($qiniu->urlCopy('http://www.gravatar.com/avatar/f9ef5a98ba9d7539edf57fa8b5b400d5?s=500&d=retro','kkll.png')) {
-            echo "copy";
-        }
-        else{
-            echo "not copy";
-        }
+        //if($qiniu->urlCopy('http://www.gravatar.com/avatar/f9ef5a98ba9d7539edf57fa8b5b400d5?s=500&d=retro','kkll.png')) {
+//        if($qiniu->urlCopy('http://ww3.sinaimg.cn/crop.191.1.764.764.1024/c05c3ad5gw1ec9zga452wj20sg0lcqat.jpg','a7b50be662653148e1959424a8745f56.jpg')) {
+//            echo "copy";
+//        }
+//        else{
+//            echo "not copy";
+//        }
 //        if(Yii::$app->fileSystem->copy('local://test.txt', 'test/test2.txt')) {
 //            echo "copy";
 //        }
