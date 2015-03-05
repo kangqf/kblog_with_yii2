@@ -72,6 +72,8 @@ class FrontendController extends \yii\web\Controller
 
 
 
+
+
         return $this->render('test');
     }
 
@@ -117,7 +119,7 @@ class FrontendController extends \yii\web\Controller
     }
 
     /**
-     * @inheritdoc 相当于构造函数是
+     * @inheritdoc 相当于构造函数
     */
     public function actions()
     {
@@ -161,7 +163,7 @@ class FrontendController extends \yii\web\Controller
         $loginModel = new LoginForm();
         if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login()) {
             Yii::$app->session->setFlash('alert', '登录成功');
-            Yii::$app->session->setFlash('alert-type', 'alert-info');
+            Yii::$app->session->setFlash('alert-type', 'alert-success');
             return $this->goBack();
         }
         else {
@@ -177,7 +179,7 @@ class FrontendController extends \yii\web\Controller
     {
         if(Yii::$app->user->logout()) {
             Yii::$app->session->setFlash('alert', '用户注销成功');
-            Yii::$app->session->setFlash('alert-type', 'alert-info');
+            Yii::$app->session->setFlash('alert-type', 'alert-success');
         } else{
             Yii::$app->session->setFlash('alert', '用户注销失败');
             Yii::$app->session->setFlash('alert-type', 'alert-danger');
@@ -199,7 +201,7 @@ class FrontendController extends \yii\web\Controller
         if ($registerModel->load(Yii::$app->request->post())) {
             if ($user = $registerModel->register()) {
                 Yii::$app->session->setFlash('alert', '注册成功');
-                Yii::$app->session->setFlash('alert-type', 'alert-info');
+                Yii::$app->session->setFlash('alert-type', 'alert-success');
                 if (Yii::$app->getUser()->login($user, 3600 * 24)) {
                     return $this->goHome();
                 }
@@ -281,7 +283,7 @@ class FrontendController extends \yii\web\Controller
                 if ($user->save()) {
                     if (Yii::$app->getUser()->login($user, 3600 * 24 * 30)) {
                         Yii::$app->session->setFlash('alert', '登录成功');
-                        Yii::$app->session->setFlash('alert-type', 'alert-info');
+                        Yii::$app->session->setFlash('alert-type', 'alert-success');
                         return true;
                     }
                 }
@@ -291,7 +293,7 @@ class FrontendController extends \yii\web\Controller
                 if($openUser->registerUser())
                 {
                     Yii::$app->session->setFlash('alert', '注册成功');
-                    Yii::$app->session->setFlash('alert-type', 'alert-info');
+                    Yii::$app->session->setFlash('alert-type', 'alert-success');
                     return true;
                 } else{
                     Yii::$app->session->setFlash('alert', '注册失败');

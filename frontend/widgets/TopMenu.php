@@ -6,6 +6,7 @@
   */
 namespace frontend\widgets;
 use Yii;
+use yii\helpers\StringHelper;
 
 
 /**
@@ -43,19 +44,7 @@ class TopMenu extends \yii\base\Widget
     public function category()
     {
         $category = [
-            [
-                'label' => '登录',
-                'url' => $user = Yii::$app->getUser()->loginUrl,
-            ],
-            [
-                'label' => '注册',
-                'url' => Yii::$app->params['registerUrl'],
-//                'linkOptions' => [
-//                    'id' => 'register',
-//                    'data-toggle' => "modal",
-//                    'data-target' => '#registerModal'
-//                ]
-            ],
+
         ];
         return $category;
     }
@@ -66,9 +55,43 @@ class TopMenu extends \yii\base\Widget
      */
     private function userInfo()
     {
-        $userInfo = [
+        if(Yii::$app->getUser()->isGuest){
+            $userInfo = [
+                [
+                    'label' => '登录',
+                    'url' => $user = Yii::$app->getUser()->loginUrl,
+                ],
+                [
+                    'label' => '注册',
+                    'url' => Yii::$app->params['registerUrl'],
+//                'linkOptions' => [
+//                    'id' => 'register',
+//                    'data-toggle' => "modal",
+//                    'data-target' => '#registerModal'
+//                ]
+                ],
+            ];
+        }
+        else{
+            $userInfo = [
+                [
+                    'label' => StringHelper::truncate(Yii::$app->user->identity->username, 5),
+                    'active' => false,
+                    'url' =>['/'],
+                    'items' => [
+                        [
+                            'label' => '个人资料',
+                            'url' => '#',
+                        ],
+                        [
+                            'label' => '退出',
+                            'url' => ['/signout'],
+                        ],
+                    ],
+                ],
+            ];
+        }
 
-        ];
 
         return $userInfo;
     }
