@@ -9,6 +9,7 @@ namespace frontend\models;
 
 use common\models\User;
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * 用户注册模型
@@ -70,7 +71,7 @@ class RegisterForm extends \yii\base\model
      * @param string $avatar
      * @return User|null the saved model or null if saving fails
      */
-    public function register($avatar = '')
+    public function register()
     {
         if ($this->validate()) {
             $user = new User(['scenario' => 'register']);
@@ -80,10 +81,9 @@ class RegisterForm extends \yii\base\model
             $user->generateAuthKey();
             $user->generateAccessToken();
             $user->password = md5($this->password);
-            //首先判断用户是否选择了图片文件，再判断是否有第三方抓取的照片，都没有就使用gravatar
-            //$user->avatar = UploadedFile::getInstance($this, 'avatar') ? $this->saveAvatar(UploadedFile::getInstance($this, 'avatar')) : ($avatar ? $this->saveAvatar($avatar) : md5($this->email));
 
-           // $user->open_id = $this->openId ? $this->openId : '0';
+            $user->avatar = $this->saveAvatar(UploadedFile::getInstance($this, 'avatar'));
+
             if ($user->save()) {
                 return $user;
             }
@@ -100,44 +100,50 @@ class RegisterForm extends \yii\base\model
     public function saveAvatar($avatarUploadedFile)
     {
 
-        // dump($avatarUploadedFile);die();
-        //有上传文件
-        if ($avatarUploadedFile != null) {
-
-            $path = Yii::getAlias("@webroot/avatar/");
-
-            if (isset($avatarUploadedFile->tempName)) {
-                $filename = date('YmdHis') . '_' . md5($avatarUploadedFile->name)
-                    . '.' . $avatarUploadedFile->extension;
-                $type = $avatarUploadedFile->type;
-                $avatarUploadedFile->saveAs($path . $filename);
-            } else {
-                $type = strrchr($avatarUploadedFile, ".");
-                $filename = $avatarUploadedFile;
-            }
-
-            Image::thumbnail($path . $filename, 40, 40)->save($path . 'SMALL' . $filename);
-            Image::thumbnail($path . $filename, 150, 150)->save($path . 'MIDDLE' . $filename);
-
-            $arr = ['', 'MIDDLE', 'SMALL'];
-
-            foreach ($arr as $value) {
-                $avatarFile = new AvatarFile;
-                $avatarFile->contentType = $type;
-                $avatarFile->file = $path . $value . $filename;
-                $avatarFile->filename = $value . $filename;
-                if ($avatarFile->save() !== true)
-                    return false;
-                else {
-                    @unlink($path . $value . $filename);
+        //首先判断用户是否选择了图片文件，有就上传到七牛云
+        if($avatarUploadedFile){
+            $fileName = md5($this->email).$avatarUploadedFile->getExtension();
+            //存储到本地先
+            if($avatarUploadedFile->saveAs(Yii::getAlias('@upload/images/') . $fileName))
+            {
+                $fileContent = Yii::$app->fileSystem->read('local://' . $fileName);
+                $qiniu = Yii::$app->fileSystem->get('qiniu');
+                //上传到七牛
+                if($qiniu->write('qiniu://'.$fileName,$fileContent)) {
+                    $this->avatar = $qiniu->getUrl($fileName);
+                    return true;
+                }else{
+                    $this->avatar = 'http://www.gravatar.com/avatar/' . md5($this->email);
+                    return true;
                 }
             }
-            return $filename;
+            else{
+                $this->avatar = 'http://www.gravatar.com/avatar/' . md5($this->email);
+                return true;
+            }
         } //没有上传，尝试使用gravatar邮箱链接的头像
         else {
-            return md5($this->email);
+            //抓取gavatar到七牛云
+            $qiniu = Yii::$app->fileSystem->get('qiniu');
+            $fileName =  md5($this->email);
+            if($qiniu->urlCopy('http://www.gravatar.com/avatar/' . $fileName . '?s=500&d=retro',$fileName)) {
+                $this->avatar = $qiniu->getUrl($fileName);
+                return true;
+            }
+            else {
+                $this->avatar = 'http://www.gravatar.com/avatar/' . md5($this->email);//抓取失败gavatar失败 使用gavatar地址
+                return true;
+            }
         }
     }
+
+
+
+
+
+
+
+
 
     /**
      * fetch stored image file name with complete path
