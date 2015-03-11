@@ -26,7 +26,7 @@ return [
             'translations' => [
                 '*' => [
                     'class' => 'yii\i18n\PhpMessageSource',
-                    'basePath' => '@app/messages',
+                    'basePath' => '@common/messages',
                     'sourceLanguage' => 'en',
                     'fileMap' => [
 //                        'app' => 'app.php',

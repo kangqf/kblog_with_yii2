@@ -135,7 +135,7 @@ class OpenUser extends \yii\base\Model
     public function isNewUser()
     {
         /**
-         * TODO use open user type to find
+         * 使用用户第三方ID和第三方登录的类型来唯一确定一名用户
          */
         $authUser = AuthUser::findByOpenId(['auth_user_id' => $this->openId,'type' => $this->type]);
         return $authUser ? $authUser->uid : null;
@@ -191,6 +191,7 @@ class OpenUser extends \yii\base\Model
         $user->username = $this->username;
         $user->email = $this->email;
         $user->avatar = $this->avatar;
+        $user->status = 9;
         $user->generateAuthKey();
         $user->generateAccessToken();
         if ($user->save()) {

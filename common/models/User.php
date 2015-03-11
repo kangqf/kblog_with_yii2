@@ -23,8 +23,8 @@ use yii\db\ActiveRecord;
  * @property string $email
  * @property string $password
  * @property string $avatar
- * @property integer $created_time
- * @property integer $updated_time
+ * @property integer $created_at
+ * @property integer $updated_at
  * @property integer $login_count
  * @property integer $status
  * @property integer $role
@@ -40,7 +40,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
      * 用户状态
      */
     const STATUS_ACTIVE = 10;
-    const STATUS_INACTIVE = 9;
+    const STATUS_WAITFINISH = 9;
+    const STATUS_INACTIVE = 8;
     const STATUS_BANNED = 1;
     const STATUS_DELETED = 0;
 
@@ -129,7 +130,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['created_time', 'updated_time', 'login_count', 'status', 'role', 'developer_id'], 'integer'],
+            [['created_at', 'updated_at', 'login_count', 'status', 'role', 'developer_id'], 'integer'],
             [['auth_key'], 'required'],
             [['username'], 'string', 'max' => 30],
             [['email'], 'string', 'max' => 50],
@@ -146,21 +147,21 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function attributeLabels()
     {
         return [
-            'user_id' => Yii::t('common', 'User ID'),
-            'username' => Yii::t('common', 'Username'),
-            'email' => Yii::t('common', 'Email'),
-            'password' => Yii::t('common', 'Password'),
-            'avatar' => Yii::t('common', 'Avatar'),
-            'created_time' => Yii::t('common', 'Created Time'),
-            'updated_time' => Yii::t('common', 'Updated Time'),
-            'login_count' => Yii::t('common', 'Login Count'),
-            'status' => Yii::t('common', 'Status'),
-            'role' => Yii::t('common', 'Role'),
-            'oauth_id' => Yii::t('common', 'Oauth ID'),
-            'auth_key' => Yii::t('common', 'Auth Key'),
-            'password_hash' => Yii::t('common', 'Password Hash'),
-            'password_reset_token' => Yii::t('common', 'Password Reset Token'),
-            'developer_id' => Yii::t('common', 'Developer ID'),
+            'user_id' => Yii::t('user', 'User ID'),
+            'username' => Yii::t('user', 'Username'),
+            'email' => Yii::t('user', 'Email'),
+            'password' => Yii::t('user', 'Password'),
+            'avatar' => Yii::t('user', 'Avatar'),
+            'created_at' => Yii::t('user', 'Created At'),
+            'updated_at' => Yii::t('user', 'Updated At'),
+            'login_count' => Yii::t('user', 'Login Count'),
+            'status' => Yii::t('user', 'Status'),
+            'role' => Yii::t('user', 'Role'),
+            'oauth_id' => Yii::t('user', 'Oauth ID'),
+            'auth_key' => Yii::t('user', 'Auth Key'),
+            'password_hash' => Yii::t('user', 'Password Hash'),
+            'password_reset_token' => Yii::t('user', 'Password Reset Token'),
+            'developer_id' => Yii::t('user', 'Developer ID'),
         ];
     }
 
@@ -218,6 +219,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             self::STATUS_ACTIVE => '激活',
+            self::STATUS_WAITFINISH => '待完成注册',
             self::STATUS_INACTIVE => '未激活',
             self::STATUS_BANNED => '冻结',
             self::STATUS_DELETED => '删除',
@@ -348,6 +350,13 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     }
 
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getauth_user()
+    {
+        return $this->hasOne(AuthUser::className(), ['uid' => 'user_id']);
+    }
 
 
 

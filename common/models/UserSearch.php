@@ -29,7 +29,9 @@ class UserSearch extends User
     public function scenarios()
     {
         // bypass scenarios() implementation in the parent class
-        return Model::scenarios();
+//        return Model::scenarios();
+        return parent::scenarios();
+
     }
 
     /**
@@ -47,11 +49,13 @@ class UserSearch extends User
             'query' => $query,
         ]);
 
+        $query->joinWith('auth_user');
+
         $this->load($params);
 
         if (!$this->validate()) {
             // uncomment the following line if you do not want to any records when validation fails
-            // $query->where('0=1');
+            $query->where('0=1');
             return $dataProvider;
         }
 
