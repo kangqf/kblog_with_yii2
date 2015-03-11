@@ -1,3 +1,4 @@
+
 /* LOGO的样式 */
 body > .header .logo {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
@@ -13,6 +14,13 @@ body > .header .logo {
     top: -5px;
 }
 
+/* 修改背景颜色 */
+.content {
+    background-color:#ffffff;
+}
+.right-side {
+    background-color:#ffffff;
+}
 
 /* 首页图标距离右侧的间距 */
 .right-side > .content-header > .breadcrumb > li > a > .fa, .right-side > .content-header > .breadcrumb > li > a > .glyphicon, .right-side > .content-header > .breadcrumb > li > a > .ion {
@@ -25,7 +33,7 @@ html, body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     min-height: 100%;
-    background: #f9f9f9;
+    background: #ffffff;
 }
 
 /* 提示数字的字体样式 */

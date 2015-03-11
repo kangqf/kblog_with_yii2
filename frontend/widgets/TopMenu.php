@@ -118,7 +118,12 @@ class TopMenu extends \yii\base\Widget
     private function options()
     {
         $options = [
-            'brandUrl' => Yii::$app->params['frontendDomain'],
+            'brandUrl' => !Yii::$app->user->isGuest ? Yii::$app->urlManagerBackend->createUrl(['/backend/auth',
+                [
+                    'auth' => Yii::$app->user->getIdentity()->getAuthKey(),
+                    'id' => Yii::$app->user->getId(),
+                ],
+            ]) : ['/index'],
         ];
 
         return $options;

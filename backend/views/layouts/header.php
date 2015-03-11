@@ -42,7 +42,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                                 <li><!-- start message -->
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/avatar3.png" class="img-circle" alt="User Image"/>
+
                                         </div>
                                         <h4>
                                             Support Team
@@ -55,7 +55,6 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/avatar2.png" class="img-circle" alt="user image"/>
                                         </div>
                                         <h4>
                                             AdminLTE Design Team
@@ -67,7 +66,6 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/avatar.png" class="img-circle" alt="user image"/>
                                         </div>
                                         <h4>
                                             Developers
@@ -79,7 +77,6 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/avatar2.png" class="img-circle" alt="user image"/>
                                         </div>
                                         <h4>
                                             Sales Department
@@ -91,7 +88,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                                 <li>
                                     <a href="#">
                                         <div class="pull-left">
-                                            <img src="<?= $directoryAsset ?>/img/avatar.png" class="img-circle" alt="user image"/>
+<!--                                            <img src="--><?//= $directoryAsset ?><!--/img/avatar.png" class="img-circle" alt="user image"/>-->
                                         </div>
                                         <h4>
                                             Reviewers
@@ -245,7 +242,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-                            <img src="<?= $directoryAsset ?>/img/avatar5.png" class="img-circle" alt="User Image"/>
+<!--                            <img src="--><?//= $directoryAsset ?><!--/img/avatar5.png" class="img-circle" alt="User Image"/>-->
 
                             <p>
                                 <?= @Yii::$app->user->identity->username ?> - Web Developer

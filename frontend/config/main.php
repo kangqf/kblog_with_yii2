@@ -42,13 +42,14 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'visit'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'kblog'],
-                '<action:(request-password-reset|reset-password|auth|test|finish-register)>' => 'frontend/<action>',
+                '<action:(index|request-password-reset|reset-password|auth|test|finish-register)>' => 'frontend/<action>',
                 '<view:(about)>' => 'frontend/static',//把view省去了即frontend/static?view=about，
                 'signin' => '/frontend/login',
                 'signup' => '/frontend/register',
                 'signout' => '/frontend/logout',
+//                ['class' => 'yii\rest\UrlRule', 'controller' => 'visit'],
+//                ['class' => 'yii\rest\UrlRule', 'controller' => 'kblog'],
+
 //                'list/tag/<tag:>' => 'article/index', 同理等价于 article/index?tag=xxx相当于把<tag>(<tag:>)作为参数冒号无关紧要
 //                'page/<view:>' => 'frontend/static',
 //                '<_a:(update|captcha|confirm-email|dummy)>' => 'person/<_a>',
@@ -56,6 +57,16 @@ return [
 //                'article/<slug:>' => 'article/view',
 //                'sitemap.xml' => 'site/sitemap',
             ],
+        ],
+        //后台路由管理
+        'urlManagerBackend' => [
+            'class' => 'yii\web\UrlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            // 'suffix' => '.html',
+            'baseUrl' => $params['backendDomain'],
+            'hostInfo' => $params['backendDomain'],
+            'rules' => [],
         ],
     ],
     'params' => $params,        //生成变量组件

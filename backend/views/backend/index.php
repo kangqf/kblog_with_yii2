@@ -10,13 +10,15 @@ use yii\helpers\Html;
 /* @var $this yii\web\View
  * @var $sysInfo backend\models\SystemInfo
  */
+
+$this->title = '服务器系统信息';
 ?>
 <div id="systemInfo">
 
     <?php
     $extensions = $sysInfo->getExtensions();
     ?>
-    <h1>服务器系统信息</h1>
+
 
     <?php
     echo $this->render('public/_table', [

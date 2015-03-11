@@ -31,6 +31,7 @@ class LeftSideMenu extends \yii\base\Component
 //                        'number' => 3,
 //                    ],
                 ],
+
                 [
                     'label' => 'User',
                     'url' => '/user',
@@ -38,12 +39,22 @@ class LeftSideMenu extends \yii\base\Component
                         'icon' => 'user',
                     ],
                     'items' => [
-
-                        ['label' => 'create','url' => '/user/add'],
-                        ['label' => 'update','url' => '/user/update'],
-                        ['label' => 'set','url' => '/user/set'],
+                        ['label' => 'All','url' => '/user/'],
                     ],
                 ],
+
+                [
+                    'label' => 'RBAC',
+                    'url' => '/rbac',
+                    'fa' => [
+                        'icon' => 'user-md',
+                    ],
+                    'items' => [
+                        ['label' => 'Assignment','url' => '/rbac/assignment/'],
+                    ],
+
+                ],
+
                 [
                     'label' => 'Category',
                     'url' => '/category',
@@ -56,6 +67,7 @@ class LeftSideMenu extends \yii\base\Component
                         ['label' => 'set','url' => '/category/set'],
                     ],
                 ],
+
                 [
                     'label' => 'Charts',
                     'fa' => [

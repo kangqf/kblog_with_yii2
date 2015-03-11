@@ -40,10 +40,18 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'visit'],
-                ['class' => 'yii\rest\UrlRule', 'controller' => 'kblog'],
 
             ],
+        ],
+        //前台路由管理
+        'urlManagerFrontend' => [
+            'class' => 'yii\web\urlManager',
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+            // 'suffix' => '.html',
+            'baseUrl' => $params['frontendDomain'],
+            'hostInfo' => $params['frontendDomain'],
+            'rules' => [],
         ],
     ],
     'params' => $params,
