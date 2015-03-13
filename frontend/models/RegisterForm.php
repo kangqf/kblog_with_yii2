@@ -9,6 +9,7 @@ namespace frontend\models;
 
 use common\models\User;
 use Yii;
+use yii\base\InvalidCallException;
 use yii\web\UploadedFile;
 
 /**
@@ -24,6 +25,24 @@ class RegisterForm extends \yii\base\model
     public $checkPassword;
     public $avatar;
 
+
+
+    /**
+     * @inheritdoc
+     * 场景，针对不用场景，指定不同的激活属性
+     */
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenariosNew =
+            [
+                'register' => ['username', 'email', 'password', 'avatar',],
+                'finishRegister' => ['username', 'password', 'email', ],
+
+        ];
+        return array_merge($scenarios,$scenariosNew);
+    }
+
     /**
      * @inheritdoc
      */
@@ -32,13 +51,13 @@ class RegisterForm extends \yii\base\model
         return [
             ['username', 'filter', 'filter' => 'trim'],
             ['username', 'required'],
-            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => '这个用户名已经被注册.'],
+            ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => '这个用户名已经被注册.','on' => 'register'],
             ['username', 'string', 'min' => 2, 'max' => 30],
 
             ['email', 'filter', 'filter' => 'trim'],
             ['email', 'required'],
             ['email', 'email'],
-            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => '您的邮箱已经注册过了.'],
+            ['email', 'unique', 'targetClass' => '\common\models\User', 'message' => '您的邮箱已经注册过了.','on' => 'register'],
 
             [['password', 'checkPassword'], 'required'],
             ['password', 'string', 'min' => 6],
@@ -67,9 +86,8 @@ class RegisterForm extends \yii\base\model
 
     /**
      * Signs user up.
-     *
-     * @param string $avatar
      * @return User|null the saved model or null if saving fails
+     * @internal param string $avatar
      */
     public function register()
     {
@@ -96,12 +114,48 @@ class RegisterForm extends \yii\base\model
         return null;
     }
 
+    public function finishRegister($uid)
+    {
+        if ($this->validate()) {
+            $user = User::findByUserId($uid,User::STATUS_WAITFINISH);
+            if($user) {
+                $user->username = $this->username;
+                $user->email = $this->email;
+                $user->setHashPassword($this->password);
+                $user->password = md5($this->password);
+                $user->status = User::STATUS_ACTIVE;
+                $av = UploadedFile::getInstance($this, 'avatar');
+                if($av){
+                    $user->avatar = $this->saveAvatar($av);
+                    if(!$user->avatar){
+                        return false;
+                    }
+                }
+
+                if ($user->save()) {
+                    return $user;
+                }
+                else {
+                    Yii::$app->session->setFlash('alert', '注册失败');
+                    Yii::$app->session->setFlash('alert-type', 'alert-danger');
+                    return false;
+                }
+            } else {
+                throw new InvalidCallException('finish register failed');
+            }
+
+
+
+        }
+        return null;
+    }
+
     //保存图片
     public function saveAvatar($avatarUploadedFile)
     {
 
         //首先判断用户是否选择了图片文件，有就上传到七牛云
-        if($avatarUploadedFile){
+        if($avatarUploadedFile) {
             $fileName = md5($this->email).$avatarUploadedFile->getExtension();
             //存储到本地先
             if($avatarUploadedFile->saveAs(Yii::getAlias('@upload/images/') . $fileName))

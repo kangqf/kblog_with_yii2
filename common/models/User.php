@@ -42,8 +42,10 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     const STATUS_ACTIVE = 10;
     const STATUS_WAITFINISH = 9;
     const STATUS_INACTIVE = 8;
-    const STATUS_BANNED = 1;
-    const STATUS_DELETED = 0;
+
+    const STATUS_BANNED = 2;
+    const STATUS_DELETED = 1;
+    const STATUS_ALL = 0;
 
     /**
      * 用户级别
@@ -130,13 +132,12 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['created_at', 'updated_at', 'login_count', 'status', 'role', 'developer_id'], 'integer'],
+            [['created_at', 'updated_at', 'login_count', 'status', 'role',], 'integer'],
             [['auth_key'], 'required'],
             [['username'], 'string', 'max' => 30],
             [['email'], 'string', 'max' => 50],
             [['password'], 'string', 'max' => 64],
             [['avatar', 'password_hash', 'password_reset_token'], 'string', 'max' => 255],
-            [['oauth_id'], 'string', 'max' => 100],
             [['auth_key'], 'string', 'max' => 32]
         ];
     }
@@ -157,11 +158,9 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'login_count' => Yii::t('user', 'Login Count'),
             'status' => Yii::t('user', 'Status'),
             'role' => Yii::t('user', 'Role'),
-            'oauth_id' => Yii::t('user', 'Oauth ID'),
             'auth_key' => Yii::t('user', 'Auth Key'),
             'password_hash' => Yii::t('user', 'Password Hash'),
             'password_reset_token' => Yii::t('user', 'Password Reset Token'),
-            'developer_id' => Yii::t('user', 'Developer ID'),
         ];
     }
 
@@ -242,9 +241,14 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
      * @param  string $email
      * @return static|null
      */
-    public static function findByEmail($email)
+    public static function findByEmail($email,$status = self::STATUS_ACTIVE)
     {
-        return self::findOne(['email' => $email, 'status' => self::STATUS_ACTIVE]);
+        if($status){
+            return self::findOne(['email' => $email, 'status' => $status]);
+        } else {
+            return self::findOne(['email' => $email]); // $status = self::STATUS_ALL时的查询
+        }
+
     }
 
     /**
@@ -253,9 +257,13 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
      * @internal param string $uid
      * @return static|null
      */
-    public static function findByUserId($uid)
+    public static function findByUserId($uid,$status = self::STATUS_ACTIVE)
     {
-        return self::findOne(['user_id' => $uid, 'status' => self::STATUS_ACTIVE]);
+        if($status) {
+            return self::findOne(['user_id' => $uid, 'status' => $status]);
+        } else {
+            return self::findOne(['user_id' => $uid]);
+        }
     }
 
     /**

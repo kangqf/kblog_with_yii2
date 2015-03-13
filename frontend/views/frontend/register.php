@@ -13,7 +13,7 @@ use yii\helpers\Html;
  * @var yii\widgets\ActiveForm $form
  * @var frontend\models\RegisterForm $model
  */
-$this->title = '注册';
+$this->title = isset($title) ? $title : '注册';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="register">

@@ -230,19 +230,19 @@ class OpenUser extends \yii\base\Model
      * @throws \Exception
      */
     public function registerUser(){
-        $this->fetchAvatar();
+        $this->fetchAvatar();//先抓取头像
         $detail_id = $this->storeAttributeToMongoDB(); //将详细信息存进MongoDB
-        if($detail_id){
+        if($detail_id) {
             $user = $this->createUser();
             if($user) {
                 $authUser  = $this->createAuthUser($user->getId(),$detail_id->{'$id'});
                 if($authUser){
-                    if (Yii::$app->getUser()->login($user, 3600 * 24)) {
-                        return true;
-                    }
-                    return true;
+//                    if (Yii::$app->getUser()->login($user, 3600 * 24)) {
+//                        return true;
+//                    }
+                    return $user->user_id;
                 } else {
-                    //创建失败删除新创建的用户
+                    //创建失败则删除新创建的用户
                     if($user->delete()){
                         if($this->removeAttributeToMongoDB(['_id' => $detail_id])){
                             return false;
@@ -254,8 +254,6 @@ class OpenUser extends \yii\base\Model
                         throw new NotAcceptableHttpException("failed to delete user");
                     }
                 }
-
-
             }
             else {
                 //删除创建失败的用户的详细信息

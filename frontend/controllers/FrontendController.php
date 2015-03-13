@@ -12,6 +12,7 @@ use Yii;
 use frontend\models\RegisterForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\PasswordResetRequestForm;
+use yii\base\InvalidCallException;
 use yii\base\InvalidParamException;
 use yii\web\BadRequestHttpException;
 use yii\filters\VerbFilter;
@@ -162,8 +163,19 @@ class FrontendController extends \yii\web\Controller
     {
         $loginModel = new LoginForm();
         if ($loginModel->load(Yii::$app->request->post()) && $loginModel->login()) {
-            Yii::$app->session->setFlash('alert', '登录成功');
-            Yii::$app->session->setFlash('alert-type', 'alert-success');
+            //需要处理的错误类型
+            switch($loginModel->errorType){
+                case LoginForm::ERROR_NON :
+                    Yii::$app->session->setFlash('alert', '登录成功');
+                    Yii::$app->session->setFlash('alert-type', 'alert-success');
+                    break;
+                case LoginForm::ERROR_WAITFINISH :
+                    return $this->redirect(['finish-register','uid' => User::findByEmail($loginModel->email,User::STATUS_ALL)->user_id]);
+                    break;
+                default :
+                    throw new InvalidCallException('login action error');
+                    break;
+            }
             return $this->goBack();
         }
         else {
@@ -193,7 +205,7 @@ class FrontendController extends \yii\web\Controller
      */
     public function actionRegister()
     {
-        $registerModel = new RegisterForm();
+        $registerModel = new RegisterForm(['scenario' =>'register']);
         if (Yii::$app->request->isAjax && $registerModel->load($_POST)) {
             Yii::$app->response->format = 'json';
             return \yii\widgets\ActiveForm::validate($registerModel);
@@ -209,6 +221,38 @@ class FrontendController extends \yii\web\Controller
         }
         return $this->render('register', ['model' => $registerModel,]);
     }
+
+    public function actionFinishRegister($uid)
+    {
+        $registerModel = new RegisterForm(['scenario' =>'finishRegister']);
+        if (Yii::$app->request->isAjax && $registerModel->load($_POST)) {
+            Yii::$app->response->format = 'json';
+            return \yii\widgets\ActiveForm::validate($registerModel);
+        }
+        if ($registerModel->load(Yii::$app->request->post())) {
+            $user = $registerModel->finishRegister($uid);
+            if ($user) {
+                Yii::$app->session->setFlash('alert', '完成注册成功');
+                Yii::$app->session->setFlash('alert-type', 'alert-success');
+                if (Yii::$app->getUser()->login($user, 3600 * 24)) {
+                    return $this->goHome();
+                }
+            } else {
+                Yii::$app->session->setFlash('alert', '完成注册失败');
+                Yii::$app->session->setFlash('alert-type', 'alert-danger');
+                return $this->goHome();
+            }
+        } else {
+            $newUser = User::findByUserId($uid,User::STATUS_WAITFINISH);
+            if($newUser){
+                $registerModel->email = $newUser->email;
+                $registerModel->username = $newUser->username;
+                $registerModel->avatar = $newUser->avatar;
+            } else throw new InvalidCallException('user need not to be finished');
+        }
+        return $this->render('register', ['model' => $registerModel,'title' => '完成注册']);
+    }
+
 
     public function actionRequestPasswordReset()
     {
@@ -253,15 +297,6 @@ class FrontendController extends \yii\web\Controller
         ]);
     }
 
-    public function finishRegister($model)
-    {
-        echo $this->render('finishRegister',['model' => $model]);
-//        echo "finish";
-//        var_dump($model);
-//        die();
-    }
-
-
     /**
      * 第三方登陆回调函数
      * @param null $client
@@ -290,11 +325,12 @@ class FrontendController extends \yii\web\Controller
             }
             //未曾进行过第三方登陆
             else {
-                if($openUser->registerUser())
-                {
-                    Yii::$app->session->setFlash('alert', '注册成功');
-                    Yii::$app->session->setFlash('alert-type', 'alert-success');
-                    return true;
+                $uid = $openUser->registerUser();
+                if($uid) {
+                    return $this->$this->redirect(['finish-register','uid' => $uid]);
+//                    Yii::$app->session->setFlash('alert', '注册成功');
+//                    Yii::$app->session->setFlash('alert-type', 'alert-success');
+//                    return true;
                 } else{
                     Yii::$app->session->setFlash('alert', '注册失败');
                     Yii::$app->session->setFlash('alert-type', 'alert-danger');
@@ -303,114 +339,6 @@ class FrontendController extends \yii\web\Controller
             }
         }
         return false;
-    }
-
-
-
-
-
-    /**
-     * Creates a new Person model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Person;
-
-        if ($model->load(Yii::$app->request->post())) {
-            // process uploaded image file instance
-            $image = $model->uploadImage();
-
-            if ($model->save()) {
-                // upload only if valid uploaded file instance found
-                if ($image !== false) {
-                    $path = $model->getImageFile();
-                    $image->saveAs($path);
-                }
-                return $this->redirect(['view', 'id'=>$model->id]);
-            } else {
-                // error in saving model
-            }
-        }
-        return $this->render('create', [
-            'model'=>$model,
-        ]);
-    }
-
-    /**
-     * Updates an existing Person model.
-     * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionUpdate($id)
-    {
-        $model = $this->findModel($id);
-        $oldFile = $model->getImageFile();
-        $oldAvatar = $model->avatar;
-        $oldFileName = $model->filename;
-
-        if ($model->load(Yii::$app->request->post())) {
-            // process uploaded image file instance
-            $image = $model->uploadImage();
-
-            // revert back if no valid file instance uploaded
-            if ($image === false) {
-                $model->avatar = $oldAvatar;
-                $model->filename = $oldFileName;
-            }
-
-            if ($model->save()) {
-                // upload only if valid uploaded file instance found
-                if ($image !== false && unlink($oldFile)) { // delete old and overwrite
-                    $path = $model->getImageFile();
-                    $image->saveAs($path);
-                }
-                return $this->redirect(['view', 'id'=>$model->_id]);
-            } else {
-                // error in saving model
-            }
-        }
-        return $this->render('update', [
-            'model'=>$model,
-        ]);
-    }
-
-    /**
-     * Deletes an existing Person model.
-     * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
-     * @return mixed
-     */
-    public function actionDelete($id)
-    {
-        $model = $this->findModel($id);
-
-        // validate deletion and on failure process any exception
-        // e.g. display an error message
-        if ($model->delete()) {
-            if (!$model->deleteImage()) {
-                Yii::$app->session->setFlash('error', 'Error deleting image');
-            }
-        }
-        return $this->redirect(['index']);
-    }
-
-    /**
-     * Finds the Person model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
-     * @return Person the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = Person::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
     }
 
 }
