@@ -2,4 +2,4 @@
 $I = new AcceptanceTester($scenario);
 $I->wantTo('perform actions and see result');
 $I->amOnPage('/');
-$I->see('5.6.1');
+$I->see('kblog');

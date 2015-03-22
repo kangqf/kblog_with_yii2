@@ -156,7 +156,7 @@ class RegisterForm extends \yii\base\model
 
         //首先判断用户是否选择了图片文件，有就上传到七牛云
         if($avatarUploadedFile) {
-            $fileName = md5($this->email).$avatarUploadedFile->getExtension();
+            $fileName = md5($this->email).'.'.$avatarUploadedFile->getExtension();
             //存储到本地先
             if($avatarUploadedFile->saveAs(Yii::getAlias('@upload/images/') . $fileName))
             {
