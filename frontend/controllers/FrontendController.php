@@ -78,6 +78,7 @@ class FrontendController extends \yii\web\Controller
         return $this->render('test');
     }
 
+
     /**
      * @inheritdoc
      * @return array
