@@ -99,8 +99,13 @@ class RegisterForm extends \yii\base\model
             $user->generateAuthKey();
             $user->generateAccessToken();
             $user->password = md5($this->password);
-
-            $user->avatar = $this->saveAvatar(UploadedFile::getInstance($this, 'avatar'));
+            if($this->saveAvatar(UploadedFile::getInstance($this, 'avatar')))
+                $user->avatar = $this->avatar;
+            else {
+                Yii::$app->session->setFlash('alert', '注册失败');
+                Yii::$app->session->setFlash('alert-type', 'alert-danger');
+                return false;
+            }
 
             if ($user->save()) {
                 return $user;
@@ -126,8 +131,9 @@ class RegisterForm extends \yii\base\model
                 $user->status = User::STATUS_ACTIVE;
                 $av = UploadedFile::getInstance($this, 'avatar');
                 if($av){
-                    $user->avatar = $this->saveAvatar($av);
-                    if(!$user->avatar){
+                    if($this->saveAvatar(UploadedFile::getInstance($this, 'avatar')))
+                        $user->avatar = $this->avatar;
+                    else {
                         return false;
                     }
                 }
@@ -143,14 +149,16 @@ class RegisterForm extends \yii\base\model
             } else {
                 throw new InvalidCallException('finish register failed');
             }
-
-
-
         }
         return null;
     }
 
-    //保存图片
+
+    /**
+     * 保存图片
+     * @param $avatarUploadedFile
+     * @return bool
+     */
     public function saveAvatar($avatarUploadedFile)
     {
 
@@ -171,11 +179,13 @@ class RegisterForm extends \yii\base\model
                     return true;
                 }
             }
+            //存储到本地失败
             else{
                 $this->avatar = 'http://www.gravatar.com/avatar/' . md5($this->email);
                 return true;
             }
-        } //没有上传，尝试使用gravatar邮箱链接的头像
+        }
+        //没有上传，尝试使用gravatar邮箱链接的头像
         else {
             //抓取gavatar到七牛云
             $qiniu = Yii::$app->fileSystem->get('qiniu');
@@ -185,7 +195,8 @@ class RegisterForm extends \yii\base\model
                 return true;
             }
             else {
-                $this->avatar = 'http://www.gravatar.com/avatar/' . md5($this->email);//抓取失败gavatar失败 使用gavatar地址
+                //抓取失败gavatar失败 使用gavatar地址
+                $this->avatar = 'http://www.gravatar.com/avatar/' . md5($this->email);
                 return true;
             }
         }

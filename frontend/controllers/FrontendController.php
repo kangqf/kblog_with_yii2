@@ -212,7 +212,8 @@ class FrontendController extends \yii\web\Controller
             return \yii\widgets\ActiveForm::validate($registerModel);
         }
         if ($registerModel->load(Yii::$app->request->post())) {
-            if ($user = $registerModel->register()) {
+            $user = $registerModel->register();
+            if ($user) {
                 Yii::$app->session->setFlash('alert', '注册成功');
                 Yii::$app->session->setFlash('alert-type', 'alert-success');
                 if (Yii::$app->getUser()->login($user, 3600 * 24)) {
@@ -249,7 +250,8 @@ class FrontendController extends \yii\web\Controller
                 $registerModel->email = $newUser->email;
                 $registerModel->username = $newUser->username;
                 $registerModel->avatar = $newUser->avatar;
-            } else throw new InvalidCallException('user need not to be finished');
+            } else
+                throw new InvalidCallException('user need not to be finished');
         }
         return $this->render('register', ['model' => $registerModel,'title' => '完成注册']);
     }

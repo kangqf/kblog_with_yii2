@@ -27,6 +27,7 @@ class m150206_131408_init_rbac extends m140506_102106_rbac_init
     public function up()
     {
         parent::up();
+        $this->rbacInit();
     }
 
     /**
