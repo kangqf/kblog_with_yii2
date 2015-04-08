@@ -4,22 +4,20 @@
   * @copyright Copyright (c) 2015 kangqingfei
   * @license MIT
   */
+
 namespace console\controllers;
 
 use yii\console\Controller;
 
 /**
- * This command echoes the first argument that you have entered.
- *
- * This command is provided as an example for you to learn how to create console commands.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
+ * 没啥用的就是问个好
+ * @author kangqingfei <kangqingfei@gmail.com>
+ * @since 1.0
  */
 class HelloController extends Controller
 {
     /**
-     * This command echoes what you have entered as the message.
+     * 默认方法
      * @param string $message the message to be echoed.
      */
     public function actionIndex($message = 'hello world')
