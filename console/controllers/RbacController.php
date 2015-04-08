@@ -53,25 +53,63 @@ class RbacController extends Controller
         $visitAdmin->description = '访问后台管理界面';
         $auth->add($visitAdmin);
 
+
         // 身份
-        $guest = $auth->createRole('10'); // 匿名用户
-        $guest->description = 'guest 匿名用户';
+        $guest = $auth->createRole('10'); // guest-访客-10
+        $guest->description = 'guest-访客-10';
         $auth->add($guest);
 
-        $user = $auth->createRole('9'); //普通用户
-        $user->description = '普通用户';
-        $auth->add($user, $guest); //普通用户 > 匿名用户
+        $user = $auth->createRole('9'); //user-用户-9
+        $user->description = 'user-用户-9';
+        $auth->add($user);
+        $auth->addChild($user, $guest); // 用户 > 访客
 
-        $admin = $auth->createRole('1'); // 管理员
-        $admin->description = '管理员';
+        $orgleader = $auth->createRole('8'); //orgleader-经理（合伙人）-8
+        $orgleader->description = 'orgleader-经理（合伙人）-8';
+        $auth->add($orgleader);
+        $auth->addChild($orgleader, $user); // 经理（合伙人） > 用户
+
+        $fin = $auth->createRole('7'); //fin-财务-7
+        $fin->description = 'fin-财务-7';
+        $auth->add($fin);
+        $auth->addChild($fin, $orgleader); // 财务 > 经理（合伙人）
+
+        $analytic = $auth->createRole('6'); //analytic-数据分析师-6
+        $analytic->description = 'analytic-数据分析师-6';
+        $auth->add($analytic);
+        $auth->addChild($analytic, $fin); // 数据分析师 > 财务
+
+        $operator = $auth->createRole('5'); //operator-运营商-5
+        $operator->description = 'operator-运营商-5';
+        $auth->add($operator);
+        $auth->addChild($operator, $analytic); // 运营商 > 数据分析师
+
+        $manager = $auth->createRole('4'); //manager-经理-4
+        $manager->description = 'manager-经理-4';
+        $auth->add($manager);
+        $auth->addChild($manager, $operator); // 经理 > 运营商
+
+        $managleader = $auth->createRole('3'); //managleader-领导-3
+        $managleader->description = 'managleader-领导-3';
+        $auth->add($managleader);
+        $auth->addChild($managleader, $manager); // 领导 > 经理
+
+        $supermanager = $auth->createRole('2'); //supermanager-高级领导-2
+        $supermanager->description = 'supermanager-高级领导-2';
+        $auth->add($supermanager);
+        $auth->addChild($supermanager, $managleader); // 高级领导 > 领导
+
+        $admin = $auth->createRole('1'); // admin-管理员-1
+        $admin->description = 'admin-管理员-1';
         $auth->add($admin);
-        $auth->addChild($admin, $user); // 管理员 > 普通用户
+        $auth->addChild($admin, $supermanager); // 管理员 > 高级领导
+
         $auth->addChild($admin, $visitAdmin); // 管理员可以访问后台
 
-        $founder = $auth->createRole('0'); // 创始人
-        $founder->description = '创始人';
-        $auth->add($founder);
-        $auth->addChild($founder, $admin); // 创始人 > 管理员
+        $superadmin = $auth->createRole('0'); //superadmin-超级管理员-0
+        $superadmin->description = '创始人';
+        $auth->add($superadmin);
+        $auth->addChild($superadmin, $admin); // 超级管理员 > 管理员
 
         $this->stdout("init success", Console::BG_GREEN);
         return true;
