@@ -40,7 +40,9 @@ return [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
-
+                '<action:(index|auth|)>' => 'backend/<action>',
+                'signin' => '/backend/login',
+                'signout' => '/backend/logout',
             ],
         ],
         //前台路由管理

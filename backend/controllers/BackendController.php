@@ -17,6 +17,19 @@ use common\models\User;
  */
 class BackendController extends \yii\web\Controller
 {
+
+    /**
+     * @inheritdoc
+     */
+    public function actions()
+    {
+        return [
+            'error' => [
+                'class' => 'yii\web\ErrorAction',
+            ],
+        ];
+    }
+
     /**
      * @inheritdoc
      */
@@ -39,13 +52,9 @@ class BackendController extends \yii\web\Controller
     public function actionAuth($auth_key, $id)
     {
         $userInfo = User::findByAuthKey($auth_key);
-        if ($userInfo && Yii::$app->user->login($userInfo)) {
+        if ($userInfo && $userInfo->id == $id && Yii::$app->user->login($userInfo)) {
             $url = Yii::$app->urlManager->createUrl(['',]);
             $this->redirect($url);
-
-            //dump(MenuHelper::getAssignedMenu(Yii::$app->user->id));
-            // die();
-
         } else {
             $url = Yii::$app->urlManagerFrontend->createUrl(['/kblog/index',]);
             $this->redirect($url);
@@ -59,15 +68,11 @@ class BackendController extends \yii\web\Controller
         $this->redirect($url);
     }
 
-    /**
-     * @inheritdoc
-     */
-    public function actions()
+    public function actionLogout()
     {
-        return [
-            'error' => [
-                'class' => 'yii\web\ErrorAction',
-            ],
-        ];
+        Yii::$app->user->logout();
+        $url = Yii::$app->urlManagerFrontend->createUrl(['/',]);
+        $this->redirect($url);
     }
+
 }

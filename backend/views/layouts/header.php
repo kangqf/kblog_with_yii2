@@ -229,7 +229,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                 if (Yii::$app->user->isGuest) {
                     ?>
                     <li class="footer">
-                        <?= Html::a('Login', ['/site/login']) ?>
+                        <?= Html::a('Login', ['/login']) ?>
                     </li>
                 <?php
                 } else {
@@ -237,39 +237,39 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                     <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="glyphicon glyphicon-user"></i>
-                        <span><?= @Yii::$app->user->identity->username ?> <i class="caret"></i></span>
+                        <span><?= \Yii::$app->user->identity->username ?> <i class="caret"></i></span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
                         <li class="user-header bg-light-blue">
-<!--                            <img src="--><?//= $directoryAsset ?><!--/img/avatar5.png" class="img-circle" alt="User Image"/>-->
-
+                            <img src="<?= Yii::$app->user->identity->avatar ?>" class="img-circle" alt="User Image"/>
                             <p>
-                                <?= @Yii::$app->user->identity->username ?> - Web Developer
-                                <small>Member since Nov. 2012</small>
+                                <?= \Yii::$app->user->identity->username ?> -
+                                <?= \common\models\User::getRoleArray()[\Yii::$app->user->identity->role]; ?>
+                                <small>上次登录：<?= date("Y-m-d H:i",\Yii::$app->user->identity->updated_at) ?></small>
                             </p>
                         </li>
                         <!-- Menu Body -->
                         <li class="user-body">
                             <div class="col-xs-4 text-center">
-                                <a href="#">Followers</a>
+                                <a href="#">链接一</a>
                             </div>
                             <div class="col-xs-4 text-center">
-                                <a href="#">Sales</a>
+                                <a href="#">链接二</a>
                             </div>
                             <div class="col-xs-4 text-center">
-                                <a href="#">Friends</a>
+                                <a href="#">链接三</a>
                             </div>
                         </li>
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
-                                <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                <a href="#" class="btn btn-default btn-flat">个人资料</a>
                             </div>
                             <div class="pull-right">
                                 <?= Html::a(
-                                    'Sign out',
-                                    ['/site/logout'],
+                                    '注销',
+                                    ['/signout'],
                                     ['data-method' => 'post','class'=>'btn btn-default btn-flat']
                                 ) ?>
                             </div>

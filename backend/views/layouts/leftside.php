@@ -10,7 +10,7 @@ use backend\web\widgets\AdminLTELeftNav;
  * @var array $leftSideMenu
  */
 
-$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlte';
+//$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlte';
 
 ?>
 
@@ -21,11 +21,11 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
         <?php if (!Yii::$app->user->isGuest) : ?>
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="<?= $directoryAsset ?>/img/avatar5.png" class="img-circle" alt="User Image"/>
+                    <img src="<?= Yii::$app->user->identity->avatar ?>" class="img-circle" alt="User Image"/>
                 </div>
                 <div class="pull-left info">
-                    <p>Hello, <?= Yii::$app->user->identity->username ?></p>
-                    <a href="<?= $directoryAsset ?>/#">
+                    <p>你好, <?= Yii::$app->user->identity->username ?></p>
+                    <a href="/#">
                         <i class="fa fa-circle text-success"></i> Online
                     </a>
                 </div>
