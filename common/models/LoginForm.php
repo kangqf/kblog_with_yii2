@@ -52,7 +52,7 @@ class LoginForm extends \yii\base\Model
         return [
             'email' => Yii::t('common', 'Email'),
             'password' => Yii::t('common', 'Password'),
-            'rememberMe' => Yii::t('common', '记住密码'),
+            'rememberMe' => Yii::t('common', 'RememberMe'),
         ];
     }
 

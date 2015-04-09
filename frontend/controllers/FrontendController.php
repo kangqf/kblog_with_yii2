@@ -214,6 +214,9 @@ class FrontendController extends \yii\web\Controller
         if ($registerModel->load(Yii::$app->request->post())) {
             $user = $registerModel->register();
             if ($user) {
+                $auth = \Yii::$app->authManager;
+                $authorRole = $auth->getRole($user->role);
+                $auth->assign($authorRole,$user->user_id);
                 Yii::$app->session->setFlash('alert', '注册成功');
                 Yii::$app->session->setFlash('alert-type', 'alert-success');
                 if (Yii::$app->getUser()->login($user, 3600 * 24)) {

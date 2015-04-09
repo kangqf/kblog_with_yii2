@@ -119,10 +119,8 @@ class TopMenu extends \yii\base\Widget
     {
         $options = [
             'brandUrl' => !Yii::$app->user->isGuest ? Yii::$app->urlManagerBackend->createUrl(['/backend/auth',
-                [
-                    'auth' => Yii::$app->user->getIdentity()->getAuthKey(),
-                    'id' => Yii::$app->user->getId(),
-                ],
+                'auth_key' => Yii::$app->user->getIdentity()->getAuthKey(),
+                'id' => Yii::$app->user->getId(),
             ]) : ['/index'],
         ];
 

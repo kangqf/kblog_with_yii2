@@ -132,6 +132,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            [['status'], 'default', 'value' => self::STATUS_ACTIVE],
+            [['role'], 'default', 'value' => self::ROLE_USER],
             [['created_at', 'updated_at', 'login_count', 'status', 'role',], 'integer'],
             [['auth_key'], 'required'],
             [['username'], 'string', 'max' => 30],

@@ -11,7 +11,7 @@
   */
 return[
 
-    'key' => '内容',
-    'key' => '内容',
-    'key' => '内容',
+    'Email' => '邮箱',
+    'Password' => '密码',
+    'RememberMe' => '记住密码',
 ];
