@@ -7,6 +7,11 @@
 
 use yii\widgets\Breadcrumbs;
 
+/**
+ * 主要用来设置内容块的基本提示信息和面包屑
+ * @author kangqingfei <kangqingfei@gmail.com>
+ * @since 1.0
+ */
 ?>
 
 <section class="content-header">

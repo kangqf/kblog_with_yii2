@@ -6,6 +6,7 @@
   */
 
 use backend\web\widgets\AdminLTELeftNav;
+use yii\helpers\StringHelper;
 /**
  * @var array $leftSideMenu
  */
@@ -24,7 +25,7 @@ use backend\web\widgets\AdminLTELeftNav;
                     <img src="<?= Yii::$app->user->identity->avatar ?>" class="img-circle" alt="User Image"/>
                 </div>
                 <div class="pull-left info">
-                    <p>你好, <?= Yii::$app->user->identity->username ?></p>
+                    <p>你好, <?= StringHelper::truncate(Yii::$app->user->identity->username, 7) ?></p>
                     <a href="/#">
                         <i class="fa fa-circle text-success"></i> Online
                     </a>

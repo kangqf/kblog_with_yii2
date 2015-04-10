@@ -6,20 +6,18 @@
   */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
+use yii\helpers\StringHelper;
 
-$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlte';
+//$directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlte';
 
-/* @var $this \yii\web\View */
-/* @var $content string */
+
 ?>
 
 <header class="header">
     <!-- 导航栏左侧logo -->
-    <?= Html::a(Yii::$app->name, Yii::$app->homeUrl , ['class' => 'logo']) ?>
+    <?= $options['brandUrl'] ?>
     <nav class="navbar navbar-static-top" role="navigation">
-        <!--   leftside触发按钮     -->
+        <!--   leftside 触发按钮     -->
         <a href="#" class="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
@@ -29,81 +27,41 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
         <!-- 导航栏右侧 -->
         <div class="navbar-right">
             <ul class="nav navbar-nav">
+
+                <!-- 信息 -->
                 <li class="dropdown messages-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-envelope"></i>
-                        <span class="label label-success">4</span>
+                        <span class="label label-success"><?= sizeof($message['messages'])?></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li class="header">You have 4 messages</li>
+                        <li class="header">你有 <?= sizeof($message['messages'])?> 条未读消息</li>
+                        <!-- inner menu: contains the actual data -->
                         <li>
-                            <!-- inner menu: contains the actual data -->
                             <ul class="menu">
-                                <li><!-- start message -->
-                                    <a href="#">
-                                        <div class="pull-left">
+                                <?php foreach( $message['messages'] as $messageValue){?>
+                                <li>
 
-                                        </div>
-                                        <h4>
-                                            Support Team
-                                            <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                                <!-- end message -->
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-                                        </div>
-                                        <h4>
-                                            AdminLTE Design Team
-                                            <small><i class="fa fa-clock-o"></i> 2 hours</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-                                        </div>
-                                        <h4>
-                                            Developers
-                                            <small><i class="fa fa-clock-o"></i> Today</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-                                        </div>
-                                        <h4>
-                                            Sales Department
-                                            <small><i class="fa fa-clock-o"></i> Yesterday</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        <div class="pull-left">
-<!--                                            <img src="--><?//= $directoryAsset ?><!--/img/avatar.png" class="img-circle" alt="user image"/>-->
-                                        </div>
-                                        <h4>
-                                            Reviewers
-                                            <small><i class="fa fa-clock-o"></i> 2 days</small>
-                                        </h4>
-                                        <p>Why not buy a new awesome theme?</p>
-                                    </a>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="<?= $messageValue['senderAvatar'] ?>" class="img-circle" alt="User Image"/>
+                                            </div>
+                                            <h4>
+                                                <?= $messageValue['senderGroup'] ?>
+                                                <small><i class="fa fa-clock-o"></i> <?= $messageValue['time'] ?> </small>
+                                            </h4>
+                                            <p> <?= $messageValue['title'] ?></p>
+                                        </a>
+                                <?php }?>
                                 </li>
                             </ul>
                         </li>
-                        <li class="footer"><a href="#">See All Messages</a></li>
+                        <!-- end message -->
+                        <li class="footer"><a href="<?= $message['allMessageLink'] ?>">查看所有消息</a></li>
                     </ul>
                 </li>
 
-                <!-- Notifications: style can be found in dropdown.less -->
+                <!--  注意事项 Notifications: style can be found in dropdown.less -->
                 <li class="dropdown notifications-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-warning"></i>
@@ -146,7 +104,8 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                         <li class="footer"><a href="#">View all</a></li>
                     </ul>
                 </li>
-                <!-- Tasks: style can be found in dropdown.less -->
+
+                <!-- 任务 Tasks: style can be found in dropdown.less -->
                 <li class="dropdown tasks-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <i class="fa fa-tasks"></i>
@@ -244,7 +203,7 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                         <li class="user-header bg-light-blue">
                             <img src="<?= Yii::$app->user->identity->avatar ?>" class="img-circle" alt="User Image"/>
                             <p>
-                                <?= \Yii::$app->user->identity->username ?> -
+                                <?= StringHelper::truncate(\Yii::$app->user->identity->username, 20) ?> -
                                 <?= \common\models\User::getRoleArray()[\Yii::$app->user->identity->role]; ?>
                                 <small>上次登录：<?= date("Y-m-d H:i",\Yii::$app->user->identity->updated_at) ?></small>
                             </p>
@@ -261,17 +220,14 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                                 <a href="#">链接三</a>
                             </div>
                         </li>
+
                         <!-- Menu Footer-->
                         <li class="user-footer">
                             <div class="pull-left">
                                 <a href="#" class="btn btn-default btn-flat">个人资料</a>
                             </div>
                             <div class="pull-right">
-                                <?= Html::a(
-                                    '注销',
-                                    ['/signout'],
-                                    ['data-method' => 'post','class'=>'btn btn-default btn-flat']
-                                ) ?>
+                                <?= Html::a('注销', ['/signout'], ['data-method' => 'post','class'=>'btn btn-default btn-flat']) ?>
                             </div>
                         </li>
                     </ul>
@@ -279,7 +235,6 @@ $directoryAsset = Yii::$app->assetManager->getPublishedUrl('@bower') . '/adminlt
                 }
                 ?>
                 <!-- User Account: style can be found in dropdown.less -->
-
             </ul>
         </div>
     </nav>
