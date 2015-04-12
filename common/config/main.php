@@ -4,6 +4,13 @@ return [
     'charset' => 'UTF-8',           //全局字符编码
     'timeZone' => 'Asia/Chongqing', //时区
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    //模块
+    'modules' =>[
+        //grid组件
+        'gridview' => [
+            'class' => '\kartik\grid\Module'
+        ],
+    ],
     'components' => [
         //用户验证的组件
         'user' => [
